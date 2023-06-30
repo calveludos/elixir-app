@@ -16,7 +16,7 @@
   <img src="https://avatars.githubusercontent.com/u/60292382?v=4" alt="GitHub" style="width:40px; height:40px;" />
 </a>
 <span class="button-text"> 
-  André - BackEnd
+  André - BackEnd ⚙️
 </span> <br>
 
 
@@ -24,28 +24,28 @@
   <img src="https://avatars.githubusercontent.com/u/125326119?v=4" alt="GitHub" style="width:40px; height:40px;" />
 </a>
 <span class="button-text"> 
-  Ana Luísa - FrontEnd
+  Ana Luísa - FrontEnd 🎨
 </span> <br>
 
 <a href="https://github.com/felipepbovo">
   <img src="https://avatars.githubusercontent.com/u/126599199?v=4" alt="GitHub" style="width:40px; height:40px;" />
 </a>
 <span class="button-text"> 
-  Felipe Pissinatti - Tester
+  Felipe Pissinatti - Tester 🖥️
 </span> <br>
 
 <a href="https://github.com/JoaoAHaupt">
   <img src="https://avatars.githubusercontent.com/u/127232326?v=4" alt="GitHub" style="width:40px; height:40px;" />
 </a>
 <span class="button-text"> 
-  João Augusto - BackEnd
+  João Augusto - BackEnd ⚙️
 </span> <br>
 
 <a href="https://github.com/AruDaguer">
   <img src="https://avatars.githubusercontent.com/u/108810555?v=4" alt="GitHub" style="width:40px; height:40px;" />
 </a>
 <span class="button-text"> 
-  Laura Daguer - FrontEnd
+  Laura Daguer - FrontEnd 🎨
 </span> <br>
 
 
