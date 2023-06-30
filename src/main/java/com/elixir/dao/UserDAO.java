@@ -13,7 +13,7 @@ public class UserDAO {
 
         Connection conn = null;
         PreparedStatement pstm = null;
-
+        
         try {
             conn = ConnectionFactory.createConnection();
             pstm = conn.prepareStatement(scriptSQL);
@@ -23,7 +23,7 @@ public class UserDAO {
             pstm.setString(3, user.getName());
             pstm.setString(4, user.getPassword());
             pstm.setString(5, user.getCode_verify());
-            pstm.setDate(6, user.getDate_register());
+            pstm.setDate(6, new Date(user.getDate_register()).getTime());  // Deixar a data para padrão para não precisar preencher
             pstm.setBoolean(7, user.getIs_verify());
         } catch (SQLException e) {
             throw new RuntimeException(e);
