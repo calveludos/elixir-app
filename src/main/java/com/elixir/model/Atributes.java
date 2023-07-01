@@ -2,9 +2,9 @@ package com.elixir.model;
 
 import java.sql.Date;
 
-public class Atributes {
+public class Atributes implements Model{
     
-    private long id;
+    private long id_character;
     private int str;
     private int wis;
     private int dex;
@@ -12,8 +12,21 @@ public class Atributes {
     private int con;
     private int cha;
 
-    public long getId() {
-        return id;
+    public Atributes() {
+    }
+
+    public Atributes(long id_character, int str, int wis, int dex, int inte, int con, int cha) {
+        setId_character(id_character);
+        setStr(str);
+        setWis(wis);
+        setDex(dex);
+        setCon(con);
+        setCha(cha);
+        setInte(inte);
+    }
+
+    public long getId_character() {
+        return id_character;
     }
 
     public int getStr() {
@@ -40,8 +53,8 @@ public class Atributes {
         return cha;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setId_character(long id_character) {
+        this.id_character = id_character;
     }
 
     public void setStr(int str) {
