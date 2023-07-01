@@ -2,7 +2,7 @@ package com.elixir.model;
 
 import java.sql.Date;
 
-public class Atributes implements Model{
+public class Atributes extends Model {
     
     private long id_character;
     private int str;

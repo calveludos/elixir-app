@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 import java.util.UUID;
 import org.mindrot.jbcrypt.BCrypt;
 
-public class User implements  Model{
+public class User extends Model{
 
     private String email;
     private String user_name;
