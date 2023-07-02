@@ -1,4 +1,4 @@
 package com.elixir.model;
 
-public class Model {
+public abstract class Model {
 }

@@ -4,88 +4,101 @@ import java.sql.Timestamp;
 import java.util.UUID;
 import org.mindrot.jbcrypt.BCrypt;
 
-public class User extends Model{
-
+public class User extends Model {
+    private int id;
     private String email;
-    private String user_name;
+    private String userName;
     private String name;
     private String password;
-    private String code_verify = UUID.randomUUID().toString();
-    private Timestamp date_register = new Timestamp(System.currentTimeMillis());
-    private boolean is_verify = false;
+    private String verificationCode;
+    private Timestamp registrationDate;
+    private boolean isVerified;
 
     public User() {
+        this.verificationCode = UUID.randomUUID().toString();
+        this.registrationDate = new Timestamp(System.currentTimeMillis());
     }
 
-    public User(String email, String user_name, String name, String password) {
-        setEmail(email);
-        setUser_name(user_name);
-        setName(name);
+    public User(String email, String userName, String name, String password) {
+        this.email = email;
+        this.userName = userName;
+        this.name = name;
         setPassword(password);
+        this.verificationCode = UUID.randomUUID().toString();
+        this.registrationDate = new Timestamp(System.currentTimeMillis());
     }
-    public User(String email, String user_name, String name, String password, String code_verify, Timestamp date_register, boolean is_verify) {
-        setEmail(email);
-        setUser_name(user_name);
-        setName(name);
+
+    public User(String email, String userName, String name, String password, String verificationCode, Timestamp registrationDate, boolean isVerified) {
+        this.email = email;
+        this.userName = userName;
+        this.name = name;
         setPassword(password);
-        setCode_verify(code_verify);
-        setDate_register(date_register);
-        setIs_verify(is_verify);
+        this.verificationCode = verificationCode;
+        this.registrationDate = registrationDate;
+        this.isVerified = isVerified;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public String getCode_verify() {
-        return code_verify;
-    }
-
-    public Timestamp getDate_register() {
-        return date_register;
-    }
-
-    public boolean getIs_verify() {
-        return is_verify;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setUser_name(String user_name) {
-        this.user_name = user_name;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
-    public void setCode_verify(String code_verify) {
-        this.code_verify = code_verify;
+    public String getVerificationCode() {
+        return verificationCode;
     }
 
-    public void setDate_register(Timestamp date_register) {
-        this.date_register = date_register;
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
     }
 
-    public void setIs_verify(boolean is_verify) {
-        this.is_verify = is_verify;
+    public Timestamp getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Timestamp registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
+    public boolean isVerified() {
+        return isVerified;
+    }
+
+    public void setVerified(boolean verified) {
+        isVerified = verified;
     }
 }

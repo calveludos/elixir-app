@@ -4,8 +4,7 @@ import java.util.Objects;
 
 public class Character extends Model{
     private int id;
-
-    private String race;
+    private int raceId; //botei como id logo, vou criar a tabela de raça
     private int attributeId;
     private String name;
     private int experience;
@@ -18,9 +17,9 @@ public class Character extends Model{
     public Character() {
     }
 
-    public Character(int attributeId, String race, String name, int experience, int height, int weight, int currentPv, int maxPv) {
+    public Character(int attributeId, int raceId, String name, int experience, int height, int weight, int currentPv, int maxPv) {
         setAttributeId(attributeId);
-        setRace(race);
+        setRaceId(raceId);
         setName(name);
         setExperience(experience);
         setHeight(height);
@@ -46,13 +45,13 @@ public class Character extends Model{
         this.attributeId = attributeId;
     }
 
-    public String getRace() {return race;}
+    public int getRaceId() {return raceId;}
 
-    public void setRace(String race) {
-        if (!Objects.equals(race, "humano") && !Objects.equals(race, "anão") && !Objects.equals(race, "elfo") && !Objects.equals(race, "halfing")){
+    public void setRaceId(int raceId) {
+        if (raceId < 0 || raceId > 3){
             throw new IllegalArgumentException("Essa raça não existe no Old Dragon RPG.");
         }
-        this.race = race;
+        this.raceId = raceId;
     }
 
     public String getName() {return name;}
@@ -76,16 +75,16 @@ public class Character extends Model{
     public int getHeight() {return height;}
 
     public void setHeight(int height) { // Podemos implementar mapas para otimizar este setter.
-        if(Objects.equals(race, "humano") && (height < 0 || height >200)){
+        if(raceId == 0 && (height < 0 || height >200)){
             throw new IllegalArgumentException("A altura do humano tem que ser de até 2 metros e não pode ser negativa.");
         }
-        if(Objects.equals(race, "anão") && (height < 0 || height >150)){
+        if(raceId == 1 && (height < 0 || height >150)){
             throw new IllegalArgumentException("A altura do anão tem que ser de até 1.5 metro e não pode ser negativa.");
         }
-        if(Objects.equals(race, "elfo") && (height < 0 || height >170)){
+        if(raceId == 2 && (height < 0 || height >170)){
             throw new IllegalArgumentException("A altura do anão tem que ser de até 1.7 metro e não pode ser negativa.");
         }
-        if(Objects.equals(race, "halfing") && (height < 0 || height >90)){
+        if(raceId == 3 && (height < 0 || height >90)){
             throw new IllegalArgumentException("A altura do anão tem que ser de até 0.9 metro e não pode ser negativa.");
         }
         this.height = height;
