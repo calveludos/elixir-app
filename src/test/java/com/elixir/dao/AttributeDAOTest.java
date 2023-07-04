@@ -9,11 +9,13 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 class AttributeDAOTest {
     AttributeDAO attributeDAO = new AttributeDAO();
+    int id;
 
     @Test
     void create() throws SQLException {
         Attribute attribute = new Attribute(10, 10, 14, 16, 15, 12);
         attributeDAO.create(attribute);
+        id = attribute.getId();
 
         read();
     }
@@ -21,7 +23,7 @@ class AttributeDAOTest {
     @Test
     void update() throws SQLException{
         Map<Integer, Attribute> attributeMap = attributeDAO.read();
-        Attribute attribute = attributeMap.get(2);
+        Attribute attribute = attributeMap.get(id);
         attribute.setStrength(18);
         attributeDAO.update(attribute);
 
@@ -40,7 +42,7 @@ class AttributeDAOTest {
     @Test
     void delete() throws SQLException {
         Map<Integer, Attribute> attributeMap = attributeDAO.read();
-        Attribute attribute = attributeMap.get(2);
+        Attribute attribute = attributeMap.get(id);
         attributeDAO.delete(attribute);
 
         read();
