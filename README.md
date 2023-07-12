@@ -24,7 +24,7 @@
   <img src="https://avatars.githubusercontent.com/u/125326119?v=4" alt="GitHub" style="width:40px; height:40px;" />
 </a>
 <span class="button-text"> 
-  Ana Luísa - FrontEnd 🎨
+  Ana Luísa - UI designer 🎨
 </span> <br>
 
 <a href="https://github.com/felipepbovo">
@@ -45,7 +45,7 @@
   <img src="https://avatars.githubusercontent.com/u/108810555?v=4" alt="GitHub" style="width:40px; height:40px;" />
 </a>
 <span class="button-text"> 
-  Laura Daguer - FrontEnd 🎨
+  Laura Daguer - UI designer 🎨
 </span> <br>
 
 
