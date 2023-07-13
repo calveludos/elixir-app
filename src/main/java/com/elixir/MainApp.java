@@ -15,7 +15,7 @@ public class MainApp extends Application {
     @Override
     public void start(@SuppressWarnings("exports") Stage s) throws IOException {
         stage=s;
-        setRoot("primary","");
+        setRoot("newCharacterPane","");
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -38,5 +38,4 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 }
