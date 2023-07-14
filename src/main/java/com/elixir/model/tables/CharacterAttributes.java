@@ -49,8 +49,8 @@ public class CharacterAttributes {
             return row;
         }
 
-        public Map<String, Map<String, Object>> getTable() {
-            return table;
+        public Map<String, Object> getTableCharism(int get) {
+            return table.get(get);
         }
     }
 
@@ -68,8 +68,8 @@ public class CharacterAttributes {
             }
         }
 
-        public Map<Integer, Integer> getStrength() {
-            return strength;
+        public Integer getStrength(int get) {
+            return strength.get(get);
         }
     }
 
@@ -82,7 +82,7 @@ public class CharacterAttributes {
             int countIdiomas = 0;
             int countChance = 0;
 
-            for (int i = 0; i < 30; i++) {
+            for (int i = 1; i < 30; i++) {
                 Map<String, Object> columnIntelligence = new HashMap<>();
                 Map<String, Integer> magiasAdicionais = new HashMap<>();
 
@@ -146,8 +146,8 @@ public class CharacterAttributes {
             }
         }
 
-        public Map<Integer, Map<String, Object>> getTableIntelligence() {
-            return tableIntelligence;
+        public Map<String, Object> getTableIntelligence(int get) {
+            return tableIntelligence.get(get);
         }
     }
 
@@ -268,61 +268,60 @@ public class CharacterAttributes {
             }
         }
 
-        public Map<Integer, Map<String, Object>> getTableWisdom() {
-            return tableWisdom;
+        public Map<String, Object> getTableWisdom(int get) {
+            return tableWisdom.get(get);
         }
     }
 
     public static class Constitution {
-        private Map<String, Map<String, Object>> table;
+        private Map<Integer, Map<String, Object>> table;
 
         public Constitution() {
             table = new HashMap<>();
 
-            table.put("1", createRow(0, "-25%", 0));
-            table.put("2", createRow(0, "-20%", 0));
-            table.put("3", createRow(0, "-20%", 0));
-            table.put("4", createRow(0, "-15%", 0));
-            table.put("5", createRow(0, "-15%", 0));
-            table.put("6", createRow(0, "-10%", 0));
-            table.put("7", createRow(0, "-10%", 0));
-            table.put("8", createRow(0, "-5%", 1));
-            table.put("9", createRow(0, "-5%", 1));
-            table.put("10", createRow(1, "0", "1d2"));
-            table.put("11", createRow(1, "0", "1d2"));
-            table.put("12", createRow(2, "+5%", "1d3"));
-            table.put("13", createRow(2, "+5%", "1d3"));
-            table.put("14", createRow(3, "+10%", "1d4"));
-            table.put("15", createRow(3, "+10%", "1d4"));
-            table.put("16", createRow(4, "+15%", "1d6"));
-            table.put("17", createRow(4, "+15%", "1d6"));
-            table.put("18", createRow(5, "+20%", "1d8"));
-            table.put("19", createRow(5, "+20%", "1d8"));
-            table.put("20", createRow(6, "+25%", "2d4"));
-            table.put("21", createRow(6, "+25%", "2d4"));
-            table.put("22", createRow(7, "+30%", "1d10"));
-            table.put("23", createRow(7, "+30%", "1d10"));
-            table.put("24", createRow(8, "+35%", "1d12"));
-            table.put("25", createRow(8, "+35%", "1d12"));
-            table.put("26", createRow(9, "+40%", "2d6"));
-            table.put("27", createRow(9, "+40%", "2d6"));
-            table.put("28", createRow(10, "+45%", "1d20"));
-            table.put("29", createRow(10, "+45%", "1d20"));
+            table.put(1, createRow(-5, "0%"));
+            table.put(2, createRow(-4, "0%"));
+            table.put(3, createRow(-4, "0%"));
+            table.put(4, createRow(-3, "0%"));
+            table.put(5, createRow(-3, "0%"));
+            table.put(6, createRow(-2, "1%"));
+            table.put(7, createRow(-2, "1%"));
+            table.put(8, createRow(-1, "5%"));
+            table.put(9, createRow(-1, "5%"));
+            table.put(10, createRow(0, "10%"));
+            table.put(11, createRow(0, "10%"));
+            table.put(12, createRow(1, "25%"));
+            table.put(13, createRow(1, "25%"));
+            table.put(14, createRow(2, "50%"));
+            table.put(15, createRow(2, "50%"));
+            table.put(16, createRow(3, "75%"));
+            table.put(17, createRow(3, "75%"));
+            table.put(18, createRow(4, "95%"));
+            table.put(19, createRow(4, "95%"));
+            table.put(20, createRow(5, "100%"));
+            table.put(21, createRow(5, "100%"));
+            table.put(22, createRow(6, "100%"));
+            table.put(23, createRow(6, "100%"));
+            table.put(24, createRow(7, "100%"));
+            table.put(25, createRow(7, "100%"));
+            table.put(26, createRow(8, "100%"));
+            table.put(27, createRow(8, "100%"));
+            table.put(28, createRow(9, "100%"));
+            table.put(29, createRow(9, "100%"));
         }
 
-        private Map<String, Object> createRow(int maxFollowers, String reactionAdjustment, Object undeadTurned) {
+        private Map<String, Object> createRow(int ajustePv, String chanceRes) {
             Map<String, Object> row = new HashMap<>();
-            row.put("Número máximo de seguidores", maxFollowers);
-            row.put("Ajuste de reação", reactionAdjustment);
-            row.put("Mortos-vivos afastados", undeadTurned);
+            row.put("Ajuste de Pontos de Vida", ajustePv);
+            row.put("Chance de Ressurreição", chanceRes);
             return row;
         }
 
-        public Map<String, Map<String, Object>> getTable() {
-            return table;
+        public Map<String, Object> getTableConstitution(int key) {
+
+            return table.get(key);
         }
     }
-
     public static class Dexterity {
         private Map<Integer, Map<String, Object>> table;
 
@@ -370,34 +369,8 @@ public class CharacterAttributes {
             return row;
         }
 
-        public Map<Integer, Map<String, Object>> getTable() {
-            return table;
+        public Map<String, Object> getTableDexterity(int get) {
+            return table.get(get);
         }
-    }
-
-    public static void main(String[] args) {
-        Charism charism = new Charism();
-        System.out.println("Charism Table:");
-        System.out.println(charism.getTable());
-
-        Strength strength = new Strength();
-        System.out.println("\nStrength Table:");
-        System.out.println(strength.getStrength());
-
-        Intelligence intelligence = new Intelligence();
-        System.out.println("\nIntelligence Table:");
-        System.out.println(intelligence.getTableIntelligence());
-
-        Wisdom wisdom = new Wisdom();
-        System.out.println("\nWisdom Table:");
-        System.out.println(wisdom.getTableWisdom());
-
-        Constitution constitution = new Constitution();
-        System.out.println("\nConstitution Table:");
-        System.out.println(constitution.getTable());
-
-        Dexterity dexterity = new Dexterity();
-        System.out.println("\nDexterity Table:");
-        System.out.println(dexterity.getTable());
     }
 }
