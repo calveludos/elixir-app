@@ -8,6 +8,15 @@
 </h3>
 
 <h2>
+  O que é um RPG de mesa?
+</h2>
+
+<h3>
+  Role playing game (RPG), é um jogo no qual você interpreta
+</h3>
+
+
+<h2>
   Colaboradores
 </h2>
 
