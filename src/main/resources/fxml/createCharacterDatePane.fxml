@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.layout.Pane?>
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterDateController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterDateController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#142433" height="89.0" layoutX="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="743.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#295264" height="421.0" layoutX="-69.0" layoutY="88.0" stroke="TRANSPARENT" strokeType="INSIDE" width="188.0" />
@@ -55,7 +48,7 @@
                        <Font name="System Bold Italic" size="14.0" />
                    </font>
                </Button>
-               <Button fx:id="raceCharacterButton1" layoutX="132.0" layoutY="21.0" mnemonicParsing="false" onAction="#raceCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="ATRIBUTOS" textFill="WHITE">
+               <Button fx:id="attributesCharacterButtonAction" layoutX="132.0" layoutY="21.0" mnemonicParsing="false" onAction="#attributesCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="ATRIBUTOS" textFill="WHITE">
                    <font>
                        <Font name="System Bold Italic" size="14.0" />
                    </font>
@@ -97,31 +90,9 @@
       <TextArea fx:id="apperanceField" layoutX="316.0" layoutY="313.0" prefHeight="104.0" prefWidth="304.0" promptText="Aparencia do personagem (texto curto)" style="-fx-border-color: #bbc3c9; -fx-border-radius: 5;" />
       <TextField fx:id="nameField" layoutX="196.0" layoutY="241.0" prefHeight="26.0" prefWidth="142.0" promptText="Nome do persoangem" style="-fx-border-color: #bbc3c9; -fx-border-radius: 5;" />
       <TextField fx:id="namePlayerField" layoutX="356.0" layoutY="241.0" prefHeight="26.0" prefWidth="142.0" promptText="Nome do jogador" style="-fx-border-color: #bbc3c9; -fx-border-radius: 5;" />
-      <MenuButton fx:id="levelSelectionField" layoutX="520.0" layoutY="241.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="99.0" style="-fx-background-color: #ced8e0;" text="Escolha uma opção">
-        <items>
-          <MenuItem fx:id="level1" mnemonicParsing="false" text="1" />
-          <MenuItem fx:id="level2" mnemonicParsing="false" text="2" />
-            <MenuItem fx:id="level3" mnemonicParsing="false" text="3" />
-            <MenuItem fx:id="level4" mnemonicParsing="false" text="4" />
-            <MenuItem fx:id="level5" mnemonicParsing="false" text="5" />
-            <MenuItem fx:id="level6" mnemonicParsing="false" text="6" />
-            <MenuItem fx:id="level7" mnemonicParsing="false" text="7" />
-            <MenuItem fx:id="level8" mnemonicParsing="false" text="8" />
-            <MenuItem fx:id="level9" mnemonicParsing="false" text="9" />
-            <MenuItem fx:id="level10" mnemonicParsing="false" text="10" />
-            <MenuItem fx:id="level11" mnemonicParsing="false" text="11" />
-            <MenuItem fx:id="level12" mnemonicParsing="false" text="12" />
-            <MenuItem fx:id="level13" mnemonicParsing="false" text="13" />
-            <MenuItem fx:id="level14" mnemonicParsing="false" text="14" />
-            <MenuItem fx:id="level15" mnemonicParsing="false" text="15" />
-            <MenuItem fx:id="level16" mnemonicParsing="false" text="16" />
-            <MenuItem fx:id="level17" mnemonicParsing="false" text="17" />
-            <MenuItem fx:id="level18" mnemonicParsing="false" text="18" />
-            <MenuItem fx:id="level19" mnemonicParsing="false" text="19" />
-            <MenuItem fx:id="level20" mnemonicParsing="false" text="20" />
-        </items>
-      </MenuButton>
-      <MenuButton fx:id="aliagmentSelectionFiled" layoutX="190.0" layoutY="313.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #ced8e0;" text="Escolha uma opção">
+      <Spinner fx:id="levelField" layoutX="520.0" layoutY="241.0" prefHeight="27.0" prefWidth="74.0" promptText="Nível" style="-fx-border-color: #bbc3c9; -fx-border-radius: 5;" />
+
+       <MenuButton fx:id="aliagmentSelectionFiled" layoutX="190.0" layoutY="313.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #ced8e0;" text="Escolha uma opção">
          <items>
             <MenuItem fx:id="ordeiroMenuItem" mnemonicParsing="false" text="Ordeiro" />
             <MenuItem fx:id="neutroMenuItem" mnemonicParsing="false" text="Neutro" />

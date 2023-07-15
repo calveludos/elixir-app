@@ -1,8 +1,9 @@
 package com.elixir.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Character extends Model {
+public class Character extends Model implements Serializable {
     private int id;
     private int raceId;
     private int attributeId;
@@ -214,4 +215,26 @@ public class Character extends Model {
     public int hashCode() {
         return Objects.hash(id, raceId, attributeId, alignmentId, classId, name, experience, height, weight, currentPv, maxPv, currencyId, slots, appearance);
     }
+
+    @Override
+    public String toString() {
+        return "Character{" +
+                "id=" + id +
+                ", raceId=" + raceId +
+                ", attributeId=" + attributeId +
+                ", alignmentId=" + alignmentId +
+                ", classId=" + classId +
+                ", name='" + name + '\'' +
+                ", experience=" + experience +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", currentPv=" + currentPv +
+                ", maxPv=" + maxPv +
+                ", currencyId=" + currencyId +
+                ", slots=" + slots +
+                ", appearance='" + appearance + '\'' +
+                ", classArmorBonus=" + classArmorBonus +
+                '}';
+    }
+
 }

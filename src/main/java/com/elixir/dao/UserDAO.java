@@ -12,7 +12,7 @@ import java.util.Map;
 public class UserDAO extends CrudDAO<User> {
 
     @Override
-    public void create(User user) throws SQLException {
+    public int create(User user) throws SQLException {
         String query = "INSERT INTO User (email, user_name, name, password, verification_code, registration_date, is_verified) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
@@ -28,12 +28,19 @@ public class UserDAO extends CrudDAO<User> {
             stmt.setBoolean(7, user.isVerified());
             stmt.executeUpdate();
 
+            ResultSet generatedKeys = stmt.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int generatedId = generatedKeys.getInt(1);
+                user.setId(generatedId);
+            }
+
         } catch (SQLException e) {
             throw new SQLException(e);
 
         } finally {
             closeResources();
         }
+        return user.getId();
     }
 
     @Override

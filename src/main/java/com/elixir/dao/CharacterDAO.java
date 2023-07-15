@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class CharacterDAO extends CrudDAO<Character> {
     @Override
-    public void create(Character character) throws SQLException {
+    public int create(Character character) throws SQLException {
         String query = "INSERT INTO `Character` (id_attribute, id_race, id_alignment, id_class, name, experience, height, weight, current_pv, max_pv, id_currency, slots, appearance, class_armor_bonus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
@@ -32,12 +32,19 @@ public class CharacterDAO extends CrudDAO<Character> {
             stmt.setInt(14, character.getClassArmorBonus());
             stmt.executeUpdate();
 
+            ResultSet generatedKeys = stmt.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int generatedId = generatedKeys.getInt(1);
+                character.setId(generatedId);
+            }
+
         } catch (SQLException e) {
             throw new SQLException(e);
 
         } finally {
             closeResources();
         }
+        return character.getId();
     }
 
     @Override

@@ -11,7 +11,7 @@ import java.util.Map;
 public class RaceDAO extends CrudDAO<Race> {
 
     @Override
-    public void create(Race race) throws SQLException {
+    public int create(Race race) throws SQLException {
         String query = "INSERT INTO Race (name, movement, size) VALUES (?, ?, ?)";
 
         try {
@@ -22,12 +22,19 @@ public class RaceDAO extends CrudDAO<Race> {
             stmt.setString(3, race.getSize());
             stmt.executeUpdate();
 
+            ResultSet generatedKeys = stmt.getGeneratedKeys();
+            if (generatedKeys.next()) {
+                int generatedId = generatedKeys.getInt(1);
+                race.setId(generatedId);
+            }
+
         } catch (SQLException e) {
             throw new SQLException(e);
 
         } finally {
             closeResources();
         }
+        return race.getId();
     }
 
     @Override

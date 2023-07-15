@@ -10,8 +10,8 @@ public abstract class CrudDAO<Model> implements DAO<Model> {
     public PreparedStatement stmt = null;
 
     @Override
-    public void create(Model model) throws SQLException {
-
+    public int create(Model model) throws SQLException {
+        return 0;
     }
 
     @Override

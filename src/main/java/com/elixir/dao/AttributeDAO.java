@@ -5,31 +5,45 @@ import com.elixir.model.Attribute;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
 public class AttributeDAO extends CrudDAO<Attribute> {
     @Override
-    public void create(Attribute attribute) throws SQLException {
+    public int create(Attribute attribute) throws SQLException {
         String query = "INSERT INTO Attribute (strength, dexterity, constitution, intelligence, wisdom, charisma) VALUES (?, ?, ?, ?, ?, ?)";
-
+        int generatedId = -1;
         try {
             conn = ConnectionFactory.createConnection();
-            stmt = conn.prepareStatement(query);
+            stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, attribute.getStrength());
             stmt.setInt(2, attribute.getDexterity());
             stmt.setInt(3, attribute.getConstitution());
             stmt.setInt(4, attribute.getIntelligence());
             stmt.setInt(5, attribute.getWisdom());
             stmt.setInt(6, attribute.getCharisma());
-            stmt.executeUpdate();
 
+            int affectedRows = stmt.executeUpdate();
+
+            if (affectedRows > 0) {
+                ResultSet generatedKeys = stmt.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int primaryKey = generatedKeys.getInt(1);
+                    generatedId = primaryKey;
+                    System.out.println("Chave primária gerada: " + primaryKey);
+                }
+                generatedKeys.close();
+            }
+
+            stmt.close();
         } catch (SQLException e) {
             throw new SQLException(e);
 
         } finally {
             closeResources();
         }
+        return generatedId;
     }
 
     @Override

@@ -3,8 +3,15 @@ package com.elixir;
 import com.elixir.model.Character;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+import javafx.util.StringConverter;
+import javafx.util.converter.IntegerStringConverter;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreateCharacterDateController {
 
@@ -30,69 +37,6 @@ public class CreateCharacterDateController {
     private Button dateCharacterButton;
 
     @FXML
-    private MenuItem level1;
-
-    @FXML
-    private MenuItem level10;
-
-    @FXML
-    private MenuItem level11;
-
-    @FXML
-    private MenuItem level12;
-
-    @FXML
-    private MenuItem level13;
-
-    @FXML
-    private MenuItem level14;
-
-    @FXML
-    private MenuItem level15;
-
-    @FXML
-    private MenuItem level16;
-
-    @FXML
-    private MenuItem level17;
-
-    @FXML
-    private MenuItem level18;
-
-    @FXML
-    private MenuItem level19;
-
-    @FXML
-    private MenuItem level2;
-
-    @FXML
-    private MenuItem level20;
-
-    @FXML
-    private MenuItem level3;
-
-    @FXML
-    private MenuItem level4;
-
-    @FXML
-    private MenuItem level5;
-
-    @FXML
-    private MenuItem level6;
-
-    @FXML
-    private MenuItem level7;
-
-    @FXML
-    private MenuItem level8;
-
-    @FXML
-    private MenuItem level9;
-
-    @FXML
-    private MenuButton levelSelectionField;
-
-    @FXML
     private TextField nameField;
 
     @FXML
@@ -112,129 +56,134 @@ public class CreateCharacterDateController {
 
     @FXML
     private Label errorLabel;
+
+    @FXML
+    private Spinner<Integer> levelField;
+
+    @FXML
+    private Button attributesCharacterButton;
+
     private String selectedLevel;
+
     private String selectedLevelId;
+
     private String selectedAliagment;
+
+    private static Character character;
+
+    private Map<Integer, String> alignmentIdMap;
+    private Map<String, Integer> alignmentMap;
+
     @FXML
     private void initialize() {
-        for (int i = 1; i <= 20; i++) {
-            getLevelMenuItem(i).setOnAction(this::levelMenuItemClicked);
-        }
+
         ordeiroMenuItem.setOnAction(this::aligmentMenuItemClicked);
         neutroMenuItem.setOnAction(this::aligmentMenuItemClicked);
         caoticoMenuItem.setOnAction(this::aligmentMenuItemClicked);
+
+        alignmentIdMap = new HashMap<>();
+        alignmentMap = new HashMap<>();
+
+        alignmentIdMap.put(1, "Ordeiro");
+        alignmentIdMap.put(2, "Neutro");
+        alignmentIdMap.put(3, "Caótico");
+
+        alignmentMap.put("Ordeiro", 1);
+        alignmentMap.put("Neutro", 2);
+        alignmentMap.put("Caótico", 3);
+
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 1);
+        levelField.setValueFactory(valueFactory);
+        levelField.setEditable(true);
+
+        NumberFormat format = new DecimalFormat("0");
+        StringConverter<Integer> converter = new StringConverter<>() {
+            @Override
+            public String toString(Integer value) {
+                if (value != null) {
+                    return format.format(value);
+                } else {
+                    return "";
+                }
+            }
+
+            @Override
+            public Integer fromString(String text) {
+                try {
+                    return format.parse(text).intValue();
+                } catch (Exception e) {
+                    return null;
+                }
+            }
+        };
+
+        levelField.getValueFactory().setConverter(converter);
+
+    }
+    @FXML
+    void backgroundCharacterButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterBackgroundPane");
     }
 
-    private MenuItem getLevelMenuItem(int level) {
-        switch (level) {
-            case 1:
-                return level1;
-            case 2:
-                return level2;
-            case 3:
-                return level3;
-            case 4:
-                return level4;
-            case 5:
-                return level5;
-            case 6:
-                return level6;
-            case 7:
-                return level7;
-            case 8:
-                return level8;
-            case 9:
-                return level9;
-            case 10:
-                return level10;
-            case 11:
-                return level11;
-            case 12:
-                return level12;
-            case 13:
-                return level13;
-            case 14:
-                return level14;
-            case 15:
-                return level15;
-            case 16:
-                return level16;
-            case 17:
-                return level17;
-            case 18:
-                return level18;
-            case 19:
-                return level19;
-            case 20:
-                return level20;
-            default:
-                return null;
-        }
+    @FXML
+    void classCharacterButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterClassPane");
     }
 
-    private void levelMenuItemClicked(ActionEvent event) {
-        MenuItem menuItem = (MenuItem) event.getSource();
-        selectedLevel = menuItem.getText();
-        selectedLevelId = menuItem.getId();
-        levelSelectionField.setText(selectedLevel);
+    @FXML
+    void createCharacterButtonAction(ActionEvent event) {
+        saveCharacter("newCharacterPane");
     }
+
+    @FXML
+    void raceCharacterButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterRacePane");
+    }
+
+    @FXML
+    void attributesCharacterButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterAttributesPane");
+    }
+
+    @FXML
+    void dateCharacterButtonAction(ActionEvent event) {
+        nameField.setText(character.getName());
+        apperanceField.setText(character.getAppearance());
+        levelField.setPromptText(String.valueOf(character.getExperience()));
+        selectedAliagment = alignmentIdMap.get(character.getAlignmentId());
+        saveCharacter("createCharacterAttributesPane");
+    }
+
+    @FXML
+    void nextDateButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterAttributesPane");
+    }
+
     private void aligmentMenuItemClicked(ActionEvent event){
         MenuItem menuItem = (MenuItem) event.getSource();
         selectedAliagment = menuItem.getText();
         aliagmentSelectionFiled.setText(String.valueOf(selectedAliagment));
     }
 
-    private void saveCharacter(){
+    private void saveCharacter(String fxml){
         Character character = new Character();
         try {
             character.setName(nameField.getText());
-            character.setExperience(Integer.parseInt(selectedLevel));
-            character.setAlignmentId(getAlignment(selectedAliagment));
+            character.setExperience(levelField.getValue());
+            character.setAlignmentId(alignmentMap.get(selectedAliagment));
             character.setAppearance(apperanceField.getText());
+
         } catch (IllegalArgumentException e){
             errorLabel.setText("ERRO! " + e.getMessage());
+            return;
         }
-    }
 
-    private int getAlignment(String aliagment){
-        if (aliagment == "Ordeiro") {
-            return 1;
-        } else if (aliagment == "Caótico") {
-            return 3;
-        } else if (aliagment == "Neutro") {
-            return 2;
-        }
-        return 0;
-    }
+        this.character = character;
 
-    @FXML
-    void backgroundCharacterButtonAction(ActionEvent event) {
-        saveCharacter();
+        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        paneManager.openPane(fxml);
     }
-
-    @FXML
-    void classCharacterButtonAction(ActionEvent event) {
-        saveCharacter();
+    public static Character getCharacter() {
+        return character;
     }
-
-    @FXML
-    void createCharacterButtonAction(ActionEvent event) {
-        saveCharacter();
-    }
-
-    @FXML
-    void dateCharacterButtonAction(ActionEvent event) {
-        saveCharacter();
-    }
-
-    @FXML
-    void nextDateButtonAction(ActionEvent event) {
-        saveCharacter();
-    }
-
-    @FXML
-    void raceCharacterButtonAction(ActionEvent event) {
-        saveCharacter();
-    }
-
 }

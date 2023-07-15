@@ -13,8 +13,8 @@ class AttributeDAOTest {
     @Test
     void create() throws SQLException {
         Attribute attribute = new Attribute(10, 10, 14, 16, 15, 12);
-        attributeDAO.create(attribute);
-
+        int id = attributeDAO.create(attribute);
+        System.out.println(id);
         read();
     }
 

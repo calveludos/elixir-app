@@ -51,7 +51,7 @@
                    <Font name="System Bold Italic" size="14.0" />
                 </font>
              </Button>
-            <Button fx:id="raceCharacterButton1" layoutX="132.0" layoutY="21.0" mnemonicParsing="false" onAction="#raceCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="ATRIBUTOS" textFill="WHITE">
+            <Button fx:id="attributesCharacterButton" layoutX="132.0" layoutY="21.0" mnemonicParsing="false" onAction="#attributesCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="ATRIBUTOS" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>

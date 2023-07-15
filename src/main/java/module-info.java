@@ -6,4 +6,6 @@ module com.app {
     requires jbcrypt;
     opens com.elixir to javafx.fxml;
     exports com.elixir;
+    requires com.fasterxml.jackson.core;
+    requires com.fasterxml.jackson.databind;
 }
