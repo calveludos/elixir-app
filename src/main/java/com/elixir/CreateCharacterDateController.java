@@ -96,6 +96,18 @@ public class CreateCharacterDateController {
         levelField.setValueFactory(valueFactory);
         levelField.setEditable(true);
 
+        levelField.getEditor().textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                levelField.getEditor().setText(oldValue);
+            } else {
+                int value = Integer.parseInt(newValue);
+                if (value < 1 || value > 20) {
+                    levelField.getEditor().setText(oldValue);
+                }
+            }
+        });
+
+
         NumberFormat format = new DecimalFormat("0");
         StringConverter<Integer> converter = new StringConverter<>() {
             @Override
@@ -118,6 +130,7 @@ public class CreateCharacterDateController {
         };
 
         levelField.getValueFactory().setConverter(converter);
+
 
     }
     @FXML

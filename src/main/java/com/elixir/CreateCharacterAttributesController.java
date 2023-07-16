@@ -90,7 +90,10 @@ public class CreateCharacterAttributesController {
         strField.focusedProperty().addListener((observableValue, aBoolean, newVal) -> {
             int forFieldInt = Integer.parseInt(strField.getText());
             int modifier = (forFieldInt % 2 == 0) ? (forFieldInt - 10) / 2 : (forFieldInt - 11) / 2;
-            if (forFieldInt < 10) {
+            if (forFieldInt < 1){
+                strLabel.setText("-5");
+                strField.setText("1");
+            } else if (forFieldInt < 10) {
                 strLabel.setText(String.valueOf(modifier));
             } else if (forFieldInt < 30) {
                 strLabel.setText("+" + modifier);
@@ -104,7 +107,10 @@ public class CreateCharacterAttributesController {
         chaField.focusedProperty().addListener((observableValue, aBoolean, newVal) -> {
             int chaFieldInt = Integer.parseInt(chaField.getText());
             int modifier = (chaFieldInt % 2 == 0) ? (chaFieldInt - 10) / 2 : (chaFieldInt - 11) / 2;
-            if (chaFieldInt < 10) {
+            if (chaFieldInt < 1){
+                chaLabel.setText("-5");
+                chaField.setText("1");
+            } else if (chaFieldInt < 10) {
                 chaLabel.setText(String.valueOf(modifier));
             } else if (chaFieldInt < 30) {
                 chaLabel.setText("+" + modifier);
@@ -118,7 +124,10 @@ public class CreateCharacterAttributesController {
         conField.focusedProperty().addListener((observableValue, aBoolean, newVal) -> {
             int conFieldInt = Integer.parseInt(conField.getText());
             int modifier = (conFieldInt % 2 == 0) ? (conFieldInt - 10) / 2 : (conFieldInt - 11) / 2;
-            if (conFieldInt < 10) {
+            if (conFieldInt < 1){
+                conLabel.setText("-5");
+                conField.setText("1");
+            } else if (conFieldInt < 10) {
                 conLabel.setText(String.valueOf(modifier));
             } else if (conFieldInt < 30) {
                 conLabel.setText("+" + modifier);
@@ -132,7 +141,10 @@ public class CreateCharacterAttributesController {
         dexField.focusedProperty().addListener((observableValue, aBoolean, newVal) -> {
             int dexFieldInt = Integer.parseInt(dexField.getText());
             int modifier = (dexFieldInt % 2 == 0) ? (dexFieldInt - 10) / 2 : (dexFieldInt - 11) / 2;
-            if (dexFieldInt < 10) {
+            if (dexFieldInt < 1){
+                dexLabel.setText("-5");
+                dexField.setText("1");
+            } else if (dexFieldInt < 10) {
                 dexLabel.setText(String.valueOf(modifier));
             } else if (dexFieldInt < 30) {
                 dexLabel.setText("+" + modifier);
@@ -146,7 +158,10 @@ public class CreateCharacterAttributesController {
         intField.focusedProperty().addListener((observableValue, aBoolean, newVal) -> {
             int intFieldInt = Integer.parseInt(intField.getText());
             int modifier = (intFieldInt % 2 == 0) ? (intFieldInt - 10) / 2 : (intFieldInt - 11) / 2;
-            if (intFieldInt < 10) {
+            if (intFieldInt < 1){
+                intLabel.setText("-5");
+                intField.setText("1");
+            } else if (intFieldInt < 10) {
                 intLabel.setText(String.valueOf(modifier));
             } else if (intFieldInt < 30) {
                 intLabel.setText("+" + modifier);
@@ -160,7 +175,10 @@ public class CreateCharacterAttributesController {
         wisField.focusedProperty().addListener((observableValue, aBoolean, newVal) -> {
             int wisFieldInt = Integer.parseInt(wisField.getText());
             int modifier = (wisFieldInt % 2 == 0) ? (wisFieldInt - 10) / 2 : (wisFieldInt - 11) / 2;
-            if (wisFieldInt < 10) {
+            if (wisFieldInt < 1){
+                wisLabel.setText("-5");
+                wisField.setText("1");
+            } else if (wisFieldInt < 10) {
                 wisLabel.setText(String.valueOf(modifier));
             } else if (wisFieldInt < 30) {
                 wisLabel.setText("+" + modifier);
