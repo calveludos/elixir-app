@@ -107,8 +107,34 @@ public class CreateCharacterDateController {
             }
         });
 
+        nameField.textProperty().addListener((object, oldValue, newValue) -> {
+            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9]*")) {
+                nameField.textProperty().setValue(oldValue);
+            } else {
+                nameField.textProperty().setValue(newValue);
+            }
+        });
 
-        NumberFormat format = new DecimalFormat("0");
+        namePlayerField.textProperty().addListener((object, oldValue, newValue) -> {
+            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9]*")) {
+                namePlayerField.textProperty().setValue(oldValue);
+            } else {
+                namePlayerField.textProperty().setValue(newValue);
+            }
+        });
+
+        apperanceField.textProperty().addListener((object, oldValue, newValue) -> {
+            if (newValue.length() > 300) {
+                apperanceField.textProperty().setValue(oldValue);
+            } else {
+                apperanceField.textProperty().setValue(newValue);
+            }
+        });
+
+
+
+
+            NumberFormat format = new DecimalFormat("0");
         StringConverter<Integer> converter = new StringConverter<>() {
             @Override
             public String toString(Integer value) {
@@ -129,10 +155,14 @@ public class CreateCharacterDateController {
             }
         };
 
+
+
         levelField.getValueFactory().setConverter(converter);
 
 
     }
+
+
     @FXML
     void backgroundCharacterButtonAction(ActionEvent event) {
         saveCharacter("createCharacterBackgroundPane");

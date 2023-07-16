@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterRaceController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterClassController">
    <children>
       <Rectangle fx:id="chosenraceField" arcHeight="5.0" arcWidth="5.0" fill="#142433" height="89.0" layoutX="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="743.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#295264" height="421.0" layoutX="-69.0" layoutY="88.0" stroke="TRANSPARENT" strokeType="INSIDE" width="188.0" />
@@ -61,36 +61,36 @@
          </children>
       </Pane>
       <Rectangle arcWidth="5.0" fill="#e7e4df" height="45.0" layoutX="151.0" layoutY="177.0" stroke="#95876f" strokeType="INSIDE" width="554.0" />
-      <Label alignment="TOP_LEFT" layoutX="172.0" layoutY="181.0" prefHeight="32.0" prefWidth="223.0" text="RAÇA ESCOLHIDA" textFill="#110000">
+      <Label alignment="TOP_LEFT" layoutX="172.0" layoutY="181.0" prefHeight="38.0" prefWidth="249.0" text="CLASSE ESCOLHIDA" textFill="#110000">
          <font>
             <Font name="System Bold Italic" size="26.0" />
          </font>
       </Label>
-      <TextArea fx:id="chosenraceField" layoutX="458.0" layoutY="176.0" prefHeight="32.0" prefWidth="203.0" />
+      <TextArea fx:id="chosenclassField" layoutX="459.0" layoutY="182.0" prefHeight="32.0" prefWidth="203.0" />
       <Rectangle arcWidth="5.0" fill="#ced8e0" height="233.0" layoutX="158.0" layoutY="235.0" stroke="#788896" strokeType="INSIDE" width="554.0" />
-      <Button fx:id="escolherHumanoButton" layoutX="560.0" layoutY="262.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
-      <Button fx:id="escolherAnaoButton" layoutX="560.0" layoutY="309.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
-      <Button fx:id="escolherElfoButton" layoutX="560.0" layoutY="354.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
+      <Button fx:id="escolherClerigoButton" layoutX="560.0" layoutY="262.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
+      <Button fx:id="escolherHDAButton" layoutX="560.0" layoutY="309.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
+      <Button fx:id="escolherMagoButton" layoutX="560.0" layoutY="354.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
       <Button fx:id="escolherHalflingButton" layoutX="560.0" layoutY="401.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
       <Accordion layoutX="34.0" layoutY="259.0" />
       <Accordion layoutX="172.0" layoutY="255.0">
         <panes>
-          <TitledPane fx:id="HumanoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="HUMANO">
+          <TitledPane fx:id="ClerigoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="CLÉRIGO">
                <font>
                   <Font name="System Bold Italic" size="26.0" />
                </font>
           </TitledPane>
-            <TitledPane fx:id="AnaoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="ANÃO">
+            <TitledPane fx:id="HDAAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="HOMEM DE ARMAS">
                <font>
                   <Font name="System Bold Italic" size="26.0" />
                </font>
             </TitledPane>
-            <TitledPane fx:id="ElfoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="ELFO">
+            <TitledPane fx:id="MagoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="MAGO">
                <font>
                   <Font name="System Bold Italic" size="26.0" />
                </font>
             </TitledPane>
-            <TitledPane fx:id="HalflingAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="HALFLING">
+            <TitledPane fx:id="LadraoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="LADRÃO">
                <font>
                   <Font name="System Bold Italic" size="26.0" />
                </font>
