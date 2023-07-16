@@ -1,4 +1,8 @@
 # Elixir API
+<div style="text-align: center;">
+  <img src="https://media.discordapp.net/attachments/1114168401686966303/1125920132821164092/Untitled704_20230704194410.png" alt="Descrição da Imagem" style="width: 300px; height: 300px;">
+</div>
+
 <h2>
   Descrição
 </h2>
