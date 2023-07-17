@@ -271,8 +271,8 @@ public class CreateCharacterAttributesController {
         wisField.setText(String.valueOf((wisFieldInt % 2 == 0) ? (wisFieldInt - 10) / 2 : (wisFieldInt - 11) / 2));
     }
 
-    private void saveCharacter(String fxml){
-        try {
+   private void saveCharacter(String fxml){
+       try {
             Attribute attribute = new Attribute(
                     Integer.parseInt(strField.getText()),
                     Integer.parseInt(wisField.getText()),
@@ -291,7 +291,7 @@ public class CreateCharacterAttributesController {
             return;
         } catch (SQLException e) {
             throw new RuntimeException(e);
-        }
+       }
 
         System.out.println(character.toString());
 

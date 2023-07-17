@@ -3,8 +3,6 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
@@ -17,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterRaceController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterRaceController">
     <children>
         <Rectangle fx:id="chosenraceField" arcHeight="5.0" arcWidth="5.0" fill="#142433" height="89.0" layoutX="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="743.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#295264" height="421.0" layoutX="-69.0" layoutY="88.0" stroke="TRANSPARENT" strokeType="INSIDE" width="188.0" />
@@ -37,7 +35,7 @@
                 <Font name="System Bold" size="20.0" />
             </font>
         </Label>
-        <Pane layoutX="135.0" layoutY="89.0" prefHeight="110.0" prefWidth="586.0">
+        <Pane layoutX="135.0" layoutY="89.0" prefHeight="96.0" prefWidth="586.0">
             <children>
                 <Line endX="335.0" layoutX="233.0" layoutY="37.0" startX="-216.0" stroke="#dbaf69" strokeWidth="3.0" />
                 <Button fx:id="raceCharacterButton" layoutX="274.0" layoutY="21.0" mnemonicParsing="false" onAction="#raceCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="RAÇA" textFill="WHITE">
@@ -101,7 +99,7 @@
                             </AnchorPane>
                         </graphic>
                         <content>
-                            <TextArea fx:id="elfTextArea" prefHeight="200.0" prefWidth="200.0" />
+                            <TextArea fx:id="elfTextArea" prefHeight="200.0" prefWidth="200.0" text="  Os elfos são humanoides esguios e silvestres, com antecedentes místicos&#10;e aparência inconfundível. São ligeiramente mais baixos que os&#10;humanos, se diferenciando ainda mais nos traços faciais delicados, finos e&#10;graciosos. As orelhas são longas e pontudas, e os olhos amendoados,&#10;levemente alongados. Os cabelos são sempre lisos e limpos e comumente&#10;longos, mesmo entre os elfos machos, podendo ter uma miríade de cores&#10;e tons que vão do completo negro ao branco prateado." />
                         </content>
                     </TitledPane>
                     <TitledPane fx:id="dwarfAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
@@ -122,28 +120,7 @@
                             </AnchorPane>
                         </graphic>
                         <content>
-                            <TextArea fx:id="dwarfTextArea" prefHeight="200.0" prefWidth="200.0" />
-                        </content>
-                    </TitledPane>
-                    <TitledPane fx:id="halflingAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
-                        <font>
-                            <Font name="System Bold Italic" size="26.0" />
-                        </font>
-                        <graphic>
-                            <AnchorPane prefHeight="38.0" prefWidth="466.0">
-                                <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
-                                    <Text text="HALFLING">
-                                        <font>
-                                            <Font name="System Bold Italic" size="26.0" />
-                                        </font>
-                                    </Text>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button fx:id="choiseHalflingButton" mnemonicParsing="false" onAction="#choiseHalflingButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
-                                </HBox>
-                            </AnchorPane>
-                        </graphic>
-                        <content>
-                            <TextArea fx:id="halflingTextArea" prefHeight="200.0" prefWidth="200.0" />
+                            <TextArea fx:id="dwarfTextArea" prefHeight="97.0" prefWidth="537.0" text="   Os anões são pequenos seres robustos e atarracados, &#10;famosos por serem rabugentos e teimosos. Como &#10;habitantes do subterrâneo, os anões são mineradores &#10;fabulosos e ferreiros extremamente competentes, &#10;conhecidos pela capacidade de transformarem blocos &#10;metálicos em verdadeiras obras de arte e armas &#10;dignas das melhores estórias." />
                         </content>
                     </TitledPane>
                     <TitledPane fx:id="humanAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
@@ -164,20 +141,38 @@
                             </AnchorPane>
                         </graphic>
                         <content>
-                            <TextArea fx:id="humanTextArea" prefHeight="200.0" prefWidth="200.0" />
+                            <TextArea fx:id="humanTextArea" prefHeight="200.0" prefWidth="200.0" text="   Dentre todos os elementos que compreendem a criação de um&#10;personagem, a raça é o mais importante, pois ela determina não&#10;só a sua personalidade como também sua história, habilidades e a forma de&#10;encarar o mundo, seja ele um versátil humano, um elfo introspectivo,&#10;um anão rabugento ou um halfling inconsequente." />
+                        </content>
+                    </TitledPane>
+                    <TitledPane fx:id="halflingAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
+                        <font>
+                            <Font name="System Bold Italic" size="26.0" />
+                        </font>
+                        <graphic>
+                            <AnchorPane prefHeight="38.0" prefWidth="466.0">
+                                <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                    <Text text="HALFLING">
+                                        <font>
+                                            <Font name="System Bold Italic" size="26.0" />
+                                        </font>
+                                    </Text>
+                                    <Region HBox.hgrow="ALWAYS" />
+                                    <Button fx:id="choiseHalflingButton" mnemonicParsing="false" onAction="#choiseHalflingButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
+                                </HBox>
+                            </AnchorPane>
+                        </graphic>
+                        <content>
+                            <TextArea fx:id="halflingTextArea" prefHeight="200.0" prefWidth="200.0" text="   Os halflings são seres pequenos, cuja capacidade de encrencar-se é&#10;inversamente proporcional ao seu tamanho. Odiando o marasmo, os&#10;halflings preferem a confusão e a diversão ao tédio, e é justamente esse&#10;sentimento de aventura que os torna tão aptos a caírem na estrada e se&#10;tornarem peregrinos e aventureiros." />
                         </content>
                     </TitledPane>
                 </panes>
             </Accordion>
         </ScrollPane>
-        <MenuButton fx:id="raceMenuButton" layoutX="442.0" layoutY="184.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="Escolha uma raça">
-            <items>
-                <MenuItem fx:id="elfMenuItem" mnemonicParsing="false" text="ELFO" onAction="#chooseElf" />
-                <MenuItem fx:id="dwarfMenuItem" mnemonicParsing="false" text="ANÃO" onAction="#chooseDwarf" />
-                <MenuItem fx:id="halflingMenuItem" mnemonicParsing="false" text="HALFLING" onAction="#chooseHalfling" />
-                <MenuItem fx:id="humanMenuItem" mnemonicParsing="false" text="HUMANO" onAction="#chooseHuman" />
-            </items>
-        </MenuButton>
+      <Label fx:id="chosenraceLabel" layoutX="410.0" layoutY="185.0" prefHeight="30.0" prefWidth="160.0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
 
 
     </children>

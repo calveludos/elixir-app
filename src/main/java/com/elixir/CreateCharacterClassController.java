@@ -1,5 +1,8 @@
 package com.elixir;
 
+import com.elixir.model.Race;
+import com.elixir.model.Class;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,6 +11,7 @@ import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TitledPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 
 public class CreateCharacterClassController {
 
@@ -30,7 +34,7 @@ public class CreateCharacterClassController {
     private Button choiseMagoButton;
 
     @FXML
-    private Rectangle chosenraceField;
+    private Label chosenclassLabel;
 
     @FXML
     private Button classCharacterButton;
@@ -74,6 +78,10 @@ public class CreateCharacterClassController {
     @FXML
     private Button raceCharacterButton;
 
+    private static Class classe;
+
+
+
     @FXML
     void attributesCharacterButtonAction(ActionEvent event) {
 
@@ -86,23 +94,26 @@ public class CreateCharacterClassController {
 
     @FXML
     void choiseClerigoButtonAction(ActionEvent event) {
-
+        chosenclassLabel.setText("Clérigo");
     }
 
     @FXML
     void choiseHDAButtonAction(ActionEvent event) {
-
+        chosenclassLabel.setText("Homem de armas");
     }
+
 
     @FXML
     void choiseLadraoButtonAction(ActionEvent event) {
-
+        chosenclassLabel.setText("Ladrão");
     }
+
 
     @FXML
     void choiseMagoButtonAction(ActionEvent event) {
-
+        chosenclassLabel.setText("Mago");
     }
+
 
     @FXML
     void chooseCleric(ActionEvent event) {
@@ -143,5 +154,22 @@ public class CreateCharacterClassController {
     void raceCharacterButtonAction(ActionEvent event) {
 
     }
+
+    private void saveCharcter(String fxml){
+        Class classe = new Class();
+            try {
+                classe.setName(chosenclassLabel.getText());
+        } catch (IllegalArgumentException e){
+            errorLabel.setText("ERRO! " + e.getMessage());
+            return;
+        }
+            this.classe =classe;
+
+
+        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+            paneManager.openPane(fxml);
+    }
+
+    public static Class getClasse() { return classe;} // Se colocar getClass vai puxar o metodo :(
 
 }

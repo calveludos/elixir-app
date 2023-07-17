@@ -3,8 +3,6 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TitledPane?>
@@ -17,8 +15,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterClassController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterClassController">
    <children>
+      <Label id="chosenclassField" fx:id="chosenraceLabel" layoutX="421.0" layoutY="185.0" prefHeight="30.0" prefWidth="160.0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
       <Rectangle fx:id="chosenraceField" arcHeight="5.0" arcWidth="5.0" fill="#142433" height="89.0" layoutX="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="743.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#295264" height="421.0" layoutX="-69.0" layoutY="88.0" stroke="TRANSPARENT" strokeType="INSIDE" width="188.0" />
     <Button fx:id="createCharacterButton" layoutX="10.0" layoutY="150.0" mnemonicParsing="false" onAction="#createCharacterButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="CRIAR FICHA" textFill="WHITE">
@@ -170,13 +173,5 @@
                </panes>
            </Accordion>
        </ScrollPane>
-       <MenuButton fx:id="classMenuButton" layoutX="442.0" layoutY="184.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="Escolha uma classe">
-           <items>
-               <MenuItem text="CLÉRIGO" onAction="#chooseCleric" />
-               <MenuItem text="HOMEM DAS ARMAS" onAction="#chooseWarrior" />
-               <MenuItem text="LADRÃO" onAction="#chooseThief" />
-               <MenuItem text="MAGO" onAction="#chooseWizard" />
-           </items>
-       </MenuButton>
    </children>
  </AnchorPane>

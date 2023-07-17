@@ -1,19 +1,26 @@
 package com.elixir;
 
+import com.elixir.model.Character;
+import com.elixir.model.Attribute;
+import com.elixir.model.Character;
+import com.elixir.model.Race;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TitledPane;
+import javafx.scene.control.*;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import java.util.HashMap;
+import java.util.Map;
+
+import java.util.Objects;
 
 public class CreateCharacterRaceController {
 
     @FXML
     private Button attributesCharacterButton;
+
+    @FXML
+    private Label chosenraceLabel;
 
     @FXML
     private Button backgroundCharacterButton;
@@ -87,34 +94,46 @@ public class CreateCharacterRaceController {
     @FXML
     private MenuButton raceMenuButton;
 
+    private static  Race race;
+
+
+    @FXML
+    private void initialize(){
+    }
+
+
+
     @FXML
     void attributesCharacterButtonAction(ActionEvent event) {
 
     }
 
     @FXML
-    void backgroundCharacterButtonAction(ActionEvent event) {
-
+    void backgroundCharacterButtonAction(ActionEvent event)  {
+        saveCharacter("createCharacterBackgroundPane");
     }
 
     @FXML
     void choiseDwarfButtonAction(ActionEvent event) {
-
+        chosenraceLabel.setText("Anão");
     }
+
 
     @FXML
     void choiseElfButtonAction(ActionEvent event) {
+        chosenraceLabel.setText("Elfo");
 
     }
 
     @FXML
     void choiseHalflingButtonAction(ActionEvent event) {
+        chosenraceLabel.setText("Halfing");
 
     }
 
     @FXML
     void choiseHumanButtonAction(ActionEvent event) {
-
+        chosenraceLabel.setText("Humano");
     }
 
     @FXML
@@ -156,5 +175,24 @@ public class CreateCharacterRaceController {
     void raceCharacterButtonAction(ActionEvent event) {
 
     }
+
+
+   private void saveCharacter(String fxml){
+        Race race = new Race();
+        try {
+            race.setName(chosenraceLabel.getText());
+        } catch (IllegalArgumentException e){
+            errorLabel.setText("ERRO! " + e.getMessage());
+            return;
+        }
+        this.race =race;
+
+       System.out.println(race.toString());
+
+       PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        paneManager.openPane(fxml);
+    }
+
+   public static Race getRace() { return race;}
 
 }
