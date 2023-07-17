@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterClassController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterClassController">
    <children>
       <Rectangle fx:id="chosenraceField" arcHeight="5.0" arcWidth="5.0" fill="#142433" height="89.0" layoutX="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="743.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#295264" height="421.0" layoutX="-69.0" layoutY="88.0" stroke="TRANSPARENT" strokeType="INSIDE" width="188.0" />
@@ -58,6 +70,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
+          <AnchorPane layoutX="91.0" layoutY="-107.0" minHeight="0.0" minWidth="0.0" prefHeight="260.0" prefWidth="281.0" />
          </children>
       </Pane>
       <Rectangle arcWidth="5.0" fill="#e7e4df" height="45.0" layoutX="151.0" layoutY="177.0" stroke="#95876f" strokeType="INSIDE" width="554.0" />
@@ -66,36 +79,104 @@
             <Font name="System Bold Italic" size="26.0" />
          </font>
       </Label>
-      <TextArea fx:id="chosenclassField" layoutX="459.0" layoutY="182.0" prefHeight="32.0" prefWidth="203.0" />
       <Rectangle arcWidth="5.0" fill="#ced8e0" height="233.0" layoutX="158.0" layoutY="235.0" stroke="#788896" strokeType="INSIDE" width="554.0" />
-      <Button fx:id="escolherClerigoButton" layoutX="560.0" layoutY="262.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
-      <Button fx:id="escolherHDAButton" layoutX="560.0" layoutY="309.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
-      <Button fx:id="escolherMagoButton" layoutX="560.0" layoutY="354.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
-      <Button fx:id="escolherHalflingButton" layoutX="560.0" layoutY="401.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="99.0" text="Escolher" />
-      <Accordion layoutX="34.0" layoutY="259.0" />
-      <Accordion layoutX="172.0" layoutY="255.0">
-        <panes>
-          <TitledPane fx:id="ClerigoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="CLÉRIGO">
-               <font>
-                  <Font name="System Bold Italic" size="26.0" />
-               </font>
-          </TitledPane>
-            <TitledPane fx:id="HDAAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="HOMEM DE ARMAS">
-               <font>
-                  <Font name="System Bold Italic" size="26.0" />
-               </font>
-            </TitledPane>
-            <TitledPane fx:id="MagoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="MAGO">
-               <font>
-                  <Font name="System Bold Italic" size="26.0" />
-               </font>
-            </TitledPane>
-            <TitledPane fx:id="LadraoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0" text="LADRÃO">
-               <font>
-                  <Font name="System Bold Italic" size="26.0" />
-               </font>
-            </TitledPane>
-        </panes>
-      </Accordion>
-    </children>
+       <ScrollPane layoutX="166.0" layoutY="255.0" prefHeight="234.0" prefWidth="538.0">
+           <Accordion layoutX="172.0" layoutY="255.0" prefHeight="226.0" prefWidth="536.0">
+               <panes>
+                   <TitledPane fx:id="clerigoAccordion" animated="false" prefHeight="75.0" prefWidth="482.0">
+                       <font>
+                           <Font name="System Bold Italic" size="26.0" />
+                       </font>
+                       <graphic>
+                           <AnchorPane prefHeight="38.0" prefWidth="465.0">
+                               <HBox prefHeight="38.0" prefWidth="304.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0">
+                                   <Text text="CLÉRIGO">
+                                       <font>
+                                           <Font name="System Bold Italic" size="26.0" />
+                                       </font>
+                                   </Text>
+                                   <Region HBox.hgrow="ALWAYS" />
+                                   <Button fx:id="choiseClerigoButton" mnemonicParsing="false" onAction="#choiseClerigoButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
+                               </HBox>
+                           </AnchorPane>
+                       </graphic>
+                      <content>
+                         <TextArea fx:id="clerigoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                      </content>
+                   </TitledPane>
+                   <TitledPane fx:id="hdaAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
+                       <font>
+                           <Font name="System Bold Italic" size="26.0" />
+                       </font>
+                       <graphic>
+                           <AnchorPane prefHeight="38.0" prefWidth="466.0">
+                               <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                   <Text text="HOMEM DE ARMAS">
+                                       <font>
+                                           <Font name="System Bold Italic" size="26.0" />
+                                       </font>
+                                   </Text>
+                                   <Region HBox.hgrow="ALWAYS" />
+                                   <Button fx:id="choiseHDAButton" mnemonicParsing="false" onAction="#choiseHDAButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
+                               </HBox>
+                           </AnchorPane>
+                       </graphic>
+                      <content>
+                         <TextArea fx:id="hdaTextArea" prefHeight="200.0" prefWidth="200.0" />
+                      </content>
+                   </TitledPane>
+                   <TitledPane fx:id="ladraoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
+                       <font>
+                           <Font name="System Bold Italic" size="26.0" />
+                       </font>
+                       <graphic>
+                           <AnchorPane prefHeight="38.0" prefWidth="466.0">
+                               <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                   <Text text="LADRÃO">
+                                       <font>
+                                           <Font name="System Bold Italic" size="26.0" />
+                                       </font>
+                                   </Text>
+                                   <Region HBox.hgrow="ALWAYS" />
+                                   <Button fx:id="choiseLadraoButton" mnemonicParsing="false" onAction="#choiseLadraoButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
+                               </HBox>
+                           </AnchorPane>
+                       </graphic>
+                      <content>
+                         <TextArea fx:id="ladraoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                      </content>
+                   </TitledPane>
+                   <TitledPane fx:id="magoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
+                       <font>
+                           <Font name="System Bold Italic" size="26.0" />
+                       </font>
+                       <graphic>
+                           <AnchorPane prefHeight="38.0" prefWidth="466.0">
+                               <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                   <Text text="MAGO">
+                                       <font>
+                                           <Font name="System Bold Italic" size="26.0" />
+                                       </font>
+                                   </Text>
+                                   <Region HBox.hgrow="ALWAYS" />
+                                   <Button fx:id="choiseMagoButton" mnemonicParsing="false" onAction="#choiseMagoButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
+                               </HBox>
+                           </AnchorPane>
+                       </graphic>
+                       <content>
+                           <TextArea fx:id="magoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                       </content>
+                   </TitledPane>
+               </panes>
+           </Accordion>
+       </ScrollPane>
+       <MenuButton fx:id="classMenuButton" layoutX="442.0" layoutY="184.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="242.0" text="Escolha uma classe">
+           <items>
+               <MenuItem text="CLÉRIGO" onAction="#chooseCleric" />
+               <MenuItem text="HOMEM DAS ARMAS" onAction="#chooseWarrior" />
+               <MenuItem text="LADRÃO" onAction="#chooseThief" />
+               <MenuItem text="MAGO" onAction="#chooseWizard" />
+           </items>
+       </MenuButton>
+   </children>
  </AnchorPane>

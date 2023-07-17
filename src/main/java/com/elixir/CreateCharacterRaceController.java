@@ -1,26 +1,16 @@
 package com.elixir;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TitledPane;
+import javafx.scene.shape.Rectangle;
 
 public class CreateCharacterRaceController {
-
-    @FXML
-    private TitledPane AnaoAccordion;
-
-    @FXML
-    private TitledPane ElfoAccordion;
-
-    @FXML
-    private TitledPane HalflingAccordion;
-
-    @FXML
-    private TitledPane HumanoAccordion;
 
     @FXML
     private Button attributesCharacterButton;
@@ -29,7 +19,19 @@ public class CreateCharacterRaceController {
     private Button backgroundCharacterButton;
 
     @FXML
-    private TextArea chosenraceField;
+    private Button choiseDwarfButton;
+
+    @FXML
+    private Button choiseElfButton;
+
+    @FXML
+    private Button choiseHalflingButton;
+
+    @FXML
+    private Button choiseHumanButton;
+
+    @FXML
+    private Rectangle chosenraceField;
 
     @FXML
     private Button classCharacterButton;
@@ -41,22 +43,49 @@ public class CreateCharacterRaceController {
     private Button dateCharacterButton;
 
     @FXML
+    private TitledPane dwarfAccordion;
+
+    @FXML
+    private MenuItem dwarfMenuItem;
+
+    @FXML
+    private TextArea dwarfTextArea;
+
+    @FXML
+    private TitledPane elfAccordion;
+
+    @FXML
+    private MenuItem elfMenuItem;
+
+    @FXML
+    private TextArea elfTextArea;
+
+    @FXML
     private Label errorLabel;
 
     @FXML
-    private Button escolherAnaoButton;
+    private TitledPane halflingAccordion;
 
     @FXML
-    private Button escolherElfoButton;
+    private MenuItem halflingMenuItem;
 
     @FXML
-    private Button escolherHalflingButton;
+    private TextArea halflingTextArea;
 
     @FXML
-    private Button escolherHumanoButton;
+    private TitledPane humanAccordion;
+
+    @FXML
+    private MenuItem humanMenuItem;
+
+    @FXML
+    private TextArea humanTextArea;
 
     @FXML
     private Button raceCharacterButton;
+
+    @FXML
+    private MenuButton raceMenuButton;
 
     @FXML
     void attributesCharacterButtonAction(ActionEvent event) {
@@ -65,6 +94,46 @@ public class CreateCharacterRaceController {
 
     @FXML
     void backgroundCharacterButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void choiseDwarfButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void choiseElfButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void choiseHalflingButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void choiseHumanButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chooseDwarf(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chooseElf(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chooseHalfling(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chooseHuman(ActionEvent event) {
 
     }
 

@@ -4,23 +4,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TitledPane;
 import javafx.scene.shape.Rectangle;
 
 public class CreateCharacterClassController {
-
-    @FXML
-    private TitledPane ClerigoAccordion;
-
-    @FXML
-    private TitledPane HDAAccordion;
-
-    @FXML
-    private TitledPane LadraoAccordion;
-
-    @FXML
-    private TitledPane MagoAccordion;
 
     @FXML
     private Button attributesCharacterButton;
@@ -29,13 +18,31 @@ public class CreateCharacterClassController {
     private Button backgroundCharacterButton;
 
     @FXML
-    private TextArea chosenclassField;
+    private Button choiseClerigoButton;
+
+    @FXML
+    private Button choiseHDAButton;
+
+    @FXML
+    private Button choiseLadraoButton;
+
+    @FXML
+    private Button choiseMagoButton;
 
     @FXML
     private Rectangle chosenraceField;
 
     @FXML
     private Button classCharacterButton;
+
+    @FXML
+    private MenuButton classMenuButton;
+
+    @FXML
+    private TitledPane clerigoAccordion;
+
+    @FXML
+    private TextArea clerigoTextArea;
 
     @FXML
     private Button createCharacterButton;
@@ -47,16 +54,22 @@ public class CreateCharacterClassController {
     private Label errorLabel;
 
     @FXML
-    private Button escolherClerigoButton;
+    private TitledPane hdaAccordion;
 
     @FXML
-    private Button escolherHDAButton;
+    private TextArea hdaTextArea;
 
     @FXML
-    private Button escolherHalflingButton;
+    private TitledPane ladraoAccordion;
 
     @FXML
-    private Button escolherMagoButton;
+    private TextArea ladraoTextArea;
+
+    @FXML
+    private TitledPane magoAccordion;
+
+    @FXML
+    private TextArea magoTextArea;
 
     @FXML
     private Button raceCharacterButton;
@@ -68,6 +81,46 @@ public class CreateCharacterClassController {
 
     @FXML
     void backgroundCharacterButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void choiseClerigoButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void choiseHDAButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void choiseLadraoButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void choiseMagoButtonAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chooseCleric(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chooseThief(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chooseWarrior(ActionEvent event) {
+
+    }
+
+    @FXML
+    void chooseWizard(ActionEvent event) {
 
     }
 
