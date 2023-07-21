@@ -15,6 +15,9 @@ public class newCharacterController {
 
     @FXML
     void createCharacterButtonAction(ActionEvent event) {
+        ObjectSaveManager<Object> objectSaveManager = new ObjectSaveManager<>();
+        objectSaveManager.cleanObjects();
+
         PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
         paneManager.openPane("createCharacterDatePane");
     }

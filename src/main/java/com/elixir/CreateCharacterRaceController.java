@@ -1,198 +1,120 @@
 package com.elixir;
 
-import com.elixir.model.Character;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
-import com.elixir.model.Race;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import java.util.HashMap;
-import java.util.Map;
-
-import java.util.Objects;
 
 public class CreateCharacterRaceController {
-
     @FXML
-    private Button attributesCharacterButton;
-
-    @FXML
-    private Label chosenraceLabel;
-
-    @FXML
-    private Button backgroundCharacterButton;
-
-    @FXML
-    private Button choiseDwarfButton;
-
-    @FXML
-    private Button choiseElfButton;
-
-    @FXML
-    private Button choiseHalflingButton;
-
-    @FXML
-    private Button choiseHumanButton;
-
-    @FXML
-    private Rectangle chosenraceField;
-
-    @FXML
-    private Button classCharacterButton;
+    private Label chosenRaceLabel;
 
     @FXML
     private Button createCharacterButton;
 
-    @FXML
-    private Button dateCharacterButton;
-
-    @FXML
-    private TitledPane dwarfAccordion;
-
-    @FXML
-    private MenuItem dwarfMenuItem;
-
-    @FXML
-    private TextArea dwarfTextArea;
-
-    @FXML
-    private TitledPane elfAccordion;
-
-    @FXML
-    private MenuItem elfMenuItem;
-
-    @FXML
-    private TextArea elfTextArea;
-
-    @FXML
-    private Label errorLabel;
-
-    @FXML
-    private TitledPane halflingAccordion;
-
-    @FXML
-    private MenuItem halflingMenuItem;
-
-    @FXML
-    private TextArea halflingTextArea;
-
-    @FXML
-    private TitledPane humanAccordion;
-
-    @FXML
-    private MenuItem humanMenuItem;
-
-    @FXML
-    private TextArea humanTextArea;
-
-    @FXML
-    private Button raceCharacterButton;
-
-    @FXML
-    private MenuButton raceMenuButton;
-
-    private static  Race race;
-
+    private Character character;
 
     @FXML
     private void initialize(){
-    }
+        ObjectSaveManager reader = new ObjectSaveManager<>();
+        character = (Character) reader.getObject("character");
 
-
-
-    @FXML
-    void attributesCharacterButtonAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void backgroundCharacterButtonAction(ActionEvent event)  {
-        saveCharacter("createCharacterBackgroundPane");
-    }
-
-    @FXML
-    void choiseDwarfButtonAction(ActionEvent event) {
-        chosenraceLabel.setText("Anão");
-    }
-
-
-    @FXML
-    void choiseElfButtonAction(ActionEvent event) {
-        chosenraceLabel.setText("Elfo");
-
-    }
-
-    @FXML
-    void choiseHalflingButtonAction(ActionEvent event) {
-        chosenraceLabel.setText("Halfing");
-
+        try{
+            if(character.getRaceId() > 0){
+                switch (character.getRaceId()){
+                    case 1:
+                        chosenRaceLabel.setText("Humano");
+                        break;
+                    case 2:
+                        chosenRaceLabel.setText("Elfo");
+                        break;
+                    case 3:
+                        chosenRaceLabel.setText("Anão");
+                        break;
+                    case 4:
+                        chosenRaceLabel.setText("Halfing");
+                        break;
+                    default:
+                        chosenRaceLabel.setText("");
+                        break;
+                }
+            }
+        } catch (java.lang.NullPointerException e){
+            character = new Character();
+        }
     }
 
     @FXML
-    void choiseHumanButtonAction(ActionEvent event) {
-        chosenraceLabel.setText("Humano");
-    }
-
-    @FXML
-    void chooseDwarf(ActionEvent event) {
-
-    }
-
-    @FXML
-    void chooseElf(ActionEvent event) {
-
-    }
-
-    @FXML
-    void chooseHalfling(ActionEvent event) {
-
-    }
-
-    @FXML
-    void chooseHuman(ActionEvent event) {
-
+    void backgroundCharacterButtonAction(ActionEvent event) {
+        //CreateCharacterBackgroundController.setCharacter(character);
+        //saveCharacter("createCharacterBackgroundPane");
     }
 
     @FXML
     void classCharacterButtonAction(ActionEvent event) {
-
+        saveCharacter("createCharacterClassPane");
     }
 
     @FXML
     void createCharacterButtonAction(ActionEvent event) {
+        saveCharacter("newCharacterPane");
+    }
 
+    @FXML
+    void attributesCharacterButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterAttributesPane");
     }
 
     @FXML
     void dateCharacterButtonAction(ActionEvent event) {
-
+        saveCharacter("createCharacterDatePane");
     }
 
     @FXML
-    void raceCharacterButtonAction(ActionEvent event) {
-
+    void nextRaceButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterClassPane");
     }
 
+    @FXML
+    public void raceCharacterButtonAction(ActionEvent event) {
+    }
 
-   private void saveCharacter(String fxml){
-        Race race = new Race();
-        try {
-            race.setName(chosenraceLabel.getText());
-        } catch (IllegalArgumentException e){
-            errorLabel.setText("ERRO! " + e.getMessage());
-            return;
-        }
-        this.race =race;
+    @FXML
+    void choiseDwarfButtonAction(ActionEvent event) {
+        chosenRaceLabel.setText("Anão");
+        character.setRaceId(3);
+    }
+    @FXML
+    void choiseElfButtonAction(ActionEvent event) {
+        chosenRaceLabel.setText("Elfo");
+        character.setRaceId(2);
+    }
+    @FXML
+    void choiseHalflingButtonAction(ActionEvent event) {
+        chosenRaceLabel.setText("Halfing");
+        character.setRaceId(4);
+    }
+    @FXML
+    void choiseHumanButtonAction(ActionEvent event) {
+        chosenRaceLabel.setText("Humano");
+        character.setRaceId(1);
+    }
 
-       System.out.println(race.toString());
+    private void saveCharacter(String fxml){
+        ObjectSaveManager<Character> saver = new ObjectSaveManager<>();
+        saver.saveObject("character", character);
 
-       PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
         paneManager.openPane(fxml);
     }
 
-   public static Race getRace() { return race;}
+    public Character setCharacter() {
+        return character;
+    }
+    public void setCharacter(Character character){
+        this.character = character;
+    }
 
 }

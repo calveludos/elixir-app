@@ -6,11 +6,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import javafx.util.converter.IntegerStringConverter;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CreateCharacterDateController {
@@ -22,19 +27,7 @@ public class CreateCharacterDateController {
     private TextArea apperanceField;
 
     @FXML
-    private Button backgroundCharacterButton;
-
-    @FXML
-    private MenuItem caoticoMenuItem;
-
-    @FXML
-    private Button classCharacterButton;
-
-    @FXML
     private Button createCharacterButton;
-
-    @FXML
-    private Button dateCharacterButton;
 
     @FXML
     private TextField nameField;
@@ -43,54 +36,21 @@ public class CreateCharacterDateController {
     private TextField namePlayerField;
 
     @FXML
-    private MenuItem neutroMenuItem;
-
-    @FXML
-    private Button nextDateButton;
-
-    @FXML
-    private MenuItem ordeiroMenuItem;
-
-    @FXML
-    private Button raceCharacterButton;
-
-    @FXML
     private Label errorLabel;
 
     @FXML
     private Spinner<Integer> levelField;
 
-    @FXML
-    private Button attributesCharacterButton;
-
-    private String selectedLevel;
-
-    private String selectedLevelId;
-
-    private String selectedAliagment;
-
-    private static Character character;
-
-    private Map<Integer, String> alignmentIdMap;
-    private Map<String, Integer> alignmentMap;
+    private Character character;
 
     @FXML
     private void initialize() {
 
-        ordeiroMenuItem.setOnAction(this::aligmentMenuItemClicked);
-        neutroMenuItem.setOnAction(this::aligmentMenuItemClicked);
-        caoticoMenuItem.setOnAction(this::aligmentMenuItemClicked);
-
-        alignmentIdMap = new HashMap<>();
-        alignmentMap = new HashMap<>();
+        Map<Integer, String> alignmentIdMap = new HashMap<>();
 
         alignmentIdMap.put(1, "Ordeiro");
         alignmentIdMap.put(2, "Neutro");
         alignmentIdMap.put(3, "Caótico");
-
-        alignmentMap.put("Ordeiro", 1);
-        alignmentMap.put("Neutro", 2);
-        alignmentMap.put("Caótico", 3);
 
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 1);
         levelField.setValueFactory(valueFactory);
@@ -131,10 +91,7 @@ public class CreateCharacterDateController {
             }
         });
 
-
-
-
-            NumberFormat format = new DecimalFormat("0");
+        NumberFormat format = new DecimalFormat("0");
         StringConverter<Integer> converter = new StringConverter<>() {
             @Override
             public String toString(Integer value) {
@@ -155,17 +112,27 @@ public class CreateCharacterDateController {
             }
         };
 
-
-
         levelField.getValueFactory().setConverter(converter);
 
+        ObjectSaveManager reader = new ObjectSaveManager<>();
+        character = (Character) reader.getObject("character");
 
+        try{
+            if (!character.isDateNull()){
+                nameField.setText(character.getName());
+                apperanceField.setText(character.getAppearance());
+                levelField.getValueFactory().setValue(character.getExperience());
+                aliagmentSelectionFiled.setText(alignmentIdMap.get(character.getAlignmentId()));
+            }
+        } catch (java.lang.NullPointerException e){
+            character = new Character();
+        }
     }
-
 
     @FXML
     void backgroundCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterBackgroundPane");
+        //CreateCharacterBackgroundController.setCharacter(character);
+        //saveCharacter("createCharacterBackgroundPane");
     }
 
     @FXML
@@ -189,44 +156,54 @@ public class CreateCharacterDateController {
     }
 
     @FXML
-    void dateCharacterButtonAction(ActionEvent event) {
-        nameField.setText(character.getName());
-        apperanceField.setText(character.getAppearance());
-        levelField.setPromptText(String.valueOf(character.getExperience()));
-        selectedAliagment = alignmentIdMap.get(character.getAlignmentId());
-        saveCharacter("createCharacterAttributesPane");
-    }
-
-    @FXML
     void nextDateButtonAction(ActionEvent event) {
         saveCharacter("createCharacterAttributesPane");
     }
 
-    private void aligmentMenuItemClicked(ActionEvent event){
-        MenuItem menuItem = (MenuItem) event.getSource();
-        selectedAliagment = menuItem.getText();
-        aliagmentSelectionFiled.setText(String.valueOf(selectedAliagment));
+    @FXML
+    public void dateCharacterButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    void ordeiroSelected(ActionEvent event){
+        aliagmentSelectionFiled.setText("Ordeiro");
+        character.setAlignmentId(1);
+    }
+
+    @FXML
+    void caoticoSelected(ActionEvent event){
+        aliagmentSelectionFiled.setText("Caótico");
+        character.setAlignmentId(3);
+    }
+
+    @FXML
+    void neutroSelected(ActionEvent event){
+        aliagmentSelectionFiled.setText("Neutro");
+        character.setAlignmentId(2);
     }
 
     private void saveCharacter(String fxml){
-        Character character = new Character();
         try {
             character.setName(nameField.getText());
             character.setExperience(levelField.getValue());
-            character.setAlignmentId(alignmentMap.get(selectedAliagment));
             character.setAppearance(apperanceField.getText());
-
-        } catch (IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             errorLabel.setText("ERRO! " + e.getMessage());
             return;
         }
 
-        this.character = character;
+        ObjectSaveManager<Character> saver = new ObjectSaveManager<>();
+        saver.saveObject("character", character);
 
         PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
         paneManager.openPane(fxml);
     }
-    public static Character getCharacter() {
+
+    public Character getCharacter() {
         return character;
+    }
+
+    public void setCharacter(Character character){
+        this.character = character;
     }
 }

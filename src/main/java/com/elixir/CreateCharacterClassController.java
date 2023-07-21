@@ -1,49 +1,15 @@
 package com.elixir;
 
-import com.elixir.model.Race;
-import com.elixir.model.Class;
+import com.elixir.model.Character;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TitledPane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class CreateCharacterClassController {
-
-    @FXML
-    private Button attributesCharacterButton;
-
-    @FXML
-    private Button backgroundCharacterButton;
-
-    @FXML
-    private Button choiseClerigoButton;
-
-    @FXML
-    private Button choiseHDAButton;
-
-    @FXML
-    private Button choiseLadraoButton;
-
-    @FXML
-    private Button choiseMagoButton;
-
-    @FXML
-    private Label chosenclassLabel;
-
-    @FXML
-    private Button classCharacterButton;
-
-    @FXML
-    private MenuButton classMenuButton;
-
-    @FXML
-    private TitledPane clerigoAccordion;
 
     @FXML
     private TextArea clerigoTextArea;
@@ -52,124 +18,116 @@ public class CreateCharacterClassController {
     private Button createCharacterButton;
 
     @FXML
-    private Button dateCharacterButton;
-
-    @FXML
     private Label errorLabel;
-
-    @FXML
-    private TitledPane hdaAccordion;
 
     @FXML
     private TextArea hdaTextArea;
 
     @FXML
-    private TitledPane ladraoAccordion;
-
-    @FXML
     private TextArea ladraoTextArea;
-
-    @FXML
-    private TitledPane magoAccordion;
 
     @FXML
     private TextArea magoTextArea;
 
     @FXML
-    private Button raceCharacterButton;
+    private Label chosenClassLabel;
 
-    private static Class classe;
-
-
+    private Character character;
 
     @FXML
-    void attributesCharacterButtonAction(ActionEvent event) {
+    private void initialize(){
+        ObjectSaveManager reader = new ObjectSaveManager<>();
+        character = (Character) reader.getObject("character");
 
-    }
-
-    @FXML
-    void backgroundCharacterButtonAction(ActionEvent event) {
-
+        try{
+            if(character.getClassId() > 0){
+                switch (character.getClassId()){
+                    case 1:
+                        chosenClassLabel.setText("Homem de Armas");
+                        break;
+                    case 2:
+                        chosenClassLabel.setText("Mago");
+                        break;
+                    case 3:
+                        chosenClassLabel.setText("Ladrão");
+                        break;
+                    case 4:
+                        chosenClassLabel.setText("Clérigo");
+                        break;
+                    default:
+                        chosenClassLabel.setText("");
+                        break;
+                }
+            }
+        } catch (java.lang.NullPointerException e) {
+            character = new Character();
+        }
     }
 
     @FXML
     void choiseClerigoButtonAction(ActionEvent event) {
-        chosenclassLabel.setText("Clérigo");
+        chosenClassLabel.setText("Clérigo");
+        character.setClassId(4);
     }
 
     @FXML
     void choiseHDAButtonAction(ActionEvent event) {
-        chosenclassLabel.setText("Homem de armas");
+        chosenClassLabel.setText("Homem de Armas");
+        character.setClassId(1);
     }
-
 
     @FXML
     void choiseLadraoButtonAction(ActionEvent event) {
-        chosenclassLabel.setText("Ladrão");
+        chosenClassLabel.setText("Ladrão");
+        character.setClassId(3);
     }
-
 
     @FXML
     void choiseMagoButtonAction(ActionEvent event) {
-        chosenclassLabel.setText("Mago");
-    }
-
-
-    @FXML
-    void chooseCleric(ActionEvent event) {
-
+        chosenClassLabel.setText("Mago");
+        character.setClassId(2);
     }
 
     @FXML
-    void chooseThief(ActionEvent event) {
-
+    public void backgroundCharacterButtonAction(ActionEvent event) {
+        //CreateCharacterBackgroundController.setCharacter(character);
+        //saveCharacter("createCharacterBackgroundPane");
+    }
+    @FXML
+    public void raceCharacterButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterRacePane");
     }
 
     @FXML
-    void chooseWarrior(ActionEvent event) {
-
+    public void createCharacterButtonAction(ActionEvent event) {
+        saveCharacter("newCharacterPane");
     }
 
     @FXML
-    void chooseWizard(ActionEvent event) {
-
+    public void attributesCharacterButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterAttributesPane");
     }
 
     @FXML
-    void classCharacterButtonAction(ActionEvent event) {
-
+    public void dateCharacterButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterDatePane");
     }
 
     @FXML
-    void createCharacterButtonAction(ActionEvent event) {
-
+    public void nextClassButtonAction(ActionEvent event) {
+        //CreateCharacterBackgroundController.setCharacter(character);
+        //saveCharacter("createCharacterBackgroundPane");
     }
 
     @FXML
-    void dateCharacterButtonAction(ActionEvent event) {
-
+    public void classCharacterButtonAction(ActionEvent event) {
     }
 
-    @FXML
-    void raceCharacterButtonAction(ActionEvent event) {
-
-    }
-
-    private void saveCharcter(String fxml){
-        Class classe = new Class();
-            try {
-                classe.setName(chosenclassLabel.getText());
-        } catch (IllegalArgumentException e){
-            errorLabel.setText("ERRO! " + e.getMessage());
-            return;
-        }
-            this.classe =classe;
-
+    public void saveCharacter(String fxml) {
+        ObjectSaveManager<Character> saver = new ObjectSaveManager<>();
+        saver.saveObject("character", character);
 
         PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
-            paneManager.openPane(fxml);
+        paneManager.openPane(fxml);
     }
-
-    public static Class getClasse() { return classe;} // Se colocar getClass vai puxar o metodo :(
-
 }

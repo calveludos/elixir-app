@@ -1,6 +1,8 @@
 package com.elixir.model;
 
-public class Attribute extends Model {
+import java.io.Serializable;
+
+public class Attribute extends Model implements Serializable {
 
     private int id;
     private int strength;

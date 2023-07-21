@@ -3,23 +3,20 @@ package com.elixir;
 import com.elixir.dao.AttributeDAO;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.util.converter.IntegerStringConverter;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.sql.SQLException;
+import java.util.Map;
 
 public class CreateCharacterAttributesController {
     @FXML
@@ -47,15 +44,6 @@ public class CreateCharacterAttributesController {
     private Label intLabel;
 
     @FXML
-    private Button nextDateButton;
-
-    @FXML
-    private Button raceCharacterButton;
-
-    @FXML
-    private Pane sectionsPane;
-
-    @FXML
     private TextField strField;
 
     @FXML
@@ -71,15 +59,13 @@ public class CreateCharacterAttributesController {
     private Label errorLabel;
 
     @FXML
-    private Button nextAttribute;
-
-    @FXML
     private Button createCharacterButton;
 
-    private static Character character;
+    private Character character;
+    private Attribute attribute;
 
     @FXML
-    private void initialize() {
+    private void initialize() throws SQLException {
         applyIntegerFormatter(chaField);
         applyIntegerFormatter(conField);
         applyIntegerFormatter(dexField);
@@ -189,12 +175,34 @@ public class CreateCharacterAttributesController {
             }
         });
 
-        character = CreateCharacterDateController.getCharacter();
+        ObjectSaveManager reader = new ObjectSaveManager<>();
+        character = (Character) reader.getObject("character");
+        attribute = (Attribute) reader.getObject("attribute");
 
+        if (attribute == null) {
+            attribute = new Attribute();
+        } else {
+            strField.setText(String.valueOf(attribute.getStrength()));
+            dexField.setText(String.valueOf(attribute.getDexterity()));
+            conField.setText(String.valueOf(attribute.getConstitution()));
+            intField.setText(String.valueOf(attribute.getIntelligence()));
+            wisField.setText(String.valueOf(attribute.getWisdom()));
+            chaField.setText(String.valueOf(attribute.getCharisma()));
+        }
+
+        Platform.runLater(() -> dexField.requestFocus());
+        Platform.runLater(() -> conField.requestFocus());
+        Platform.runLater(() -> intField.requestFocus());
+        Platform.runLater(() -> wisField.requestFocus());
+        Platform.runLater(() -> chaField.requestFocus());
+        Platform.runLater(() -> strField.requestFocus());
+
+        if (character == null){
+            character = new Character();
+        }
     }
-
     private void applyIntegerFormatter(TextField textField) {
-        TextFormatter<Integer> textFormatter = new TextFormatter<>(new IntegerStringConverter(), 0,
+        TextFormatter<Integer> textFormatter = new TextFormatter<>(new IntegerStringConverter(), 10,
                 change -> {
                     String newText = change.getControlNewText();
                     if (newText.matches("-?\\d*")) {
@@ -205,9 +213,11 @@ public class CreateCharacterAttributesController {
         textField.setTextFormatter(textFormatter);
     }
 
+
     @FXML
     void backgroundCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterBackgroundPane");
+        //CreateCharacterBackgroundController.setCharacter(character);
+        //saveCharacter("createCharacterBackgroundPane");
     }
 
     @FXML
@@ -221,77 +231,68 @@ public class CreateCharacterAttributesController {
     }
 
     @FXML
-    void dateCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterAttributesPane");
-    }
-
-    @FXML
     void raceCharacterButtonAction(ActionEvent event) {
         saveCharacter("createCharacterRacePane");
     }
 
     @FXML
-    void attributesCharacterButtonAction(ActionEvent event) {
-
-        saveCharacter("createCharacterAttributesPane");
+    void dateCharacterButtonAction(ActionEvent event) {
+        saveCharacter("createCharacterDatePane");
     }
-
 
     @FXML
     void nextAttributesButtonAction(ActionEvent event) {
         saveCharacter("createCharacterRacePane");
     }
+
+    @FXML
+    public void attributesCharacterButtonAction(ActionEvent event) {
+    }
+
     @FXML
     void conFieldAction(ActionEvent event) {
         int conFieldInt = Integer.parseInt(conField.getText());
-        conField.setText(String.valueOf((conFieldInt % 2 == 0) ? (conFieldInt - 10) / 2 : (conFieldInt - 11) / 2));
+        conLabel.setText(String.valueOf((conFieldInt % 2 == 0) ? (conFieldInt - 10) / 2 : (conFieldInt - 11) / 2));
     }
 
     @FXML
     void dexFieldAction(ActionEvent event) {
         int dexFieldInt = Integer.parseInt(dexField.getText());
-        dexField.setText(String.valueOf((dexFieldInt % 2 == 0) ? (dexFieldInt - 10) / 2 : (dexFieldInt - 11) / 2));
+        dexLabel.setText(String.valueOf((dexFieldInt % 2 == 0) ? (dexFieldInt - 10) / 2 : (dexFieldInt - 11) / 2));
     }
 
     @FXML
     void forFieldAction(ActionEvent event) {
         int forFieldInt = Integer.parseInt(strField.getText());
-        strField.setText(String.valueOf((forFieldInt % 2 == 0) ? (forFieldInt - 10) / 2 : (forFieldInt - 11) / 2));
+        strLabel.setText(String.valueOf((forFieldInt % 2 == 0) ? (forFieldInt - 10) / 2 : (forFieldInt - 11) / 2));
     }
 
     @FXML
     void intFieldAction(ActionEvent event) {
         int intFieldInt = Integer.parseInt(intField.getText());
-        intField.setText(String.valueOf((intFieldInt % 2 == 0) ? (intFieldInt - 10) / 2 : (intFieldInt - 11) / 2));
+        intLabel.setText(String.valueOf((intFieldInt % 2 == 0) ? (intFieldInt - 10) / 2 : (intFieldInt - 11) / 2));
     }
 
     @FXML
     void wisFieldAction(ActionEvent event) {
         int wisFieldInt = Integer.parseInt(wisField.getText());
-        wisField.setText(String.valueOf((wisFieldInt % 2 == 0) ? (wisFieldInt - 10) / 2 : (wisFieldInt - 11) / 2));
+        wisLabel.setText(String.valueOf((wisFieldInt % 2 == 0) ? (wisFieldInt - 10) / 2 : (wisFieldInt - 11) / 2));
     }
 
-   private void saveCharacter(String fxml){
-       try {
-            Attribute attribute = new Attribute(
-                    Integer.parseInt(strField.getText()),
-                    Integer.parseInt(wisField.getText()),
-                    Integer.parseInt(dexField.getText()),
-                    Integer.parseInt(intField.getText()),
-                    Integer.parseInt(conField.getText()),
-                    Integer.parseInt(chaField.getText()));
+    private void saveCharacter(String fxml){
 
-            AttributeDAO attributeDAO = new AttributeDAO();
-            int id = attributeDAO.create(attribute);
+        attribute.setStrength(Integer.parseInt(strField.getText()));
+        attribute.setWisdom(Integer.parseInt(wisField.getText()));
+        attribute.setDexterity(Integer.parseInt(dexField.getText()));
+        attribute.setIntelligence(Integer.parseInt(intField.getText()));
+        attribute.setConstitution(Integer.parseInt(conField.getText()));
+        attribute.setCharisma(Integer.parseInt(chaField.getText()));
 
-            character.setAttributeId(id);
+        ObjectSaveManager<Attribute> saver = new ObjectSaveManager<>();
+        saver.saveObject("attribute", attribute);
 
-        } catch (IllegalArgumentException e){
-            errorLabel.setText("ERRO! " + e.getMessage());
-            return;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-       }
+        ObjectSaveManager<Character> saverCharacter = new ObjectSaveManager<>();
+        saverCharacter.saveObject("character", character);
 
         System.out.println(character.toString());
 
@@ -299,7 +300,11 @@ public class CreateCharacterAttributesController {
         paneManager.openPane(fxml);
     }
 
-    public static Character getCharacter() {
+    public Character getCharacter() {
         return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 }

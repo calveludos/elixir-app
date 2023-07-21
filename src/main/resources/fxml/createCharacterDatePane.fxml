@@ -94,9 +94,9 @@
 
        <MenuButton fx:id="aliagmentSelectionFiled" layoutX="190.0" layoutY="313.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #ced8e0;" text="Escolha uma opção">
          <items>
-            <MenuItem fx:id="ordeiroMenuItem" mnemonicParsing="false" text="Ordeiro" />
-            <MenuItem fx:id="neutroMenuItem" mnemonicParsing="false" text="Neutro" />
-            <MenuItem fx:id="caoticoMenuItem" mnemonicParsing="false" text="Caótico" />
+            <MenuItem fx:id="ordeiroMenuItem" onAction="#ordeiroSelected" mnemonicParsing="false" text="Ordeiro" />
+            <MenuItem fx:id="neutroMenuItem" onAction="#neutroSelected" mnemonicParsing="false" text="Neutro" />
+            <MenuItem fx:id="caoticoMenuItem" onAction="#caoticoSelected" mnemonicParsing="false" text="Caótico" />
          </items>
       </MenuButton>
       <Button fx:id="nextDateButton" layoutX="596.0" layoutY="444.0" mnemonicParsing="false" onAction="#nextDateButtonAction" prefWidth="99.0" style="-fx-background-color: #36cd67; -fx-border-color: #000000; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="AVANÇAR" textFill="WHITE">

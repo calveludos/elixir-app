@@ -10,7 +10,7 @@ public class Character extends Model implements Serializable {
     private int alignmentId;
     private int classId;
     private String name;
-    private int experience;
+    private int experience = -1;
     private int height;
     private int weight;
     private int currentPv;
@@ -55,7 +55,7 @@ public class Character extends Model implements Serializable {
     }
 
     public void setRaceId(int raceId) {
-        if (raceId < 0 || raceId > 3) {
+        if (raceId < 1 || raceId > 4) {
             throw new IllegalArgumentException("Essa raça não existe no Old Dragon RPG.");
         }
         this.raceId = raceId;
@@ -112,17 +112,17 @@ public class Character extends Model implements Serializable {
     }
 
     public void setHeight(int height) {
-        if (raceId == 0 && (height < 0 || height > 200)) {
+        if (raceId == 1 && (height < 0 || height > 200)) {
             throw new IllegalArgumentException("A altura do humano tem que ser de até 2 metros e não pode ser negativa.");
         }
-        if (raceId == 1 && (height < 0 || height > 150)) {
+        if (raceId == 2 && (height < 0 || height > 150)) {
             throw new IllegalArgumentException("A altura do anão tem que ser de até 1.5 metro e não pode ser negativa.");
         }
-        if (raceId == 2 && (height < 0 || height > 170)) {
-            throw new IllegalArgumentException("A altura do anão tem que ser de até 1.7 metro e não pode ser negativa.");
+        if (raceId == 3 && (height < 0 || height > 170)) {
+            throw new IllegalArgumentException("A altura do elfo tem que ser de até 1.7 metro e não pode ser negativa.");
         }
-        if (raceId == 3 && (height < 0 || height > 90)) {
-            throw new IllegalArgumentException("A altura do anão tem que ser de até 0.9 metro e não pode ser negativa.");
+        if (raceId == 4 && (height < 0 || height > 90)) {
+            throw new IllegalArgumentException("A altura do halfling tem que ser de até 0.9 metro e não pode ser negativa.");
         }
         this.height = height;
     }
@@ -209,6 +209,13 @@ public class Character extends Model implements Serializable {
                 slots == character.slots &&
                 Objects.equals(name, character.name) &&
                 Objects.equals(appearance, character.appearance);
+    }
+
+    public boolean isDateNull(){
+        if (name == null && alignmentId == -1 && appearance == null && experience == -1){
+            return true;
+        }
+        return false;
     }
 
     @Override
