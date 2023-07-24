@@ -5,31 +5,34 @@ import com.elixir.model.Character;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CharacterDAO extends CrudDAO<Character> {
     @Override
     public int create(Character character) throws SQLException {
-        String query = "INSERT INTO `Character` (id_attribute, id_race, id_alignment, id_class, name, experience, height, weight, current_pv, max_pv, id_currency, slots, appearance, class_armor_bonus) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO `Character` (id_attribute, id_race, id_alignment, id_class, name, player_name, experience, height, weight, current_pv, max_pv, id_currency, slots, appearance, class_armor_bonus, background) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             conn = ConnectionFactory.createConnection();
-            stmt = conn.prepareStatement(query);
+            stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, character.getAttributeId());
             stmt.setInt(2, character.getRaceId());
             stmt.setInt(3, character.getAlignmentId());
             stmt.setInt(4, character.getClassId());
             stmt.setString(5, character.getName());
-            stmt.setInt(6, character.getExperience());
-            stmt.setInt(7, character.getHeight());
-            stmt.setInt(8, character.getWeight());
-            stmt.setInt(9, character.getCurrentPv());
-            stmt.setInt(10, character.getMaxPv());
-            stmt.setInt(11, character.getCurrencyId());
-            stmt.setInt(12, character.getSlots());
-            stmt.setString(13, character.getAppearance());
-            stmt.setInt(14, character.getClassArmorBonus());
+            stmt.setString(6, character.getPlayerName()); // Novo campo adicionado
+            stmt.setInt(7, character.getExperience());
+            stmt.setInt(8, character.getHeight());
+            stmt.setInt(9, character.getWeight());
+            stmt.setInt(10, character.getCurrentPv());
+            stmt.setInt(11, character.getMaxPv());
+            stmt.setInt(12, character.getCurrencyId());
+            stmt.setInt(13, character.getSlots());
+            stmt.setString(14, character.getAppearance());
+            stmt.setInt(15, character.getClassArmorBonus());
+            stmt.setString(16, character.getBackground()); // Novo campo adicionado
             stmt.executeUpdate();
 
             ResultSet generatedKeys = stmt.getGeneratedKeys();
@@ -49,7 +52,7 @@ public class CharacterDAO extends CrudDAO<Character> {
 
     @Override
     public void update(Character character) throws SQLException {
-        String query = "UPDATE `Character` SET id_attribute = ?, id_race = ?, id_alignment = ?, id_class = ?, name = ?, experience = ?, height = ?, weight = ?, current_pv = ?, max_pv = ?, id_currency = ?, slots = ?, appearance = ?, class_armor_bonus = ? WHERE id = ?";
+        String query = "UPDATE `Character` SET id_attribute = ?, id_race = ?, id_alignment = ?, id_class = ?, name = ?, player_name = ?, experience = ?, height = ?, weight = ?, current_pv = ?, max_pv = ?, id_currency = ?, slots = ?, appearance = ?, class_armor_bonus = ?, background = ? WHERE id = ?";
 
         try {
             conn = ConnectionFactory.createConnection();
@@ -60,16 +63,18 @@ public class CharacterDAO extends CrudDAO<Character> {
             stmt.setInt(3, character.getAlignmentId());
             stmt.setInt(4, character.getClassId());
             stmt.setString(5, character.getName());
-            stmt.setInt(6, character.getExperience());
-            stmt.setInt(7, character.getHeight());
-            stmt.setInt(8, character.getWeight());
-            stmt.setInt(9, character.getCurrentPv());
-            stmt.setInt(10, character.getMaxPv());
-            stmt.setInt(11, character.getCurrencyId());
-            stmt.setInt(12, character.getSlots());
-            stmt.setString(13, character.getAppearance());
-            stmt.setInt(14, character.getClassArmorBonus());
-            stmt.setInt(15, character.getId());
+            stmt.setString(6, character.getPlayerName()); // Novo campo adicionado
+            stmt.setInt(7, character.getExperience());
+            stmt.setInt(8, character.getHeight());
+            stmt.setInt(9, character.getWeight());
+            stmt.setInt(10, character.getCurrentPv());
+            stmt.setInt(11, character.getMaxPv());
+            stmt.setInt(12, character.getCurrencyId());
+            stmt.setInt(13, character.getSlots());
+            stmt.setString(14, character.getAppearance());
+            stmt.setInt(15, character.getClassArmorBonus());
+            stmt.setString(16, character.getBackground()); // Novo campo adicionado
+            stmt.setInt(17, character.getId());
 
             stmt.executeUpdate();
 
@@ -100,6 +105,7 @@ public class CharacterDAO extends CrudDAO<Character> {
                 character.setAlignmentId(resultSet.getInt("id_alignment"));
                 character.setClassId(resultSet.getInt("id_class"));
                 character.setName(resultSet.getString("name"));
+                character.setPlayerName(resultSet.getString("player_name")); // Novo campo adicionado
                 character.setExperience(resultSet.getInt("experience"));
                 character.setHeight(resultSet.getInt("height"));
                 character.setWeight(resultSet.getInt("weight"));
@@ -109,6 +115,7 @@ public class CharacterDAO extends CrudDAO<Character> {
                 character.setSlots(resultSet.getInt("slots"));
                 character.setAppearance(resultSet.getString("appearance"));
                 character.setClassArmorBonus(resultSet.getInt("class_armor_bonus"));
+                character.setBackground(resultSet.getString("background")); // Novo campo adicionado
 
                 characterMap.put(character.getId(), character);
             }

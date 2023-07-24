@@ -213,11 +213,15 @@ public class CreateCharacterAttributesController {
         textField.setTextFormatter(textFormatter);
     }
 
+    @FXML
+    void myCharacterMenuButtonAction(ActionEvent event) {
+        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        paneManager.openPane("myCharactersPane");
+    }
 
     @FXML
     void backgroundCharacterButtonAction(ActionEvent event) {
-        //CreateCharacterBackgroundController.setCharacter(character);
-        //saveCharacter("createCharacterBackgroundPane");
+        saveCharacter("createCharacterBackgroundPane");
     }
 
     @FXML
@@ -246,8 +250,7 @@ public class CreateCharacterAttributesController {
     }
 
     @FXML
-    public void attributesCharacterButtonAction(ActionEvent event) {
-    }
+    public void attributesCharacterButtonAction(ActionEvent event) {}
 
     @FXML
     void conFieldAction(ActionEvent event) {

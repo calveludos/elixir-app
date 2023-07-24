@@ -22,4 +22,10 @@ public class newCharacterController {
         paneManager.openPane("createCharacterDatePane");
     }
 
+    @FXML
+    void myCharacterMenuButtonAction(ActionEvent event) {
+        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        paneManager.openPane("myCharactersPane");
+    }
+
 }

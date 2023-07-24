@@ -172,6 +172,11 @@
                <Font name="P052-Italic" size="12.0" />
            </font>
        </Button>
+       <Button fx:id="myCharacterMenuButton" layoutX="10.0" layoutY="191.0" mnemonicParsing="false" onAction="#myCharacterMenuButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="VER FICHA" textFill="WHITE">
+           <font>
+               <Font name="P052-Italic" size="12.0" />
+           </font>
+       </Button>
 
    </children>
  </AnchorPane>

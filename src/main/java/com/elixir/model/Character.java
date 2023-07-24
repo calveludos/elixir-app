@@ -10,7 +10,8 @@ public class Character extends Model implements Serializable {
     private int alignmentId;
     private int classId;
     private String name;
-    private int experience = -1;
+    private String playerName;
+    private int experience;
     private int height;
     private int weight;
     private int currentPv;
@@ -19,17 +20,19 @@ public class Character extends Model implements Serializable {
     private int slots;
     private String appearance;
     private int classArmorBonus;
+    private String background;
 
     // Construtor
     public Character() {
     }
 
-    public Character(int attributeId, int raceId, int alignmentId, int classId, String name, int experience, int height, int weight, int currentPv, int maxPv, int currencyId, int slots, String appearance, int classArmorBonus) {
+    public Character(int attributeId, int raceId, int alignmentId, int classId, String name, String playerName, int experience, int height, int weight, int currentPv, int maxPv, int currencyId, int slots, String appearance, int classArmorBonus, String background) {
         setAttributeId(attributeId);
         setRaceId(raceId);
         setAlignmentId(alignmentId);
         setClassId(classId);
         setName(name);
+        setPlayerName(playerName);
         setExperience(experience);
         setHeight(height);
         setWeight(weight);
@@ -39,6 +42,7 @@ public class Character extends Model implements Serializable {
         setSlots(slots);
         setAppearance(appearance);
         setClassArmorBonus(classArmorBonus);
+        setBackground(background);
     }
 
     // Getters e Setters
@@ -94,6 +98,14 @@ public class Character extends Model implements Serializable {
             throw new IllegalArgumentException("Seu nome precisa contar pelo menos um caractere.");
         }
         this.name = name;
+    }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
     }
 
     public int getExperience() {
@@ -187,6 +199,14 @@ public class Character extends Model implements Serializable {
 
     public void setClassArmorBonus(int classArmorBonus) {
         this.classArmorBonus = classArmorBonus;
+    }
+
+    public String getBackground() {
+        return background;
+    }
+
+    public void setBackground(String background) {
+        this.background = background;
     }
 
     // Equals e HashCode

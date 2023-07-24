@@ -46,7 +46,7 @@
         </Label>
       <ImageView fitHeight="222.0" fitWidth="229.0" layoutX="310.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@media/ccc751a5-84b7-4430-b402-2caf35b800c0.jpg" />
+            <Image url="@../media/newCharacterPaneImage.jpg" />
          </image>
       </ImageView>
       <Button fx:id="createCharacterButton" layoutX="355.0" layoutY="373.0" mnemonicParsing="false" onAction="#createCharacterButtonAction" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: #00801B; -fx-border-color: #000000; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="COMEÇAR A CRIAR" textFill="WHITE">
@@ -54,5 +54,10 @@
             <Font name="P052-Italic" size="12.0" />
          </font>
       </Button>
+        <Button fx:id="myCharacterMenuButton" layoutX="10.0" layoutY="191.0" mnemonicParsing="false" onAction="#myCharacterMenuButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="VER FICHA" textFill="WHITE">
+            <font>
+                <Font name="P052-Italic" size="12.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>

@@ -48,8 +48,13 @@ public class CreateCharacterRaceController {
 
     @FXML
     void backgroundCharacterButtonAction(ActionEvent event) {
-        //CreateCharacterBackgroundController.setCharacter(character);
-        //saveCharacter("createCharacterBackgroundPane");
+        saveCharacter("createCharacterBackgroundPane");
+    }
+
+    @FXML
+    void myCharacterMenuButtonAction(ActionEvent event) {
+        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        paneManager.openPane("myCharactersPane");
     }
 
     @FXML
@@ -78,8 +83,7 @@ public class CreateCharacterRaceController {
     }
 
     @FXML
-    public void raceCharacterButtonAction(ActionEvent event) {
-    }
+    public void raceCharacterButtonAction(ActionEvent event) {}
 
     @FXML
     void choiseDwarfButtonAction(ActionEvent event) {

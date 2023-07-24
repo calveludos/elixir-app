@@ -8,4 +8,5 @@ module com.app {
     exports com.elixir;
     requires com.fasterxml.jackson.core;
     requires com.fasterxml.jackson.databind;
+    opens media;
 }

@@ -90,8 +90,7 @@ public class CreateCharacterClassController {
 
     @FXML
     public void backgroundCharacterButtonAction(ActionEvent event) {
-        //CreateCharacterBackgroundController.setCharacter(character);
-        //saveCharacter("createCharacterBackgroundPane");
+        saveCharacter("createCharacterBackgroundPane");
     }
     @FXML
     public void raceCharacterButtonAction(ActionEvent event) {
@@ -115,12 +114,17 @@ public class CreateCharacterClassController {
 
     @FXML
     public void nextClassButtonAction(ActionEvent event) {
-        //CreateCharacterBackgroundController.setCharacter(character);
-        //saveCharacter("createCharacterBackgroundPane");
+        saveCharacter("createCharacterBackgroundPane");
     }
 
     @FXML
     public void classCharacterButtonAction(ActionEvent event) {
+    }
+
+    @FXML
+    void myCharacterMenuButtonAction(ActionEvent event) {
+        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        paneManager.openPane("myCharactersPane");
     }
 
     public void saveCharacter(String fxml) {

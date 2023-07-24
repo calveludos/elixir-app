@@ -7,15 +7,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.ObjectInputStream;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class CreateCharacterDateController {
@@ -60,7 +54,10 @@ public class CreateCharacterDateController {
             if (!newValue.matches("\\d*")) {
                 levelField.getEditor().setText(oldValue);
             } else {
-                int value = Integer.parseInt(newValue);
+                int value = 1;
+                try {
+                    value = Integer.parseInt(newValue);
+                } catch (Exception ignored) {}
                 if (value < 1 || value > 20) {
                     levelField.getEditor().setText(oldValue);
                 }
@@ -68,7 +65,7 @@ public class CreateCharacterDateController {
         });
 
         nameField.textProperty().addListener((object, oldValue, newValue) -> {
-            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9]*")) {
+            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9 ]*")) {
                 nameField.textProperty().setValue(oldValue);
             } else {
                 nameField.textProperty().setValue(newValue);
@@ -76,7 +73,7 @@ public class CreateCharacterDateController {
         });
 
         namePlayerField.textProperty().addListener((object, oldValue, newValue) -> {
-            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9]*")) {
+            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9 ]*")) {
                 namePlayerField.textProperty().setValue(oldValue);
             } else {
                 namePlayerField.textProperty().setValue(newValue);
@@ -120,6 +117,7 @@ public class CreateCharacterDateController {
         try{
             if (!character.isDateNull()){
                 nameField.setText(character.getName());
+                namePlayerField.setText(character.getPlayerName());
                 apperanceField.setText(character.getAppearance());
                 levelField.getValueFactory().setValue(character.getExperience());
                 aliagmentSelectionFiled.setText(alignmentIdMap.get(character.getAlignmentId()));
@@ -131,8 +129,7 @@ public class CreateCharacterDateController {
 
     @FXML
     void backgroundCharacterButtonAction(ActionEvent event) {
-        //CreateCharacterBackgroundController.setCharacter(character);
-        //saveCharacter("createCharacterBackgroundPane");
+        saveCharacter("createCharacterBackgroundPane");
     }
 
     @FXML
@@ -156,13 +153,18 @@ public class CreateCharacterDateController {
     }
 
     @FXML
+    void myCharacterMenuButtonAction(ActionEvent event) {
+        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        paneManager.openPane("myCharactersPane");
+    }
+
+    @FXML
     void nextDateButtonAction(ActionEvent event) {
         saveCharacter("createCharacterAttributesPane");
     }
 
     @FXML
-    public void dateCharacterButtonAction(ActionEvent event) {
-    }
+    public void dateCharacterButtonAction(ActionEvent event) {}
 
     @FXML
     void ordeiroSelected(ActionEvent event){
@@ -187,7 +189,9 @@ public class CreateCharacterDateController {
             character.setName(nameField.getText());
             character.setExperience(levelField.getValue());
             character.setAppearance(apperanceField.getText());
+            character.setPlayerName(namePlayerField.getText());
         } catch (IllegalArgumentException e) {
+            e.printStackTrace();
             errorLabel.setText("ERRO! " + e.getMessage());
             return;
         }

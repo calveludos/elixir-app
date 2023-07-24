@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.myCharactersController">
+   <children>
+      <VBox fx:id="root" prefHeight="740.0" prefWidth="914.0">
+         <children>
+            <HBox fx:id="topMenu" prefHeight="82.0" style="-fx-background-color: #142433;">
+               <children>
+                  <Pane prefHeight="90.0" prefWidth="51.0" />
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label contentDisplay="CENTER" text="ELIXIR MAKER" textFill="WHITE">
+                           <font>
+                              <Font name="P052-Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Line endX="29.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox fx:id="bodyPane" prefHeight="657.6" prefWidth="914.0">
+               <children>
+                  <VBox fx:id="leftMenu" alignment="TOP_CENTER" maxWidth="120.0" minWidth="120.0" prefHeight="657.6" prefWidth="120.0" style="-fx-background-color: #295264;">
+                     <children>
+                        <Label alignment="TOP_CENTER" text="MENU" textFill="#110000">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Button fx:id="createCharacterMenuButton" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#createCharacterButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="CRIAR FICHA" textFill="WHITE">
+                           <font>
+                              <Font name="P052-Italic" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button fx:id="myCharacterMenuButton" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#myCharacterMenuButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="VER FICHA" textFill="WHITE">
+                           <font>
+                              <Font name="P052-Italic" size="12.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="bodySheet" maxWidth="850.0" minWidth="120.0" prefHeight="658.0" prefWidth="850.0">
+                     <children>
+                        <Label prefHeight="30.0" prefWidth="120.0" text="OldDragon" textFill="#110000">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <HBox fx:id="dataPane" prefHeight="70.0" prefWidth="794.0">
+                           <children>
+                              <VBox prefHeight="70.0" prefWidth="172.0">
+                                 <children>
+                                    <Label prefHeight="18.0" prefWidth="38.0" text="Nome" textFill="#110000" />
+                                    <Label fx:id="chosenRaceLabel" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;">
+                                       <font>
+                                          <Font name="System Bold Italic" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="70.0" prefWidth="172.0">
+                                 <children>
+                                    <Label layoutX="306.0" layoutY="134.0" prefHeight="18.0" prefWidth="67.0" text="Raça/Classe" textFill="#110000" />
+                                    <Label fx:id="chosenRaceLabel1" layoutX="306.0" layoutY="150.0" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="306.0" AnchorPane.rightAnchor="447.0" AnchorPane.topAnchor="150.0">
+                                       <font>
+                                          <Font name="System Bold Italic" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="70.0" prefWidth="172.0">
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <Label prefHeight="18.0" prefWidth="67.0" text="Nível" textFill="#110000" />
+                                    <Label fx:id="chosenRaceLabel11" prefHeight="40.0" prefWidth="45.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;">
+                                       <font>
+                                          <Font name="System Bold Italic" size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="dataPane1" prefHeight="70.0" prefWidth="794.0">
+                           <children>
+                              <VBox fx:id="strVBox" prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
+                                 <children>
+                                    <HBox fx:id="dataPane11" style="-fx-background-color: #000000;">
+                                       <children>
+                                          <Label fx:id="chosenRaceLabel2" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="FOR" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="dataPane111" prefHeight="70.0" prefWidth="157.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Ataque" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel111" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane112" prefHeight="70.0" prefWidth="178.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Dano" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel1113" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="174.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Carga Permitida" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel1114" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane11213" prefHeight="70.0" prefWidth="174.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Arrombar Portas" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel11143" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane11214" prefHeight="70.0" prefWidth="174.0">
+                                       <children>
+                                          <VBox prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label prefHeight="18.0" prefWidth="99.0" text="Entortar Barras e" textFill="#110000" />
+                                                <Label prefHeight="18.0" prefWidth="99.0" text="Erguer Portões" textFill="#110000" />
+                                             </children>
+                                          </VBox>
+                                          <Label fx:id="chosenRaceLabel11144" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
+                                 <children>
+                                    <HBox fx:id="dataPane111" style="-fx-background-color: #000000;">
+                                       <children>
+                                          <Label fx:id="chosenRaceLabel21" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="DES" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="dataPane1111" prefHeight="70.0" prefWidth="157.0">
+                                       <children>
+                                          <VBox prefHeight="200.0" prefWidth="100.0">
+                                             <children>
+                                                <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Ataque" textFill="#110000" />
+                                                <Label prefHeight="18.0" prefWidth="99.0" text="à Distância" textFill="#110000" />
+                                             </children>
+                                          </VBox>
+                                          <Label fx:id="chosenRaceLabel1111" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="178.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Defesa" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel11131" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane11211" prefHeight="70.0" prefWidth="174.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Carga Permitida" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel11141" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
+                                 <children>
+                                    <HBox fx:id="dataPane111" style="-fx-background-color: #000000;">
+                                       <children>
+                                          <Label fx:id="chosenRaceLabel22" prefHeight="46.0" prefWidth="62.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="CON" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="8.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
+                                             <HBox.margin>
+                                                <Insets left="8.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="dataPane1112" prefHeight="70.0" prefWidth="157.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de PV" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel1112" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="178.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Proteção" textFill="#110000">
+                                             <font>
+                                                <Font size="11.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="chosenRaceLabel11132" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane11212" prefHeight="70.0" prefWidth="174.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Carga Permitida" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel11142" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox fx:id="dataPane11" prefHeight="70.0" prefWidth="794.0">
+                           <children>
+                              <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
+                                 <children>
+                                    <HBox fx:id="dataPane111" style="-fx-background-color: #000000;">
+                                       <children>
+                                          <Label fx:id="chosenRaceLabel21" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="INT" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="dataPane111" prefHeight="70.0" prefWidth="157.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Ataque" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel1111" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="178.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Dano" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel11131" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="174.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Carga Permitida" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel11141" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
+                                 <children>
+                                    <HBox fx:id="dataPane111" style="-fx-background-color: #000000;">
+                                       <children>
+                                          <Label fx:id="chosenRaceLabel211" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="SAB" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="dataPane11111" prefHeight="70.0" prefWidth="157.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Ataque" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel11111" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="178.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Dano" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel111311" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane112111" prefHeight="70.0" prefWidth="174.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Carga Permitida" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel111411" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
+                                 <children>
+                                    <HBox fx:id="dataPane1111" style="-fx-background-color: #000000;">
+                                       <children>
+                                          <Label fx:id="chosenRaceLabel221" prefHeight="46.0" prefWidth="62.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="CHA" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
+                                             <HBox.margin>
+                                                <Insets left="8.0" />
+                                             </HBox.margin>
+                                          </Circle>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="dataPane11121" prefHeight="70.0" prefWidth="157.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Ataque" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel11121" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane11211" prefHeight="70.0" prefWidth="178.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Dano" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel111321" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="dataPane112121" prefHeight="70.0" prefWidth="174.0">
+                                       <children>
+                                          <Label prefHeight="18.0" prefWidth="99.0" text="Carga Permitida" textFill="#110000" />
+                                          <Label fx:id="chosenRaceLabel111421" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                             <font>
+                                                <Font name="System Bold Italic" size="13.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="3.0" left="3.0" top="5.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="10.0" />
+                                 </HBox.margin>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

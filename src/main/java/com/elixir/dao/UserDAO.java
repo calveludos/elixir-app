@@ -6,6 +6,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class UserDAO extends CrudDAO<User> {
 
         try {
             conn = ConnectionFactory.createConnection();
-            stmt = conn.prepareStatement(query);
+            stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, user.getEmail());
             stmt.setString(2, user.getUserName());
             stmt.setString(3, user.getName());
