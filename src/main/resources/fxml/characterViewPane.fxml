@@ -6,12 +6,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.myCharactersController">
+<AnchorPane id="AnchorPane" prefHeight="740.0" prefWidth="913.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CharacterViewController">
    <children>
       <VBox fx:id="root" prefHeight="740.0" prefWidth="914.0">
          <children>
@@ -75,12 +76,12 @@
                                     <Insets left="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <HBox fx:id="dataPane2" prefHeight="70.0" prefWidth="794.0">
+                              <HBox prefHeight="70.0" prefWidth="794.0">
                                  <children>
                                     <VBox prefHeight="60.0" prefWidth="190.0">
                                        <children>
                                           <Label prefHeight="18.0" prefWidth="38.0" text="Nome" textFill="#110000" />
-                                          <Label fx:id="chosenRaceLabel1" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;">
+                                          <Label fx:id="nameLabel" prefHeight="38.0" prefWidth="179.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;">
                                              <font>
                                                 <Font name="System Bold Italic" size="18.0" />
                                              </font>
@@ -93,7 +94,7 @@
                                     <VBox prefHeight="60.0" prefWidth="185.0">
                                        <children>
                                           <Label layoutX="306.0" layoutY="134.0" prefHeight="18.0" prefWidth="103.0" text="Nome do Jogador" textFill="#110000" />
-                                          <Label fx:id="chosenRaceLabel11" layoutX="306.0" layoutY="150.0" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="306.0" AnchorPane.rightAnchor="447.0" AnchorPane.topAnchor="150.0">
+                                          <Label fx:id="playerNameLabel" layoutX="306.0" layoutY="150.0" prefHeight="40.0" prefWidth="183.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="306.0" AnchorPane.rightAnchor="447.0" AnchorPane.topAnchor="150.0">
                                              <font>
                                                 <Font name="System Bold Italic" size="20.0" />
                                              </font>
@@ -109,7 +110,7 @@
                                        </HBox.margin>
                                        <children>
                                           <Label prefHeight="18.0" prefWidth="67.0" text="Nível (XP)" textFill="#110000" />
-                                          <Label fx:id="chosenRaceLabel112" prefHeight="40.0" prefWidth="103.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;">
+                                          <Label fx:id="levelLabel" prefHeight="40.0" prefWidth="103.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;">
                                              <font>
                                                 <Font name="System Bold Italic" size="20.0" />
                                              </font>
@@ -118,12 +119,12 @@
                                     </VBox>
                                  </children>
                               </HBox>
-                              <HBox fx:id="dataPane" prefHeight="70.0" prefWidth="794.0">
+                              <HBox prefHeight="70.0" prefWidth="794.0">
                                  <children>
                                     <VBox prefHeight="70.0" prefWidth="172.0">
                                        <children>
                                           <Label prefHeight="18.0" prefWidth="38.0" text="Raça" textFill="#110000" />
-                                          <Label fx:id="chosenRaceLabel" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;">
+                                          <Label fx:id="raceLabel" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;">
                                              <font>
                                                 <Font name="System Bold Italic" size="18.0" />
                                              </font>
@@ -136,7 +137,7 @@
                                     <VBox prefHeight="60.0" prefWidth="202.0">
                                        <children>
                                           <Label layoutX="306.0" layoutY="134.0" prefHeight="18.0" prefWidth="122.0" text="Classe | Especialização" textFill="#110000" />
-                                          <Label fx:id="chosenRaceLabel1" layoutX="306.0" layoutY="150.0" prefHeight="40.0" prefWidth="194.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="306.0" AnchorPane.rightAnchor="447.0" AnchorPane.topAnchor="150.0">
+                                          <Label fx:id="classEspecLabel" layoutX="306.0" layoutY="150.0" prefHeight="40.0" prefWidth="194.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="306.0" AnchorPane.rightAnchor="447.0" AnchorPane.topAnchor="150.0">
                                              <font>
                                                 <Font name="System Bold Italic" size="20.0" />
                                              </font>
@@ -149,7 +150,7 @@
                                     <VBox prefHeight="70.0" prefWidth="172.0">
                                        <children>
                                           <Label layoutX="306.0" layoutY="134.0" prefHeight="18.0" prefWidth="122.0" text="Alinhamento" textFill="#110000" />
-                                          <Label fx:id="chosenRaceLabel12" layoutX="306.0" layoutY="150.0" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="306.0" AnchorPane.rightAnchor="447.0" AnchorPane.topAnchor="150.0">
+                                          <Label fx:id="aligmentLabel" layoutX="306.0" layoutY="150.0" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="306.0" AnchorPane.rightAnchor="447.0" AnchorPane.topAnchor="150.0">
                                              <font>
                                                 <Font name="System Bold Italic" size="20.0" />
                                              </font>
@@ -161,15 +162,15 @@
                                     </VBox>
                                  </children>
                               </HBox>
-                              <HBox fx:id="dataPane1" prefHeight="70.0" prefWidth="794.0">
+                              <HBox prefHeight="70.0" prefWidth="794.0">
                                  <children>
-                                    <VBox fx:id="strVBox" prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
+                                    <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
                                        <children>
-                                          <HBox fx:id="dataPane11" style="-fx-background-color: #000000;">
+                                          <HBox style="-fx-background-color: #000000;">
                                              <children>
                                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                                    <children>
-                                                      <Label fx:id="chosenRaceLabel2" alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="FOR" textFill="WHITE">
+                                                      <Label alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="FOR" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="24.0" />
                                                          </font>
@@ -177,7 +178,7 @@
                                                             <Insets left="10.0" right="10.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="chosenRaceLabel23" alignment="TOP_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Força" textFill="WHITE">
+                                                      <Label alignment="TOP_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Força" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="14.0" />
                                                          </font>
@@ -187,17 +188,20 @@
                                                       </Label>
                                                    </children>
                                                 </VBox>
-                                                <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
+                                                <StackPane>
+                                                   <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                                   <Label fx:id="strLabel">
+                                                      <font>
+                                                         <Font name="System Bold" size="24.0" />
+                                                      </font>
+                                                   </Label>
+                                                </StackPane>
                                              </children>
                                           </HBox>
-                                          <HBox fx:id="dataPane111" prefHeight="70.0" prefWidth="157.0">
+                                          <HBox prefHeight="70.0" prefWidth="157.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Ataque" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel111" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="attackAjustLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -207,10 +211,10 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane112" prefHeight="70.0" prefWidth="178.0">
+                                          <HBox prefHeight="70.0" prefWidth="178.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Dano" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel1113" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="damageAjustLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -220,10 +224,10 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="174.0">
+                                          <HBox prefHeight="70.0" prefWidth="174.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Carga Permitida" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel1114" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="chargeLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -240,11 +244,11 @@
                                     </VBox>
                                     <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
                                        <children>
-                                          <HBox fx:id="dataPane111" prefHeight="98.0" prefWidth="150.0" style="-fx-background-color: #000000;">
+                                          <HBox prefHeight="98.0" prefWidth="150.0" style="-fx-background-color: #000000;">
                                              <children>
                                                 <VBox prefHeight="87.0" prefWidth="87.0">
                                                    <children>
-                                                      <Label fx:id="chosenRaceLabel23" alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="DES" textFill="WHITE">
+                                                      <Label alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="DES" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="24.0" />
                                                          </font>
@@ -252,7 +256,7 @@
                                                             <Insets left="10.0" right="10.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="chosenRaceLabel231" alignment="TOP_CENTER" prefHeight="30.0" prefWidth="71.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Destreza" textFill="WHITE">
+                                                      <Label alignment="TOP_CENTER" prefHeight="30.0" prefWidth="71.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Destreza" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="14.0" />
                                                          </font>
@@ -262,14 +266,19 @@
                                                       </Label>
                                                    </children>
                                                 </VBox>
-                                                <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
+                                                <StackPane>
+                                                   <children>
+                                                      <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                                      <Label fx:id="dexLabel">
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
                                              </children>
                                           </HBox>
-                                          <HBox fx:id="dataPane1111" prefHeight="70.0" prefWidth="157.0">
+                                          <HBox prefHeight="70.0" prefWidth="157.0">
                                              <children>
                                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                                    <children>
@@ -277,7 +286,7 @@
                                                       <Label prefHeight="18.0" prefWidth="99.0" text="à Distância" textFill="#110000" />
                                                    </children>
                                                 </VBox>
-                                                <Label fx:id="chosenRaceLabel1111" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="attackDistanceAjustLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -287,10 +296,10 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="178.0">
+                                          <HBox prefHeight="70.0" prefWidth="178.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Defesa" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel11131" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="defenseAjustLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -307,11 +316,11 @@
                                     </VBox>
                                     <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
                                        <children>
-                                          <HBox fx:id="dataPane111" style="-fx-background-color: #000000;">
+                                          <HBox style="-fx-background-color: #000000;">
                                              <children>
                                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                                    <children>
-                                                      <Label fx:id="chosenRaceLabel22" alignment="BOTTOM_CENTER" prefHeight="45.0" prefWidth="64.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="CON" textFill="WHITE">
+                                                      <Label alignment="BOTTOM_CENTER" prefHeight="45.0" prefWidth="64.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="CON" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="24.0" />
                                                          </font>
@@ -319,7 +328,7 @@
                                                             <Insets left="10.0" right="10.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="chosenRaceLabel232" alignment="TOP_CENTER" prefHeight="46.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Constituição" textFill="WHITE">
+                                                      <Label alignment="TOP_CENTER" prefHeight="46.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Constituição" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="11.0" />
                                                          </font>
@@ -329,17 +338,22 @@
                                                       </Label>
                                                    </children>
                                                 </VBox>
-                                                <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
-                                                   <HBox.margin>
-                                                      <Insets left="8.0" />
-                                                   </HBox.margin>
-                                                </Circle>
+                                                <StackPane>
+                                                   <children>
+                                                      <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                                      <Label fx:id="conLabel">
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
                                              </children>
                                           </HBox>
-                                          <HBox fx:id="dataPane1112" prefHeight="70.0" prefWidth="157.0">
+                                          <HBox prefHeight="70.0" prefWidth="157.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de PV" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel1112" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="pvAjustLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -349,14 +363,14 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="178.0">
+                                          <HBox prefHeight="70.0" prefWidth="178.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Proteção" textFill="#110000">
                                                    <font>
                                                       <Font size="11.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="chosenRaceLabel11132" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="protectionConAjustLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -366,10 +380,10 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane11212" prefHeight="70.0" prefWidth="174.0">
+                                          <HBox prefHeight="70.0" prefWidth="174.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="\% Ressureição" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel11142" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="resurrectionLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -386,15 +400,15 @@
                                     </VBox>
                                  </children>
                               </HBox>
-                              <HBox fx:id="dataPane11" prefHeight="70.0" prefWidth="794.0">
+                              <HBox prefHeight="70.0" prefWidth="794.0">
                                  <children>
                                     <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
                                        <children>
-                                          <HBox fx:id="dataPane111" style="-fx-background-color: #000000;">
+                                          <HBox style="-fx-background-color: #000000;">
                                              <children>
                                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                                    <children>
-                                                      <Label fx:id="chosenRaceLabel21" alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="INT" textFill="WHITE">
+                                                      <Label alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="INT" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="24.0" />
                                                          </font>
@@ -402,7 +416,7 @@
                                                             <Insets left="10.0" right="10.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="chosenRaceLabel233" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Inteligencia" textFill="WHITE">
+                                                      <Label alignment="TOP_LEFT" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Inteligencia" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="13.0" />
                                                          </font>
@@ -412,17 +426,22 @@
                                                       </Label>
                                                    </children>
                                                 </VBox>
-                                                <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
+                                                <StackPane>
+                                                   <children>
+                                                      <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                                      <Label fx:id="intLabel">
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
                                              </children>
                                           </HBox>
-                                          <HBox fx:id="dataPane111" prefHeight="70.0" prefWidth="157.0">
+                                          <HBox prefHeight="70.0" prefWidth="157.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Qntd. Idiomas" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel1111" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="languagesLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -432,14 +451,14 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="178.0">
+                                          <HBox prefHeight="70.0" prefWidth="178.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="\% Aprender Magia" textFill="#110000">
                                                    <font>
                                                       <Font size="11.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="chosenRaceLabel11131" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="learnMagicLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -449,7 +468,7 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane1121" prefHeight="70.0" prefWidth="174.0">
+                                          <HBox prefHeight="70.0" prefWidth="174.0">
                                              <children>
                                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                                    <children>
@@ -457,7 +476,7 @@
                                                       <Label prefHeight="18.0" prefWidth="99.0" text="Adicionais" textFill="#110000" />
                                                    </children>
                                                 </VBox>
-                                                <Label fx:id="chosenRaceLabel11141" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="arcaneMagicLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -474,11 +493,11 @@
                                     </VBox>
                                     <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
                                        <children>
-                                          <HBox fx:id="dataPane111" style="-fx-background-color: #000000;">
+                                          <HBox style="-fx-background-color: #000000;">
                                              <children>
                                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                                    <children>
-                                                      <Label fx:id="chosenRaceLabel23" alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="SAB" textFill="WHITE">
+                                                      <Label alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="SAB" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="24.0" />
                                                          </font>
@@ -486,7 +505,7 @@
                                                             <Insets left="10.0" right="10.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="chosenRaceLabel234" alignment="TOP_LEFT" prefHeight="46.0" prefWidth="77.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Sabedoria" textFill="WHITE">
+                                                      <Label alignment="TOP_LEFT" prefHeight="46.0" prefWidth="77.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Sabedoria" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="14.0" />
                                                          </font>
@@ -496,21 +515,26 @@
                                                       </Label>
                                                    </children>
                                                 </VBox>
-                                                <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
-                                                   <HBox.margin>
-                                                      <Insets left="10.0" />
-                                                   </HBox.margin>
-                                                </Circle>
+                                                <StackPane>
+                                                   <children>
+                                                      <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                                      <Label fx:id="wisLabel">
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
                                              </children>
                                           </HBox>
-                                          <HBox fx:id="dataPane11111" prefHeight="70.0" prefWidth="157.0">
+                                          <HBox prefHeight="70.0" prefWidth="157.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Proteção" textFill="#110000">
                                                    <font>
                                                       <Font size="11.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="chosenRaceLabel11111" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="protectionWisAjustLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -520,14 +544,14 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane112111" prefHeight="70.0" prefWidth="174.0">
+                                          <HBox prefHeight="70.0" prefWidth="174.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Surpresa" textFill="#110000">
                                                    <font>
                                                       <Font size="11.0" />
                                                    </font>
                                                 </Label>
-                                                <Label fx:id="chosenRaceLabel111411" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="surpriseAjustLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -537,15 +561,15 @@
                                                 <Insets bottom="3.0" left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane11213" prefHeight="70.0" prefWidth="174.0">
+                                          <HBox prefHeight="70.0" prefWidth="174.0">
                                              <children>
                                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                                    <children>
-                                                      <Label prefHeight="18.0" prefWidth="99.0" text="Magias Arcanas" textFill="#110000" />
+                                                      <Label prefHeight="18.0" prefWidth="99.0" text="Magias Divinas" textFill="#110000" />
                                                       <Label prefHeight="18.0" prefWidth="99.0" text="Adicionais" textFill="#110000" />
                                                    </children>
                                                 </VBox>
-                                                <Label fx:id="chosenRaceLabel111412" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="divineMagicLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -562,11 +586,11 @@
                                     </VBox>
                                     <VBox prefHeight="150.0" prefWidth="159.0" style="-fx-border-color: #000000; -fx-border-width: 5;">
                                        <children>
-                                          <HBox fx:id="dataPane1111" prefHeight="110.0" prefWidth="150.0" style="-fx-background-color: #000000;">
+                                          <HBox prefHeight="110.0" prefWidth="150.0" style="-fx-background-color: #000000;">
                                              <children>
                                                 <VBox prefHeight="200.0" prefWidth="100.0">
                                                    <children>
-                                                      <Label fx:id="chosenRaceLabel23" alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="CAR" textFill="WHITE">
+                                                      <Label alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="CAR" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="24.0" />
                                                          </font>
@@ -574,7 +598,7 @@
                                                             <Insets left="10.0" right="10.0" />
                                                          </VBox.margin>
                                                       </Label>
-                                                      <Label fx:id="chosenRaceLabel235" alignment="TOP_CENTER" prefHeight="7.0" prefWidth="62.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Carisma" textFill="WHITE">
+                                                      <Label alignment="TOP_CENTER" prefHeight="7.0" prefWidth="62.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Carisma" textFill="WHITE">
                                                          <font>
                                                             <Font name="System Bold" size="14.0" />
                                                          </font>
@@ -584,17 +608,22 @@
                                                       </Label>
                                                    </children>
                                                 </VBox>
-                                                <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
-                                                   <HBox.margin>
-                                                      <Insets left="8.0" />
-                                                   </HBox.margin>
-                                                </Circle>
+                                                <StackPane>
+                                                   <children>
+                                                      <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                                      <Label fx:id="chaLabel">
+                                                         <font>
+                                                            <Font name="System Bold" size="24.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
                                              </children>
                                           </HBox>
-                                          <HBox fx:id="dataPane11121" prefHeight="70.0" prefWidth="157.0">
+                                          <HBox prefHeight="70.0" prefWidth="157.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="N° de Seguidores" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel11121" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="followLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -604,10 +633,10 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane11211" prefHeight="70.0" prefWidth="178.0">
+                                          <HBox prefHeight="70.0" prefWidth="178.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Ajuste de Reação" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel111321" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="reactionAjustLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -617,10 +646,10 @@
                                                 <Insets left="3.0" top="5.0" />
                                              </VBox.margin>
                                           </HBox>
-                                          <HBox fx:id="dataPane112121" prefHeight="70.0" prefWidth="174.0">
+                                          <HBox prefHeight="70.0" prefWidth="174.0">
                                              <children>
                                                 <Label prefHeight="18.0" prefWidth="99.0" text="Mortos-vivos" textFill="#110000" />
-                                                <Label fx:id="chosenRaceLabel111421" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
+                                                <Label fx:id="monsterLabel" prefHeight="18.0" prefWidth="38.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-width: 2;">
                                                    <font>
                                                       <Font name="System Bold Italic" size="13.0" />
                                                    </font>
@@ -636,6 +665,160 @@
                                        </HBox.margin>
                                     </VBox>
                                  </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="186.0" style="-fx-border-color: black; -fx-border-width: 3;">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="42.0" prefWidth="180.0" style="-fx-background-color: BLACK;">
+                                             <children>
+                                                <Label alignment="CENTER" prefHeight="46.0" prefWidth="111.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Movimentação" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <StackPane>
+                                                   <children>
+                                                      <Circle fill="WHITE" radius="17.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                                      <Label fx:id="movimentLabel">
+                                                         <font>
+                                                            <Font name="System Bold" size="18.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </StackPane>
+                                             </children>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="7.0" prefWidth="178.0">
+                                             <children>
+                                                <VBox prefHeight="42.0" prefWidth="79.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Carga" textFill="#110000" />
+                                                      <Label fx:id="chargeMovimentLabel" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox prefHeight="42.0" prefWidth="79.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Raça" textFill="#110000" />
+                                                      <Label fx:id="raceMovimentLabel" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="42.0" prefWidth="79.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Armadura" textFill="#110000" />
+                                                      <Label fx:id="armorLabel" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets left="10.0" right="10.0" />
+                                       </opaqueInsets>
+                                    </VBox>
+                                    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="102.0" prefWidth="289.0" style="-fx-border-color: black; -fx-border-width: 3;">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="42.0" prefWidth="180.0" style="-fx-background-color: BLACK;">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="69.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Dinheiro" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label alignment="BOTTOM_RIGHT" prefHeight="42.0" prefWidth="168.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="RENDA INICIAL: 3D6 X 10 PO" textFill="WHITE">
+                                                   <font>
+                                                      <Font name="System Bold" size="11.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="7.0" prefWidth="178.0">
+                                             <children>
+                                                <VBox prefHeight="42.0" prefWidth="79.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Platina" textFill="#110000" />
+                                                      <Label fx:id="platinaLabel" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox prefHeight="42.0" prefWidth="79.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Eléctrum" textFill="#110000" />
+                                                      <Label fx:id="electrumLabel" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="42.0" prefWidth="79.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Ouro" textFill="#110000" />
+                                                      <Label fx:id="goldLabel" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="42.0" prefWidth="79.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Prata" textFill="#110000" />
+                                                      <Label fx:id="silverLabel" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                                <VBox prefHeight="42.0" prefWidth="79.0">
+                                                   <children>
+                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Cobre" textFill="#110000" />
+                                                      <Label fx:id="cupperLabel" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                         <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                         </font>
+                                                      </Label>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                       <opaqueInsets>
+                                          <Insets left="10.0" />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="15.0" top="6.0" />
+                                 </VBox.margin>
                               </HBox>
                            </children>
                            <opaqueInsets>
@@ -646,13 +829,70 @@
                   </HBox>
                   <VBox prefHeight="658.0" prefWidth="502.0">
                      <children>
+                        <Pane prefHeight="191.0" prefWidth="267.0">
+                           <children>
+                              <VBox layoutY="53.0" prefHeight="90.0" prefWidth="227.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="66.0" prefWidth="234.0" style="-fx-border-width: 3; -fx-border-color: BLACK;" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <StackPane>
+                                             <children>
+                                                <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                                <Label fx:id="maxPVLabel">
+                                                   <font>
+                                                      <Font name="System Bold" size="24.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </StackPane>
+                                          <VBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="58.0">
+                                             <children>
+                                                <Label text="PV">
+                                                   <font>
+                                                      <Font size="24.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label text="Pontos" />
+                                                <Label text="de Vida" />
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #000000; -fx-border-width: 3; -fx-border-radius: 15;">
+                                             <children>
+                                                <Label text="PV ATUAL">
+                                                   <font>
+                                                      <Font size="10.0" />
+                                                   </font></Label>
+                                                <Label fx:id="currentPVLabel" prefHeight="41.0" prefWidth="54.0">
+                                                   <font>
+                                                      <Font size="28.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </HBox>
+                                    <Label text="PV INICIAIS: DV + CONSTITUIÇÃO">
+                                       <font>
+                                          <Font size="10.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </Pane>
                         <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="186.0" prefWidth="186.0" style="-fx-border-color: black; -fx-border-width: 3;">
                            <children>
-                              <HBox prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: BLACK;">
+                              <HBox alignment="TOP_CENTER" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: BLACK;">
                                  <children>
                                     <VBox prefHeight="130.0" prefWidth="85.0">
                                        <children>
-                                          <Label fx:id="chosenRaceLabel23" alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="CA" textFill="WHITE">
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="CA" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="24.0" />
                                              </font>
@@ -660,7 +900,7 @@
                                                 <Insets left="10.0" right="10.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Label fx:id="chosenRaceLabel237" alignment="TOP_LEFT" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Classe de" textFill="WHITE">
+                                          <Label alignment="TOP_LEFT" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Classe de" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -668,7 +908,7 @@
                                                 <Insets left="3.0" top="-10.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Label fx:id="chosenRaceLabel2371" alignment="TOP_LEFT" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Armadura" textFill="WHITE">
+                                          <Label alignment="TOP_LEFT" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Armadura" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -678,15 +918,21 @@
                                           </Label>
                                        </children>
                                     </VBox>
-                                    <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
-                                       <HBox.margin>
-                                          <Insets top="5.0" />
-                                       </HBox.margin></Circle>
+                                    <StackPane>
+                                       <children>
+                                          <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                          <Label fx:id="caLabel">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </StackPane>
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="214.0">
                                  <children>
-                                    <Label fx:id="chosenRaceLabel236" alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="56.0" text="10 +">
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="56.0" text="10 +">
                                        <font>
                                           <Font name="System Bold" size="24.0" />
                                        </font>
@@ -698,7 +944,7 @@
                                                 <VBox prefHeight="42.0" prefWidth="79.0">
                                                    <children>
                                                       <Label prefHeight="18.0" prefWidth="122.0" text="Destreza" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel23721" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                      <Label fx:id="dexCALabel" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
                                                          <font>
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
@@ -708,7 +954,7 @@
                                                 <VBox prefHeight="42.0" prefWidth="79.0">
                                                    <children>
                                                       <Label prefHeight="18.0" prefWidth="122.0" text="Raça" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel237211" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                      <Label fx:id="raceCALabel" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
                                                          <font>
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
@@ -725,7 +971,7 @@
                                                 <VBox prefHeight="42.0" prefWidth="79.0">
                                                    <children>
                                                       <Label prefHeight="18.0" prefWidth="122.0" text="Armadura" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel237211" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                      <Label fx:id="armorCALabel" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
                                                          <font>
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
@@ -735,7 +981,7 @@
                                                 <VBox prefHeight="42.0" prefWidth="79.0">
                                                    <children>
                                                       <Label prefHeight="18.0" prefWidth="122.0" text="Outros" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel2372111" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                      <Label fx:id="bonusCALabel" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
                                                          <font>
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
@@ -755,11 +1001,11 @@
                         </VBox>
                         <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="186.0" prefWidth="186.0" style="-fx-border-color: black; -fx-border-width: 3;">
                            <children>
-                              <HBox prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: BLACK;">
+                              <HBox alignment="TOP_CENTER" prefHeight="82.0" prefWidth="180.0" style="-fx-background-color: BLACK;">
                                  <children>
                                     <VBox prefHeight="130.0" prefWidth="85.0">
                                        <children>
-                                          <Label fx:id="chosenRaceLabel236" alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="JP" textFill="WHITE">
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="46.0" prefWidth="57.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="JP" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="24.0" />
                                              </font>
@@ -767,7 +1013,7 @@
                                                 <Insets left="10.0" right="10.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Label fx:id="chosenRaceLabel2371" alignment="TOP_LEFT" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Jogada de" textFill="WHITE">
+                                          <Label alignment="TOP_LEFT" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Jogada de" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -775,7 +1021,7 @@
                                                 <Insets left="3.0" top="-10.0" />
                                              </VBox.margin>
                                           </Label>
-                                          <Label fx:id="chosenRaceLabel23711" alignment="TOP_LEFT" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Proteção" textFill="WHITE">
+                                          <Label alignment="TOP_LEFT" prefHeight="27.0" prefWidth="78.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Proteção" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -785,11 +1031,16 @@
                                           </Label>
                                        </children>
                                     </VBox>
-                                    <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0">
-                                       <HBox.margin>
-                                          <Insets top="5.0" />
-                                       </HBox.margin>
-                                    </Circle>
+                                    <StackPane>
+                                       <children>
+                                          <Circle fill="WHITE" radius="26.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
+                                          <Label fx:id="jpLabel">
+                                             <font>
+                                                <Font name="System Bold" size="24.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </StackPane>
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -797,10 +1048,13 @@
                               </HBox>
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="214.0">
                                  <children>
-                                    <VBox alignment="CENTER" prefHeight="42.0" prefWidth="79.0">
+                                    <VBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="79.0">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="122.0" text="Base" textFill="#110000" />
-                                          <Label fx:id="chosenRaceLabel2372112" alignment="CENTER" prefHeight="27.0" prefWidth="52.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="122.0" text="Base" textFill="#110000">
+                                             <padding>
+                                                <Insets top="8.0" />
+                                             </padding></Label>
+                                          <Label fx:id="baseJPLabel" alignment="CENTER" prefHeight="27.0" prefWidth="52.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
@@ -814,7 +1068,7 @@
                                                 <VBox alignment="CENTER" prefHeight="42.0" prefWidth="79.0">
                                                    <children>
                                                       <Label prefHeight="18.0" prefWidth="122.0" text="Destreza" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel237211" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                      <Label fx:id="dexJPLabel" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
                                                          <font>
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
@@ -824,7 +1078,7 @@
                                                 <VBox prefHeight="42.0" prefWidth="79.0">
                                                    <children>
                                                       <Label prefHeight="18.0" prefWidth="122.0" text="Sabedoria" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel237211" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                      <Label fx:id="wisJPLabel" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
                                                          <font>
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
@@ -844,7 +1098,7 @@
                                                 <VBox prefHeight="42.0" prefWidth="79.0">
                                                    <children>
                                                       <Label prefHeight="18.0" prefWidth="122.0" text="Constituição" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel2372111" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
+                                                      <Label fx:id="conJPLabel" alignment="CENTER" prefHeight="27.0" prefWidth="78.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
                                                          <font>
                                                             <Font name="System Bold" size="12.0" />
                                                          </font>
@@ -859,81 +1113,8 @@
                               </HBox>
                            </children>
                            <VBox.margin>
-                              <Insets top="25.0" />
+                              <Insets top="15.0" />
                            </VBox.margin>
-                        </VBox>
-                        <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="101.0" prefWidth="186.0" style="-fx-border-color: black; -fx-border-width: 3;">
-                           <children>
-                              <HBox prefHeight="42.0" prefWidth="180.0" style="-fx-background-color: BLACK;">
-                                 <children>
-                                    <VBox alignment="CENTER" prefHeight="41.0" prefWidth="180.0">
-                                       <children>
-                                          <HBox alignment="CENTER" prefHeight="42.0" prefWidth="180.0">
-                                             <children>
-                                                <Label fx:id="chosenRaceLabel2361" alignment="CENTER" prefHeight="46.0" prefWidth="111.0" style="-fx-background-color: #000000; -fx-border-color: #000000; -fx-border-width: 5;" text="Movimentação" textFill="WHITE">
-                                                   <font>
-                                                      <Font name="System Bold" size="14.0" />
-                                                   </font>
-                                                </Label>
-                                                <Circle fill="WHITE" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="3.0" />
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="48.0" prefWidth="181.0">
-                                 <children>
-                                    <VBox alignment="CENTER" prefHeight="14.0" prefWidth="181.0">
-                                       <children>
-                                          <HBox alignment="CENTER" prefHeight="7.0" prefWidth="178.0">
-                                             <children>
-                                                <VBox prefHeight="42.0" prefWidth="79.0">
-                                                   <children>
-                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Carga" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel2372113" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
-                                                         <font>
-                                                            <Font name="System Bold" size="12.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                   <HBox.margin>
-                                                      <Insets left="5.0" />
-                                                   </HBox.margin>
-                                                </VBox>
-                                                <VBox prefHeight="42.0" prefWidth="79.0">
-                                                   <children>
-                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Raça" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel2372114" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
-                                                         <font>
-                                                            <Font name="System Bold" size="12.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </VBox>
-                                                <VBox prefHeight="42.0" prefWidth="79.0">
-                                                   <children>
-                                                      <Label prefHeight="18.0" prefWidth="122.0" text="Armadura" textFill="#110000" />
-                                                      <Label fx:id="chosenRaceLabel23721131" alignment="CENTER" prefHeight="26.0" prefWidth="47.0" style="-fx-border-color: #000000; -fx-border-width: 3;">
-                                                         <font>
-                                                            <Font name="System Bold" size="12.0" />
-                                                         </font>
-                                                      </Label>
-                                                   </children>
-                                                </VBox>
-                                             </children>
-                                             <VBox.margin>
-                                                <Insets right="3.0" />
-                                             </VBox.margin>
-                                          </HBox>
-                                       </children>
-                                    </VBox>
-                                 </children>
-                              </HBox>
-                           </children>
                         </VBox>
                      </children>
                   </VBox>

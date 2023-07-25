@@ -19,7 +19,7 @@ public class ObjectSaveManager<T> {
         System.out.println("Map criado");
     }
 
-    public void saveObject(String key, T object) {
+    public void saveObject(String key, Object object) {
         map.put(key, object);
         saveMapToFile();
         System.out.println("Objeto salvo com a chave: " + key);
@@ -58,5 +58,13 @@ public class ObjectSaveManager<T> {
             e.printStackTrace();
         }
         return new HashMap<>();
+    }
+    public void printMap() {
+        System.out.println("Conteúdo do mapa:");
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+            System.out.println("Chave: " + key + ", Valor: " + value);
+        }
     }
 }

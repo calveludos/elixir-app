@@ -19,7 +19,6 @@ class ObjectSaveManagerTest {
     @Test
     void readObjects() {
         ObjectSaveManager<String> reader = new ObjectSaveManager<>();
-        Object map = reader.getObject("String 1");
-        System.out.println(map.toString());
+        reader.printMap();
     }
 }

@@ -1,6 +1,8 @@
 package com.elixir;
 
+import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
+import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,22 +27,23 @@ public class myCharactersController {
     @FXML
     private HBox hboxCharacters;
 
+    private Map<Integer, Character> characterMap;
+
     @FXML
     private void initialize(){
-        Map<Integer, Character> characters = null;
 
         try {
             CharacterDAO characterDAO = new CharacterDAO();
-            characters = characterDAO.read();
+            characterMap = characterDAO.read();
         } catch (SQLException e){
             e.printStackTrace();
         }
 
-        if (!characters.isEmpty()) {
-            int sizeCharacters = characters.size();
+        if (!characterMap.isEmpty()) {
+            int sizeCharacters = characterMap.size();
             int current = 0;
 
-            for (Character character : characters.values()) {
+            for (Character character : characterMap.values()) {
                 current++;
                 boolean isLast = sizeCharacters == current;
                 hboxCharacters.getChildren().add(createCharacterPane(character, isLast));
@@ -105,6 +108,24 @@ public class myCharactersController {
         hBox.setId(String.valueOf(character.getId()));
 
         hBox.setOnMouseClicked(mouseEvent -> {
+            ObjectSaveManager<Character> saver = new ObjectSaveManager<>();
+            AttributeDAO attributeDAO = new AttributeDAO();
+            Map<Integer, Attribute> attributeMap;
+
+            try {
+                attributeMap = attributeDAO.read();
+            } catch (SQLException e){
+                e.printStackTrace();
+                return;
+            }
+            saver.cleanObjects();
+            saver.saveObject("character", characterMap.get(character.getId()));
+            saver.saveObject("attribute", attributeMap.get(character.getAttributeId()));
+
+            saver.printMap();
+
+            PaneManager paneManager = new PaneManager((Stage) myCharacterMenuButton.getScene().getWindow());
+            paneManager.openPane("characterViewPane");
 
         });
 

@@ -14,6 +14,6 @@ class CharacterDAOTest {
         character.setExperience(6);
         character.setAlignmentId(1);
         character.setAppearance("Bonito");
-        character.setAttributeId();
+        character.setAttributeId(2);
     }
 }
