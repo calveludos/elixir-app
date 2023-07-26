@@ -1,0 +1,198 @@
+{
+  "classes": [
+    {
+      "id": 1,
+      "name": "Humano",
+      "dicePv": "1d10",
+      "minHeight": 1.60,
+      "maxHeight": 1.90,
+      "minWeight": 55,
+      "maxWeight": 90,
+      "matureAge": 15,
+      "lifeExpect": 70,
+      "languages": [1],
+      "bonus": {
+        "attribute":  {
+          "str": 0,
+          "dex": 0,
+          "con": 0,
+          "int": 0,
+          "wis": 0,
+          "cha": 0
+        },
+        "attack":  0,
+        "class armor": 0
+      },
+      "moveBase": 9,
+      "alignment": [1],
+      "vision": {
+        "dark": 0,
+        "twilight": 0
+      },
+      "abilities": "N/A"
+    },
+    {
+      "id": 2,
+      "name": "Anão",
+      "dicePv": "1d10",
+      "minHeight": 1.30,
+      "maxHeight": 1.50,
+      "minWeight": 50,
+      "maxWeight": 70,
+      "matureAge": 70,
+      "lifeExpect": 350,
+      "languages": [1, 2, 8],
+      "bonus": {
+        "attribute": {
+          "str": 0,
+          "dex": 2,
+          "con": 0,
+          "int": 0,
+          "wis": 0,
+          "cha": 0
+        },
+        "attack": 0,
+        "class armor": 6
+      },
+      "moveBase": 6,
+      "alignment": [1],
+      "vision": {
+        "dark": 15,
+        "twilight": 0
+      },
+      "abilities": "Detectar desníveis, fossos ou armadilhas de pedra com resultado de 1 ou 2 em 1d6"
+    },
+    {
+      "id": 3,
+      "name": "Elfo",
+      "dicePv": "1d6",
+      "minHeight": 1.50,
+      "maxHeight": 1.70,
+      "minWeight": 40,
+      "maxWeight": 50,
+      "matureAge": 150,
+      "lifeExpect": 700,
+      "languages": [2, 3, 4, 5],
+      "bonus": {
+        "attribute": {
+          "str": 0,
+          "dex": 2,
+          "con": -2,
+          "int": 0,
+          "wis": 0,
+          "cha": 0
+        },
+        "attack": 1,
+        "class armor": 0
+      },
+      "moveBase": 9,
+      "alignment": [1],
+      "vision": {
+        "dark": 0,
+        "twilight": 50
+      },
+      "abilities": [
+        "Visão na penumbra: Os elfos podem enxergar normalmente em condições de baixa luminosidade, com alcance de até 50 metros.",
+        "Arqueiro: Recebem um bônus de +1 para acertar quando empunham um arco.",
+        "Percepção de Passagens Secretas: Detectam passagens secretas passivamente com resultado 1 em 1d6 e ativamente com 1 e 2 em 1d6.",
+        "Imunidade a Efeitos de Sono: Elfos não dormem, sendo imunes a magias ou efeitos que envolvam sono."
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Halfling",
+      "dicePv": "1d10",
+      "minHeight": 0.70,
+      "maxHeight": 0.90,
+      "minWeight": 20,
+      "maxWeight": 35,
+      "matureAge": 30,
+      "lifeExpect": 70,
+      "languages": [1, 7],
+      "bonus": {
+        "attribute": {
+          "str": -2,
+          "dex": 2,
+          "con": 0,
+          "int": 0,
+          "wis": 0,
+          "cha": 0
+        },
+        "attack": 1,
+        "class armor": 2
+      },
+      "moveBase": 6,
+      "alignment": [1, 2],
+      "vision": {
+        "dark": 0,
+        "twilight": 0
+      },
+      "abilities": [
+        "Bom de mira: Recebem um bônus de +1 no ataque ao utilizar uma arma de arremesso.",
+        "Pequeno: Recebem um bônus de +2 na classe de armadura contra alvos grandes ou maiores.",
+        "Furtivo: Possuem 10% de chance de passarem furtivamente ou de esconder-se.",
+        "Movimentação: Halflings possuem movimento reduzido devido às suas pernas curtas, e a sua movimentação base é de 6 metros.",
+        "Restrição de armas: Halflings só conseguem utilizar armas médias com as duas mãos e não podem usar armas grandes."
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "name": "Anão",
+      "description": "Falado exclusivamente por anões."
+    },
+    {
+      "id": 2,
+      "name": "Élfico",
+      "description": "Falado por elfos e por algumas criaturas das florestas, como fadas, sátiros, centauros, etc., quando estes se relacionam com elfos ou raças forasteiras."
+    },
+    {
+      "id": 3,
+      "name": "Silvestre",
+      "description": "Falado por criaturas das florestas, como fadas, sátiros, centauros, etc., principalmente quando tratam entre si."
+    },
+    {
+      "id": 4,
+      "name": "Goblinoide",
+      "description": "Falado por todos os goblinoides, como goblins, hobgoblins e bugbears."
+    },
+    {
+      "id": 5,
+      "name": "Orc",
+      "description": "Falado por orcs e algumas criaturas. É tida como um dos idiomas base das criaturas caóticas dos subterrâneos."
+    },
+    {
+      "id": 6,
+      "name": "Gigante",
+      "description": "Falado pelos gigantes, ogros e trolls."
+    },
+    {
+      "id": 7,
+      "name": "Dracônico",
+      "description": "Falado por dragões e criaturas com conhecimentos arcanos."
+    },
+    {
+      "id": 8,
+      "name": "Antigo",
+      "description": "Uma língua morta de algum império já destruído. É encontrada em documentos ancestrais, ruínas seculares e principalmente em textos mágicos milenares."
+    }
+  ],
+  "alignments": [
+    {
+      "id": 1,
+      "name": "Ordeiro",
+      "description": "Acredita na ordem e nas leis para serem cumpridas, podendo defender valores como a honra e a justiça, ou criar leis opressoras visando à dominação."
+    },
+    {
+      "id": 2,
+      "name": "Caótico",
+      "description": "Rejeita convenções sociais, prefere viver o momento, acreditando no poder do acaso e da fortuna. Pode buscar a destruição de valores sociais ou lutar contra tiranias."
+    },
+    {
+      "id": 3,
+      "name": "Neutro",
+      "description": "Acredita no equilíbrio entre ordem e caos, vê importância nas leis, mas também valoriza a liberdade e o dinamismo da vida. Raramente esquece a palavra empenhada, mas pode agir com flexibilidade."
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 package com.elixir;
 
+import com.elixir.model.tables.CharacterAttributes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,6 +11,10 @@ import javafx.scene.layout.VBox;
 import com.elixir.model.Character;
 import com.elixir.model.Attribute;
 import javafx.stage.Stage;
+
+import java.util.Map;
+import java.util.Objects;
+import java.util.Random;
 
 public class CharacterViewController {
 
@@ -24,12 +29,6 @@ public class CharacterViewController {
 
     @FXML
     private Label armorLabel;
-
-    @FXML
-    private Label attackAjustLabel;
-
-    @FXML
-    private Label attackDistanceAjustLabel;
 
     @FXML
     private Label baseJPLabel;
@@ -74,10 +73,7 @@ public class CharacterViewController {
     private Label currentPVLabel;
 
     @FXML
-    private Label damageAjustLabel;
-
-    @FXML
-    private Label defenseAjustLabel;
+    private Label dexAjustLabel;
 
     @FXML
     private Label dexCALabel;
@@ -99,6 +95,9 @@ public class CharacterViewController {
 
     @FXML
     private Label goldLabel;
+
+    @FXML
+    private Label hideInDarkLabel;
 
     @FXML
     private Label intLabel;
@@ -123,6 +122,9 @@ public class CharacterViewController {
 
     @FXML
     private Label monsterLabel;
+
+    @FXML
+    private Label moveOpenLocksLabel;
 
     @FXML
     private Label movimentLabel;
@@ -170,6 +172,9 @@ public class CharacterViewController {
     private Label silverLabel;
 
     @FXML
+    private Label strAjustLabel;
+
+    @FXML
     private Label strLabel;
 
     @FXML
@@ -179,14 +184,16 @@ public class CharacterViewController {
     private HBox topMenu;
 
     @FXML
+    private Label trapAjustLabel;
+
+    @FXML
     private Label wisJPLabel;
 
     @FXML
     private Label wisLabel;
 
-
     @FXML
-    private void initialize(){
+    private void initialize() {
         ObjectSaveManager reader = new ObjectSaveManager<>();
         Character character = (Character) reader.getObject("character");
         Attribute attribute = (Attribute) reader.getObject("attribute");
@@ -215,8 +222,75 @@ public class CharacterViewController {
         classEspecLabel.setText(characterClass.name);
         raceLabel.setText(race.name);
 
-        maxPVLabel.setText(string(attribute.getConstitution() + integer(characterClass.dicePv.split("d")[1])));
+        maxPVLabel.setText(string(attribute.getConstitution() + integer(characterClass.dicePv.split("d")[1])*character.getExperience()));
         currentPVLabel.setText(maxPVLabel.getText());
+
+        //Preencher os campos de subatributos com base nos valores dos atributos e subatributos
+        CharacterAttributes.Strength strengthSubAttributes = new CharacterAttributes.Strength();
+        CharacterAttributes.Dexterity dexteritySubAttributes = new CharacterAttributes.Dexterity();
+        CharacterAttributes.Constitution constitutionSubAttributes = new CharacterAttributes.Constitution();
+        CharacterAttributes.Wisdom wisdomSubAttributes = new CharacterAttributes.Wisdom();
+        CharacterAttributes.Intelligence intelligenceSubAttributes = new CharacterAttributes.Intelligence();
+        CharacterAttributes.Charisma charismSubAttributes = new CharacterAttributes.Charisma();
+
+        // Força (Strength)
+        strAjustLabel.setText(String.valueOf(strengthSubAttributes.getStrength(attribute.getStrength())));
+
+        // Destreza (Dexterity)
+        dexAjustLabel.setText(String.valueOf(dexteritySubAttributes.getTableDexterity(attribute.getDexterity()).get("Ajuste de ataque e surpresa")));
+        hideInDarkLabel.setText(String.valueOf(dexteritySubAttributes.getTableDexterity(attribute.getDexterity()).get("Esconder-se nas sombras")));
+        trapAjustLabel.setText(String.valueOf(dexteritySubAttributes.getTableDexterity(attribute.getDexterity()).get("Localizar e desarmar")));
+        moveOpenLocksLabel.setText(String.valueOf(dexteritySubAttributes.getTableDexterity(attribute.getDexterity()).get("Mover-se e abrir fechaduras")));
+
+        // Constituição (Constitution)
+        pvAjustLabel.setText(String.valueOf(constitutionSubAttributes.getTableConstitution(attribute.getConstitution()).get("Ajuste de Pontos de Vida")));
+        protectionConAjustLabel.setText(pvAjustLabel.getText());
+        resurrectionLabel.setText(String.valueOf(constitutionSubAttributes.getTableConstitution(attribute.getConstitution()).get("Chance de Ressurreição")));
+
+        // Sabedoria (Wisdom)
+        protectionWisAjustLabel.setText(String.valueOf(wisdomSubAttributes.getTableWisdom(attribute.getWisdom()).get("Ajuste de proteção")));
+        // Preencher as informações sobre magias divinas adicionais, caso exista, para o atributo Sabedoria
+        Map<String, Object> wisdomMap = wisdomSubAttributes.getTableWisdom(attribute.getWisdom());
+        if (wisdomMap != null) {
+            int totalDivineMagic = (int) wisdomMap.get("Total Magias divinas adicionais");
+            divineMagicLabel.setText(string(totalDivineMagic));
+        } else {
+            divineMagicLabel.setText("N/A");
+        }
+
+
+        // Inteligência (Intelligence)
+        languagesLabel.setText(String.valueOf(intelligenceSubAttributes.getTableIntelligence(attribute.getIntelligence()).get("Idioma")));
+        learnMagicLabel.setText(String.valueOf(intelligenceSubAttributes.getTableIntelligence(attribute.getIntelligence()).get("Chance de aprender magias")) + "%");
+
+        // Preencher as informações sobre magias adicionais, caso exista, para o atributo Inteligência
+        Map<String, Object> intelligenceMap = intelligenceSubAttributes.getTableIntelligence(attribute.getIntelligence());
+        if (intelligenceMap != null) {
+            Map<String, Integer> arcaneMagicMap = (Map<String, Integer>) intelligenceMap.get("Magias adicionais");
+            if (arcaneMagicMap != null) {
+                int totalArcaneMagic = (int) intelligenceMap.get("Total de magias adicionais");
+                arcaneMagicLabel.setText(string(totalArcaneMagic));
+            } else {
+                arcaneMagicLabel.setText("N/A");
+            }
+        } else {
+            arcaneMagicLabel.setText("N/A");
+        }
+
+        // Carisma (Charism)
+        followLabel.setText(String.valueOf(charismSubAttributes.getTableCharism(attribute.getCharisma()).get("Número máximo de seguidores")));
+        reactionAjustLabel.setText(String.valueOf(charismSubAttributes.getTableCharism(attribute.getCharisma()).get("Ajuste de reação")));
+        monsterLabel.setText(String.valueOf(charismSubAttributes.getTableCharism(attribute.getCharisma()).get("Mortos-vivos afastados")));
+
+        dexCALabel.setText(dexAjustLabel.getText());
+        raceCALabel.setText(Objects.equals(race.name, "Halfling") ? "2" : "-");
+        armorCALabel.setText("-");
+        bonusCALabel.setText(string(character.getClassArmorBonus()));
+
+        caLabel.setText(string(10 + integer(dexAjustLabel.getText()) + (Objects.equals(race.name, "Halfling") ?2:0) + character.getClassArmorBonus()));
+
+        Random random = new Random();
+        goldLabel.setText(string((random.nextInt(24 - 3 + 1) + 3)*10));
     }
 
     private String string(int i){

@@ -85,8 +85,8 @@ public class CreateCharacterAttributesController {
                 strLabel.setText("+" + modifier);
             } else {
                 strLabel.setFont(new Font(21));
-                strLabel.setText("+10");
-                strField.setText("30");
+                strLabel.setText("+9");
+                strField.setText("29");
             }
         });
 
@@ -102,8 +102,8 @@ public class CreateCharacterAttributesController {
                 chaLabel.setText("+" + modifier);
             } else {
                 chaLabel.setFont(new Font(21));
-                chaLabel.setText("+10");
-                chaField.setText("30");
+                chaLabel.setText("+9");
+                chaField.setText("29");
             }
         });
 
@@ -119,8 +119,8 @@ public class CreateCharacterAttributesController {
                 conLabel.setText("+" + modifier);
             } else {
                 conLabel.setFont(new Font(21));
-                conLabel.setText("+10");
-                conField.setText("30");
+                conLabel.setText("+9");
+                conField.setText("29");
             }
         });
 
@@ -136,8 +136,8 @@ public class CreateCharacterAttributesController {
                 dexLabel.setText("+" + modifier);
             } else {
                 dexLabel.setFont(new Font(21));
-                dexLabel.setText("+10");
-                dexField.setText("30");
+                dexLabel.setText("+9");
+                dexField.setText("29");
             }
         });
 
@@ -153,8 +153,8 @@ public class CreateCharacterAttributesController {
                 intLabel.setText("+" + modifier);
             } else {
                 intLabel.setFont(new Font(21));
-                intLabel.setText("+10");
-                intField.setText("30");
+                intLabel.setText("+9");
+                intField.setText("29");
             }
         });
 
@@ -170,8 +170,8 @@ public class CreateCharacterAttributesController {
                 wisLabel.setText("+" + modifier);
             } else {
                 wisLabel.setFont(new Font(21));
-                wisLabel.setText("+10");
-                wisField.setText("30");
+                wisLabel.setText("+9");
+                wisField.setText("29");
             }
         });
 

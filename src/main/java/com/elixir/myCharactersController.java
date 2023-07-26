@@ -124,7 +124,7 @@ public class myCharactersController {
 
             saver.printMap();
 
-            PaneManager paneManager = new PaneManager((Stage) myCharacterMenuButton.getScene().getWindow());
+            PaneManager paneManager = new PaneManager((Stage) createCharacterMenuButton.getScene().getWindow());
             paneManager.openPane("characterViewPane");
 
         });

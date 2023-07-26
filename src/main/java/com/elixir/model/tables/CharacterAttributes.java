@@ -4,41 +4,41 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CharacterAttributes {
-    public static class Charism {
-        private Map<String, Map<String, Object>> table;
+    public static class Charisma {
+        private final Map<Integer, Map<String, Object>> table;
 
-        public Charism() {
+        public Charisma() {
             table = new HashMap<>();
 
-            table.put("1", createRow(0, "-25%", 0));
-            table.put("2", createRow(0, "-20%", 0));
-            table.put("3", createRow(0, "-20%", 0));
-            table.put("4", createRow(0, "-15%", 0));
-            table.put("5", createRow(0, "-15%", 0));
-            table.put("6", createRow(0, "-10%", 0));
-            table.put("7", createRow(0, "-10%", 0));
-            table.put("8", createRow(0, "-5%", 1));
-            table.put("9", createRow(0, "-5%", 1));
-            table.put("10", createRow(1, "0", "1d2"));
-            table.put("11", createRow(1, "0", "1d2"));
-            table.put("12", createRow(2, "+5%", "1d3"));
-            table.put("13", createRow(2, "+5%", "1d3"));
-            table.put("14", createRow(3, "+10%", "1d4"));
-            table.put("15", createRow(3, "+10%", "1d4"));
-            table.put("16", createRow(4, "+15%", "1d6"));
-            table.put("17", createRow(4, "+15%", "1d6"));
-            table.put("18", createRow(5, "+20%", "1d8"));
-            table.put("19", createRow(5, "+20%", "1d8"));
-            table.put("20", createRow(6, "+25%", "2d4"));
-            table.put("21", createRow(6, "+25%", "2d4"));
-            table.put("22", createRow(7, "+30%", "1d10"));
-            table.put("23", createRow(7, "+30%", "1d10"));
-            table.put("24", createRow(8, "+35%", "1d12"));
-            table.put("25", createRow(8, "+35%", "1d12"));
-            table.put("26", createRow(9, "+40%", "2d6"));
-            table.put("27", createRow(9, "+40%", "2d6"));
-            table.put("28", createRow(10, "+45%", "1d20"));
-            table.put("29", createRow(10, "+45%", "1d20"));
+            table.put(1, createRow(0, "-25%", 0));
+            table.put(2, createRow(0, "-20%", 0));
+            table.put(3, createRow(0, "-20%", 0));
+            table.put(4, createRow(0, "-15%", 0));
+            table.put(5, createRow(0, "-15%", 0));
+            table.put(6, createRow(0, "-10%", 0));
+            table.put(7, createRow(0, "-10%", 0));
+            table.put(8, createRow(0, "-5%", 1));
+            table.put(9, createRow(0, "-5%", 1));
+            table.put(10, createRow(1, "0", "1d2"));
+            table.put(11, createRow(1, "0", "1d2"));
+            table.put(12, createRow(2, "+5%", "1d3"));
+            table.put(13, createRow(2, "+5%", "1d3"));
+            table.put(14, createRow(3, "+10%", "1d4"));
+            table.put(15, createRow(3, "+10%", "1d4"));
+            table.put(16, createRow(4, "+15%", "1d6"));
+            table.put(17, createRow(4, "+15%", "1d6"));
+            table.put(18, createRow(5, "+20%", "1d8"));
+            table.put(19, createRow(5, "+20%", "1d8"));
+            table.put(20, createRow(6, "+25%", "2d4"));
+            table.put(21, createRow(6, "+25%", "2d4"));
+            table.put(22, createRow(7, "+30%", "1d10"));
+            table.put(23, createRow(7, "+30%", "1d10"));
+            table.put(24, createRow(8, "+35%", "1d12"));
+            table.put(25, createRow(8, "+35%", "1d12"));
+            table.put(26, createRow(9, "+40%", "2d6"));
+            table.put(27, createRow(9, "+40%", "2d6"));
+            table.put(28, createRow(10, "+45%", "1d20"));
+            table.put(29, createRow(10, "+45%", "1d20"));
         }
 
         private Map<String, Object> createRow(int maxFollowers, String reactionAdjustment, Object undeadTurned) {
@@ -49,13 +49,13 @@ public class CharacterAttributes {
             return row;
         }
 
-        public Map<String, Object> getTableCharism(int get) {
-            return table.get(get);
+        public Map<String, Object> getTableCharism(int charismaValue) {
+            return table.get(charismaValue);
         }
     }
 
     public static class Strength {
-        private Map<Integer, Integer> strength = new HashMap<>();
+        private final Map<Integer, Integer> strength = new HashMap<>();
 
         public Strength() {
             int ajusteAtaqueDano = -5;
@@ -65,6 +65,7 @@ public class CharacterAttributes {
                 if (i % 2 != 0) {
                     ajusteAtaqueDano += 1;
                 }
+                System.out.println(i + " " + ajusteAtaqueDano);
             }
         }
 
@@ -138,9 +139,15 @@ public class CharacterAttributes {
                     magiasAdicionais.put("3° Circulo", 0);
                 }
 
+                int totalMagiasAdicionais = 0;
+                for (int value : magiasAdicionais.values()) {
+                    totalMagiasAdicionais += value;
+                }
+
                 columnIntelligence.put("Idioma", countIdiomas);
                 columnIntelligence.put("Chance de aprender magias", countChance);
                 columnIntelligence.put("Magias adicionais", magiasAdicionais);
+                columnIntelligence.put("Total de magias adicionais", totalMagiasAdicionais);
 
                 tableIntelligence.put(i, columnIntelligence);
             }
@@ -157,20 +164,9 @@ public class CharacterAttributes {
         public Wisdom() {
             tableWisdom = new HashMap<>();
 
-            int countIdiomas = 0;
-            int countChance = 0;
             for (int i = 0; i < 30; i++) {
                 Map<String, Object> collumnWisdom = new HashMap<>();
                 Map<String, Integer> magiasAdicionais = new HashMap<>();
-
-                if (i > 13 && i % 2 != 0) {
-                    countIdiomas++;
-                    if (countChance == 0) {
-                        countChance += 25;
-                    } else if (countChance >= 25 && i > 14) {
-                        countChance += 10;
-                    }
-                }
 
                 if (i == 14 || i == 15) {
                     magiasAdicionais.put("1° Circulo", 0);
@@ -210,8 +206,31 @@ public class CharacterAttributes {
                     magiasAdicionais.put("3° Circulo", 0);
                 }
 
+                int totalDivineMagic;
+                if (i == 14 || i == 15) {
+                    totalDivineMagic = 0;
+                } else if (i == 16 || i == 17) {
+                    totalDivineMagic = 1;
+                } else if (i == 18 || i == 19) {
+                    totalDivineMagic = 3;
+                } else if (i == 20 || i == 21) {
+                    totalDivineMagic = 3;
+                } else if (i == 22 || i == 23) {
+                    totalDivineMagic = 4;
+                } else if (i == 24 || i == 25) {
+                    totalDivineMagic = 5;
+                } else if (i == 26 || i == 27) {
+                    totalDivineMagic = 6;
+                } else if (i == 28 || i == 29) {
+                    totalDivineMagic = 7;
+                } else {
+                    totalDivineMagic = 0;
+                }
+
+
                 collumnWisdom.put("Ajuste de proteção", getAjusteProtecao(i));
                 collumnWisdom.put("Magias divinas adicionais", magiasAdicionais);
+                collumnWisdom.put("Total Magias divinas adicionais", totalDivineMagic);
 
                 tableWisdom.put(i, collumnWisdom);
             }
@@ -269,6 +288,7 @@ public class CharacterAttributes {
         }
 
         public Map<String, Object> getTableWisdom(int get) {
+            System.out.println(tableWisdom.get(get));
             return tableWisdom.get(get);
         }
     }
