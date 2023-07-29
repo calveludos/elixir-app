@@ -1,6 +1,8 @@
 package com.elixir;
 
 import com.elixir.model.tables.CharacterAttributes;
+import com.elixir.model.tables.ClassLevels;
+import com.elixir.model.tables.JsonManger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -195,8 +197,27 @@ public class CharacterViewController {
     @FXML
     private void initialize() {
         ObjectSaveManager reader = new ObjectSaveManager<>();
+
         Character character = (Character) reader.getObject("character");
         Attribute attribute = (Attribute) reader.getObject("attribute");
+
+        switch (character.getClassId()){
+            case 1:
+                ClassLevels.Warrior classLevel = new ClassLevels.Warrior();
+                break;
+            case 2:
+                ClassLevels.Wizard classLevel = new ClassLevels.Wizard();
+                break;
+            case 3:
+                ClassLevels.Thief classLevel = new ClassLevels.Thief();
+                break;
+            case 4:
+                ClassLevels.Cleric classLevel = new ClassLevels.Cleric();
+                break;
+            default:
+                ClassLevels classLevel = null;
+                break;
+        }
 
         reader.printMap();
 
@@ -212,10 +233,11 @@ public class CharacterViewController {
         currentPVLabel.setText(string(character.getCurrentPv()));
         nameLabel.setText(character.getName());
         playerNameLabel.setText(character.getPlayerName());
-        levelLabel.setText(string(character.getExperience()));
+
+        levelLabel.setText(string(character.getExperience()) + " (" + class_.get);
 
         CharacterClass characterClass = CharacterClass.setCharacterClass(character.getClassId());
-        Race race = Race.setRace(character.getRaceId());
+        Race race = CharacterViewController.Race.setRace(character.getRaceId());
         Alignment alignment = Alignment.setAlignment(character.getAlignmentId());
 
         aligmentLabel.setText(alignment.text);
@@ -311,155 +333,4 @@ public class CharacterViewController {
         PaneManager paneManager = new PaneManager((Stage) myCharacterMenuButton.getScene().getWindow());
         paneManager.openPane("myCharactersPane");
     }
-
-    public enum Alignment {
-        LAWFUL(1, "Ordeiro"),
-        CHAOTIC(3, "Caos"),
-        NEUTRAL(2, "Neutro");
-
-        private final int id;
-        private final String text;
-
-        Alignment(int id, String text) {
-            this.id = id;
-            this.text = text;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public String getText() {
-            return text;
-        }
-
-        public static String getTextForId(int id) {
-            for (Alignment alignment : values()) {
-                if (alignment.getId() == id) {
-                    return alignment.getText();
-                }
-            }
-            return null; // Or throw an exception if ID is not found.
-        }
-
-        public static Alignment setAlignment(int id) {
-            switch (id) {
-                case 1:
-                    return Alignment.LAWFUL;
-                case 2:
-                    return Alignment.NEUTRAL;
-                case 3:
-                    return Alignment.CHAOTIC;
-                default:
-                    throw new IllegalArgumentException("ID de alinhamento inválido: " + id);
-            }
-        }
-
-    }
-
-    public enum Race {
-        HUMAN("Humano", 30, "M"),
-        ELF("Elfo", 35, "M"),
-        DWARF("Anão", 25, "S"),
-        HALFLING("Halfling", 25, "S");
-
-        private final String name;
-        private final int movement;
-        private final String size;
-
-        Race(String name, int movement, String size) {
-            this.name = name;
-            this.movement = movement;
-            this.size = size;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public int getMovement() {
-            return movement;
-        }
-
-        public String getSize() {
-            return size;
-        }
-
-        public static String getTextForId(int id) {
-            if (id < 1 || id > values().length) {
-                throw new IllegalArgumentException("ID da raça inválido.");
-            }
-            return values()[id - 1].getName();
-        }
-
-        public static Race setRace(int id) {
-            switch (id) {
-                case 1:
-                    return Race.HUMAN;
-                case 2:
-                    return Race.ELF;
-                case 3:
-                    return Race.DWARF;
-                case 4:
-                    return Race.HALFLING;
-                default:
-                    throw new IllegalArgumentException("ID de raça inválido: " + id);
-            }
-        }
-    }
-
-
-    public enum CharacterClass {
-        WARRIOR(1, "Guerreiro", "1d10"),
-        WIZARD(2, "Mago", "1d4"),
-        ROGUE(3, "Ladrão", "1d6"),
-        CLERIC(4, "Clérigo", "1d8");
-
-        private final int id;
-        private final String name;
-        private final String dicePv;
-
-        CharacterClass(int id, String name, String dicePv) {
-            this.id = id;
-            this.name = name;
-            this.dicePv = dicePv;
-        }
-
-        public int getId() {
-            return id;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getDicePv() {
-            return dicePv;
-        }
-
-        public static String getTextForId(int id) {
-            for (CharacterClass characterClass : values()) {
-                if (characterClass.getId() == id) {
-                    return characterClass.getName();
-                }
-            }
-            return null; // Or throw an exception if ID is not found.
-        }
-
-        public static CharacterClass setCharacterClass(int id) {
-            switch (id) {
-                case 1:
-                    return CharacterClass.WARRIOR;
-                case 2:
-                    return CharacterClass.WIZARD;
-                case 3:
-                    return CharacterClass.ROGUE;
-                case 4:
-                    return CharacterClass.CLERIC;
-                default:
-                    throw new IllegalArgumentException("ID de classe inválido: " + id);
-            }
-        }
-    }
-
 }

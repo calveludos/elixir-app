@@ -28,6 +28,7 @@ public class myCharactersController {
     private HBox hboxCharacters;
 
     private Map<Integer, Character> characterMap;
+    private Map<Integer, Attribute> attributeMap;
 
     @FXML
     private void initialize(){
@@ -37,6 +38,14 @@ public class myCharactersController {
             characterMap = characterDAO.read();
         } catch (SQLException e){
             e.printStackTrace();
+        }
+
+        try {
+            AttributeDAO attributeDAO = new AttributeDAO();
+            attributeMap = attributeDAO.read();
+        } catch (SQLException e){
+            e.printStackTrace();
+            return;
         }
 
         if (!characterMap.isEmpty()) {
@@ -102,6 +111,30 @@ public class myCharactersController {
         pane.setPrefWidth(15);
         pane.setPrefHeight(Pane.USE_COMPUTED_SIZE);
 
+        Pane paneDelete = new Pane();
+        pane.setPrefWidth(10);
+        pane.setPrefHeight(Pane.USE_COMPUTED_SIZE);
+
+        Label delete = new Label();
+        delete.setFont(new Font(12));
+        delete.setText("X");
+        delete.setTextFill(javafx.scene.paint.Color.valueOf("#110000"));
+
+        delete.setOnMouseClicked(mouseEvent -> {
+            Attribute attribute = attributeMap.get(character.getAttributeId());
+            AttributeDAO dao = new AttributeDAO();
+            CharacterDAO dao1 = new CharacterDAO();
+            try {
+                dao1.delete(character);
+                dao.delete(attribute);
+            } catch (SQLException e){
+                e.printStackTrace();
+            }
+
+            PaneManager paneManager = new PaneManager((Stage) createCharacterMenuButton.getScene().getWindow());
+            paneManager.openPane("myCharactersPane");
+        });
+
         HBox hBox = new HBox(imageView, vBox, pane);
         hBox.setPrefHeight(92);
         hBox.setMinWidth(Label.USE_COMPUTED_SIZE);
@@ -109,15 +142,7 @@ public class myCharactersController {
 
         hBox.setOnMouseClicked(mouseEvent -> {
             ObjectSaveManager<Character> saver = new ObjectSaveManager<>();
-            AttributeDAO attributeDAO = new AttributeDAO();
-            Map<Integer, Attribute> attributeMap;
 
-            try {
-                attributeMap = attributeDAO.read();
-            } catch (SQLException e){
-                e.printStackTrace();
-                return;
-            }
             saver.cleanObjects();
             saver.saveObject("character", characterMap.get(character.getId()));
             saver.saveObject("attribute", attributeMap.get(character.getAttributeId()));
@@ -136,7 +161,9 @@ public class myCharactersController {
         System.out.println("Label 'classCharacterLabel' Width: " + classCharacterLabel.getWidth());
         System.out.println("Label 'classCharacterLabel' Height: " + classCharacterLabel.getHeight());
 
-        return hBox;
+        HBox view = new HBox(delete, hBox);
+
+        return view;
     }
 
     private void setStyleName(Label label, boolean isLast) {
