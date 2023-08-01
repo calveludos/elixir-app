@@ -510,20 +510,21 @@
     "Arma": ["maça", "cajado", "mangual", "funda"],
     "Itens Mágicos": 1,
     "Especialização": {
+
       "Druida": {
-        "Alinhamento": 1,
+        "Alinhamento": 3,
         "Habilidades": {
-          "Nível 5": "",
-          "Nível 8": "",
-          "Nível 16": ""
+          "Nível 5": "A partir do 5° nível o clérigo não se dedica mais a um deus em específico, dedicando sua adoração à natureza silvestre como um todo e, a partir desse ponto, passa a se deslocar sem deixar rastros, além de ser capaz de se comunicar com animais silvestres.",
+          "Nível 8": "No 8° nível, o druida troca o seu poder de afastar mortos-vivos pelo poder de controlar animais silvestres, que funciona da mesma forma. Um animal com 1 DVs corresponde a um esqueleto, um animal com 2 DVs equivale a um zumbi e assim sucessivamente, até o máximo de um animal com 8 DVs, que corresponde a um vampiro. A indicação A na tabela T3-2 indica que o animal é automaticamente controlado, e a indicação D não gera efeito adicional.",
+          "Nível 16": "No 16° nível o druida pode assumir a forma de um animal silvestre até 3 vezes por dia. Nessa metamorfose, o druida recuperará 3d8 PVs, e durante a metamorfose, a roupa e um item à escolha do druida serão absorvidos, reaparecendo quando este retornar à forma original. Um clérigo que se torna um druida não constrói uma fortaleza, mas sim cria um círculo druídico para adoração da natureza, junto com os seguidores que conquista."
         }
       },
       "Cultista ": {
-        "Alinhamento": 3,
+        "Alinhamento": 2,
         "Habilidades": {
-          "Nível 5": "",
-          "Nível 8": "",
-          "Nível 16": ""
+          "Nível 5": "A partir do 5° nível, o clérigo não se dedica mais a um deus, mas sim a criaturas absolutamente caóticas, provenientes de outros planos de existência, recebendo através de sonhos os desejos de seus senhores caóticos. A partir desse ponto, o clérigo não precisa mais meditar para receber magias, sendo que as recebe durante os sonhos.",
+          "Nível 8": "A partir do 8° nível, o cultista pode optar, ao invés de afastar automaticamente um morto-vivo, por controlá-lo por até 24 horas. Findo esse período, o morto-vivo não estará mais sob o controle do cultista.",
+          "Nível 16": "A partir do 16° nível, o cultista pode afastar criaturas ordeiras da mesma forma que um clérigo afasta mortos-vivos, sendo que um esqueleto equivale a uma criatura de 1 DV, um zumbi equivale a uma criatura de 2 DVs e assim sucessivamente, até o máximo de uma criatura com 8 DVs, que equivale a um vampiro. A indicação A na tabela T3-2 indica que a criatura é automaticamente afastada, e a indicação D indica que a criatura é automaticamente destruída. Um cultista pode empregar o uso de armas cortantes para rituais."
         }
       }
     }
@@ -676,28 +677,38 @@
     "armadura": 1,
     "arma": 1,
     "itens magicos": 0,
-    "especializacoes": [
+    "Especialização": [
       {
-        "Especialização": "Paladino",
-        "Requisito de Alinhamento": "Ordeiro",
-        "Efeito no 5º Nível": "Detectar o caos a 1 quilômetro de distância, desde que se concentre para tal",
-        "Efeito no 8º Nível": "Causa +1d6 de dano nos ataques contra criaturas caóticas",
-        "Efeito no 16º Nível": "Causa +2d6 de dano nos ataques contra criaturas caóticas e emana uma aura de proteção contra o caos de 3 metros de raio",
-        "Restrição": "Perderá 2 níveis automaticamente e não poderá usar seus poderes se usar um item mágico caótico; perderá 3 níveis e todos seus poderes se deixar de ser ordeiro"
+       "Paladino" : {
+         "Alinhamento": 1,
+         "Habilidades" : {
+           "Nível 5º": "No 5° nível, o homem de armas passa a se dedicar fielmente a uma causa e a erradicar o caos, sendo que todos aqueles que se opõe a essa causa são seus adversários, e todos aqueles que abraçam essa causa são seus aliados. Um paladino é capaz de detectar o caos a 1 quilômetro de distância, desde que se concentre para tal. Existem diversas causas pelas quais um paladino pode vir lutar a favor, tais como a liberdade, a vida, a tirania, a opressão, dentre tantas outras possibilidades à escolha do jogador.",
+           "Nível 8º": "No 8° nível, o paladino causa +1d6 de dano nos ataques contra criaturas caóticas.",
+           "Nível 16º": "No 16° nível o dano extra aumenta para +2d6 e o paladino passa a emanar uma aura de proteção contra o caos de 3 metros de raio. Se um paladino usar um item mágico caótico (mesmo sem saber do alinhamento do item), perderá automaticamente 2 níveis e não poderá usar seus poderes enquanto estiver portando esse item."
+         },
+         "Restrição": "Se um paladino, por algum motivo,deixar de ser ordeiro, perderá 3 níveis e perderá todos seus poderes, até que retorne ao alinhamento apropriado."
+       }
+      },
+
+      {
+        "Guerreiro" : {
+          "Alinhamento" : 3,
+          "Habilidades" : {
+            "Nível 5º": "No 5° nível, o homem de armas escolhe uma arma na qual se especializará, recebendo um bônus de +1 nos ataques e no dano usando a arma escolhida.",
+            "Nível 8º": "A partir o 8° nível, o guerreiro receberá um bônus de +2 nos ataques e no dano usando essa arma, recebendo também uma penalidade de -2 nos ataques utilizando qualquer outra arma que não a que escolheu.",
+            "Nível 16º":"A partir do 16° nível o bônus que ganhara no 5° nível passará a ser +4 e a penalidade -4."
+          }
+        }
       },
       {
-        "Especialização": "Guerreiro",
-        "Requisito de Alinhamento": 2,
-        "Efeito no 5º Nível": "Escolhe uma arma para se especializar, recebendo +1 de bônus nos ataques e no dano usando a arma escolhida",
-        "Efeito no 8º Nível": "Recebe +2 de bônus nos ataques e no dano usando a arma escolhida; recebe -2 de penalidade nos ataques utilizando qualquer outra arma",
-        "Efeito no 16º Nível": "Bônus aumenta para +4 na arma escolhida; penalidade aumenta para -4 ao usar outras armas"
-      },
-      {
-        "Especialização": "Bárbaro",
-        "Requisito de Alinhamento": 3,
-        "Efeito no 5º Nível": "Não pode usar escudos nem armaduras superiores às de couro; recebe +2 de bônus nas jogadas de proteção com base no atributo Constituição",
-        "Efeito no 8º Nível": "Não cai ao chegar a 0 PVs, permanecendo em pé e lutando até chegar a -10 PVs",
-        "Efeito no 16º Nível": "Absorve 1/3 de todo o dano que receber"
+        "Bárbaro" : {
+          "Alinhamento" : 2,
+          "Habilidades" : {
+            "Nível 5°" : "No 5° nível, o homem de armas rejeita as regras e os costumes da sociedade, adotando uma vida livre e desapegada de leis e da ordem. A partir desse nível, o homem de armas não poderá mais usar escudos nem armaduras superiores às de couro, porém sua selvageria o tornará mais resistente, concedendo um bônus de +2 para as jogadas de proteção que envolvam o atributo Constituição.",
+            "Nível 8°" : "A partir do 8o nível, devido à sua determinação selvagem, o bárbaro não mais cairá ao chegar a 0 PVs, permanecendo em pé e lutando, até chegar a -10 PV, ocasião em que morrerá automaticamente.",
+            "Nivel 16°" : "A partir do 16° nível o bárbaro absorverá 1/3 de todo o dano que receber. Um bárbaro de 11° nível não ergue uma fortaleza, mas sim estabelece uma tribo de bárbaros proscritos, junto com os seguidores que conseguir."
+          }
+        }
       }
     ]
   },
@@ -1031,18 +1042,24 @@
     "itens_magicos": 1,
     "especializacoes": [
       {
-        "Especialização": "Ilusionista",
-        "Requisito de Alinhamento": 2,
-        "Efeito no 5º Nível": "Uma vez ao dia, pode criar uma ilusão menor e limitada ao seu corpo; criaturas inteligentes têm 60% de chance de não acreditar, enquanto criaturas não inteligentes têm 40%",
-        "Efeito no 8º Nível": "Pode criar uma ilusão que envolva uma área de tamanho equivalente ao seu nível em m³, três vezes ao dia; criaturas inteligentes têm 50% de chance de não acreditar, enquanto criaturas não inteligentes têm 30%",
-        "Efeito no 16º Nível": "Pode criar ilusões praticamente ilimitadas, cinco vezes ao dia; criaturas inteligentes têm 40% de chance de não acreditar, enquanto criaturas não inteligentes têm 20%"
-      },
-      {
-        "Especialização": "Necromante",
-        "Requisito de Alinhamento": 3,
-        "Efeito no 5º Nível": "Pode reanimar um esqueleto por dia, que obedecerá às suas ordens e o efeito durará por uma semana",
-        "Efeito no 8º Nível": "Pode reanimar três esqueletos por dia, que obedecerão às suas ordens e durarão até serem destruídos",
-        "Efeito no 16º Nível": "Pode se tornar um lich, tornando-se imune a efeitos de sono, medo, frio, veneno e outros que necessitem de alvos vivos, bem como se torna imune a acertos críticos; ao ser destruído, retornará em 1d4 dias, desde que a filactéria esteja intacta"
+        "Ilusionista" : {
+          "Alinhamento" : 3,
+          "Habilidades" : {
+            "5º Nível": "No 5° nível, o mago passa a se dedicar ao estudo e à criação de ilusões, podendo uma vez ao dia criar uma ilusão menor e limitada ao seu corpo. Criaturas inteligentes têm 60% de chance de não acreditar na ilusão criada, enquanto criaturas não inteligentes têm apenas 40% de chance.",
+            "8º Nível": "A partir do 8° nível, o ilusionista pode criar uma ilusão que envolva uma área de tamanho equivalente ao seu nível em m3, três vezes ao dia. Criaturas inteligentes têm 50% de chance de não acreditar na ilusão criada, enquanto criaturas não inteligentes têm apenas 30% de chance.",
+            "16º Nível": "A partir do 16° nível o ilusionista pode criar ilusões praticamente ilimitadas, cinco vezes ao dia. Criaturas inteligentes têm 40% de chance de não acreditar na ilusão criada, enquanto criaturas não inteligentes têm apenas 20% de chance."
+          }
+        },
+        "Necromante" : {
+          "Alinhamento" : 2,
+          "Habilidades" : {
+            "5° Nível" : "No 5° nível, o mago passa a se dedicar ao estudo das artes sombrias, que envolvem a criação e o controle de mortos-vivos, podendo reanimar um esqueleto por dia, que obedecerá às suas ordens e o efeito durará por uma semana.",
+            "8° Nível": " A partir do 8° nível, o necromante poderá reanimar três esqueletos por dia, que obedecerão às suas ordens e durarão até que sejam destruídos",
+            "16° Nível": "A partir do 16° nível, o necromante poderá se tornar um lich, se tornando imune a efeitos de sono, medo, frio, veneno e outros que necessitem de alvos vivos, bem como se torna imune a acertos críticos. O lich transfere sua alma para uma filactéria, uma gema mágica criada no ritual em que o necromante se tornou um morto-vivo. Caso venha a ser destruído, o lich retornará em 1d4 dias, desde que a filactéria esteja intacta."
+
+          }
+        }
+
       }
     ]
 },
