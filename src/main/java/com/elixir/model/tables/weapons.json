@@ -1,0 +1,211 @@
+{
+  "weapons": [
+    {
+      "nome": "Adaga",
+      "tamanho": "P",
+      "dano": "1d4",
+      "alcance": "3 / 6 / 9",
+      "iniciativa": "+8",
+      "preco": "2 PO",
+      "peso": "0,5 kg"
+    },
+    {
+      "nome": "Alabarda",
+      "tamanho": "G",
+      "dano": "1d10",
+      "alcance": "3",
+      "iniciativa": "+1",
+      "preco": "15 PO",
+      "peso": "8 kg"
+    },
+    {
+      "nome": "Arco Curto",
+      "tamanho": "P",
+      "dano": "-",
+      "alcance": "15 / 30 / 45",
+      "iniciativa": "+3",
+      "preco": "25 PO",
+      "peso": "0,5 kg"
+    },
+    {
+      "nome": "Arco Longo",
+      "tamanho": "G",
+      "dano": "-",
+      "alcance": "25 / 50 / 70",
+      "iniciativa": "+2",
+      "preco": "60 PO",
+      "peso": "1,5 kg"
+    },
+    {
+      "nome": "Besta",
+      "tamanho": "P",
+      "dano": "1d6",
+      "alcance": "20 / 40 / 60",
+      "iniciativa": "+3",
+      "preco": "30 PO",
+      "peso": "3,5 kg"
+    },
+    {
+      "nome": "Bordão/Cajado",
+      "tamanho": "M",
+      "dano": "1d4",
+      "alcance": "-",
+      "iniciativa": "+7",
+      "preco": "5 PP",
+      "peso": "1,5 kg"
+    },
+    {
+      "nome": "Cimitarra",
+      "tamanho": "M",
+      "dano": "1d6",
+      "alcance": "-",
+      "iniciativa": "+8",
+      "preco": "15 PO",
+      "peso": "1,5 kg"
+    },
+    {
+      "nome": "Espada Bastarda",
+      "tamanho": "G",
+      "dano": "1d10",
+      "alcance": "-",
+      "iniciativa": "+2",
+      "preco": "15 PO",
+      "peso": "3 kg"
+    },
+    {
+      "nome": "Espada Curta",
+      "tamanho": "P",
+      "dano": "1d6",
+      "alcance": "-",
+      "iniciativa": "+7",
+      "preco": "6 PO",
+      "peso": "1,5 kg"
+    },
+    {
+      "nome": "Espada Longa",
+      "tamanho": "M",
+      "dano": "1d8",
+      "alcance": "-",
+      "iniciativa": "+5",
+      "preco": "10 PO",
+      "peso": "2 kg"
+    },
+    {
+      "nome": "Flecha de Caça (20)",
+      "tamanho": "-",
+      "dano": "1d6",
+      "alcance": "-",
+      "iniciativa": "-",
+      "preco": "5 PO",
+      "peso": "1 kg"
+    },
+    {
+      "nome": "Flecha de Guerra (20)",
+      "tamanho": "-",
+      "dano": "1d8",
+      "alcance": "-",
+      "iniciativa": "-",
+      "preco": "7 PO",
+      "peso": "1,5 kg"
+    },
+    {
+      "nome": "Funda",
+      "tamanho": "P",
+      "dano": "1d3",
+      "alcance": "10 / 20 / 30",
+      "iniciativa": "+4",
+      "preco": "5 PP",
+      "peso": "-"
+    },
+    {
+      "nome": "Lança",
+      "tamanho": "M",
+      "dano": "1d6",
+      "alcance": "3 / 6 / 9",
+      "iniciativa": "+4",
+      "preco": "5 PO",
+      "peso": "2,5 kg"
+    },
+    {
+      "nome": "Maça",
+      "tamanho": "M",
+      "dano": "1d8",
+      "alcance": "-",
+      "iniciativa": "+3",
+      "preco": "6 PO",
+      "peso": "5 kg"
+    },
+    {
+      "nome": "Machado",
+      "tamanho": "M",
+      "dano": "1d8",
+      "alcance": "-",
+      "iniciativa": "+3",
+      "preco": "8 PO",
+      "peso": "3,5 kg"
+    },
+    {
+      "nome": "Machadinha",
+      "tamanho": "P",
+      "dano": "1d6",
+      "alcance": "3 / 6 / 9",
+      "iniciativa": "+6",
+      "preco": "4 PO",
+      "peso": "2 kg"
+    },
+    {
+      "nome": "Mangual",
+      "tamanho": "M",
+      "dano": "1d8",
+      "alcance": "-",
+      "iniciativa": "+3",
+      "preco": "8 PO",
+      "peso": "5 kg"
+    },
+    {
+      "nome": "Martelo",
+      "tamanho": "M",
+      "dano": "1d6",
+      "alcance": "3 / 6 / 9",
+      "iniciativa": "+6",
+      "preco": "5 PO",
+      "peso": "3 kg"
+    },
+    {
+      "nome": "Montante",
+      "tamanho": "G",
+      "dano": "1d12",
+      "alcance": "-",
+      "iniciativa": "+1",
+      "preco": "20 PO",
+      "peso": "10 kg"
+    },
+    {
+      "nome": "Porrete",
+      "tamanho": "M",
+      "dano": "1d4",
+      "alcance": "-",
+      "iniciativa": "+6",
+      "preco": "1 PP",
+      "peso": "0,5 kg"
+    },
+    {
+      "nome": "Quatrelo p/ bestas (10)",
+      "tamanho": "-",
+      "dano": "-",
+      "alcance": "-",
+      "iniciativa": "-",
+      "preco": "2 PO",
+      "peso": "2 kg"
+    },
+    {
+      "nome": "Sabre",
+      "tamanho": "P",
+      "dano": "1d6",
+      "alcance": "-",
+      "iniciativa": "+8",
+      "preco": "8 PP",
+      "peso": "1 kg"
+    }
+  ]
+}
