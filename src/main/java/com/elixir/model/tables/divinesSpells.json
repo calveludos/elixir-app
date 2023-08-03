@@ -1,40 +1,70 @@
 {
   "Magias Divinas": {
     "1 Circulo": [
-      { "nome": "Arma abençoada", "alcance": "toque", "duração": "1d4 turnos +1 turno/nível", "descrição": "-" },
-      { "nome": "Cativar animais", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Círculo de fé", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Comando", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Constrição", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Criar água", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Curar/causar ferimentos leves", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Detectar alinhamento", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Detectar magia", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Detectar venenos", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Luz", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Proteção contra calor/frio", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Proteção contra alinhamento", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Purificar alimentos/Apodrecimento", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Remover medo", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Santuário", "alcance": "-", "duração": "-", "descrição": "-" }
+      { "nome": "Arma abençoada", "alcance": "toque", "duração": "1d4 turnos +1 turno/nível", "descrição": "Duração: 1d4 turnos +1 turno/nível. Esta magia permite ao clérigo criar uma arma mágica que concede um bônus de +1 no ataque a qualquer arma natural (de pedra ou madeira) que não contenha nenhuma parte metálica. A arma abençoada recebe ainda um bônus de +1d4 no dano causado." },
+      { "nome": "Cativar animais", "alcance": "raio de 3 metros + 1 metro/nível", "duração": "permanente", "descrição": "Conjurando esta magia sobre animais selvagens e não inteligentes é possível acalmá-los e conquistar a confiança dos mesmos. Os animais podem fazer uma jogada de proteção para resistir e mesmo assim apenas serão cativados caso a intenção do clérigo seja realmente sincera. Caso o clérigo esteja com segundas intenções (como enganar, comer, caçar, aprisionar, e etc.), o animal sentirá e sequer precisará fazer a jogada de proteção. Animais que forem cativados seguirão o clérigo, que pode ainda lhes treinar e ensinar 1d4 truques a uma razão de 5-Inteligência do animal semanas, de forma que um animal com Inteligência 3 levará 2 semanas (5-3=2) para aprender um truque." },
+      { "nome": "Círculo de fé", "alcance": "toque", "duração": "especial (ver texto)", "descrição": "Com esta magia, 3 a 5 clérigos conseguem ampliar os efeitos do clérigo mais poderoso do grupo, que deve ficar ao centro enquanto os outros fazem um círculo com as mãos e entoam cânticos sagrados ao seu redor. O clérigo no centro do grupo lança o círculo de fé e recebe um bônus nos seus níveis para efeitos de magias na razão de +1 nível para cada clérigo que estiver compondo o círculo ao seu redor pelo  prazo de 1 turno por clérigo envolvido.\nO ganho de níveis também pode ser\nutilizado para afastar mortos-vivos." },
+      { "nome": "Comando", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Esta magia permite ao clérigo dar uma ordem simples e direta a um alvo que falhe em uma jogada de proteção modificada pela Sabedoria. A vítima deve entender a linguagem do clérigo e obedecerá à ordem cegamente. As ordens mais comuns costumam ser: pare, volte, fuja, corra, caia, renda-se, e etc. Uma ordem de mate-se não será cumprida, mas o alvo cairá desacordado pelo tempo de duração da magia." },
+      { "nome": "Constrição", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d6 turnos + 1 turno/nível", "descrição": "O clérigo consegue animar todas as plantas dentro de um raio de até 10 metros para que agarrem e apertem todos os seres vivos que passarem por ali. Todos que tentem se locomover terão seu movimento reduzido em 1 metro a cada 6 turnos que passarem na área." },
+      { "nome": "Criar água", "alcance": "1d6 turnos + 1 turno/nível", "duração": "permanente", "descrição": "Esta magia cria uma pequena quantidade de água potável para até 2 homens por nível do clérigo (até o nível 10). Do nível 11 em diante, o clérigo consegue criar água suficiente para 4 homens por nível." },
+      { "nome": "Curar/causar ferimentos leves", "alcance": "toque", "duração": "instantânea", "descrição": "Cura 1d8 pontos de vida +1 ponto de vida por nível (até um máximo de +4). Clérigos caóticos têm acesso à forma reversa da magia, onde, ao invés de curar, o toque causa 1d8 pontos de dano +1 de dano por nível (até um máximo de +4)." },
+      { "nome": "Detectar alinhamento", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia possibilita ao personagem que se concentrar por um turno inteiro detectar a aura de uma pessoa ou objeto, determinando assim o seu alinhamento. Alinhamentos magicamente ocultos irão revelar uma aura errada sem que o personagem perceba" },
+      { "nome": "Detectar magia", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d6 turnos +1 turno/nível", "descrição": "O personagem pode perceber em lugares, pessoas ou coisas, a presença de uma magia. Os alvos detectados emitem um leve brilho azulado, que não é perceptível aos olhos das outras pessoas. Por exemplo: itens mágicos podem ser descobertos desta forma, assim como a presença de um feitiço secretamente colocado em uma pessoa." },
+      { "nome": "Detectar venenos", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Esta magia possibilita ao conjurador detectar se há veneno em um objeto, comida ou ferimento." },
+      { "nome": "Luz", "alcance": "toque", "duração": "1 hora + 10 minutos/nível", "descrição": "O objeto alvo produz luz tão brilhante quanto uma tocha, que ilumina uma área com raio de 6 metros." },
+      { "nome": "Proteção contra calor/frio", "alcance": "toque", "duração": "1 hora + 10 minutos/nível", "descrição": "Esta magia faz com que calor ou frio extremos se tornem inofensivos para o alvo da magia. Temperaturas de -25°C a até 55°C são percebidas como temperaturas amenas." },
+      { "nome": "Proteção contra alinhamento", "alcance": "pessoal", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia cria uma barreira mágica invisível ao redor do personagem, protegendo-o de qualquer ataque realizado por uma criatura/fonte caótica ou ordeira. Os ataques físicos recebem uma penalidade de -2. A proteção confere 25% de resistência a magia ao personagem." },
+      { "nome": "Purificar alimentos/Apodrecimento", "alcance": "toque", "duração": "permanente", "descrição": "Esta magia purifica comida e bebida suficiente para doze pessoas, removendo deteriorações e venenos ou qualquer outro efeito negativo não mágico. Clérigos caóticos têm acesso à forma reversa desta magia, chamada Apodrecimento, que deteriora e apodrece alimentos com um toque." },
+      { "nome": "Remover medo", "alcance": "especial(ver texto)", "duração": "permanente", "descrição": "Esta magia tem dois efeitos: anula qualquer efeito de medo mágico ou não que esteja incidindo no alvo; ou concede aos alvos um bônus de +4 para qualquer jogada de proteção para resistir aos efeitos de medo. O segundo efeito só será possível se o alvo não estiver sob efeito de qualquer tipo de medo. Esta magia afeta uma criatura tocada para cada 4 níveis do clérigo." },
+      { "nome": "Santuário", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Esta magia cria uma aura de proteção no clérigo, que faz com que todos aqueles com desejo de atacá-lo realizem uma jogada de proteção modificada pela Sabedoria. Caso falhem, ignorarão o clérigo até o final do efeito da magia." }
     ],
     "2 Circulo": [
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" }
+      { "nome": "Ajuda", "alcance": "-", "duração": "-", "descrição": "-" },
+      {
+        "nome": "Armadilha de fogo",
+        "alcance": "toque",
+        "duração": "permanente",
+        "descrição": "O personagem cria uma armadilha engatilhada em qualquer objeto que possa ser aberto, como um baú, livro, porta, gaveta e etc., que explode em chamas assim que for aberta. A explosão causa a todos em um raio de 2 m do objeto 1d4 pontos de dano + 1 ponto de dano por nível do personagem que a conjurou. Uma jogada de proteção modificada pela Destreza reduz o dano pela metade. O objeto encantado com esta magia não é afetado pelos efeitos desta explosão."
+      },
+      {"nome": "Bênção", "alcance": "toque", "duração": "1d4 turnos +1 turno/nível", "descrição": "A bênção é concedida pelo deus adorado pelo clérigo, concedendo ao alvo tocado um bônus de +1 nas jogadas de ataque e nas jogadas de proteção modificadas pela Sabedoria."},
+      {
+        "nome": "Bom fruto",
+        "alcance": "toque",
+        "duração": "especial (ver texto)",
+        "descrição": "Com esta magia o clérigo é capaz de abençoar 2d4 frutos e torná-los mágicos. Aquele que comer destes frutos recuperará 1 ponto de vida perdido. A cada 24 horas, apenas 8 pontos de vida podem ser recuperados com esta magia. O reverso, maus frutos, transformam frutos comuns em frutos envenenados que causam a perda de 1 ponto de vida."
+      },
+      {
+        "nome": "Cântico",
+        "alcance": "raio de 10 metros + 3 metros/nível",
+        "duração": "especial (ver texto)",
+        "descrição": "O clérigo, entoando cantigas religiosas, atrai para seus aliados um bônus de +1 em todas as suas jogadas dentro da área de alcance da magia, enquanto amaldiçoa simultaneamente os inimigos com uma penalidade de -1 em todas as jogadas. A magia estará ativa enquanto o clérigo estiver entoando o cântico e cessará caso receba dano, se locomova ou seja impedido de falar."
+      },
+      {
+        "nome": "Cativar",
+        "alcance": "raio de 10 metros + 3 metros/nível",
+        "duração": "especial (ver texto)",
+        "descrição": "O clérigo consegue atrair a atenção de uma plateia, mesmo que não compreendam perfeitamente a sua linguagem. Para resistir, é preciso uma jogada de proteção modificada pela Sabedoria. Os afetados permanecerão imóveis e indiferentes a tudo o que ocorrer à sua volta. Pessoas que estavam com atitudes hostis em relação ao clérigo antes da magia recebem um bônus de +4 na jogada de proteção para resistir à magia. O efeito durará enquanto o clérigo estiver falando com a plateia (máximo de 1 hora) ou até serem atacados."
+      },
+      {
+        "nome": "Criar chamas",
+        "alcance": "pessoal",
+        "duração": "1d6 turnos + 1 turno/nível",
+        "descrição": "Esta magia cria nas mãos do clérigo uma chama do tamanho de uma tocha, que, apesar de não ferir o clérigo, causa dano normal de fogo, além de queimar materiais inflamáveis. O clérigo pode arremessar as chamas que foram criadas. Para tal deve realizar uma jogada de ataque com +1 para cada 2 níveis na classe."
+      },
+      {
+        "nome": "Detectar armadilhas",
+        "alcance": "raio de 3 metros + 1 metro/nível",
+        "duração": "1d6 turnos + 1 turno/nível",
+        "descrição": "O clérigo consegue identificar magicamente qualquer armadilha, como um ladrão faria. Apenas armadilhas não mágicas são detectadas desta forma."
+      },
+      { "nome": "Falar com animais", "alcance": "-", "duração": "-", "descrição": "-" },
+      { "nome": "Imobilizar pessoas", "alcance": "-", "duração": "-", "descrição": "-" },
+      { "nome": "Lâmina flamejante", "alcance": "-", "duração": "-", "descrição": "-" },
+      { "nome": "Martelo espiritual", "alcance": "-", "duração": "-", "descrição": "-" },
+      { "nome": "Mensagem", "alcance": "-", "duração": "-", "descrição": "-" },
+      { "nome": "Obscurecimento", "alcance": "-", "duração": "-", "descrição": "-" },
+      { "nome": "Silêncio 4,5m", "alcance": "-", "duração": "-", "descrição": "-" },
+      { "nome": "Wyvern vigia", "alcance": "-", "duração": "-", "descrição": "-" }
     ],
     "3 Circulo": [
       { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
