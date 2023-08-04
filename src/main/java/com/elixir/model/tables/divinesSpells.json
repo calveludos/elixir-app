@@ -18,90 +18,60 @@
       { "nome": "Remover medo", "alcance": "especial(ver texto)", "duração": "permanente", "descrição": "Esta magia tem dois efeitos: anula qualquer efeito de medo mágico ou não que esteja incidindo no alvo; ou concede aos alvos um bônus de +4 para qualquer jogada de proteção para resistir aos efeitos de medo. O segundo efeito só será possível se o alvo não estiver sob efeito de qualquer tipo de medo. Esta magia afeta uma criatura tocada para cada 4 níveis do clérigo." },
       { "nome": "Santuário", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Esta magia cria uma aura de proteção no clérigo, que faz com que todos aqueles com desejo de atacá-lo realizem uma jogada de proteção modificada pela Sabedoria. Caso falhem, ignorarão o clérigo até o final do efeito da magia." }
     ],
-    "2 Circulo": [
-      { "nome": "Ajuda", "alcance": "-", "duração": "-", "descrição": "-" },
-      {
-        "nome": "Armadilha de fogo",
-        "alcance": "toque",
-        "duração": "permanente",
-        "descrição": "O personagem cria uma armadilha engatilhada em qualquer objeto que possa ser aberto, como um baú, livro, porta, gaveta e etc., que explode em chamas assim que for aberta. A explosão causa a todos em um raio de 2 m do objeto 1d4 pontos de dano + 1 ponto de dano por nível do personagem que a conjurou. Uma jogada de proteção modificada pela Destreza reduz o dano pela metade. O objeto encantado com esta magia não é afetado pelos efeitos desta explosão."
-      },
-      {"nome": "Bênção", "alcance": "toque", "duração": "1d4 turnos +1 turno/nível", "descrição": "A bênção é concedida pelo deus adorado pelo clérigo, concedendo ao alvo tocado um bônus de +1 nas jogadas de ataque e nas jogadas de proteção modificadas pela Sabedoria."},
-      {
-        "nome": "Bom fruto",
-        "alcance": "toque",
-        "duração": "especial (ver texto)",
-        "descrição": "Com esta magia o clérigo é capaz de abençoar 2d4 frutos e torná-los mágicos. Aquele que comer destes frutos recuperará 1 ponto de vida perdido. A cada 24 horas, apenas 8 pontos de vida podem ser recuperados com esta magia. O reverso, maus frutos, transformam frutos comuns em frutos envenenados que causam a perda de 1 ponto de vida."
-      },
-      {
-        "nome": "Cântico",
-        "alcance": "raio de 10 metros + 3 metros/nível",
-        "duração": "especial (ver texto)",
-        "descrição": "O clérigo, entoando cantigas religiosas, atrai para seus aliados um bônus de +1 em todas as suas jogadas dentro da área de alcance da magia, enquanto amaldiçoa simultaneamente os inimigos com uma penalidade de -1 em todas as jogadas. A magia estará ativa enquanto o clérigo estiver entoando o cântico e cessará caso receba dano, se locomova ou seja impedido de falar."
-      },
-      {
-        "nome": "Cativar",
-        "alcance": "raio de 10 metros + 3 metros/nível",
-        "duração": "especial (ver texto)",
-        "descrição": "O clérigo consegue atrair a atenção de uma plateia, mesmo que não compreendam perfeitamente a sua linguagem. Para resistir, é preciso uma jogada de proteção modificada pela Sabedoria. Os afetados permanecerão imóveis e indiferentes a tudo o que ocorrer à sua volta. Pessoas que estavam com atitudes hostis em relação ao clérigo antes da magia recebem um bônus de +4 na jogada de proteção para resistir à magia. O efeito durará enquanto o clérigo estiver falando com a plateia (máximo de 1 hora) ou até serem atacados."
-      },
-      {
-        "nome": "Criar chamas",
-        "alcance": "pessoal",
-        "duração": "1d6 turnos + 1 turno/nível",
-        "descrição": "Esta magia cria nas mãos do clérigo uma chama do tamanho de uma tocha, que, apesar de não ferir o clérigo, causa dano normal de fogo, além de queimar materiais inflamáveis. O clérigo pode arremessar as chamas que foram criadas. Para tal deve realizar uma jogada de ataque com +1 para cada 2 níveis na classe."
-      },
-      {
-        "nome": "Detectar armadilhas",
-        "alcance": "raio de 3 metros + 1 metro/nível",
-        "duração": "1d6 turnos + 1 turno/nível",
-        "descrição": "O clérigo consegue identificar magicamente qualquer armadilha, como um ladrão faria. Apenas armadilhas não mágicas são detectadas desta forma."
-      },
-      { "nome": "Falar com animais", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Imobilizar pessoas", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Lâmina flamejante", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Martelo espiritual", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Mensagem", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Obscurecimento", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Silêncio 4,5m", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "Wyvern vigia", "alcance": "-", "duração": "-", "descrição": "-" }
-    ],
-    "3 Circulo": [
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" }
-    ],
-    "4 Circulo": [
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" }
-    ],
+{
+  "2 Circulo": [
+    { "nome": "Ajuda", "alcance": "toque", "duração": "1d4 turnos +1 turno/nível", "descrição": "Esta magia concede ao alvo 1d8 pontos de vida temporários. Esses pontos de vida podem superar o valor base de pontos de vida e serão sempre os primeiros a serem perdidos em caso de ferimentos." },
+    { "nome": "Armadilha de fogo", "alcance": "toque", "duração": "permanente", "descrição": "O personagem cria uma armadilha engatilhada em qualquer objeto que possa ser aberto, como um baú, livro, porta, gaveta e etc., que explode em chamas assim que for aberta. A explosão causa a todos em um raio de 2 m do objeto 1d4 pontos de dano + 1 ponto de dano por nível do personagem que a conjurou. Uma jogada de proteção modificada pela Destreza reduz o dano pela metade. O objeto encantado com esta magia não é afetado pelos efeitos desta explosão." },
+    { "nome": "Bênção", "alcance": "toque", "duração": "1d4 turnos +1 turno/nível", "descrição": "A bênção é concedida pelo deus adorado pelo clérigo, concedendo ao alvo tocado um bônus de +1 nas jogadas de ataque e nas jogadas de proteção modificadas pela Sabedoria." },
+    { "nome": "Bom fruto", "alcance": "toque", "duração": "especial (ver texto)", "descrição": "Com esta magia o clérigo é capaz de abençoar 2d4 frutos e torná-los mágicos. Aquele que comer destes frutos recuperará 1 ponto de vida perdido. A cada 24 horas, apenas 8 pontos de vida podem ser recuperados com esta magia. O reverso, maus frutos, transformam frutos comuns em frutos envenenados que causam a perda de 1 ponto de vida." },
+    { "nome": "Cântico", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "especial (ver texto)", "descrição": "O clérigo, entoando cantigas religiosas, atrai para seus aliados um bônus de +1 em todas as suas jogadas dentro da área de alcance da magia, enquanto amaldiçoa simultaneamente os inimigos com uma penalidade de -1 em todas as jogadas. A magia estará ativa enquanto o clérigo estiver entoando o cântico e cessará caso receba dano, se locomova ou seja impedido de falar." },
+    { "nome": "Cativar", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "especial (ver texto)", "descrição": "O clérigo consegue atrair a atenção de uma plateia, mesmo que não compreendam perfeitamente a sua linguagem. Para resistir, é preciso uma jogada de proteção modificada pela Sabedoria. Os afetados permanecerão imóveis e indiferentes a tudo o que ocorrer à sua volta. Pessoas que estavam com atitudes hostis em relação ao clérigo antes da magia recebem um bônus de +4 na jogada de proteção para resistir à magia. O efeito durará enquanto o clérigo estiver falando com a plateia (máximo de 1 hora) ou até serem atacados." },
+    { "nome": "Criar chamas", "alcance": "pessoal", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia cria nas mãos do clérigo uma chama do tamanho de uma tocha, que, apesar de não ferir o clérigo, causa dano normal de fogo, além de queimar materiais inflamáveis. O clérigo pode arremessar as chamas que foram criadas. Para tal deve realizar uma jogada de ataque com +1 para cada 2 níveis na classe." },
+    { "nome": "Detectar armadilhas", "alcance": "raio de 3 metros + 1 metro/nível", "duração": "1d6 turnos + 1 turno/nível", "descrição": "O clérigo consegue identificar magicamente qualquer armadilha, como um ladrão faria. Apenas armadilhas não mágicas são detectadas desta forma." },
+    { "nome": "Falar com animais", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "O clérigo pode entender a linguagem dos animais e consegue se comunicar com eles. Esta magia não obriga que o animal fale com o clérigo, apenas permite que consigam se comunicar." },
+    { "nome": "Imobilizar pessoas", "alcance": "especial (ver texto)", "duração": "1 hora + 10 minutos/nível", "descrição": "O personagem escolhe 1d4 pessoas que ficam completamente imobilizadas (uma jogada de proteção modificada pela Constituição nega este efeito). Até 20 DV de pessoas para cada 5 níveis do mago são afetadas por esta magia. O personagem também pode escolher uma única pessoa para imobilizar, e nesse caso a jogada de proteção é feita com -2 de penalidade." },
+    { "nome": "Lâmina flamejante", "alcance": "pessoal", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia cria uma lâmina de fogo a partir da mão do clérigo para ser utilizada como uma espada que causa 1d4+4 pontos de dano. Criaturas vulneráveis ao fogo, como um troll, recebem o dobro do dano." },
+    { "nome": "Martelo espiritual", "alcance": "raio de 3 metros + 1 metro/nível", "duração": "1d6 turnos + 1 turno/nível", "descrição": "A magia cria um martelo que pode ser usado pelo clérigo para atacar qualquer alvo dentro do alcance da magia. O martelo possui um bônus de ataque +1 para cada 5 níveis do clérigo e causa 1d4 pontos de dano, além do bônus de +1 por nível do clérigo. Se o clérigo abandonar a concentração ou sofrer dano, o martelo será dissipado imediatamente." },
+    { "nome": "Mensagem", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d6 turnos + 1 turno/nível", "descrição": "O personagem pode escolher 1 alvo a cada 3 níveis de personagem para sussurrar uma mensagem e receber uma resposta sem que as outras criaturas fora do efeito percebam. É preciso que todos os alvos compreendam o idioma falado e que não haja nenhum obstáculo físico ou mágico que atrapalhe a comunicação." },
+    { "nome": "Obscurecimento", "alcance": "pessoal", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia cria uma densa neblina em torno do clérigo (a nuvem é fixa e não se move junto com o clérigo) com 3 metros de raio por 3 metros de altura. Todos os ataques realizados contra um alvo dentro da neblina sofrem uma penalidade de -4." },
+    { "nome": "Silêncio", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Um silêncio mágico cai sobre uma área de 4,5 m de raio ao redor da criatura ou objeto alvo e se move com ele. Nenhum barulho emitido dentro da área pode ser ouvido além de seus limites, não importa o quão alto for." },
+    { "nome": "Wyvern vigia", "alcance": "especial (ver texto)", "duração": "especial (ver texto)", "descrição": "Esta magia cria um wyvern de neblina que vigia competentemente uma área de 3 metros de raio por até 8 horas ou até ser dissipado. Qualquer criatura que adentrar essa área deve realizar uma jogada de proteção modificada pela Constituição ou será paralisado pelo wyvern por 1 turno por nível do clérigo. Ao paralisar o invasor, a magia é dissipada e o clérigo recebe um aviso mental capaz, inclusive, de fazê-lo acordar. O wyvern pode ser detectado apenas com iluminação fraca (30% de chance) ou com boa iluminação (80% de chance)." }
+  ]
+}
+
+   {
+{
+  "3 Circulo": [
+    { "nome": "Clarividência", "alcance": "especial (ver texto)", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia permite ao mago se concentrar em um lugar específico que ele já conheça para conseguir visualizar o local como se estivesse lá fisicamente." },
+    { "nome": "Convocar insetos", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia convoca uma nuvem de insetos voadores (vespas, abelhas e moscas) ou um tapete de insetos rastejantes (formigas, besouros e etc.) que atacarão um alvo indicado pelo clérigo. O alvo pode tentar se desvencilhar dos insetos, e assim reduzir o tempo da duração pela metade e levar apenas 1d3 pontos de dano por turno. Caso deseje ignorar a nuvem, o alvo recebe 1d4 pontos de dano por turno e recebe -1 nas suas jogadas de ataque e de dano." },
+    { "nome": "Convocar relâmpagos", "alcance": "raio de 100 metros + 10 metros/nível", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Esta magia convoca relâmpagos a partir de um céu carregado, com nuvens negras e prestas a despejar chuva, e os direciona a um ponto específico. Para convocar um relâmpago, o clérigo deve se concentrar por um turno inteiro e, no início do próximo turno, o relâmpago cairá em qualquer ponto escolhido por ele, desde que dentro do alcance da magia. O relâmpago causa a todos em um raio de 3 metros em torno do ponto onde o relâmpago caiu 2d8 pontos de dano +1d8 pontos de dano adicional por nível do clérigo. O clérigo ainda pode convocar 1 relâmpago a cada 2 turnos (1 para convocar e outra para direcionar), enquanto estiver concentrado e não realizar nenhuma outra ação." },
+    { "nome": "Criar alimentos", "alcance": "raio de 3 metros + 1 metro/nível", "duração": "permanente", "descrição": "Esta magia cria uma pequena quantidade de comida para até 2 homens por nível do clérigo (até o nível 10). Do nível 11 em diante, o clérigo consegue criar alimentos suficiente para 4 homens por nível." },
+    { "nome": "Curar doenças/Pestilência", "alcance": "toque", "duração": "instantânea", "descrição": "Esta magia cura qualquer doença que acometa ao alvo, incluindo as que foram causadas por magia. Clérigos caóticos têm acesso à forma reversa desta magia, chamada Pestilência, uma doença que causa 1d4 pontos de dano por hora ao alvo e tem uma chance de 5% de ser contagiosa ao toque por nível do clérigo." },
+    { "nome": "Dissipar magia", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "permanente", "descrição": "Esta magia, apesar de não ser poderosa o bastante para desencantar permanentemente um item mágico (suprime seus efeitos por 10 minutos), pode ser usada para dissipar completamente os efeitos de uma magia. A chance de sucesso de dissipar é uma percentagem baseada na proporção do nível do personagem que está tentando dissipar com o nível do personagem (ou DV do monstro) que conjurou a magia a ser dissipada. A fórmula é: 20 - nível do personagem criador da magia + nível do personagem dissipante x 2% de chance. Então, um mago de 6o nível tentando dissipar um feitiço de um mago de 12o nível teria 28% de chance de sucesso (20 - 12 + 6 = 14, 14 x 2% = 28%). Se um mago de 12o nível estivesse dissipando o feitiço de um mago de 6o nível, a chance seria de 52% (20 - 6 + 12 = 26 x 2% = 52%)." },
+    { "nome": "Luz contínua", "alcance": "toque", "duração": "permanente", "descrição": "O objeto alvo produz luz tão brilhante quanto uma tocha, que ilumina uma área com raio de 6m permanentemente." },
+    { "nome": "Oração", "alcance": "pessoal", "duração": "especial (ver texto)", "descrição": "A magia Oração busca um auxilio imediato dos deuses para aumentar a eficácia de alguma outra magia ou ataque. Todos os aliados em um raio de até 9 metros do clérigo recebem um bônus de +1 nas suas jogadas de proteção, enquanto que os inimigos recebem uma penalidade de -1. Esse bônus é ampliado a cada 7 níveis de clérigo, passando a ser de +2/-2 no 7o nível, +3/-3 no 14o e assim sucessivamente. Os efeitos desta magia duram 1 turno para cada 5 níveis do clérigo." },
+    { "nome": "Reanimar mortos", "alcance": "toque", "duração": "permanente", "descrição": "Esta magia concede ao personagem o poder de reanimar 1d4+2 cadáveres em decomposição ou já decompostos (se o esqueleto estiver inteiro). Esses mortos-vivos passarão a ver o personagem como seu mestre e acatarão qualquer ordem dada por ele." },
+    { "nome": "Roupa encantada", "alcance": "pessoal", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia faz com que a roupa do clérigo fique encantada, aumentando a sua classe de armadura. O clérigo recebe um bônus de +5 na CA e um bônus de +1 a cada três níveis acima do nível 5. Esse bônus não é cumulativo com o bônus de armadura, sendo que somente o melhor bônus será considerado." },
+    { "nome": "Símbolo de proteção", "alcance": "toque", "duração": "permanente", "descrição": "O Símbolo de proteção cria um gatilho de ativação condicional em uma passagem ou objeto, para protegê-lo de pessoas que não supram os requisitos para acessá-lo (como uma determinada raça, classe, alinhamento, religião ou senha secreta). Os efeitos do acesso não permitido devem ser dados por outra magia conjurada em conjunto com símbolo de proteção, ou, caso se optar por não usar nenhuma outra magia, 1d4 de dano por nível do clérigo que instalou o símbolo." }
+  ]
+}
+
+{
+  "4 Circulo": [
+    { "nome": "Adivinhação", "alcance": "especial (ver texto)", "duração": "especial (ver texto)", "descrição": "Pedindo ajuda à sua divindade, o clérigo recebe sinais que lhe mostram um caminho, uma verdade, um evento ou uma atividade em específico. A resposta desejada lhe será dada de forma indireta, como um sinal, uma frase, um enigma, dentre outros." },
+    { "nome": "Andar sobre as águas", "alcance": "toque", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Com esta magia, o alvo tocado adquire a habilidade de andar sobre líquidos e solos instáveis como se estivesse em solo firme. A partir do nível 5, o clérigo pode usar esta magia para até dois alvos tocados." },
+    { "nome": "Bastão em serpente", "alcance": "raio de 10 metros + 3 m/ nível", "duração": "1d4 turnos + 1 turno/nível", "descrição": "O clérigo consegue transformar bastões não mágicos de madeira em serpentes, que atacarão ao seu comando. A quantidade convertida é de 1d4 bastões + 1 por nível do clérigo. Cada serpente possui 2 DVs e há uma chance de 5% por nível do clérigo de ser venenosa." },
+    { "nome": "Criar fogo", "alcance": "raio de 10 metros + 3 metro/nível", "duração": "1d4 turnos +1 turno/nível", "descrição": "Esta magia cria uma fonte de fogo comum do tamanho de uma fogueira. Após a duração da magia, todo o fogo se extingue, mas os materiais queimados não retornam ao normal." },
+    { "nome": "Curar ferimentos moderados", "alcance": "toque", "duração": "instantânea", "descrição": "Cura 2d8 pontos de vida +1 ponto de vida por nível (até um máximo de +8). Clérigos caóticos têm acesso à forma reversa da magia, onde ao invés de curar, o toque causa 2d8 pontos de dano +1 de dano por nível (até um máximo de +8)." },
+    { "nome": "Detectar mentiras", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Com esta magia, o clérigo é capaz de perceber se uma pessoa está mentindo mas não revela a verdade nem se o alvo está se evadindo nas respostas. Caso o alvo responda algo falsamente, mas acreditando no que diz a mentira não é detectada." },
+    { "nome": "Idiomas", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Esta magia permite que o clérigo escolha um idioma e passe a se comunicar perfeitamente nele até o final da duração da magia." },
+    { "nome": "Neutralizar veneno", "alcance": "toque", "duração": "instantânea", "descrição": "Esta magia anula quaisquer efeitos de venenos em ação dentro de um organismo, muito embora não consiga recuperar pontos de danos previamente causados." },
+    { "nome": "Poça reflexiva", "alcance": "100 metros + 10 metros/nível", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Esta magia transforma uma poça, espelho d’água, piscina ou qualquer massa de água plácida em um objeto de espionagem mágica, como uma bola de cristal. A imagem, geralmente é turva e pouco reveladora, só podendo incidir sobre pessoas e lugares conhecidos pelo clérigo e dentro da área de alcance da magia." },
+    { "nome": "Porta dimensional", "alcance": "10 metros + 1 metro/nível", "duração": "instantânea", "descrição": "Porta dimensional é uma forma menos poderosa de teletransporte. O conjurador abre uma porta de energia entre dois locais diferentes, levando consigo tudo o que portar de um lugar ao outro. O conjurador deve conhecer o local de destino do portal antes de escolhê-lo e ele deve estar dentro do alcance máximo da magia." }
+  ]
+}
+
+
     "5 Circulo": [
       { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
       { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
