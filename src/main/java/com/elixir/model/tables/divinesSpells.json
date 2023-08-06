@@ -18,7 +18,7 @@
       { "nome": "Remover medo", "alcance": "especial(ver texto)", "duração": "permanente", "descrição": "Esta magia tem dois efeitos: anula qualquer efeito de medo mágico ou não que esteja incidindo no alvo; ou concede aos alvos um bônus de +4 para qualquer jogada de proteção para resistir aos efeitos de medo. O segundo efeito só será possível se o alvo não estiver sob efeito de qualquer tipo de medo. Esta magia afeta uma criatura tocada para cada 4 níveis do clérigo." },
       { "nome": "Santuário", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Esta magia cria uma aura de proteção no clérigo, que faz com que todos aqueles com desejo de atacá-lo realizem uma jogada de proteção modificada pela Sabedoria. Caso falhem, ignorarão o clérigo até o final do efeito da magia." }
     ],
-{
+
   "2 Circulo": [
     { "nome": "Ajuda", "alcance": "toque", "duração": "1d4 turnos +1 turno/nível", "descrição": "Esta magia concede ao alvo 1d8 pontos de vida temporários. Esses pontos de vida podem superar o valor base de pontos de vida e serão sempre os primeiros a serem perdidos em caso de ferimentos." },
     { "nome": "Armadilha de fogo", "alcance": "toque", "duração": "permanente", "descrição": "O personagem cria uma armadilha engatilhada em qualquer objeto que possa ser aberto, como um baú, livro, porta, gaveta e etc., que explode em chamas assim que for aberta. A explosão causa a todos em um raio de 2 m do objeto 1d4 pontos de dano + 1 ponto de dano por nível do personagem que a conjurou. Uma jogada de proteção modificada pela Destreza reduz o dano pela metade. O objeto encantado com esta magia não é afetado pelos efeitos desta explosão." },
@@ -72,60 +72,48 @@
 }
 
 
-    "5 Circulo": [
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" }
-    ],
-    "6 Circulo": [
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" }
-    ],
-    "7 Circulo": [
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
-      { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" }
-    ],
+{
+  "5 Circulo": [
+    { "nome": "Coluna de chamas", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "instantânea", "descrição": "Uma coluna de 2 metros de raio e até 10 metros de altura saia do chão e queime tudo o que estiver dentro dessa área, causando 6d8 de dano. Uma jogada de proteção modificada pela Destreza reduz o dano pela metade." },
+    { "nome": "Comunhão", "alcance": "pessoal", "duração": "especial (ver texto)", "descrição": "Poderes superiores respondem a até 3 perguntas mentalmente ao clérigo. As respostas devem ser sempre dadas com um “sim”, “não” ou “talvez”. Esses poderes superiores apenas responderão a uma tentativa de comunhão a cada 2 semanas." },
+    { "nome": "Curar ferimentos graves", "alcance": "toque", "duração": "instantânea", "descrição": "Cura 3d8 pontos de vida +1 ponto de vida por nível (até um máximo de +12). Clérigos caóticos têm acesso à forma reversa da magia, onde ao invés de curar, o toque causa 3d8 pontos de dano +1 de dano por nível (até um máximo de +12)." },
+    { "nome": "Concha de proteção", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Uma concha de força mágica envolve o clérigo impedindo que qualquer efeito físico entre ou saia da concha." },
+    { "nome": "Dissipar o caos/ordem", "alcance": "toque", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Similar à magia 'Dissipar magia', mas afeta apenas magias com origem caótica ou ordeira, além de ser restrita aos clérigos." },
+    { "nome": "Missão", "alcance": "toque", "duração": "especial (ver texto)", "descrição": "Obriga um alvo a realizar uma missão à escolha do clérigo. Uma jogada de proteção modificada pela Sabedoria nega esse efeito. Se o alvo se desviar da missão ou se negar a cumpri-la, será acometido de uma maldição que drenará 1 ponto de Força por dia até que volte a se empenhar na conclusão da missão. Um alvo que chegar a Força 0 morrerá imediatamente." },
+    { "nome": "Reviver mortos", "alcance": "toque", "duração": "instantânea", "descrição": "Permite que o clérigo traga um alvo de volta à vida, desde que esteja de posse do cadáver intacto e que o alvo não tenha morrido há mais de 5 dias. Faz com que 1d6 pontos de Constituição sejam perdidos sem possibilidade de restauração. Alvos revividos precisam de 1 dia de repouso por ponto de Constituição perdido para se recuperarem do trauma da magia, ficando num estado semelhante ao coma." },
+    { "nome": "Mudança de planos", "alcance": "toque", "duração": "permanente", "descrição": "Permite ao clérigo mudar de plano de existência. Caso até 8 pessoas deem as mãos em torno do clérigo, todas essas pessoas podem ser afetadas pela magia, desde que estejam voluntariamente no círculo. Um alvo involuntário só será afetado se falhar em uma jogada de proteção." },
+    { "nome": "Praga de insetos", "alcance": "100 metros + 10 metros/nível", "duração": "1 hora + 10 minutos/nível", "descrição": "Cria uma tempestade de insetos sob o controle do clérigo ao ar livre. Destroem toda a vida vegetal por onde passam e causam terror a pessoas e outras criaturas. A nuvem cobre aproximadamente uma área com raio de 24 metros. Criaturas com 2 DVs ou menos que entrem na nuvem fogem aterrorizadas sem direito a uma jogada de proteção." },
+    { "nome": "Visão da verdade", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Faz com que o personagem veja as coisas realmente como são, ficando imune a criaturas invisíveis, ilusões, escuridões mágicas ou não, portas secretas ou criaturas modificadas/transformadas." }
+  ]
+}
+
+{
+  "6 Circulo": [
+    { "nome": "Animar objetos", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d4 turnos + 1 turno/nível", "descrição": "O clérigo consegue dar vida a objetos inanimados que acatarão qualquer ordem dada por ele. O mestre precisa determinar os atributos de combate dos objetos, como Classe de Armadura, movimentação, Dados de Vida e Bônus de Ataque." },
+    { "nome": "Barreira de lâminas", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia cria uma barreira de afiadas lâminas que envolvem o clérigo. Qualquer criatura que tentar invadir a área da barreira levará 8d6 pontos de dano, que podem ser reduzidos à metade caso seja bem sucedida em uma jogada de proteção modificada pela Destreza." },
+    { "nome": "Conjurar animais", "alcance": "raio de 10 metros + 3 metros/nível", "duração": "1d6 turnos + 1 turno/nível", "descrição": "O clérigo convoca animais das redondezas para servirem como seus aliados. Qual criatura é conjurada e a quantidade de criaturas depende do ambiente onde o clérigo estiver e do tamanho do animal: 1 criatura do tamanho de um humano ou maior, 3 do tamanho de um felino grande como um leão ou tigre ou 6 menores como um lobo ou raposa. Os animais obedecem aos comandos do clérigo até serem atacados, maltratados ou dispensados." },
+    { "nome": "Cura completa", "alcance": "toque", "duração": "instantânea", "descrição": "Esta magia cura qualquer ferimento, doença ou condição que debilite a saúde do alvo, como cegueira, surdez e desordens mentais. Esta magia ainda restaura membros perdidos e recupera todos os pontos de vida ao seu nível máximo. Clérigos caóticos têm acesso à forma reversa desta magia, chamada Toque da morte, em que o personagem alvo deve fazer uma jogada de proteção modificada pela Constituição ou morrer imediatamente." },
+    { "nome": "Encontrar o caminho", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "O clérigo se concentra e percebe naturalmente o caminho mais rápido para sair de uma área qualquer, ainda que feita com a intenção de complicar a saída, como masmorras e labirintos. Note que o caminho mais rápido não necessariamente é o caminho mais seguro." },
+    { "nome": "Falar com monstros", "alcance": "pessoal", "duração": "1d4 turnos + 1 turno/nível", "descrição": "O clérigo pode entender uma linguagem falada por um monstro específico e consegue se comunicar com ele. Esta magia não obriga que o monstro fale com o clérigo, apenas permite que consigam se comunicar." },
+    { "nome": "Palavra de recordação", "alcance": "especial (ver abaixo)", "duração": "especial (ver texto)", "descrição": "Quando esta magia é conjurada, o local onde o clérigo está se torna seu santuário de proteção. Deste ponto em diante e pelas próximas 48 horas, o clérigo pode liberar o gatilho da magia e ser imediatamente teletransportado de onde estiver para o ponto escolhido como seu santuário. O clérigo deve estar a uma distância máxima de 50 km do seu santuário para a magia fazer efeito. Caso esteja a uma distância superior, a magia será perdida." },
+    { "nome": "Partir água", "alcance": "10 metros + 3 metros/nível", "duração": "1d4 turnos + 1 turno/nível", "descrição": "O clérigo consegue diante de uma massa de água, separá-la de modo a abrir um caminho seguro e seco para passagem. A passagem se fechará tão logo termine a duração da magia ou o clérigo assim deseje." }
+  ]
+}
+
+{
+  "7 Circulo": [
+    { "nome": "Controlar o clima", "alcance": "especial", "duração": "1 hora + 10 minutos/nível", "descrição": "Com esta magia, o personagem é capaz de modificar o clima de acordo com sua vontade. É capaz de extinguir ventos, chuvas, nevascas, tornar o céu limpo, dissolver um tornado ou mesmo criar todas essas intempéries." },
+    { "nome": "Enfeitiçar multidões", "alcance": "especial", "duração": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia possui o mesmo efeito de um enfeitiçar pessoas, mas seus efeitos são em larga escala. Até 20 DVs para cada 5 níveis do clérigo são afetadas por esta magia." },
+    { "nome": "Magia astral", "alcance": "pessoal", "duração": "1 hora + 10 minutos por nível", "descrição": "O personagem consegue projetar a sua forma astral para outros locais, ficando visível apenas a outras criaturas que também estejam sob forma astral. Enquanto estiver sob forma astral, o personagem pode lançar magias e se deslocar para onde desejar a uma velocidade de 150 km/h. Se, enquanto estiver sob a forma astral, o personagem tiver seu corpo deslocado por uma distância superior a 1 km, sua mente se desprenderá permanentemente do corpo e o personagem estará eternamente preso à forma astral." },
+    { "nome": "Palavra sagrada", "alcance": "3 metros + 1 metro/nível", "duração": "instantânea", "descrição": "Esta magia é capaz de afetar um ou mais alvos com vários tipos de efeito, sem direito a uma jogada de proteção. Se o alvo tiver 4 DVs ou menos, morre imediatamente. Se tiver entre 5 DVs e 8 DVs, fica atordoado por 2d10 turnos. Entre 9 DVs e 12 DVs fica atordoado por 1d6 turnos. E se tiver 13 ou mais DVs ou for incapaz de ouvir a palavra dita pelo clérigo, o alvo não sofrerá os efeitos desta magia." },
+    { "nome": "Portal", "alcance": "raio de 3 metros + 1 metro/nível", "duração": "1d4 turnos + 1 turno/nível", "descrição": "Esta magia abre uma fenda dimensional com outro plano de existência, permitindo ao personagem invocar um ser específico chamando pelo seu nome. Existe uma chance de 5% de outra criatura aproveitar a oportunidade para ultrapassar o portal, bem como uma chance de 10% de o ser escolhido não se interessar pela invocação. Seres invocados através de um portal não serão necessariamente amistosos com o personagem." },
+    { "nome": "Ressurreição", "alcance": "toque", "duração": "instantânea", "descrição": "Esta magia traz de volta a vida uma criatura que tenha morrido da mesma forma que uma magia reviver os mortos. No entanto, não há limitação de tempo de morte nem período de recuperação, porém perderá 2 pontos de Constituição. O clérigo apenas precisa de um pequeno pedaço do cadáver a ser ressuscitado para realizar a magia." },
+    { "nome": "Restauração", "alcance": "toque", "duração": "instantânea", "descrição": "Esta magia concede ao clérigo a habilidade de restaurar níveis e pontos de atributos perdidos. Apenas 1 nível ou 1 ponto de atributo pode ser restaurado por vez. Esta magia é extremamente extenuante para o clérigo. Após conjurá-la, ele perde todas as magias memorizadas e perde também a capacidade de memorizar magias de círculo 7 ou maior por 1d6+1 dias. A versão reversa desta magia, chamada Definhar, permite ao clérigo drenar 1 ponto de atributo ou 1 nível do alvo tocado. A versão reversa não possui os efeitos extenuantes da versão regular." },
+    { "nome": "Símbolo", "alcance": "especial", "duração": "especial", "descrição": "Esta magia cria uma armadilha mágica dentro de uma runa que, ao ser lida ou ultrapassada, a ativa instantaneamente. Os principais símbolos conhecidos são: Símbolo do atordoamento: 150 DV de criaturas são afetadas como se fosse pela magia Palavra de poder: atordoar. Símbolo da discórdia: faz com que todas as criaturas presentes comecem a discutir, possivelmente a brigar entre si de modo letal. Símbolo da loucura: Até 100 DV de criaturas são amaldiçoadas com insanidade. Símbolo do medo: conjura a magia Medo. Símbolo da dor: causa 10d8+20 pontos de dano. Símbolo de Orpheu: conjura a magia Sono, que afeta o dobro da quantidade normal de criaturas e com o dobro da duração normal descritas na magia Sono. Para resistir aos efeitos dos símbolos é preciso fazer uma jogada de proteção, modificada conforme o símbolo escolhido (vide as magias as quais os símbolos se referem)." },
+    { "nome": "Terremoto", "alcance": "10 metros + 3 metros/nível", "duração": "instantânea", "descrição": "O clérigo pode sacudir o solo de uma área à sua escolha (dentro do alcance da magia), causando um poderoso terremoto, abrindo fissuras no solo, extraindo rios de seus cursos, criando ondas gigantescas e mortais, deslizamentos em montanhas, avalanches em geleiras e derrubando em 90% das vezes construções frágeis e em 50% construções resistentes." }
+  ]
+}
+
     "8 Circulo": [
       { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
       { "nome": "-", "alcance": "-", "duração": "-", "descrição": "-" },
