@@ -36,7 +36,7 @@
   <img src="https://avatars.githubusercontent.com/u/125326119?v=4" alt="GitHub" style="width:40px; height:40px;" />
 </a>
 <span class="button-text"> 
-  Ana Luísa - UI designer 🎨
+  Ana Luísa - FrontEnd 🎨
 </span> <br>
 
 <a href="https://github.com/felipepbovo">
