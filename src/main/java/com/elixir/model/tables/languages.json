@@ -1,0 +1,44 @@
+{
+  "languages": [
+    {
+      "id": 1,
+      "name": "Anão",
+      "description": "Falado exclusivamente por anões."
+    },
+    {
+      "id": 2,
+      "name": "Élfico",
+      "description": "Falado por elfos e por algumas criaturas das florestas, como fadas, sátiros, centauros, etc., quando estes se relacionam com elfos ou raças forasteiras."
+    },
+    {
+      "id": 3,
+      "name": "Silvestre",
+      "description": "Falado por criaturas das florestas, como fadas, sátiros, centauros, etc., principalmente quando tratam entre si."
+    },
+    {
+      "id": 4,
+      "name": "Goblinoide",
+      "description": "Falado por todos os goblinoides, como goblins, hobgoblins e bugbears."
+    },
+    {
+      "id": 5,
+      "name": "Orc",
+      "description": "Falado por orcs e algumas criaturas. É tida como um dos idiomas base das criaturas caóticas dos subterrâneos."
+    },
+    {
+      "id": 6,
+      "name": "Gigante",
+      "description": "Falado pelos gigantes, ogros e trolls."
+    },
+    {
+      "id": 7,
+      "name": "Dracônico",
+      "description": "Falado por dragões e criaturas com conhecimentos arcanos."
+    },
+    {
+      "id": 8,
+      "name": "Antigo",
+      "description": "Uma língua morta de algum império já destruído. É encontrada em documentos ancestrais, ruínas seculares e principalmente em textos mágicos milenares."
+    }
+  ]
+}

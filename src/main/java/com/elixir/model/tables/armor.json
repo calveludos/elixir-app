@@ -1,5 +1,9 @@
 {
-  "armors": [
+  "armors":  [
+    {
+      "id_item_type":"2"
+    },
+
     {
       "item": "Armadura de couro",
       "bonus_defesa": "+2",
@@ -27,22 +31,6 @@
       "reducao_movimento": "-3 metros",
       "preco": "2.000 PO",
       "peso": "35 kg"
-    }
-  ],
-  "shields": [
-    {
-      "item": "Escudo de madeira",
-      "bonus_defesa": "+1",
-      "reducao_movimento": "-",
-      "preco": "8 PO",
-      "peso": "5 kg"
-    },
-    {
-      "item": "Escudo de aço",
-      "bonus_defesa": "+2",
-      "reducao_movimento": "-",
-      "preco": "15 PO",
-      "peso": "15 kg"
     }
   ]
 }

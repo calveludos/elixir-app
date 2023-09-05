@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://media.discordapp.net/attachments/1114168401686966303/1141218045960925216/Untitled704_20230816005146.png?width=592&height=683" alt="Descrição da Imagem" style="width: 370px; height: 450px;">
+  <img src="https://media.discordapp.net/attachments/1114168401686966303/1141218045960925216/Untitled704_20230816005146.png?width=592&height=683" alt="Descrição da Imagem" style="width: 400px; height: 450px;">
 </div>
 
 <h2>

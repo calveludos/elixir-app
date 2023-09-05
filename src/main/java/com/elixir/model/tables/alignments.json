@@ -1,0 +1,19 @@
+{
+  "alignments": [
+    {
+    "id": 1,
+    "name": "Ordeiro",
+    "description": "Acredita na ordem e nas leis para serem cumpridas, podendo defender valores como a honra e a justiça, ou criar leis opressoras visando à dominação."
+    },
+    {
+    "id": 2,
+    "name": "Caótico",
+    "description": "Rejeita convenções sociais, prefere viver o momento, acreditando no poder do acaso e da fortuna. Pode buscar a destruição de valores sociais ou lutar contra tiranias."
+    },
+    {
+    "id": 3,
+    "name": "Neutro",
+    "description": "Acredita no equilíbrio entre ordem e caos, vê importância nas leis, mas também valoriza a liberdade e o dinamismo da vida. Raramente esquece a palavra empenhada, mas pode agir com flexibilidade."
+    }
+  ]
+}
