@@ -57,7 +57,7 @@
   <img src="https://avatars.githubusercontent.com/u/108810555?v=4" alt="GitHub" style="width:40px; height:40px;" />
 </a>
 <span class="button-text"> 
-  Laura Daguer - UI designer 🎨
+  Laura Daguer - UI designer 🌐
 </span> <br>
 
 
