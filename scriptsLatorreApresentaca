@@ -6,17 +6,20 @@ FROM `User` u
 INNER JOIN `Folder` f ON u.id = f.id_user
 INNER JOIN `Character` c ON f.id_user = c.id_folder
 WHERE u.id = 1;
+
+
 -- Faz um join entre personagem e seus atributos, pegando o personagem pelo id (JOIN)
 SELECT c.name, a.strength, a.dexterity, a.constitution, a.intelligence, a.wisdom, a.charisma
 FROM Attribute a 
 INNER JOIN `Character` c ON a.id = c.id_attribute
 WHERE c.id = 1;
+
+
 -- Mostra o nome do personagem e o dinheiro que o mesmo tem (JOIN)
 SELECT c.name, cy.copper, cy.silver, cy.gold, cy.electrium, cy.platinium
 FROM Currency cy
 INNER JOIN `Character` c ON c.id_currency = cy.id
 WHERE c.id = 1; 
-
 
 
 -- Faz um join entre usuario, pasta, personagem, level e ordenando do menor level para o maior (JOIN E ORDER BY)
@@ -25,13 +28,14 @@ FROM `User` u
 INNER JOIN `Folder` f ON u.id = f.id_user
 INNER JOIN `Character` c ON f.id_user = c.id_folder
 ORDER BY c.level ASC;
+
+
 -- Faz um join entre usuario, pasta, personagem, vida total e ordenando da menor vida para a maior (JOIN E ORDER BY)
 SELECT u.first_name, f.name, c.name, c.id_race , c.max_pv
 FROM `User` u
 INNER JOIN `Folder` f ON u.id = f.id_user
 INNER JOIN `Character` c ON f.id_user = c.id_folder
 ORDER BY c.max_pv ASC;
- 
  
  
 -- Mostra o ID das 4 classes e a média do valor de cada atributo que elas tem (JOIN, ORDER BY E GROUP BY)
