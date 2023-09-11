@@ -46,7 +46,9 @@
                         <Button fx:id="createCharacterMenuButton" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#createCharacterButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="CRIAR FICHA" textFill="WHITE">
                            <font>
                               <Font name="P052-Italic" size="12.0" />
-                           </font>enu" prefHeight="82.0" style="-fx-ba
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
                            </VBox.margin>
                         </Button>
                         <Button fx:id="myCharacterMenuButton" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#myCharacterMenuButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="VER FICHA" textFill="WHITE">

@@ -1,6 +1,7 @@
-package com.elixir;
+package com.elixir.controller;
 
-import com.elixir.dao.AttributeDAO;
+import com.elixir.manager.ObjectSaveManager;
+import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import javafx.application.Platform;
@@ -10,15 +11,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
-import java.io.*;
 import java.sql.SQLException;
-import java.util.Map;
 
 public class CreateCharacterAttributesController {
+
     @FXML
     private TextField chaField;
 
@@ -175,7 +176,7 @@ public class CreateCharacterAttributesController {
             }
         });
 
-        ObjectSaveManager reader = new ObjectSaveManager<>();
+        ObjectSaveManager reader = new ObjectSaveManager();
         character = (Character) reader.getObject("character");
         attribute = (Attribute) reader.getObject("attribute");
 
@@ -291,10 +292,10 @@ public class CreateCharacterAttributesController {
         attribute.setConstitution(Integer.parseInt(conField.getText()));
         attribute.setCharisma(Integer.parseInt(chaField.getText()));
 
-        ObjectSaveManager<Attribute> saver = new ObjectSaveManager<>();
+        ObjectSaveManager saver = new ObjectSaveManager();
         saver.saveObject("attribute", attribute);
 
-        ObjectSaveManager<Character> saverCharacter = new ObjectSaveManager<>();
+        ObjectSaveManager saverCharacter = new ObjectSaveManager();
         saverCharacter.saveObject("character", character);
 
         System.out.println(character.toString());

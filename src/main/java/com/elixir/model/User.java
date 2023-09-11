@@ -2,9 +2,8 @@ package com.elixir.model;
 
 import java.sql.Timestamp;
 import java.util.UUID;
-import org.mindrot.jbcrypt.BCrypt;
 
-public class User extends Model {
+public class User {
     private int id;
     private String email;
     private String userName;
@@ -74,9 +73,7 @@ public class User extends Model {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-    }
+    public void setPassword(String password) {}
 
     public String getVerificationCode() {
         return verificationCode;

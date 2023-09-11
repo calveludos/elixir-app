@@ -5,7 +5,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CreateCharacterRaceController">
+<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.CreateCharacterRaceController">
     <children>
         <Rectangle fx:id="chosenraceField" arcHeight="5.0" arcWidth="5.0" fill="#142433" height="89.0" layoutX="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="743.0" />
         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#295264" height="421.0" layoutX="-69.0" layoutY="88.0" stroke="TRANSPARENT" strokeType="INSIDE" width="188.0" />

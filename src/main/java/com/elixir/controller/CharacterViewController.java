@@ -1,8 +1,7 @@
-package com.elixir;
+package com.elixir.controller;
 
+import com.elixir.manager.ObjectSaveManager;
 import com.elixir.model.tables.CharacterAttributes;
-import com.elixir.model.tables.ClassLevels;
-import com.elixir.model.tables.JsonManger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,10 +11,10 @@ import javafx.scene.layout.VBox;
 
 import com.elixir.model.Character;
 import com.elixir.model.Attribute;
+import com.elixir.manager.*;
 import javafx.stage.Stage;
 
 import java.util.Map;
-import java.util.Objects;
 import java.util.Random;
 
 public class CharacterViewController {
@@ -201,26 +200,6 @@ public class CharacterViewController {
         Character character = (Character) reader.getObject("character");
         Attribute attribute = (Attribute) reader.getObject("attribute");
 
-        switch (character.getClassId()){
-            case 1:
-                ClassLevels.Warrior classLevel = new ClassLevels.Warrior();
-                break;
-            case 2:
-                ClassLevels.Wizard classLevel = new ClassLevels.Wizard();
-                break;
-            case 3:
-                ClassLevels.Thief classLevel = new ClassLevels.Thief();
-                break;
-            case 4:
-                ClassLevels.Cleric classLevel = new ClassLevels.Cleric();
-                break;
-            default:
-                ClassLevels classLevel = null;
-                break;
-        }
-
-        reader.printMap();
-
         strLabel.setText(string(attribute.getStrength()));
         dexLabel.setText(string(attribute.getDexterity()));
         conLabel.setText(string(attribute.getConstitution()));
@@ -233,19 +212,6 @@ public class CharacterViewController {
         currentPVLabel.setText(string(character.getCurrentPv()));
         nameLabel.setText(character.getName());
         playerNameLabel.setText(character.getPlayerName());
-
-        levelLabel.setText(string(character.getExperience()) + " (" + class_.get);
-
-        CharacterClass characterClass = CharacterClass.setCharacterClass(character.getClassId());
-        Race race = CharacterViewController.Race.setRace(character.getRaceId());
-        Alignment alignment = Alignment.setAlignment(character.getAlignmentId());
-
-        aligmentLabel.setText(alignment.text);
-        classEspecLabel.setText(characterClass.name);
-        raceLabel.setText(race.name);
-
-        maxPVLabel.setText(string(attribute.getConstitution() + integer(characterClass.dicePv.split("d")[1])*character.getExperience()));
-        currentPVLabel.setText(maxPVLabel.getText());
 
         //Preencher os campos de subatributos com base nos valores dos atributos e subatributos
         CharacterAttributes.Strength strengthSubAttributes = new CharacterAttributes.Strength();
@@ -305,11 +271,8 @@ public class CharacterViewController {
         monsterLabel.setText(String.valueOf(charismSubAttributes.getTableCharism(attribute.getCharisma()).get("Mortos-vivos afastados")));
 
         dexCALabel.setText(dexAjustLabel.getText());
-        raceCALabel.setText(Objects.equals(race.name, "Halfling") ? "2" : "-");
         armorCALabel.setText("-");
         bonusCALabel.setText(string(character.getClassArmorBonus()));
-
-        caLabel.setText(string(10 + integer(dexAjustLabel.getText()) + (Objects.equals(race.name, "Halfling") ?2:0) + character.getClassArmorBonus()));
 
         Random random = new Random();
         goldLabel.setText(string((random.nextInt(24 - 3 + 1) + 3)*10));

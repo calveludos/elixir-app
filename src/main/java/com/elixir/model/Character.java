@@ -3,7 +3,7 @@ package com.elixir.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Character extends Model implements Serializable {
+public class Character implements Serializable {
     private int id;
     private int raceId;
     private int attributeId;

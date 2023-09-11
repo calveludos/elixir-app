@@ -1,7 +1,9 @@
-package com.elixir;
+package com.elixir.controller;
 
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
+import com.elixir.manager.ObjectSaveManager;
+import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import javafx.event.ActionEvent;
@@ -29,7 +31,7 @@ public class CreateCharacterBackgroundController {
 
     @FXML
     private void initialize(){
-        ObjectSaveManager reader = new ObjectSaveManager<>();
+        ObjectSaveManager reader = new ObjectSaveManager();
         character = (Character) reader.getObject("character");
         attribute = (Attribute) reader.getObject("attribute");
 
@@ -37,7 +39,7 @@ public class CreateCharacterBackgroundController {
             if(character.getBackground() != null){
                 backgroundField.setText(character.getBackground());
             }
-        } catch (java.lang.NullPointerException e){
+        } catch (NullPointerException e){
             character = new Character();
         }
     }
@@ -97,7 +99,7 @@ public class CreateCharacterBackgroundController {
     private void saveCharacter(String fxml){
         character.setBackground(backgroundField.getText());
 
-        ObjectSaveManager<Character> saver = new ObjectSaveManager<>();
+        ObjectSaveManager saver = new ObjectSaveManager();
         saver.saveObject("character", character);
 
         PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());

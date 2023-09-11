@@ -5,26 +5,22 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Map;
 
-public abstract class CrudDAO<Model> implements DAO<Model> {
+public abstract class CrudDAO<Model> {
     public Connection conn = null;
     public PreparedStatement stmt = null;
 
-    @Override
     public int create(Model model) throws SQLException {
         return 0;
     }
 
-    @Override
     public void update(Model model) throws SQLException {
 
     }
 
-    @Override
     public Map read() throws SQLException {
         return null;
     }
 
-    @Override
     public void delete(Model model) throws SQLException {
 
     }

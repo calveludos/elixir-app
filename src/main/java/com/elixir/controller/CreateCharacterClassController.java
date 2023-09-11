@@ -1,7 +1,8 @@
-package com.elixir;
+package com.elixir.controller;
 
+import com.elixir.manager.ObjectSaveManager;
+import com.elixir.manager.PaneManager;
 import com.elixir.model.Character;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -36,7 +37,7 @@ public class CreateCharacterClassController {
 
     @FXML
     private void initialize(){
-        ObjectSaveManager reader = new ObjectSaveManager<>();
+        ObjectSaveManager reader = new ObjectSaveManager();
         character = (Character) reader.getObject("character");
 
         try{
@@ -59,7 +60,7 @@ public class CreateCharacterClassController {
                         break;
                 }
             }
-        } catch (java.lang.NullPointerException e) {
+        } catch (NullPointerException e) {
             character = new Character();
         }
     }
@@ -128,7 +129,7 @@ public class CreateCharacterClassController {
     }
 
     public void saveCharacter(String fxml) {
-        ObjectSaveManager<Character> saver = new ObjectSaveManager<>();
+        ObjectSaveManager saver = new ObjectSaveManager();
         saver.saveObject("character", character);
 
         PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());

@@ -2,7 +2,6 @@ package com.elixir.dao;
 
 import com.elixir.factory.ConnectionFactory;
 import com.elixir.model.User;
-import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,4 +1,4 @@
-package com.elixir;
+package com.elixir.manager;
 
 import java.io.*;
 import java.util.HashMap;

@@ -1,5 +1,7 @@
-package com.elixir;
+package com.elixir.controller;
 
+import com.elixir.manager.ObjectSaveManager;
+import com.elixir.manager.PaneManager;
 import com.elixir.model.Character;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -111,7 +113,7 @@ public class CreateCharacterDateController {
 
         levelField.getValueFactory().setConverter(converter);
 
-        ObjectSaveManager reader = new ObjectSaveManager<>();
+        ObjectSaveManager reader = new ObjectSaveManager();
         character = (Character) reader.getObject("character");
 
         try{
@@ -122,7 +124,7 @@ public class CreateCharacterDateController {
                 levelField.getValueFactory().setValue(character.getExperience());
                 aliagmentSelectionFiled.setText(alignmentIdMap.get(character.getAlignmentId()));
             }
-        } catch (java.lang.NullPointerException e){
+        } catch (NullPointerException e){
             character = new Character();
         }
     }
@@ -196,7 +198,7 @@ public class CreateCharacterDateController {
             return;
         }
 
-        ObjectSaveManager<Character> saver = new ObjectSaveManager<>();
+        ObjectSaveManager saver = new ObjectSaveManager();
         saver.saveObject("character", character);
 
         PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());

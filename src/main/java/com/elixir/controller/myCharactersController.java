@@ -1,4 +1,4 @@
-package com.elixir;
+package com.elixir.controller;
 
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
@@ -12,6 +12,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
+import com.elixir.manager.*;
 
 import java.sql.SQLException;
 import java.util.Map;

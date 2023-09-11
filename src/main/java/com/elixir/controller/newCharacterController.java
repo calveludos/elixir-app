@@ -1,9 +1,10 @@
-package com.elixir;
+package com.elixir.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import com.elixir.manager.*;
 
 public class newCharacterController {
 

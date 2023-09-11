@@ -1,5 +1,6 @@
-package com.elixir;
+package com.elixir.manager;
 
+import com.elixir.MainApp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
