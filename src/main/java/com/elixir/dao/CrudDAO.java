@@ -5,25 +5,18 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Map;
 
-public abstract class CrudDAO<Model> {
+public abstract class CrudDAO<T> {
     public Connection conn = null;
     public PreparedStatement stmt = null;
 
-    public int create(Model model) throws SQLException {
-        return 0;
-    }
+    public abstract int create(T model) throws SQLException;
 
-    public void update(Model model) throws SQLException {
+    public abstract void update(T model) throws SQLException;
 
-    }
+    public abstract Map<Integer, T> read() throws SQLException;
 
-    public Map read() throws SQLException {
-        return null;
-    }
+    public abstract void delete(T model) throws SQLException;
 
-    public void delete(Model model) throws SQLException {
-
-    }
     protected void closeResources() {
         try {
             if (stmt != null) {

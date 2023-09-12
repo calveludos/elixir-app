@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ObjectSaveManager<T> {
+public class ObjectSaveManager {
 
     private Map<String, Object> map;
 
