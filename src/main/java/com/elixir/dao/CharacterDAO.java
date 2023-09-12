@@ -10,9 +10,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CharacterDAO extends CrudDAO<Character> {
+
+    // INSERT com folder e slots
     @Override
     public int create(Character character) throws SQLException {
-        String query = "INSERT INTO `Character` (id_attribute, id_race, id_alignment, id_class, name, player_name, experience, height, weight, current_pv, max_pv, id_currency, slots, appearance, class_armor_bonus, background) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO `Character` (id_attribute, id_race, id_alignment, id_class, name, player_name, idFolder ,level, experience, height, weight, current_pv, max_pv, id_currency, slots, appearance, class_armor_bonus, background) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             conn = ConnectionFactory.createConnection();
@@ -22,17 +24,19 @@ public class CharacterDAO extends CrudDAO<Character> {
             stmt.setInt(3, character.getAlignmentId());
             stmt.setInt(4, character.getClassId());
             stmt.setString(5, character.getName());
-            stmt.setString(6, character.getPlayerName()); // Novo campo adicionado
-            stmt.setInt(7, character.getExperience());
-            stmt.setInt(8, character.getHeight());
-            stmt.setInt(9, character.getWeight());
-            stmt.setInt(10, character.getCurrentPv());
-            stmt.setInt(11, character.getMaxPv());
-            stmt.setInt(12, character.getCurrencyId());
-            stmt.setInt(13, character.getSlots());
-            stmt.setString(14, character.getAppearance());
-            stmt.setInt(15, character.getClassArmorBonus());
-            stmt.setString(16, character.getBackground()); // Novo campo adicionado
+            stmt.setString(6, character.getPlayerName()); // Novo campo adicionado0
+            stmt.setInt(7, character.getIdFolder());
+            stmt.setInt(8, character.getLevel());
+            stmt.setInt(9, character.getExperience());
+            stmt.setInt(10, character.getHeight());
+            stmt.setInt(11, character.getWeight());
+            stmt.setInt(12, character.getCurrentPv());
+            stmt.setInt(13, character.getMaxPv());
+            stmt.setInt(14, character.getCurrencyId());
+            stmt.setInt(15, character.getSlots());
+            stmt.setString(16, character.getAppearance());
+            stmt.setInt(17, character.getClassArmorBonus());
+            stmt.setString(18, character.getBackground()); // Novo campo adicionado
             stmt.executeUpdate();
 
             ResultSet generatedKeys = stmt.getGeneratedKeys();

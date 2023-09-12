@@ -11,7 +11,9 @@ public class Character implements Serializable {
     private int classId;
     private String name;
     private String playerName;
+    private int idFolder;
     private int experience;
+    private int level;
     private int height;
     private int weight;
     private int currentPv;
@@ -26,14 +28,16 @@ public class Character implements Serializable {
     public Character() {
     }
 
-    public Character(int attributeId, int raceId, int alignmentId, int classId, String name, String playerName, int experience, int height, int weight, int currentPv, int maxPv, int currencyId, int slots, String appearance, int classArmorBonus, String background) {
+    public Character(int attributeId, int raceId, int alignmentId, int classId, String name, String playerName, int idFolder, int experience, int level, int height, int weight, int currentPv, int maxPv, int currencyId, int slots, String appearance, int classArmorBonus, String background) {
         setAttributeId(attributeId);
         setRaceId(raceId);
         setAlignmentId(alignmentId);
         setClassId(classId);
         setName(name);
         setPlayerName(playerName);
+        setIdFolder(idFolder);
         setExperience(experience);
+        setLevel(level);
         setHeight(height);
         setWeight(weight);
         setCurrentPv(currentPv);
@@ -108,6 +112,14 @@ public class Character implements Serializable {
         this.playerName = playerName;
     }
 
+    public int getIdFolder() {
+        return idFolder;
+    }
+
+    public void setIdFolder(int idFolder) {
+        this.idFolder = idFolder;
+    }
+
     public int getExperience() {
         return experience;
     }
@@ -117,6 +129,15 @@ public class Character implements Serializable {
             throw new IllegalArgumentException("A experiência do personagem não pode ser negativa ou menor que zero.");
         }
         this.experience = experience;
+    }
+
+    public int getLevel() {return level;}
+
+    public void setLevel(int level) {
+        if (level < 0) {
+            throw new IllegalArgumentException("O level do personagem não pode ser negativo.");
+        }
+        this.level = level;
     }
 
     public int getHeight() {
