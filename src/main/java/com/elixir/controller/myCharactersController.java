@@ -142,7 +142,7 @@ public class myCharactersController {
         hBox.setId(String.valueOf(character.getId()));
 
         hBox.setOnMouseClicked(mouseEvent -> {
-            ObjectSaveManager<Character> saver = new ObjectSaveManager<>();
+            ObjectSaveManager saver = new ObjectSaveManager();
 
             saver.cleanObjects();
             saver.saveObject("character", characterMap.get(character.getId()));
