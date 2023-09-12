@@ -61,25 +61,24 @@ public class CharacterDAO extends CrudDAO<Character> {
         try {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query);
-
             stmt.setInt(1, character.getAttributeId());
             stmt.setInt(2, character.getRaceId());
             stmt.setInt(3, character.getAlignmentId());
             stmt.setInt(4, character.getClassId());
             stmt.setString(5, character.getName());
-            stmt.setString(6, character.getPlayerName()); // Novo campo adicionado
-            stmt.setInt(7, character.getExperience());
-            stmt.setInt(8, character.getHeight());
-            stmt.setInt(9, character.getWeight());
-            stmt.setInt(10, character.getCurrentPv());
-            stmt.setInt(11, character.getMaxPv());
-            stmt.setInt(12, character.getCurrencyId());
-            stmt.setInt(13, character.getSlots());
-            stmt.setString(14, character.getAppearance());
-            stmt.setInt(15, character.getClassArmorBonus());
-            stmt.setString(16, character.getBackground()); // Novo campo adicionado
-            stmt.setInt(17, character.getId());
-
+            stmt.setString(6, character.getPlayerName()); // Novo campo adicionado0
+            stmt.setInt(7, character.getIdFolder());
+            stmt.setInt(8, character.getLevel());
+            stmt.setInt(9, character.getExperience());
+            stmt.setInt(10, character.getHeight());
+            stmt.setInt(11, character.getWeight());
+            stmt.setInt(12, character.getCurrentPv());
+            stmt.setInt(13, character.getMaxPv());
+            stmt.setInt(14, character.getCurrencyId());
+            stmt.setInt(15, character.getSlots());
+            stmt.setString(16, character.getAppearance());
+            stmt.setInt(17, character.getClassArmorBonus());
+            stmt.setString(18, character.getBackground()); // Novo campo adicionado
             stmt.executeUpdate();
 
         } catch (SQLException e) {
@@ -110,6 +109,8 @@ public class CharacterDAO extends CrudDAO<Character> {
                 character.setClassId(resultSet.getInt("id_class"));
                 character.setName(resultSet.getString("name"));
                 character.setPlayerName(resultSet.getString("player_name")); // Novo campo adicionado
+                character.setIdFolder(resultSet.getInt("IdFolder));
+                character.setLevel(resultSet.getInt("level"));
                 character.setExperience(resultSet.getInt("experience"));
                 character.setHeight(resultSet.getInt("height"));
                 character.setWeight(resultSet.getInt("weight"));
