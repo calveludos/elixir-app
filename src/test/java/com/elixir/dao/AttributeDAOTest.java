@@ -14,14 +14,9 @@ class AttributeDAOTest {
     @Test
     void create() throws SQLException {
         Attribute attribute = new Attribute(10, 10, 14, 16, 15, 12);
-<<<<<<< HEAD
-        int id = attributeDAO.create(attribute);
+        id = attributeDAO.create(attribute);
         System.out.println(id);
-=======
-        attributeDAO.create(attribute);
-        id = attribute.getId();
 
->>>>>>> 2126942495681685b6b1766c1a0267f087f4d6f0
         read();
     }
 

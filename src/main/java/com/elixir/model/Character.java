@@ -145,7 +145,7 @@ public class Character implements Serializable {
     }
 
     public void setHeight(int height) {
-        if (raceId == 1 && (height < 0 || height > 200)) {
+        /*if (raceId == 1 && (height < 0 || height > 200)) {
             throw new IllegalArgumentException("A altura do humano tem que ser de até 2 metros e não pode ser negativa.");
         }
         if (raceId == 2 && (height < 0 || height > 150)) {
@@ -156,7 +156,7 @@ public class Character implements Serializable {
         }
         if (raceId == 4 && (height < 0 || height > 90)) {
             throw new IllegalArgumentException("A altura do halfling tem que ser de até 0.9 metro e não pode ser negativa.");
-        }
+        }*/
         this.height = height;
     }
 

@@ -22,13 +22,7 @@ import com.elixir.manager.*;
 import java.sql.SQLException;
 import java.util.Map;
 
-public class myCharactersController {
-
-    @FXML
-    private Button createCharacterMenuButton;
-
-    @FXML
-    private Button myCharacterMenuButton;
+public class myCharactersController extends MenuController {
 
     @FXML
     private HBox hboxCharacters;
@@ -36,8 +30,6 @@ public class myCharactersController {
     private HBox hboxFolders;
 
     private Map<Integer, Character> characterMap;
-    private Map<Integer, Folder> folderMap;
-    private Map<Integer, Attribute> attributeMap;
 
     @FXML
     private void initialize(){
@@ -51,12 +43,13 @@ public class myCharactersController {
 
         try {
             AttributeDAO attributeDAO = new AttributeDAO();
-            attributeMap = attributeDAO.read();
+            Map<Integer, Attribute> attributeMap = attributeDAO.read();
         } catch (SQLException e){
             e.printStackTrace();
             return;
         }
-        
+
+        Map<Integer, Folder> folderMap;
         try {
             FolderDAO folderDAO = new FolderDAO();
             folderMap = folderDAO.read();
@@ -66,26 +59,37 @@ public class myCharactersController {
         }
 
         if(!folderMap.isEmpty()){
-            for (Folder folder :
-                    folderMap.values()) {
+            Integer[] indexs = folderMap.keySet().toArray(new Integer[0]);
+            for (int i = 0; i < folderMap.size(); i = i + 3) {
                 VBox vBox = new VBox();
                 vBox.setPrefHeight(200.0);
                 vBox.setPrefWidth(100.0);
-                vBox.getChildren().add(new FolderObject(folder.getName()));
+                try {
+                    Folder folder1 = folderMap.get(indexs[i]);
+                    Folder folder2 = folderMap.get(indexs[i + 1]);
+                    Folder folder3 = folderMap.get(indexs[i + 2]);
+                    vBox.getChildren().add(new FolderObject(folder1.getName()));
+                    vBox.getChildren().add(new FolderObject(folder2.getName()));
+                    vBox.getChildren().add(new FolderObject(folder3.getName()));
+                } catch (IndexOutOfBoundsException ignored){}
+
                 hboxFolders.getChildren().add(vBox);
             }
         }
         
         if (!characterMap.isEmpty()) {
-            VBox vBox = new VBox();
-            vBox.setPrefHeight(200.0);
-            vBox.setPrefWidth(100.0);
             Integer[] indexs = characterMap.keySet().toArray(new Integer[0]);
             for (int i = 0; i < characterMap.size(); i = i + 2) {
-                Character character1 = characterMap.get(indexs[i]);
-                Character character2 = characterMap.get(indexs[i+1]);
-                vBox.getChildren().add(new CharacterObject(character1.getName(), getRaceId(character1.getRaceId()), getClassId(character2.getClassId())));
-                vBox.getChildren().add(new CharacterObject(character2.getName(), getRaceId(character2.getRaceId()), getClassId(character2.getClassId())));
+                VBox vBox = new VBox();
+                vBox.setPrefHeight(200.0);
+                vBox.setPrefWidth(100.0);
+                vBox.setSpacing(5);
+                try {
+                    Character character1 = characterMap.get(indexs[i]);
+                    Character character2 = characterMap.get(indexs[i+1]);
+                    vBox.getChildren().add(new CharacterObject(character1.getName(), getRaceId(character1.getRaceId()), getClassId(character2.getClassId())));
+                    vBox.getChildren().add(new CharacterObject(character2.getName(), getRaceId(character2.getRaceId()), getClassId(character2.getClassId())));
+                } catch (IndexOutOfBoundsException ignored){}
                 hboxCharacters.getChildren().add(vBox);
             }
         } else {
@@ -99,20 +103,10 @@ public class myCharactersController {
         }
 
     }
-    @FXML
-    void characterPane(ActionEvent event){
-
-    }
-
-    public void createCharacterButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) myCharacterMenuButton.getScene().getWindow());
-        paneManager.openPane("newCharacterPane");
-    }
 
     @FXML
-    void myCharacterMenuButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) myCharacterMenuButton.getScene().getWindow());
-        paneManager.openPane("myCharactersPane");
+    private void newFolderButtonAction(){
+
     }
 
     private String getClassId(int classId) {

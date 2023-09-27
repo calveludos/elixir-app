@@ -7,12 +7,14 @@ import javafx.scene.shape.StrokeType;
 import javafx.scene.text.*;
 import javafx.scene.image.*;
 
+import static javafx.scene.layout.VBox.setVgrow;
+
 public class FolderObject extends HBox {
     private final ImageView imageView;
     private final Text text;
 
     public FolderObject(String nomePasta) {
-        imageView = new ImageView(new Image("/media/emptyImage.jpg"));
+        imageView = new ImageView(new Image("/media/pastImage.png"));
         imageView.setFitHeight(48.0);
         imageView.setFitWidth(52.0);
 
@@ -23,6 +25,9 @@ public class FolderObject extends HBox {
 
         Font font = Font.font("System Bold", FontWeight.BOLD, 16.0);
         text.setFont(font);
+        setHgrow(this, Priority.ALWAYS);
+        setVgrow(this, Priority.ALWAYS);
+        setSpacing(5.0);
 
         this.getChildren().addAll(imageView, text);
     }

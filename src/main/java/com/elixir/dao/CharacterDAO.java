@@ -99,7 +99,6 @@ public class CharacterDAO extends CrudDAO<Character> {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query);
             resultSet = stmt.executeQuery();
-
             while (resultSet.next()) {
                 Character character = new Character();
                 character.setId(resultSet.getInt("id"));
@@ -117,7 +116,7 @@ public class CharacterDAO extends CrudDAO<Character> {
                 character.setMaxPv(resultSet.getInt("max_pv"));
                 character.setCurrencyId(resultSet.getInt("id_currency"));
                 character.setSlots(resultSet.getInt("id_slots"));
-                character.setAppearance(resultSet.getString("appearance"));
+                character.setAppearance(resultSet.getString("apperance"));
                 character.setClassArmorBonus(resultSet.getInt("class_armor_bonus"));
                 character.setBackground(resultSet.getString("background")); // Novo campo adicionado
 
