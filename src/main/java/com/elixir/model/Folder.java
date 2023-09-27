@@ -15,27 +15,35 @@ public class Folder {
         this.color = color;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getId_user() {
         return id_user;
     }
 
-    public void setId_user() {
-        this.id_user = id_user
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
 
-    public int getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName() {
-        this.name = name
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor() {
-        this.color = color
+    public void setColor(String color) {
+        this.color = color;
     }
 }

@@ -195,7 +195,7 @@ public class CharacterViewController {
 
     @FXML
     private void initialize() {
-        ObjectSaveManager reader = new ObjectSaveManager<>();
+        ObjectSaveManager reader = new ObjectSaveManager();
 
         Character character = (Character) reader.getObject("character");
         Attribute attribute = (Attribute) reader.getObject("attribute");

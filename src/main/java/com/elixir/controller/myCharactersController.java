@@ -1,11 +1,16 @@
 package com.elixir.controller;
 
+import com.elixir.controller.objects.CharacterObject;
+import com.elixir.controller.objects.FolderObject;
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
+import com.elixir.dao.FolderDAO;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
+import com.elixir.model.Folder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.*;
 import javafx.scene.layout.*;
@@ -27,8 +32,11 @@ public class myCharactersController {
 
     @FXML
     private HBox hboxCharacters;
+    @FXML
+    private HBox hboxFolders;
 
     private Map<Integer, Character> characterMap;
+    private Map<Integer, Folder> folderMap;
     private Map<Integer, Attribute> attributeMap;
 
     @FXML
@@ -48,15 +56,37 @@ public class myCharactersController {
             e.printStackTrace();
             return;
         }
+        
+        try {
+            FolderDAO folderDAO = new FolderDAO();
+            folderMap = folderDAO.read();
+        } catch (SQLException e){
+            e.printStackTrace();
+            return;
+        }
 
+        if(!folderMap.isEmpty()){
+            for (Folder folder :
+                    folderMap.values()) {
+                VBox vBox = new VBox();
+                vBox.setPrefHeight(200.0);
+                vBox.setPrefWidth(100.0);
+                vBox.getChildren().add(new FolderObject(folder.getName()));
+                hboxFolders.getChildren().add(vBox);
+            }
+        }
+        
         if (!characterMap.isEmpty()) {
-            int sizeCharacters = characterMap.size();
-            int current = 0;
-
-            for (Character character : characterMap.values()) {
-                current++;
-                boolean isLast = sizeCharacters == current;
-                hboxCharacters.getChildren().add(createCharacterPane(character, isLast));
+            VBox vBox = new VBox();
+            vBox.setPrefHeight(200.0);
+            vBox.setPrefWidth(100.0);
+            Integer[] indexs = characterMap.keySet().toArray(new Integer[0]);
+            for (int i = 0; i < characterMap.size(); i = i + 2) {
+                Character character1 = characterMap.get(indexs[i]);
+                Character character2 = characterMap.get(indexs[i+1]);
+                vBox.getChildren().add(new CharacterObject(character1.getName(), getRaceId(character1.getRaceId()), getClassId(character2.getClassId())));
+                vBox.getChildren().add(new CharacterObject(character2.getName(), getRaceId(character2.getRaceId()), getClassId(character2.getClassId())));
+                hboxCharacters.getChildren().add(vBox);
             }
         } else {
             Label label = new Label("Nada aqui ainda");
@@ -83,114 +113,6 @@ public class myCharactersController {
     void myCharacterMenuButtonAction(ActionEvent event) {
         PaneManager paneManager = new PaneManager((Stage) myCharacterMenuButton.getScene().getWindow());
         paneManager.openPane("myCharactersPane");
-    }
-
-    private HBox createCharacterPane(Character character, boolean isLast) {
-        ImageView imageView = new ImageView(new Image("/media/emptyImage.jpg"));
-        imageView.setFitHeight(92);
-        imageView.setFitWidth(114);
-        imageView.setPickOnBounds(true);
-        imageView.setPreserveRatio(true);
-
-        Label nameCharacterLabel = new Label();
-        nameCharacterLabel.setText(character.getName());
-        setStyleName(nameCharacterLabel, isLast);
-
-        Label raceCharacterLabel = new Label();
-        raceCharacterLabel.setText(getRaceId(character.getRaceId()));
-        setStyle(raceCharacterLabel);
-
-        Label classCharacterLabel = new Label();
-        classCharacterLabel.setText(getClassId(character.getClassId()));
-        setStyle(classCharacterLabel);
-
-        VBox vBox = new VBox(nameCharacterLabel, raceCharacterLabel, classCharacterLabel);
-        vBox.setPrefHeight(200);
-        vBox.setMinWidth(Label.USE_COMPUTED_SIZE);
-
-        Pane pane = new Pane();
-        pane.setPrefWidth(15);
-        pane.setPrefHeight(Pane.USE_COMPUTED_SIZE);
-
-        Pane paneDelete = new Pane();
-        pane.setPrefWidth(10);
-        pane.setPrefHeight(Pane.USE_COMPUTED_SIZE);
-
-        Label delete = new Label();
-        delete.setFont(new Font(12));
-        delete.setText("X");
-        delete.setTextFill(javafx.scene.paint.Color.valueOf("#110000"));
-
-        delete.setOnMouseClicked(mouseEvent -> {
-            Attribute attribute = attributeMap.get(character.getAttributeId());
-            AttributeDAO dao = new AttributeDAO();
-            CharacterDAO dao1 = new CharacterDAO();
-            try {
-                dao1.delete(character);
-                dao.delete(attribute);
-            } catch (SQLException e){
-                e.printStackTrace();
-            }
-
-            PaneManager paneManager = new PaneManager((Stage) createCharacterMenuButton.getScene().getWindow());
-            paneManager.openPane("myCharactersPane");
-        });
-
-        HBox hBox = new HBox(imageView, vBox, pane);
-        hBox.setPrefHeight(92);
-        hBox.setMinWidth(Label.USE_COMPUTED_SIZE);
-        hBox.setId(String.valueOf(character.getId()));
-
-        hBox.setOnMouseClicked(mouseEvent -> {
-            ObjectSaveManager saver = new ObjectSaveManager();
-
-            saver.cleanObjects();
-            saver.saveObject("character", characterMap.get(character.getId()));
-            saver.saveObject("attribute", attributeMap.get(character.getAttributeId()));
-
-            saver.printMap();
-
-            PaneManager paneManager = new PaneManager((Stage) createCharacterMenuButton.getScene().getWindow());
-            paneManager.openPane("characterViewPane");
-
-        });
-
-        System.out.println("Label 'nameCharacterLabel' Width: " + nameCharacterLabel.getWidth());
-        System.out.println("Label 'nameCharacterLabel' Height: " + nameCharacterLabel.getHeight());
-        System.out.println("Label 'raceCharacterLabel' Width: " + raceCharacterLabel.getWidth());
-        System.out.println("Label 'raceCharacterLabel' Height: " + raceCharacterLabel.getHeight());
-        System.out.println("Label 'classCharacterLabel' Width: " + classCharacterLabel.getWidth());
-        System.out.println("Label 'classCharacterLabel' Height: " + classCharacterLabel.getHeight());
-
-        HBox view = new HBox(delete, hBox);
-
-        return view;
-    }
-
-    private void setStyleName(Label label, boolean isLast) {
-        int size = label.getText().length();
-
-        if(isLast){
-            label.setPrefWidth(Label.USE_COMPUTED_SIZE);
-        } else {
-            double width = (size < 12)
-                    ? (double) size * 10
-                    : 120.0;
-            label.setPrefWidth(width);
-            System.out.println("Aqui: tamanho = " + label.getText().length());
-            System.out.println("Aqui: size = " + width);
-        }
-        System.out.println("isLast = " + isLast);
-        label.setPrefHeight(30);
-        label.setFont(new Font(14));
-        label.setTextFill(javafx.scene.paint.Color.valueOf("#110000"));
-    }
-
-    private void setStyle(Label label) {
-        label.setMinWidth(Label.USE_COMPUTED_SIZE);
-        label.setPrefHeight(30);
-        label.setFont(new Font(14));
-        label.setTextFill(javafx.scene.paint.Color.valueOf("#110000"));
     }
 
     private String getClassId(int classId) {
@@ -220,14 +142,6 @@ public class myCharactersController {
                 return "Halfing";
             default:
                 return "";
-        }
-    }
-
-    public void remPane() {
-        // Verifica se há algum Pane na VBox characterContainer
-        if (!hboxCharacters.getChildren().isEmpty()) {
-            // Remove o último Pane adicionado (ou pode remover o que quiser, basta alterar o índice)
-            hboxCharacters.getChildren().remove(hboxCharacters.getChildren().size() - 1);
         }
     }
 

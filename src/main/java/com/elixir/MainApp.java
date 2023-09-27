@@ -8,12 +8,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
 public class MainApp extends Application {
     private static Stage stage;
 
     @Override
-    public void start(@SuppressWarnings("exports") Stage s) throws IOException {
+    public void start(Stage s) throws IOException {
         stage=s;
         setRoot("newCharacterPane","");
     }

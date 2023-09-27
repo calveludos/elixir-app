@@ -2,6 +2,7 @@ package com.elixir.dao;
 
 import com.elixir.factory.ConnectionFactory;
 import com.elixir.model.Attribute;
+import com.elixir.model.Folder;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +10,7 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FolderDAO extends CrudDAO<Attribute> {
+public class FolderDAO extends CrudDAO<Folder> {
 
     @Override
     public int create(Folder folder) throws SQLException {

@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
-            <version>1.1</version>
+            <version>1.1.1</version>
         </dependency>
 
     </dependencies>
@@ -93,7 +93,7 @@
                 </dependencies>
             </plugin>
 
-            <!-- Adds the mainClass to the jar so it will run outside -->
+            <!-- Adds the mainClass to the jar, so it will run outside -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
@@ -128,4 +128,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

@@ -108,8 +108,7 @@ public class CharacterDAO extends CrudDAO<Character> {
                 character.setAlignmentId(resultSet.getInt("id_alignment"));
                 character.setClassId(resultSet.getInt("id_class"));
                 character.setName(resultSet.getString("name"));
-                character.setPlayerName(resultSet.getString("player_name")); // Novo campo adicionado
-                character.setIdFolder(resultSet.getInt("IdFolder));
+                character.setIdFolder(resultSet.getInt("id_folder"));
                 character.setLevel(resultSet.getInt("level"));
                 character.setExperience(resultSet.getInt("experience"));
                 character.setHeight(resultSet.getInt("height"));
@@ -117,7 +116,7 @@ public class CharacterDAO extends CrudDAO<Character> {
                 character.setCurrentPv(resultSet.getInt("current_pv"));
                 character.setMaxPv(resultSet.getInt("max_pv"));
                 character.setCurrencyId(resultSet.getInt("id_currency"));
-                character.setSlots(resultSet.getInt("slots"));
+                character.setSlots(resultSet.getInt("id_slots"));
                 character.setAppearance(resultSet.getString("appearance"));
                 character.setClassArmorBonus(resultSet.getInt("class_armor_bonus"));
                 character.setBackground(resultSet.getString("background")); // Novo campo adicionado

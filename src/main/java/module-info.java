@@ -3,11 +3,12 @@ module com.app {
     requires javafx.fxml;
     requires javafx.media;
     requires java.sql;
-    opens com.elixir to javafx.fxml;
     exports com.elixir;
+    opens com.elixir to javafx.fxml;
     requires json.simple;
     exports com.elixir.controller;
     requires javafx.base;
+    requires javafx.graphics;
     opens media;
     opens com.elixir.controller to javafx.fxml;
 }
