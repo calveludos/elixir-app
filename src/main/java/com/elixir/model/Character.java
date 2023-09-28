@@ -273,7 +273,10 @@ public class Character implements Serializable {
                 ", alignmentId=" + alignmentId +
                 ", classId=" + classId +
                 ", name='" + name + '\'' +
+                ", playerName='" + playerName + '\'' +
+                ", idFolder=" + idFolder +
                 ", experience=" + experience +
+                ", level=" + level +
                 ", height=" + height +
                 ", weight=" + weight +
                 ", currentPv=" + currentPv +
@@ -282,7 +285,9 @@ public class Character implements Serializable {
                 ", slots=" + slots +
                 ", appearance='" + appearance + '\'' +
                 ", classArmorBonus=" + classArmorBonus +
+                ", background='" + background + '\'' +
                 '}';
     }
+
 
 }

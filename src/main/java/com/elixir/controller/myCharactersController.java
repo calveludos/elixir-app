@@ -20,6 +20,7 @@ import javafx.stage.Stage;
 import com.elixir.manager.*;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Map;
 
 public class myCharactersController extends MenuController {
@@ -66,17 +67,31 @@ public class myCharactersController extends MenuController {
                 vBox.setPrefWidth(100.0);
                 try {
                     Folder folder1 = folderMap.get(indexs[i]);
-                    Folder folder2 = folderMap.get(indexs[i + 1]);
-                    Folder folder3 = folderMap.get(indexs[i + 2]);
                     vBox.getChildren().add(new FolderObject(folder1.getName()));
+                    Folder folder2 = folderMap.get(indexs[i + 1]);
                     vBox.getChildren().add(new FolderObject(folder2.getName()));
+                    Folder folder3 = folderMap.get(indexs[i + 2]);
                     vBox.getChildren().add(new FolderObject(folder3.getName()));
                 } catch (IndexOutOfBoundsException ignored){}
 
                 hboxFolders.getChildren().add(vBox);
             }
         }
-        
+
+        var oldMap = characterMap;
+        Map<Integer, Character> newMap = new HashMap<>();
+        for (Character c : oldMap.values()) {
+            if (c.getIdFolder() == 0){
+                newMap.put(c.getId(), c);
+            }
+        }
+        for (Character c :
+                newMap.values()) {
+            System.out.println(c);
+        }
+
+        characterMap = newMap;
+
         if (!characterMap.isEmpty()) {
             Integer[] indexs = characterMap.keySet().toArray(new Integer[0]);
             for (int i = 0; i < characterMap.size(); i = i + 2) {
@@ -86,8 +101,8 @@ public class myCharactersController extends MenuController {
                 vBox.setSpacing(5);
                 try {
                     Character character1 = characterMap.get(indexs[i]);
+                    vBox.getChildren().add(new CharacterObject(character1.getName(), getRaceId(character1.getRaceId()), getClassId(character1.getClassId())));
                     Character character2 = characterMap.get(indexs[i+1]);
-                    vBox.getChildren().add(new CharacterObject(character1.getName(), getRaceId(character1.getRaceId()), getClassId(character2.getClassId())));
                     vBox.getChildren().add(new CharacterObject(character2.getName(), getRaceId(character2.getRaceId()), getClassId(character2.getClassId())));
                 } catch (IndexOutOfBoundsException ignored){}
                 hboxCharacters.getChildren().add(vBox);
