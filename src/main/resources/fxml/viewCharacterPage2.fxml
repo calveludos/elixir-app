@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.myCharactersController">
+
+
+    <!-- Cabeçalho superior -->
+    <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <!-- Logo e texto -->
+        <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="10.0" layoutY="32.0">
+         <image>
+            <Image url="@../media/logoElixir.png" />
+         </image></ImageView>
+
+        <!-- Agrupar Line e Text em uma VBox -->
+        <VBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="32.0" spacing="5.0">
+            <Text fill="#FFFFFF">
+                ELIXIR MAKER
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+                <style>
+                    -fx-font-style: italic;
+                </style>
+            </Text>
+            <Line endX="120.0" stroke="WHITE" strokeWidth="3.0" />
+         <padding>
+            <Insets bottom="28.0" />
+         </padding>
+        </VBox>
+
+        <!-- Nome de usuário e foto de perfil agrupados em uma HBox -->
+        <HBox alignment="TOP_RIGHT" layoutX="752.0" layoutY="42.0" prefHeight="114.0" spacing="10.0" AnchorPane.rightAnchor="0.0" HBox.hgrow="ALWAYS">
+            <!-- Nome de usuário e foto de perfil -->
+            <Text fill="#FFFFFF">
+                Nome de Usuário
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+                <style>
+                    -fx-font-style: italic;
+                </style>
+            </Text>
+            <ImageView fitHeight="35.0" fitWidth="35.0">
+                <!-- Coloque aqui a imagem de perfil -->
+                <clip>
+                    <Circle centerX="17.5" centerY="17.5" radius="17.5" />
+                </clip>
+            <image>
+               <Image url="@../media/emptyPerfilImage.png" />
+            </image>
+            </ImageView>
+        </HBox>
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+    </HBox>
+
+    <!-- Corpo da página -->
+    <VBox layoutX="260.0" layoutY="114.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+      <children>
+         <HBox prefHeight="646.0" prefWidth="939.0" VBox.vgrow="ALWAYS">
+            <children>
+               <VBox prefHeight="625.0" prefWidth="774.0" HBox.hgrow="ALWAYS">
+                  <children>
+                     <HBox alignment="CENTER" maxHeight="127.0" minHeight="99.0" prefHeight="107.0" prefWidth="753.0" spacing="5.0">
+                        <children>
+                           <ImageView fitHeight="106.0" fitWidth="272.0" pickOnBounds="true" preserveRatio="true" />
+                           <HBox maxHeight="70.0" minHeight="0.0" prefHeight="70.0" prefWidth="463.0" spacing="25.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
+                              <children>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="98.0" prefWidth="205.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Label prefHeight="18.0" prefWidth="115.0" text="PERSONAGEM" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold Italic" size="16.0" />
+                                          </font>
+                                       </Label>
+                                       <TextField minHeight="30.0" prefHeight="35.0" prefWidth="205.0" promptText="Nome do Personagem" style="-fx-background-radius: 0;" />
+                                    </children>
+                                    <HBox.margin>
+                                       <Insets />
+                                    </HBox.margin>
+                                 </VBox>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="98.0" prefWidth="205.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Label prefHeight="18.0" prefWidth="115.0" text="CLASSE/RAÇA" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold Italic" size="16.0" />
+                                          </font>
+                                       </Label>
+                                       <TextField prefHeight="35.0" prefWidth="205.0" promptText="Classe / Raça" style="-fx-background-radius: 0;" />
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="109.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Label prefHeight="18.0" prefWidth="115.0" text="NIVEL" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold Italic" size="16.0" />
+                                          </font>
+                                       </Label>
+                                       <Spinner editable="true" prefHeight="35.0" prefWidth="76.0" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </HBox>
+                        </children>
+                     </HBox>
+                     <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #e7e4df; -fx-border-color: #aca28f; -fx-border-width: 2;" VBox.vgrow="ALWAYS">
+                        <children>
+                           <HBox alignment="TOP_CENTER" maxHeight="305.0" minHeight="200.0" prefHeight="304.0" prefWidth="739.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                              <children>
+                                 <VBox prefHeight="410.0" prefWidth="328.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Pane prefHeight="0.0" prefWidth="729.0">
+                                          <children>
+                                             <Rectangle fill="#ced8e0" height="489.0" stroke="#788896" strokeType="INSIDE" strokeWidth="2.0" width="103.0" />
+                                          </children>
+                                       </Pane>
+                                       <VBox alignment="TOP_CENTER" minHeight="360.0" prefHeight="361.0" prefWidth="303.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;">
+                                          <padding>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                          <children>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label prefHeight="22.0" prefWidth="217.0" text="EQUIPAMENTOS" textFill="#4b5c6b">
+                                                      <font>
+                                                         <Font name="System Bold Italic" size="16.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                                      <children>
+                                                         <Label prefHeight="22.0" prefWidth="41.0" text="PESO" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="16.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="3.0">
+                                                <children>
+                                                   <TextField prefHeight="35.0" prefWidth="205.0" style="-fx-background-radius: 0;" />
+                                                   <HBox alignment="CENTER_RIGHT" prefHeight="29.0" prefWidth="49.0" HBox.hgrow="ALWAYS">
+                                                      <children>
+                                                         <TextField prefHeight="30.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                </children>
+                                             </HBox>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets left="25.0" top="10.0" />
+                                          </VBox.margin>
+                                       </VBox>
+                                    </children>
+                                    <padding>
+                                       <Insets bottom="10.0" top="10.0" />
+                                    </padding>
+                                 </VBox>
+                                 <VBox prefHeight="497.0" prefWidth="168.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Pane prefHeight="0.0" prefWidth="729.0">
+                                          <children>
+                                             <Rectangle fill="#ced8e0" height="283.0" stroke="#788896" strokeType="INSIDE" strokeWidth="2.0" width="103.0" />
+                                          </children>
+                                       </Pane>
+                                       <VBox alignment="TOP_CENTER" prefHeight="262.0" prefWidth="162.0" spacing="3.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;">
+                                          <padding>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                          <children>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label prefHeight="22.0" prefWidth="217.0" text="EXPULSAR MORTOS" textFill="#4b5c6b">
+                                                      <font>
+                                                         <Font name="System Bold Italic" size="12.0" />
+                                                      </font>
+                                                   </Label>
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                                <children>
+                                                   <Label text="ESQUELETO">
+                                                      <font>
+                                                         <Font size="10.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                                <children>
+                                                   <Label text="ZUMBI">
+                                                      <font>
+                                                         <Font size="10.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                                <children>
+                                                   <Label text="CARNIÇAL">
+                                                      <font>
+                                                         <Font size="10.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                                <children>
+                                                   <Label text="INUMANO">
+                                                      <font>
+                                                         <Font size="10.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                                <children>
+                                                   <Label text="APARIÇAO">
+                                                      <font>
+                                                         <Font size="10.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                                <children>
+                                                   <Label text="MUMIA">
+                                                      <font>
+                                                         <Font size="10.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                                <children>
+                                                   <Label text="ESPECTRO">
+                                                      <font>
+                                                         <Font size="10.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                                <children>
+                                                   <Label text="VAMPIRO">
+                                                      <font>
+                                                         <Font size="10.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets left="25.0" top="10.0" />
+                                          </VBox.margin>
+                                       </VBox>
+                                    </children>
+                                    <padding>
+                                       <Insets bottom="10.0" top="10.0" />
+                                    </padding>
+                                 </VBox>
+                                 <VBox prefHeight="497.0" prefWidth="244.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Pane prefHeight="0.0" prefWidth="729.0">
+                                          <children>
+                                             <Rectangle fill="#ced8e0" height="283.0" stroke="#788896" strokeType="INSIDE" strokeWidth="2.0" width="103.0" />
+                                          </children>
+                                       </Pane>
+                                       <VBox alignment="TOP_CENTER" maxWidth="423.0" prefHeight="205.0" prefWidth="197.0" spacing="2.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;">
+                                          <padding>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                          <children>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label prefHeight="22.0" prefWidth="310.0" text="TALENTOS LADINOS" textFill="#4b5c6b">
+                                                      <font>
+                                                         <Font name="System Bold Italic" size="14.0" />
+                                                      </font>
+                                                   </Label>
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                                <children>
+                                                   <Label text="ABRIR  FECHADURA">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="19.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label prefHeight="20.0" prefWidth="135.0" text="DESARMAR ARMADILHAS">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label text="ESCALAR MUROS">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label text="MOVER-SE EM SILENCIO">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label text="ESCONDER-SE NAS SOMBRAS">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label text="PUNGAR">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label text="OUVIR BRAULHOS">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label text="ATAQUE PELAS COSTAS">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
+                                                   <TextField prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                </children>
+                                             </HBox>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets left="25.0" top="10.0" />
+                                          </VBox.margin>
+                                       </VBox>
+                                    </children>
+                                    <padding>
+                                       <Insets bottom="10.0" top="10.0" />
+                                    </padding>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                           <HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="100.0" prefWidth="200.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                              <children>
+                                 <HBox minWidth="330.0" prefHeight="100.0" prefWidth="258.0" HBox.hgrow="ALWAYS" />
+                                 <HBox maxHeight="87.0" maxWidth="-Infinity" minHeight="0.0" prefHeight="87.0" prefWidth="262.0" spacing="25.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <VBox alignment="TOP_CENTER" prefHeight="74.0" prefWidth="57.0">
+                                          <children>
+                                             <Label prefHeight="47.0" prefWidth="44.0" text="XP" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="32.0" />
+                                                </font>
+                                             </Label>
+                                             <Label prefHeight="0.0" prefWidth="115.0" text="Pontos de" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font size="9.0" />
+                                                </font>
+                                             </Label>
+                                             <Label prefHeight="0.0" prefWidth="115.0" text="Experiência" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font size="9.0" />
+                                                </font>
+                                             </Label>
+                                          </children>
+                                          <HBox.margin>
+                                             <Insets />
+                                          </HBox.margin>
+                                       </VBox>
+                                       <VBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="83.0" HBox.hgrow="ALWAYS">
+                                          <children>
+                                             <Label alignment="CENTER" prefHeight="18.0" prefWidth="115.0" text="XP ATUAL" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="14.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="69.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </VBox>
+                                       <VBox alignment="TOP_CENTER" prefHeight="73.0" prefWidth="93.0">
+                                          <children>
+                                             <Label alignment="CENTER" prefHeight="18.0" prefWidth="115.0" text="XP ATUAL" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="14.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="53.0" prefWidth="80.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </VBox>
+                                    </children>
+                                    <padding>
+                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <HBox.margin>
+                                       <Insets />
+                                    </HBox.margin>
+                                 </HBox>
+                                 <VBox maxHeight="248.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="196.0" prefWidth="139.0" spacing="3.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
+                                    <padding>
+                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                    </padding>
+                                    <children>
+                                       <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="217.0" text="IDIOMAS" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="16.0" />
+                                                </font>
+                                             </Label>
+                                          </children>
+                                       </HBox>
+                                       <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
+                                          <children>
+                                             <TextField prefHeight="26.0" prefWidth="110.0" style="-fx-background-radius: 0;" HBox.hgrow="ALWAYS" />
+                                          </children>
+                                       </HBox>
+                                    </children>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                           <VBox maxHeight="248.0" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="82.0" prefWidth="558.0" spacing="3.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;">
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                              <children>
+                                 <VBox prefHeight="40.0" prefWidth="560.0">
+                                    <children>
+                                       <Label prefHeight="20.0" prefWidth="131.0" text="ACESSO A MAGIA" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold Italic" size="14.0" />
+                                          </font>
+                                       </Label>
+                                       <Label prefHeight="20.0" prefWidth="131.0" text="CIRCULO" textFill="#4b5c6b">
+                                          <font>
+                                             <Font size="10.0" />
+                                          </font>
+                                       </Label>
+                                    </children>
+                                 </VBox>
+                                 <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="246.0" spacing="2.0">
+                                    <children>
+                                       <HBox prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="17.0" text="1°" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="12.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField prefHeight="26.0" prefWidth="42.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </HBox>
+                                       <HBox prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="17.0" text="2°" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="12.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField prefHeight="26.0" prefWidth="42.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </HBox>
+                                       <HBox prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="17.0" text="3°" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="12.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField prefHeight="26.0" prefWidth="42.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </HBox>
+                                       <HBox prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="17.0" text="4°" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="12.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField prefHeight="26.0" prefWidth="42.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </HBox>
+                                       <HBox prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="17.0" text="5°" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="12.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField prefHeight="26.0" prefWidth="42.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </HBox>
+                                       <HBox prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="17.0" text="6°" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="12.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField prefHeight="26.0" prefWidth="42.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </HBox>
+                                       <HBox prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="17.0" text="7°" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="12.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField prefHeight="26.0" prefWidth="42.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </HBox>
+                                       <HBox prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="17.0" text="8°" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="12.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField prefHeight="26.0" prefWidth="42.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </HBox>
+                                       <HBox prefHeight="100.0" prefWidth="200.0">
+                                          <children>
+                                             <Label prefHeight="22.0" prefWidth="17.0" text="9°" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="12.0" />
+                                                </font>
+                                             </Label>
+                                             <TextField prefHeight="26.0" prefWidth="42.0" style="-fx-background-radius: 0;" />
+                                          </children>
+                                       </HBox>
+                                    </children>
+                                 </HBox>
+                              </children>
+                              <VBox.margin>
+                                 <Insets left="34.0" />
+                              </VBox.margin>
+                           </VBox>
+                        </children>
+                        <padding>
+                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </padding>
+                     </VBox>
+                  </children>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </VBox>
+               <VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="171.0" spacing="5.0">
+                  <padding>
+                     <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                  </padding>
+                  <children>
+                     <ImageView fitHeight="122.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true" />
+                     <VBox alignment="TOP_CENTER" prefHeight="394.0" prefWidth="177.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;" VBox.vgrow="ALWAYS">
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                        <padding>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                        <children>
+                           <Label alignment="CENTER" prefHeight="26.0" prefWidth="149.0" text="CARACTERISTICAS" textFill="#4b5c6b">
+                              <font>
+                                 <Font name="System Bold Italic" size="16.0" />
+                              </font>
+                           </Label>
+                           <TextArea prefHeight="363.0" prefWidth="155.0" VBox.vgrow="ALWAYS" />
+                        </children>
+                     </VBox>
+                     <VBox prefHeight="95.0" prefWidth="150.0" spacing="10.0">
+                        <children>
+                           <Button prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="PROXIMA PAGINA">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Button>
+                           <HBox alignment="BOTTOM_CENTER" minHeight="2.0" prefHeight="42.0" prefWidth="150.0">
+                              <children>
+                                 <Button minWidth="-Infinity" prefHeight="37.0" prefWidth="72.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="VOLTAR">
+                                    <font>
+                                       <Font name="System Bold" size="12.0" />
+                                    </font>
+                                 </Button>
+                                 <HBox prefHeight="56.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                                 <ImageView fitHeight="40.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" />
+                              </children>
+                           </HBox>
+                        </children>
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin></VBox>
+                  </children>
+                  <HBox.margin>
+                     <Insets left="5.0" />
+                  </HBox.margin>
+               </VBox>
+            </children>
+            <VBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </VBox.margin>
+         </HBox>
+      </children>
+    </VBox>
+
+
+</AnchorPane>
