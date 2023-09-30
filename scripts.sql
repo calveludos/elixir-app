@@ -22,23 +22,23 @@ CREATE TABLE `Currency` (
 
 CREATE TABLE `User` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `email` VARCHAR(100),
-    `first_name` VARCHAR(40),
-    `last_name` VARCHAR(40),
-    `password` CHAR(60),
-    `code_verify` CHAR(36),
-    `data_register` DATETIME,
-    `is_verify` BOOL
+    `email` VARCHAR(100) NOT NULL,
+    `first_name` VARCHAR(40) NOT NULL,
+    `last_name` VARCHAR(40) NOT NULL,
+    `password` CHAR(60) NOT NULL,
+    `code_verify` CHAR(8) NOT NULL,
+    `data_register` DATETIME  NOT NULL,
+    `is_verify` BOOL DEFAULT 0
 );
 
 CREATE TABLE `Attribute` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `strength` TINYINT,
-    `dexterity` TINYINT,
-    `constitution` TINYINT,
-    `intelligence` TINYINT,
-    `wisdom` TINYINT,
-    `charisma` TINYINT
+    `strength` TINYINT NOT NULL,
+    `dexterity` TINYINT NOT NULL,
+    `constitution` TINYINT NOT NULL,
+    `intelligence` TINYINT NOT NULL,
+    `wisdom` TINYINT NOT NULL,
+    `charisma` TINYINT NOT NULL
 );
 
 CREATE TABLE `Slots` (
@@ -57,31 +57,32 @@ CREATE TABLE `Slots` (
 CREATE TABLE `Folder` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `id_user` INT,
-    `name` VARCHAR(30),
+    `name` VARCHAR(30) NOT NULL,
     `color` CHAR(7) DEFAULT "#FFFFFF",
     FOREIGN KEY (`id_user`) REFERENCES `User`(`id`)
 );
 
 CREATE TABLE `Character` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
-    `id_alignment` INT,
-    `id_attribute` INT,
-    `id_class` INT,
-    `id_race` INT,
+    `id_alignment` INT NOT NULL,
+    `id_attribute` INT NOT NULL,
+    `id_class` INT NOT NULL,
+    `id_race` INT NOT NULL,
     `id_folder` INT,
-    `id_user` INT,
-    `id_currency` INT,
+    `id_user` INT NOT NULL,
+    `id_currency` INT NOT NULL,
     `id_slots` INT,
-    `name` VARCHAR(50),
-    `experience` INT UNSIGNED,
-    `level` SMALLINT UNSIGNED,
-    `heigth` SMALLINT UNSIGNED,
+    `name` VARCHAR(50) NOT NULL,
+    `player_name` VARCHAR(50) NOT NULL,
+    `experience` INT UNSIGNED NOT NULL,
+    `level` SMALLINT UNSIGNED NOT NULL,
+    `height` SMALLINT UNSIGNED,
     `weight` SMALLINT UNSIGNED,
     `current_pv` SMALLINT DEFAULT 0,
-    `max_pv` SMALLINT UNSIGNED,
+    `max_pv` SMALLINT UNSIGNED NOT NULL,
     `class_armor_bonus` TINYINT,
-    `apperance` TEXT,
-    `background` TEXT,
+    `apperance` TEXT NOT NULL,
+    `background` TEXT NOT NULL,
     `image_path` TEXT,
     FOREIGN KEY (`id_attribute`) REFERENCES `Attribute`(`id`),
     FOREIGN KEY (`id_folder`) REFERENCES `Folder`(`id`),
@@ -93,8 +94,8 @@ CREATE TABLE `Character` (
 CREATE TABLE `Inventory` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
     `character_id` INT,
-    `item_id` INT,
-    `type_item_id` INT,
+    `item_id` INT NOT NULL,
+    `type_item_id` INT NOT NULL,
     FOREIGN KEY (`character_id`) REFERENCES `Character`(`id`)
 );
 
@@ -181,32 +182,32 @@ VALUES (1, 'Pasta PRG Latorre', '#00FF00'),
        (10, 'Pasta PRG Missões', '#FF00FF');
 
 -- Inserir dados na tabela Character
-INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_folder, id_user, id_currency, id_slots, name, experience, level, heigth, weight, current_pv, max_pv, apperance, background, image_path)
+INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_folder, id_user, id_currency, id_slots, player_name, name, experience, level, height, weight, current_pv, max_pv, apperance, background, image_path)
 VALUES 
-  (1, 1, 3, 1, 1, 1, 1, 1, 'Gandalf', 2500, 2, 175, 70, 7, 9, 'Um mago poderoso', 'Um mago lendário', 'caminho/para/imagem1.jpg'),
-  (3, 2, 3, 1, 1, 1, 2, 2, 'Aragorn', 10000, 4, 185, 85, 8, 10, 'Um grande guerreiro', 'Um líder destemido', 'caminho/para/imagem2.jpg'),
-  (2, 5, 3, 4, 3, 3, 5, 4, 'Gollum', 1260000, 20, 130, 35, 4, 51, 'Um ex-hobbit', 'Obcecado pelo Um Anel', 'caminho/para/imagem4.jpg'),
-  (1, 7, 3, 3, 5, 5, 7, 5, 'Sauron', 460000, 10, 220, 120, 15, 25, 'O Senhor do Escuro', 'Dominador de Mordor', 'caminho/para/imagem5.jpg'),
-  (3, 9, 1, 4, 10, 10, 9, 6, 'Sam', 12000, 5, 165, 75, 7, 34, 'Um leal companheiro', 'Herói da Comitiva do Anel', '/imagens/sam.jpg'),
-  (1, 12, 1, 4, 9, 9, 12, 7, 'Smeagol', 1000000, 17, 125, 30, 4, 72, 'Um antigo hobbit', 'Obcecado pelo Um Anel', '/imagens/smeagol.jpg');
+  (1, 1, 3, 1, 1, 1, 1, 1, 'Jogador 1', 'Gandalf', 2500, 2, 175, 70, 7, 9, 'Um mago poderoso', 'Um mago lendário', 'caminho/para/imagem1.jpg'),
+  (3, 2, 3, 1, 1, 1, 2, 2, 'Jogador 1', 'Aragorn', 10000, 4, 185, 85, 8, 10, 'Um grande guerreiro', 'Um líder destemido', 'caminho/para/imagem2.jpg'),
+  (2, 5, 3, 4, 3, 3, 5, 4, 'Jogador 3', 'Gollum', 1260000, 20, 130, 35, 4, 51, 'Um ex-hobbit', 'Obcecado pelo Um Anel', 'caminho/para/imagem4.jpg'),
+  (1, 7, 3, 3, 5, 5, 7, 5, 'Jogador 5', 'Sauron', 460000, 10, 220, 120, 15, 25, 'O Senhor do Escuro', 'Dominador de Mordor', 'caminho/para/imagem5.jpg'),
+  (3, 9, 1, 4, 10, 10, 9, 6, 'Jogador 10', 'Sam', 12000, 5, 165, 75, 7, 34, 'Um leal companheiro', 'Herói da Comitiva do Anel', '/imagens/sam.jpg'),
+  (1, 12, 1, 4, 9, 9, 12, 7, 'Jogador 9', 'Smeagol', 1000000, 17, 125, 30, 4, 72, 'Um antigo hobbit', 'Obcecado pelo Um Anel', '/imagens/smeagol.jpg');
 
-INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_folder, id_user, id_currency, name, experience, level, heigth, weight, current_pv, max_pv, apperance, background, image_path)
+INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_folder, id_user, id_currency, player_name, name, experience, level, height, weight, current_pv, max_pv, apperance, background, image_path)
 VALUES 
-  (3, 4, 4, 4, 2, 2, 4, 'Frodo', 80000, 8, 160, 50, 1, 34, 'Um hobbit corajoso', 'Um portador do Um Anel', 'caminho/para/imagem6.jpg'),
-  (3, 6, 4, 4, 4, 4, 6, 'Bilbo', 400000, 11, 170, 70, 65, 32, 'Um aventureiro', 'Descobridor do Um Anel', 'caminho/para/imagem7.jpg'),
-  (3, 8, 2, 2, 6, 6, 8, 'Gimli', 408000, 11, 160, 90, 20, 81, 'Um anão valente', 'Um mestre nas batalhas', 'caminho/para/imagem8.jpg'),
-  (1, 11, 2, 2, 8, 8, 11, 'Bombur', 16000, 5, 165, 80, 21, 28, 'Um anão guerreiro', 'Mestre das machadinhas', 'caminho/para/imagem10.jpg');
+  (3, 4, 4, 4, 2, 2, 4, 'Jogador 2', 'Frodo', 80000, 8, 160, 50, 1, 34, 'Um hobbit corajoso', 'Um portador do Um Anel', 'caminho/para/imagem6.jpg'),
+  (3, 6, 4, 4, 4, 4, 6, 'Jogador 4', 'Bilbo', 400000, 11, 170, 70, 65, 32, 'Um aventureiro', 'Descobridor do Um Anel', 'caminho/para/imagem7.jpg'),
+  (3, 8, 2, 2, 6, 6, 8, 'Jogador 6', 'Gimli', 408000, 11, 160, 90, 20, 81, 'Um anão valente', 'Um mestre nas batalhas', 'caminho/para/imagem8.jpg'),
+  (1, 11, 2, 2, 8, 8, 11, 'Jogador 8', 'Bombur', 16000, 5, 165, 80, 21, 28, 'Um anão guerreiro', 'Mestre das machadinhas', 'caminho/para/imagem10.jpg');
 
-INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_user, id_currency, name, experience, level, heigth, weight, current_pv, max_pv, apperance, background, image_path)
+INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_user, id_currency, player_name, name, experience, level, height, weight, current_pv, max_pv, apperance, background, image_path)
 VALUES 
-  (1, 10, 2, 1, 7, 10, 'Faramir', 808000, 15, 190, 80, 41, 55, 'Um líder de Gondor', 'Guardião de Gondor', 'caminho/para/imagem9.jpg');
+  (1, 10, 2, 1, 7, 10, 'Jogador 7', 'Faramir', 808000, 15, 190, 80, 41, 55, 'Um líder de Gondor', 'Guardião de Gondor', 'caminho/para/imagem9.jpg');
   
-INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_user, id_currency, id_slots, name, experience, level, heigth, weight, current_pv, max_pv, apperance, background, image_path)
+INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_user, id_currency, id_slots, player_name, name, experience, level, height, weight, current_pv, max_pv, apperance, background, image_path)
 VALUES 
-  (1, 14, 1, 1, 10, 14, 9, 'Boromir', 500000, 12, 190, 85, 8, 59, 'Um clerigo de Gondor', 'Defensor de Gondor', '/imagens/boromir.jpg'),
-  (1, 3, 3, 3, 2, 3, 3, 'Legolas', 40000, 6, 170, 65, 6, 18, 'Um elfo habilidoso', 'Um arqueiro exímio', 'caminho/para/imagem3.jpg'),
-  (3, 13, 1, 3, 10, 13, 8, 'Galadriel', 900000, 16, 175, 50, 12, 84, 'Uma elfa sábia', 'Guardiã de Lothlórien', '/imagens/galadriel.jpg'),
-  (3, 15, 1, 3, 10, 15, 10, 'Thranduil', 200000, 9, 190, 70, 10, 43, 'Um rei clerigo', 'Governante da Floresta das Trevas', '/imagens/thranduil.jpg');
+  (1, 14, 1, 1, 10, 14, 9, 'Jogador 10', 'Boromir', 500000, 12, 190, 85, 8, 59, 'Um clerigo de Gondor', 'Defensor de Gondor', '/imagens/boromir.jpg'),
+  (1, 3, 3, 3, 2, 3, 3, 'Jogador 2', 'Legolas', 40000, 6, 170, 65, 6, 18, 'Um elfo habilidoso', 'Um arqueiro exímio', 'caminho/para/imagem3.jpg'),
+  (3, 13, 1, 3, 10, 13, 8, 'Jogador 3', 'Galadriel', 900000, 16, 175, 50, 12, 84, 'Uma elfa sábia', 'Guardiã de Lothlórien', '/imagens/galadriel.jpg'),
+  (3, 15, 1, 3, 10, 15, 10, 'Jogador 5', 'Thranduil', 200000, 9, 190, 70, 10, 43, 'Um rei clerigo', 'Governante da Floresta das Trevas', '/imagens/thranduil.jpg');
 
 -- Inserir dados na tabela Inventory
 INSERT INTO Inventory (character_id, item_id, type_item_id)
@@ -313,3 +314,5 @@ LEFT JOIN `Currency` cy ON c.id_currency = cy.id
 GROUP BY u.id, u.first_name 
 HAVING total_moedas > 700
 ORDER BY total_moedas DESC;
+
+SELECT * FROM `Character`;
