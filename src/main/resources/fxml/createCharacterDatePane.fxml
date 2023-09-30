@@ -1,113 +1,254 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.CreateCharacterDateController">
-   <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#142433" height="89.0" layoutX="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="743.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#295264" height="421.0" layoutX="-69.0" layoutY="88.0" stroke="TRANSPARENT" strokeType="INSIDE" width="188.0" />
-    <Button fx:id="createCharacterButton" layoutX="10.0" layoutY="150.0" mnemonicParsing="false" onAction="#createCharacterButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="CRIAR FICHA" textFill="WHITE">
-         <font>
-            <Font name="P052-Italic" size="12.0" />
-         </font>
-      </Button>
-      <Label layoutX="67.0" layoutY="20.0" text="ELIXIR MAKER" textFill="WHITE">
-         <font>
-            <Font name="P052-Bold" size="18.0" />
-         </font>
-      </Label>
-      <Line endX="29.0" layoutX="170.0" layoutY="47.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
-       <Label layoutX="39.0" layoutY="98.0" text="MENU" textFill="#110000">
-          <font>
-             <Font name="System Bold" size="20.0" />
-          </font>
-       </Label>
-       <Pane layoutX="135.0" layoutY="89.0" prefHeight="110.0" prefWidth="586.0">
-           <children>
-               <Line endX="335.0" layoutX="233.0" layoutY="37.0" startX="-216.0" stroke="#dbaf69" strokeWidth="3.0" />
-               <Button fx:id="raceCharacterButton" layoutX="274.0" layoutY="21.0" mnemonicParsing="false" onAction="#raceCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="RAÇA" textFill="WHITE">
-                   <font>
-                       <Font name="System Bold Italic" size="14.0" />
-                   </font>
-               </Button>
-               <Button fx:id="dateCharacterButton" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#dateCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="DADOS" textFill="WHITE">
-                   <font>
-                       <Font name="System Bold Italic" size="14.0" />
-                   </font>
-               </Button>
-               <Button fx:id="classCharacterButton" layoutX="384.0" layoutY="21.0" mnemonicParsing="false" onAction="#classCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="CLASSE" textFill="WHITE">
-                   <font>
-                       <Font name="System Bold Italic" size="14.0" />
-                   </font>
-               </Button>
-               <Button fx:id="backgroundCharacterButton" layoutX="497.0" layoutY="21.0" mnemonicParsing="false" onAction="#backgroundCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="HISTORIA" textFill="WHITE">
-                   <font>
-                       <Font name="System Bold Italic" size="14.0" />
-                   </font>
-               </Button>
-               <Button fx:id="attributesCharacterButtonAction" layoutX="132.0" layoutY="21.0" mnemonicParsing="false" onAction="#attributesCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="ATRIBUTOS" textFill="WHITE">
-                   <font>
-                       <Font name="System Bold Italic" size="14.0" />
-                   </font>
-               </Button>
-               <Label fx:id="errorLabel" layoutX="73.0" layoutY="70.0" prefHeight="32.0" prefWidth="458.0" textFill="RED">
-                   <font>
-                       <Font name="System Bold" size="14.0" />
-                   </font>
-               </Label>
-           </children>
-       </Pane>
-      <Rectangle arcWidth="5.0" fill="#ced8e0" height="287.0" layoutX="151.0" layoutY="182.0" stroke="#788896" strokeType="INSIDE" width="89.0" />
-      <Rectangle arcWidth="5.0" fill="#e7e4df" height="223.0" layoutX="179.0" layoutY="204.0" stroke="#95876f" strokeType="INSIDE" width="454.0" />
-      <Label layoutX="194.0" layoutY="213.0" prefHeight="30.0" prefWidth="99.0" text="Personagem" textFill="#110000">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="356.0" layoutY="212.0" prefHeight="32.0" prefWidth="74.0" text="Jogador" textFill="#110000">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="522.0" layoutY="212.0" prefHeight="32.0" prefWidth="74.0" text="Nível" textFill="#110000">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="190.0" layoutY="281.0" prefHeight="30.0" prefWidth="106.0" text="Alinhamento" textFill="#110000">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="316.0" layoutY="283.0" prefHeight="30.0" prefWidth="253.0" text="Características físicas" textFill="#110000">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <TextArea fx:id="apperanceField" layoutX="316.0" layoutY="313.0" prefHeight="104.0" prefWidth="304.0" promptText="Aparencia do personagem (texto curto)" style="-fx-border-color: #bbc3c9; -fx-border-radius: 5;" />
-      <TextField fx:id="nameField" layoutX="196.0" layoutY="241.0" prefHeight="26.0" prefWidth="142.0" promptText="Nome do persoangem" style="-fx-border-color: #bbc3c9; -fx-border-radius: 5;" />
-      <TextField fx:id="namePlayerField" layoutX="356.0" layoutY="241.0" prefHeight="26.0" prefWidth="142.0" promptText="Nome do jogador" style="-fx-border-color: #bbc3c9; -fx-border-radius: 5;" />
-      <Spinner fx:id="levelField" layoutX="520.0" layoutY="241.0" prefHeight="27.0" prefWidth="74.0" promptText="Nível" style="-fx-border-color: #bbc3c9; -fx-border-radius: 5;" />
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.myCharactersController">
+    <!-- Menu Lateral -->
+    <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="260.0" spacing="17.0" style="-fx-background-color: #e7e4df;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!-- Ícone e texto do Menu Principal -->
+        <HBox spacing="2.0">
+            <ImageView fitHeight="30.0" fitWidth="30.0">
+                <HBox.margin>
+                    <Insets left="15.0" />
+                </HBox.margin>
+                <Image url="@../media/menuIcon.png" />
+            </ImageView>
+            <Text fill="#4b5c6b" strokeType="OUTSIDE" strokeWidth="0.0">
+                MENU PRINCIPAL
+                <font>
+                    <Font size="16.0" />
+                </font>
+                <style>
+                    -fx-font-weight: bold;
+                    -fx-font-style: italic;
+                </style>
+                <HBox.margin>
+                    <Insets top="4.0" />
+                </HBox.margin>
+            </Text>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </HBox>
 
-       <MenuButton fx:id="aliagmentSelectionFiled" layoutX="190.0" layoutY="313.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #ced8e0;" text="Escolha uma opção">
-         <items>
-            <MenuItem fx:id="ordeiroMenuItem" onAction="#ordeiroSelected" mnemonicParsing="false" text="Ordeiro" />
-            <MenuItem fx:id="neutroMenuItem" onAction="#neutroSelected" mnemonicParsing="false" text="Neutro" />
-            <MenuItem fx:id="caoticoMenuItem" onAction="#caoticoSelected" mnemonicParsing="false" text="Caótico" />
-         </items>
-      </MenuButton>
-      <Button fx:id="nextDateButton" layoutX="596.0" layoutY="444.0" mnemonicParsing="false" onAction="#nextDateButtonAction" prefWidth="99.0" style="-fx-background-color: #36cd67; -fx-border-color: #000000; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="AVANÇAR" textFill="WHITE">
-         <font>
-            <Font name="P052-Italic" size="12.0" />
-         </font>
-      </Button>
-       <Button fx:id="myCharacterMenuButton" layoutX="10.0" layoutY="191.0" mnemonicParsing="false" onAction="#myCharacterMenuButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="VER FICHA" textFill="WHITE">
-           <font>
-               <Font name="P052-Italic" size="12.0" />
-           </font>
-       </Button>
-    </children>
- </AnchorPane>
+        <!-- Botões -->
+        <VBox alignment="CENTER" spacing="25.0">
+            <Button fx:id="startPaneMenuButton" onAction="#startPaneMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Tela Inicial" />
+            <Button fx:id="myCharactersMenuButton" onAction="#myCharactersMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Meus Personagens" />
+            <Button fx:id="createNewCharacterMenuButton" onAction="#createNewCharacterMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Criar nova ficha" />
+            <padding>
+                <Insets left="20.0" />
+            </padding>
+        </VBox>
+        <padding>
+            <Insets top="120.0" />
+        </padding>
+    </VBox>
+
+
+    <!-- Cabeçalho superior -->
+    <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <!-- Logo e texto -->
+        <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="10.0" layoutY="32.0">
+            <image>
+                <Image url="@../media/logoElixir.png" />
+            </image></ImageView>
+
+        <!-- Agrupar Line e Text em uma VBox -->
+        <VBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="32.0" spacing="5.0">
+            <Text fill="#FFFFFF">
+                ELIXIR MAKER
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+                <style>
+                    -fx-font-style: italic;
+                </style>
+            </Text>
+            <Line endX="120.0" stroke="WHITE" strokeWidth="3.0" />
+            <padding>
+                <Insets bottom="28.0" />
+            </padding>
+        </VBox>
+
+        <!-- Nome de usuário e foto de perfil agrupados em uma HBox -->
+        <HBox alignment="TOP_RIGHT" layoutX="752.0" layoutY="42.0" prefHeight="114.0" spacing="10.0" AnchorPane.rightAnchor="0.0" HBox.hgrow="ALWAYS">
+            <!-- Nome de usuário e foto de perfil -->
+            <Text fill="#FFFFFF">
+                Nome de Usuário
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+                <style>
+                    -fx-font-style: italic;
+                </style>
+            </Text>
+            <ImageView fitHeight="35.0" fitWidth="35.0">
+                <!-- Coloque aqui a imagem de perfil -->
+                <clip>
+                    <Circle centerX="17.5" centerY="17.5" radius="17.5" />
+                </clip>
+                <image>
+                    <Image url="@../media/emptyPerfilImage.png" />
+                </image>
+            </ImageView>
+        </HBox>
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+    </HBox>
+
+    <!-- Corpo da página -->
+    <VBox layoutX="260.0" layoutY="114.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+      <children>
+         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #897a5f; -fx-border-width: 3;" VBox.vgrow="ALWAYS">
+            <children>
+                <!-- Sessão de Botoões -->
+               <HBox fx:id="sectionsVBoxContainer" alignment="CENTER" prefHeight="113.0" prefWidth="694.0">
+                  <children>
+                     <Button fx:id="dateSectionButton" onAction="#dateSectionButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-background-color: #897a5f; -fx-border-radius: 3; -fx-text-fill: white;" text="DADOS">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                     <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
+                     <Button fx:id="AttributeSectionButton" onAction="#AttributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="ATRIBUTOS">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                     <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
+                     <Button fx:id="raceSectionButton" onAction="#raceSectionButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="RAÇA">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                     <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
+                     <Button fx:id="classSectionButton" onAction="#classSectionButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="CLASSE">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                     <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
+                     <Button fx:id="backgroundSectionButton" onAction="#backgroundSectionButtonAction" prefHeight="40.0" prefWidth="106.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="HISTÓRIA">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                  </children>
+                  <padding>
+                     <Insets left="20.0" right="20.0" />
+                  </padding>
+               </HBox>
+                <!-- Corpo do Corpo da Página -->
+                <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                    <Rectangle fill="#ced8e0" height="421.0" layoutX="14.0" layoutY="58.0" stroke="#788896" strokeWidth="2.0" width="144.0" />
+                    <VBox layoutX="71.0" layoutY="99.0" prefHeight="199.0" prefWidth="500.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 1.0;">
+                         <children>
+                            <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                               <children>
+                                  <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="99.0" text="Personagem" textFill="#4b5c6b">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="nameField" prefHeight="26.0" prefWidth="142.0" promptText="Nome do persoangem" style="-fx-border-color: #bbc3c94; -fx-border-radius: 0;" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding></VBox>
+                                  <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label prefHeight="32.0" prefWidth="74.0" text="Jogador" textFill="#4b5c6b">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="namePlayerField" prefHeight="26.0" prefWidth="142.0" promptText="Nome do jogador" style="-fx-border-color: #bbc3c94; -fx-border-radius: 0;" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding></VBox>
+                                  <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label prefHeight="32.0" prefWidth="74.0" text="Nível" textFill="#4b5c6b">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Spinner fx:id="levelField" prefHeight="27.0" prefWidth="74.0" promptText="Nível" style="-fx-border-color: #bbc3c94; -fx-border-radius: 0;" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding></VBox>
+                               </children>
+                            </HBox>
+                            <HBox prefHeight="100.0" prefWidth="200.0">
+                               <children>
+                                  <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="106.0" text="Alinhamento" textFill="#4b5c6b">
+                                       <font>
+                                          <Font name="System Bold" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <MenuButton fx:id="aliagmentSelectionFiled" mnemonicParsing="false" prefHeight="26.0" prefWidth="137.0" style="-fx-background-color: #ced8e0;" text="Escolha uma opção">
+                                       <items>
+                                          <MenuItem fx:id="ordeiroMenuItem" mnemonicParsing="false" onAction="#ordeiroSelected" text="Ordeiro" />
+                                          <MenuItem fx:id="neutroMenuItem" mnemonicParsing="false" onAction="#neutroSelected" text="Neutro" />
+                                          <MenuItem fx:id="caoticoMenuItem" mnemonicParsing="false" onAction="#caoticoSelected" text="Caótico" />
+                                       </items>
+                                    </MenuButton>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding></VBox>
+                                   <VBox prefHeight="99.0" prefWidth="254.0" HBox.hgrow="ALWAYS">
+                                       <Label layoutX="316.0" layoutY="283.0" prefHeight="30.0" prefWidth="253.0" text="Características físicas" textFill="#4b5c6b">
+                                           <font>
+                                               <Font name="System Bold" size="16.0" />
+                                           </font>
+                                       </Label>
+                                       <TextArea fx:id="apperanceField" layoutX="316.0" layoutY="313.0" prefHeight="54.0" prefWidth="200.0" promptText="Aparencia do personagem (texto curto)" style="-fx-border-color: #bbc3c94; -fx-border-radius: 0;">
+                                    <VBox.margin>
+                                       <Insets right="20.0" />
+                                    </VBox.margin></TextArea>
+                                   </VBox>
+                               </children>
+                            </HBox>
+                         </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                    </VBox>
+                </Pane>
+            </children>
+         </VBox>
+      </children>
+    </VBox>
+
+
+</AnchorPane>
