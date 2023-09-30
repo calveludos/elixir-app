@@ -1,177 +1,342 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.CreateCharacterRaceController">
-    <children>
-        <Rectangle fx:id="chosenraceField" arcHeight="5.0" arcWidth="5.0" fill="#142433" height="89.0" layoutX="-5.0" stroke="TRANSPARENT" strokeType="INSIDE" width="743.0" />
-        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#295264" height="421.0" layoutX="-69.0" layoutY="88.0" stroke="TRANSPARENT" strokeType="INSIDE" width="188.0" />
-        <Button fx:id="createCharacterButton" layoutX="10.0" layoutY="150.0" mnemonicParsing="false" onAction="#createCharacterButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="CRIAR FICHA" textFill="WHITE">
-            <font>
-                <Font name="P052-Italic" size="12.0" />
-            </font>
-        </Button>
-        <Label layoutX="67.0" layoutY="20.0" text="ELIXIR MAKER" textFill="WHITE">
-            <font>
-                <Font name="P052-Bold" size="18.0" />
-            </font>
-        </Label>
-        <Line endX="29.0" layoutX="170.0" layoutY="47.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
-        <Label layoutX="39.0" layoutY="98.0" text="MENU" textFill="#110000">
-            <font>
-                <Font name="System Bold" size="20.0" />
-            </font>
-        </Label>
-        <Pane layoutX="135.0" layoutY="89.0" prefHeight="96.0" prefWidth="586.0">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.CreateCharacterClassController">
+    <!-- Menu Lateral -->
+    <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="260.0" spacing="17.0" style="-fx-background-color: #e7e4df;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!-- Ícone e texto do Menu Principal -->
+        <HBox spacing="2.0">
+            <ImageView fitHeight="30.0" fitWidth="30.0">
+                <HBox.margin>
+                    <Insets left="15.0" />
+                </HBox.margin>
+                <Image url="@../../media/menuIcon.png" />
+            </ImageView>
+            <Text fill="#4b5c6b" strokeType="OUTSIDE" strokeWidth="0.0">
+                MENU PRINCIPAL
+                <font>
+                    <Font size="16.0" />
+                </font>
+                <style>
+                    -fx-font-weight: bold;
+                    -fx-font-style: italic;
+                </style>
+                <HBox.margin>
+                    <Insets top="4.0" />
+                </HBox.margin>
+            </Text>
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+        </HBox>
+
+        <!-- Botões -->
+        <VBox alignment="CENTER" spacing="25.0">
+            <Button fx:id="startPaneMenuButton" onAction="#startPaneMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Tela Inicial" />
+            <Button fx:id="myCharactersMenuButton" onAction="#myCharactersMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Meus Personagens" />
+            <Button fx:id="createNewCharacterMenuButton" onAction="#createNewCharacterMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Criar nova ficha" />
+            <padding>
+                <Insets left="20.0" />
+            </padding>
+        </VBox>
+        <padding>
+            <Insets top="120.0" />
+        </padding>
+    </VBox>
+
+
+    <!-- Cabeçalho superior -->
+    <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <!-- Logo e texto -->
+        <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="10.0" layoutY="32.0">
+            <image>
+                <Image url="@../../media/logoElixir.png" />
+            </image></ImageView>
+
+        <!-- Agrupar Line e Text em uma VBox -->
+        <VBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="32.0" spacing="5.0">
+            <Text fill="#FFFFFF">
+                ELIXIR MAKER
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+                <style>
+                    -fx-font-style: italic;
+                </style>
+            </Text>
+            <Line endX="120.0" stroke="WHITE" strokeWidth="3.0" />
+            <padding>
+                <Insets bottom="28.0" />
+            </padding>
+        </VBox>
+
+        <!-- Nome de usuário e foto de perfil agrupados em uma HBox -->
+        <HBox alignment="TOP_RIGHT" layoutX="752.0" layoutY="42.0" prefHeight="114.0" spacing="10.0" AnchorPane.rightAnchor="0.0" HBox.hgrow="ALWAYS">
+            <!-- Nome de usuário e foto de perfil -->
+            <Text fill="#FFFFFF">
+                Nome de Usuário
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+                <style>
+                    -fx-font-style: italic;
+                </style>
+            </Text>
+            <ImageView fitHeight="35.0" fitWidth="35.0">
+                <!-- Coloque aqui a imagem de perfil -->
+                <clip>
+                    <Circle centerX="17.5" centerY="17.5" radius="17.5" />
+                </clip>
+                <image>
+                    <Image url="@../../media/emptyPerfilImage.png" />
+                </image>
+            </ImageView>
+        </HBox>
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+        </padding>
+    </HBox>
+
+    <!-- Corpo da página -->
+    <VBox layoutX="260.0" layoutY="114.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+      <children>
+         <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-border-color: #897a5f; -fx-border-width: 3;" VBox.vgrow="ALWAYS">
             <children>
-                <Line endX="335.0" layoutX="233.0" layoutY="37.0" startX="-216.0" stroke="#dbaf69" strokeWidth="3.0" />
-                <Button fx:id="raceCharacterButton" layoutX="274.0" layoutY="21.0" mnemonicParsing="false" onAction="#raceCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="RAÇA" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                    </font>
-                </Button>
-                <Button fx:id="dateCharacterButton" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#dateCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="DADOS" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                    </font>
-                </Button>
-                <Button fx:id="classCharacterButton" layoutX="384.0" layoutY="21.0" mnemonicParsing="false" onAction="#classCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="CLASSE" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                    </font>
-                </Button>
-                <Button fx:id="backgroundCharacterButton" layoutX="497.0" layoutY="21.0" mnemonicParsing="false" onAction="#backgroundCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="HISTORIA" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                    </font>
-                </Button>
-                <Button fx:id="attributesCharacterButton" layoutX="132.0" layoutY="21.0" mnemonicParsing="false" onAction="#attributesCharacterButtonAction" style="-fx-background-color: #fad9a6; -fx-border-color: #dbaf69; -fx-border-width: 3; -fx-border-radius: 6;" text="ATRIBUTOS" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold Italic" size="14.0" />
-                    </font>
-                </Button>
-                <Label fx:id="errorLabel" layoutX="73.0" layoutY="70.0" prefHeight="32.0" prefWidth="458.0" textFill="RED">
-                    <font>
-                        <Font name="System Bold" size="14.0" />
-                    </font>
-                </Label>
+                <!-- Sessão de Botoões -->
+               <HBox fx:id="sectionsVBoxContainer" alignment="CENTER" prefHeight="113.0" prefWidth="694.0">
+                  <children>
+                     <Button fx:id="dateSectionButton" onAction="#dateSectionButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="DADOS">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                     <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
+                     <Button fx:id="AttributeSectionButton" onAction="#AttributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="ATRIBUTOS">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                     <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
+                     <Button fx:id="raceSectionButton" onAction="#raceSectionButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-border-radius: 3; -fx-background-color: #897a5f; -fx-text-fill: WHITE; -fx-border-color: #897a5f;" text="RAÇA">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                     <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
+                     <Button fx:id="classSectionButton" onAction="#classSectionButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-border-radius: 3; -fx-border-color: #897a5f; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="CLASSE">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                     <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
+                     <Button fx:id="backgroundSectionButton" onAction="#backgroundSectionButtonAction" prefHeight="40.0" prefWidth="106.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="HISTÓRIA">
+                        <font>
+                           <Font name="System Bold" size="16.0" />
+                        </font>
+                     </Button>
+                  </children>
+                  <padding>
+                     <Insets left="20.0" right="20.0" />
+                  </padding>
+               </HBox>
+               <VBox alignment="CENTER" prefHeight="577.0" prefWidth="694.0" VBox.vgrow="ALWAYS">
+                  <children>
+                       <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="55.0" prefWidth="610.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 1.0;">
+                            <children>
+                               <HBox prefHeight="0.0" prefWidth="515.0" spacing="5.0" />
+                               <HBox minWidth="-Infinity" prefHeight="84.0" prefWidth="570.0">
+                                  <children>
+                                     <VBox alignment="CENTER" prefHeight="62.0" prefWidth="260.0" HBox.hgrow="ALWAYS">
+                                    <padding>
+                                       <Insets left="10.0" />
+                                    </padding>
+                                    <children>
+                                       <Label alignment="CENTER" prefHeight="47.0" prefWidth="210.0" text="RAÇA ESCOLHIDA" textAlignment="CENTER" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold" size="22.0" />
+                                          </font>
+                                       </Label>
+                                    </children>
+                                 </VBox>
+                                      <VBox alignment="CENTER" prefHeight="21.0" prefWidth="226.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Label fx:id="chosenRaceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="316.0" layoutY="313.0" prefHeight="33.0" prefWidth="210.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #00000 #bbc3c94;" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold Italic" size="26.0" />
+                                          </font>
+                                       </Label>
+                                    </children>
+                                      </VBox>
+                                  </children>
+                               </HBox>
+                            </children>
+                        <padding>
+                           <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                        </padding>
+                        <VBox.margin>
+                           <Insets left="30.0" right="30.0" top="30.0" />
+                        </VBox.margin>
+                       </VBox>
+                     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="610.0" style="-fx-background-color: #ced8e0; -fx-border-color: #818d97; -fx-border-width: 1.0;" VBox.vgrow="ALWAYS">
+                        <children>
+                           <ScrollPane prefHeight="300.0" prefWidth="544.0" VBox.vgrow="ALWAYS">
+                              <content>
+                                 <Accordion layoutX="172.0" layoutY="255.0" prefHeight="298.0" prefWidth="568.0">
+                                    <panes>
+                                       <TitledPane fx:id="clerigoAccordion" animated="false" prefHeight="62.0" prefWidth="537.0">
+                                          <font>
+                                             <Font name="System Bold Italic" size="26.0" />
+                                          </font>
+                                          <graphic>
+                                             <AnchorPane prefHeight="38.0" prefWidth="465.0">
+                                                <children>
+                                                   <HBox prefHeight="38.0" prefWidth="304.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0">
+                                                      <children>
+                                                         <Text fill="#4b5c6b" text="HUMANO">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="26.0" />
+                                                            </font>
+                                                         </Text>
+                                                         <Region HBox.hgrow="ALWAYS" />
+                                                         <Button fx:id="choiseClerigoButton" mnemonicParsing="false" onAction="#choiseClerigoButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
+                                                      </children>
+                                                   </HBox>
+                                                </children>
+                                             </AnchorPane>
+                                          </graphic>
+                                          <content>
+                                             <TextArea fx:id="clerigoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                          </content>
+                                       </TitledPane>
+                                       <TitledPane fx:id="hdaAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
+                                          <font>
+                                             <Font name="System Bold Italic" size="26.0" />
+                                          </font>
+                                          <graphic>
+                                             <AnchorPane prefHeight="38.0" prefWidth="466.0">
+                                                <children>
+                                                   <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                                      <children>
+                                                         <Text fill="#4b5c6b" text="ANÃO">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="26.0" />
+                                                            </font>
+                                                         </Text>
+                                                         <Region HBox.hgrow="ALWAYS" />
+                                                         <Button fx:id="choiseHDAButton" mnemonicParsing="false" onAction="#choiseHDAButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
+                                                      </children>
+                                                   </HBox>
+                                                </children>
+                                             </AnchorPane>
+                                          </graphic>
+                                          <content>
+                                             <TextArea fx:id="hdaTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                          </content>
+                                       </TitledPane>
+                                       <TitledPane fx:id="ladraoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
+                                          <font>
+                                             <Font name="System Bold Italic" size="26.0" />
+                                          </font>
+                                          <graphic>
+                                             <AnchorPane prefHeight="38.0" prefWidth="466.0">
+                                                <children>
+                                                   <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                                      <children>
+                                                         <Text fill="#4b5c6b" text="ELFO">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="26.0" />
+                                                            </font>
+                                                         </Text>
+                                                         <Region HBox.hgrow="ALWAYS" />
+                                                         <Button fx:id="choiseLadraoButton" mnemonicParsing="false" onAction="#choiseLadraoButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
+                                                      </children>
+                                                   </HBox>
+                                                </children>
+                                             </AnchorPane>
+                                          </graphic>
+                                          <content>
+                                             <TextArea fx:id="ladraoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                          </content>
+                                       </TitledPane>
+                                       <TitledPane fx:id="magoAccordion" animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="0.0" prefHeight="47.0" prefWidth="373.0">
+                                          <font>
+                                             <Font name="System Bold Italic" size="26.0" />
+                                          </font>
+                                          <graphic>
+                                             <AnchorPane prefHeight="38.0" prefWidth="466.0">
+                                                <children>
+                                                   <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+                                                      <children>
+                                                         <Text fill="#4b5c6b" text="HALFLING">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="26.0" />
+                                                            </font>
+                                                         </Text>
+                                                         <Region prefHeight="38.0" prefWidth="199.0" HBox.hgrow="ALWAYS" />
+                                                         <Button fx:id="choiseMagoButton" mnemonicParsing="false" onAction="#choiseMagoButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
+                                                      </children>
+                                                   </HBox>
+                                                </children>
+                                             </AnchorPane>
+                                          </graphic>
+                                          <content>
+                                             <TextArea fx:id="magoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                          </content>
+                                       </TitledPane>
+                                    </panes>
+                                 </Accordion>
+                              </content>
+                           </ScrollPane>
+                        </children>
+                        <padding>
+                           <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                        </padding>
+                        <VBox.margin>
+                           <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                        </VBox.margin>
+                     </VBox>
+                     <VBox alignment="CENTER" prefHeight="56.0" prefWidth="208.0">
+                        <children>
+                           <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                              <children>
+                                 <Button fx:id="nextClassButton" mnemonicParsing="false" onAction="#nextClassButtonAction" prefHeight="41.0" prefWidth="113.0" style="-fx-background-color: #897a5f; -fx-border-radius: 3; -fx-border-width: 3; -fx-text-fill: WHITE;" text="AVANÇAR">
+                                    <font>
+                                       <Font name="System Bold" size="16.0" />
+                                    </font>
+                                 </Button>
+                              </children>
+                              <padding>
+                                 <Insets right="15.0" />
+                              </padding>
+                           </HBox>
+                        </children>
+                     </VBox>
+                  </children>
+               </VBox>
             </children>
-        </Pane>
-        <Rectangle arcWidth="5.0" fill="#e7e4df" height="45.0" layoutX="151.0" layoutY="177.0" stroke="#95876f" strokeType="INSIDE" width="554.0" />
-        <Label alignment="TOP_LEFT" layoutX="172.0" layoutY="181.0" prefHeight="38.0" prefWidth="249.0" text="RAÇA ESCOLHIDA" textFill="#110000">
-            <font>
-                <Font name="System Bold Italic" size="26.0" />
-            </font>
-        </Label>
-        <Rectangle arcWidth="5.0" fill="#ced8e0" height="233.0" layoutX="158.0" layoutY="235.0" stroke="#788896" strokeType="INSIDE" width="554.0" />
-        <ScrollPane layoutX="166.0" layoutY="255.0" prefHeight="234.0" prefWidth="538.0">
-            <Accordion layoutX="172.0" layoutY="255.0" prefHeight="226.0" prefWidth="536.0">
-                <panes>
-                    <TitledPane fx:id="elfAccordion" animated="false" prefHeight="75.0" prefWidth="482.0">
-                        <font>
-                            <Font name="System Bold Italic" size="26.0" />
-                        </font>
-                        <graphic>
-                            <AnchorPane prefHeight="38.0" prefWidth="465.0">
-                                <HBox prefHeight="38.0" prefWidth="304.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0.0">
-                                    <Text text="ELFO">
-                                        <font>
-                                            <Font name="System Bold Italic" size="26.0" />
-                                        </font>
-                                    </Text>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button fx:id="choiseElfButton" mnemonicParsing="false" onAction="#choiseElfButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
-                                </HBox>
-                            </AnchorPane>
-                        </graphic>
-                        <content>
-                            <TextArea fx:id="elfTextArea" prefHeight="200.0" prefWidth="200.0" text="  Os elfos são humanoides esguios e silvestres, com antecedentes místicos&#10;e aparência inconfundível. São ligeiramente mais baixos que os&#10;humanos, se diferenciando ainda mais nos traços faciais delicados, finos e&#10;graciosos. As orelhas são longas e pontudas, e os olhos amendoados,&#10;levemente alongados. Os cabelos são sempre lisos e limpos e comumente&#10;longos, mesmo entre os elfos machos, podendo ter uma miríade de cores&#10;e tons que vão do completo negro ao branco prateado." />
-                        </content>
-                    </TitledPane>
-                    <TitledPane fx:id="dwarfAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
-                        <font>
-                            <Font name="System Bold Italic" size="26.0" />
-                        </font>
-                        <graphic>
-                            <AnchorPane prefHeight="38.0" prefWidth="466.0">
-                                <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
-                                    <Text text="ANÃO">
-                                        <font>
-                                            <Font name="System Bold Italic" size="26.0" />
-                                        </font>
-                                    </Text>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button fx:id="choiseDwarfButton" mnemonicParsing="false" onAction="#choiseDwarfButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
-                                </HBox>
-                            </AnchorPane>
-                        </graphic>
-                        <content>
-                            <TextArea fx:id="dwarfTextArea" prefHeight="97.0" prefWidth="537.0" text="   Os anões são pequenos seres robustos e atarracados, &#10;famosos por serem rabugentos e teimosos. Como &#10;habitantes do subterrâneo, os anões são mineradores &#10;fabulosos e ferreiros extremamente competentes, &#10;conhecidos pela capacidade de transformarem blocos &#10;metálicos em verdadeiras obras de arte e armas &#10;dignas das melhores estórias." />
-                        </content>
-                    </TitledPane>
-                    <TitledPane fx:id="humanAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
-                        <font>
-                            <Font name="System Bold Italic" size="26.0" />
-                        </font>
-                        <graphic>
-                            <AnchorPane prefHeight="38.0" prefWidth="466.0">
-                                <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
-                                    <Text text="HUMANO">
-                                        <font>
-                                            <Font name="System Bold Italic" size="26.0" />
-                                        </font>
-                                    </Text>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button fx:id="choiseHumanButton" mnemonicParsing="false" onAction="#choiseHumanButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
-                                </HBox>
-                            </AnchorPane>
-                        </graphic>
-                        <content>
-                            <TextArea fx:id="humanTextArea" prefHeight="200.0" prefWidth="200.0" text="   Dentre todos os elementos que compreendem a criação de um&#10;personagem, a raça é o mais importante, pois ela determina não&#10;só a sua personalidade como também sua história, habilidades e a forma de&#10;encarar o mundo, seja ele um versátil humano, um elfo introspectivo,&#10;um anão rabugento ou um halfling inconsequente." />
-                        </content>
-                    </TitledPane>
-                    <TitledPane fx:id="halflingAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
-                        <font>
-                            <Font name="System Bold Italic" size="26.0" />
-                        </font>
-                        <graphic>
-                            <AnchorPane prefHeight="38.0" prefWidth="466.0">
-                                <HBox prefHeight="38.0" prefWidth="303.0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
-                                    <Text text="HALFLING">
-                                        <font>
-                                            <Font name="System Bold Italic" size="26.0" />
-                                        </font>
-                                    </Text>
-                                    <Region HBox.hgrow="ALWAYS" />
-                                    <Button fx:id="choiseHalflingButton" mnemonicParsing="false" onAction="#choiseHalflingButtonAction" prefHeight="30.0" prefWidth="99.0" text="Choose" />
-                                </HBox>
-                            </AnchorPane>
-                        </graphic>
-                        <content>
-                            <TextArea fx:id="halflingTextArea" prefHeight="200.0" prefWidth="200.0" text="   Os halflings são seres pequenos, cuja capacidade de encrencar-se é&#10;inversamente proporcional ao seu tamanho. Odiando o marasmo, os&#10;halflings preferem a confusão e a diversão ao tédio, e é justamente esse&#10;sentimento de aventura que os torna tão aptos a caírem na estrada e se&#10;tornarem peregrinos e aventureiros." />
-                        </content>
-                    </TitledPane>
-                </panes>
-            </Accordion>
-        </ScrollPane>
-        <Label fx:id="chosenRaceLabel" layoutX="526.0" layoutY="184.0" prefHeight="30.0" prefWidth="160.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;">
-            <font>
-                <Font name="System Bold Italic" size="20.0" />
-            </font>
-        </Label>
-        <Button fx:id="nextRaceButton" layoutX="596.0" layoutY="444.0" mnemonicParsing="false" onAction="#nextRaceButtonAction" prefWidth="99.0" style="-fx-background-color: #36cd67; -fx-border-color: #000000; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="AVANÇAR" textFill="WHITE">
-            <font>
-                <Font name="P052-Italic" size="12.0" />
-            </font>
-        </Button>
-        <Button fx:id="myCharacterMenuButton" layoutX="10.0" layoutY="191.0" mnemonicParsing="false" onAction="#myCharacterMenuButtonAction" prefWidth="99.0" style="-fx-background-color: #89373d; -fx-border-color: #6e2127; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="VER FICHA" textFill="WHITE">
-            <font>
-                <Font name="P052-Italic" size="12.0" />
-            </font>
-        </Button>
+         </VBox>
+      </children>
+    </VBox>
 
-    </children>
+
 </AnchorPane>
