@@ -1,35 +1,15 @@
 package com.elixir.controller;
 
+import com.elixir.controller.abstractControllers.CreateCharacterSectionController;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.Character;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
-public class CreateCharacterClassController {
-
-    @FXML
-    private TextArea clerigoTextArea;
-
-    @FXML
-    private Button createCharacterButton;
-
-    @FXML
-    private Label errorLabel;
-
-    @FXML
-    private TextArea hdaTextArea;
-
-    @FXML
-    private TextArea ladraoTextArea;
-
-    @FXML
-    private TextArea magoTextArea;
-
+public class CreateCharacterClassController extends CreateCharacterSectionController {
     @FXML
     private Label chosenClassLabel;
 
@@ -89,50 +69,12 @@ public class CreateCharacterClassController {
         character.setClassId(2);
     }
 
-    @FXML
-    public void backgroundCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterBackgroundPane");
-    }
-    @FXML
-    public void raceCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterRacePane");
-    }
-
-    @FXML
-    public void createCharacterButtonAction(ActionEvent event) {
-        saveCharacter("newCharacterPane");
-    }
-
-    @FXML
-    public void attributesCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterAttributesPane");
-    }
-
-    @FXML
-    public void dateCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterDatePane");
-    }
-
-    @FXML
-    public void nextClassButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterBackgroundPane");
-    }
-
-    @FXML
-    public void classCharacterButtonAction(ActionEvent event) {
-    }
-
-    @FXML
-    void myCharacterMenuButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
-        paneManager.openPane("myCharactersPane");
-    }
-
-    public void saveCharacter(String fxml) {
+    @Override
+    protected void saveCharacter(String fxml) {
         ObjectSaveManager saver = new ObjectSaveManager();
         saver.saveObject("character", character);
 
-        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager((Stage) chosenClassLabel.getScene().getWindow());
         paneManager.openPane(fxml);
     }
 }

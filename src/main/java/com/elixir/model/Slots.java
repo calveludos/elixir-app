@@ -1,6 +1,8 @@
 package com.elixir.model;
 
-public class Slots {
+import java.io.Serializable;
+
+public class Slots implements Serializable {
     private int id;
     private int I_level;
     private int II_level;

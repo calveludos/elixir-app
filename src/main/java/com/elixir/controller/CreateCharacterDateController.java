@@ -1,5 +1,6 @@
 package com.elixir.controller;
 
+import com.elixir.controller.abstractControllers.CreateCharacterSectionController;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.Character;
@@ -14,16 +15,13 @@ import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.Map;
 
-public class CreateCharacterDateController {
+public class CreateCharacterDateController extends CreateCharacterSectionController {
 
     @FXML
     private MenuButton aliagmentSelectionFiled;
 
     @FXML
     private TextArea apperanceField;
-
-    @FXML
-    private Button createCharacterButton;
 
     @FXML
     private TextField nameField;
@@ -128,46 +126,6 @@ public class CreateCharacterDateController {
             character = new Character();
         }
     }
-
-    @FXML
-    void backgroundCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterBackgroundPane");
-    }
-
-    @FXML
-    void classCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterClassPane");
-    }
-
-    @FXML
-    void createCharacterButtonAction(ActionEvent event) {
-        saveCharacter("newCharacterPane");
-    }
-
-    @FXML
-    void raceCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterRacePane");
-    }
-
-    @FXML
-    void attributesCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterAttributesPane");
-    }
-
-    @FXML
-    void myCharacterMenuButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
-        paneManager.openPane("myCharactersPane");
-    }
-
-    @FXML
-    void nextDateButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterAttributesPane");
-    }
-
-    @FXML
-    public void dateCharacterButtonAction(ActionEvent event) {}
-
     @FXML
     void ordeiroSelected(ActionEvent event){
         aliagmentSelectionFiled.setText("Ordeiro");
@@ -186,7 +144,8 @@ public class CreateCharacterDateController {
         character.setAlignmentId(2);
     }
 
-    private void saveCharacter(String fxml){
+    @Override
+    protected void saveCharacter(String fxml){
         try {
             character.setName(nameField.getText());
             character.setExperience(levelField.getValue());
@@ -201,15 +160,7 @@ public class CreateCharacterDateController {
         ObjectSaveManager saver = new ObjectSaveManager();
         saver.saveObject("character", character);
 
-        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager((Stage) apperanceField.getScene().getWindow());
         paneManager.openPane(fxml);
-    }
-
-    public Character getCharacter() {
-        return character;
-    }
-
-    public void setCharacter(Character character){
-        this.character = character;
     }
 }

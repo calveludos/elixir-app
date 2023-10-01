@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.newCharacterController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.NewCharacterController">
     <!-- Menu Lateral -->
     <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="260.0" spacing="17.0" style="-fx-background-color: #e7e4df;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
         <!-- Ícone e texto do Menu Principal -->
@@ -110,16 +110,24 @@
 
     <!-- Corpo da página -->
     <VBox alignment="CENTER" layoutX="260.0" layoutY="114.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
-        <ImageView fitHeight="222.0" fitWidth="229.0" layoutX="310.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="129.0" fitWidth="346.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../media/OldDragonLogo.png" />
+         </image>
+         <VBox.margin>
+            <Insets bottom="30.0" />
+         </VBox.margin>
+      </ImageView>
+        <ImageView fitHeight="343.0" fitWidth="272.0" layoutX="310.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../media/newCharacterPaneImage.jpg" />
+                <Image url="@../media/newCharacterPaneImage.png" />
             </image>
         </ImageView>
-        <Button fx:id="createCharacterButton" layoutX="355.0" layoutY="373.0" mnemonicParsing="false" onAction="#createCharacterButtonAction" prefHeight="32.0" prefWidth="132.0" style="-fx-border-color: #000000; -fx-border-radius: 7; -fx-background-radius: 20; -fx-border-width: 3;" text="COMEÇAR A CRIAR" textFill="#4b5c6b">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Button>
+      <Button fx:id="createNewCharacterButton" onAction="#createNewCharacterButtonAction" prefHeight="32.0" prefWidth="166.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="CRIAR FICHA">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Button>
 
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

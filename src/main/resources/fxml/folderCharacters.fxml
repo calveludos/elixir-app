@@ -7,13 +7,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.myCharactersController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.FolderCharactersController">
     <!-- Menu Lateral -->
     <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="260.0" spacing="17.0" style="-fx-background-color: #e7e4df;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
         <!-- Ícone e texto do Menu Principal -->
@@ -114,26 +115,26 @@
       <HBox prefHeight="0.0" prefWidth="700.0">
          <children>
               <!-- Título "MINHAS PASTAS" -->
-              <Text fill="#4b5c6b" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DA PASTA" wrappingWidth="194.81602478027344">
+              <Text fill="#4b5c6b" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DA PASTA" wrappingWidth="201.21604919433594">
                   MINHAS PASTAS
                         <font>
                       <Font name="System Bold Italic" size="24.0" />
                   </font>
               </Text>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <Button fx:id="newFolderButton" onAction="#newFolderButtonAction" prefHeight="32.0" prefWidth="221.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #897a5f; -fx-border-color: #897a5f; -fx-border-radius: 5;" text="ADICIONAR PERSONAGEM">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
+            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="newFolderButton" onAction="#newFolderButtonAction" prefHeight="32.0" prefWidth="221.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #897a5f; -fx-border-color: #897a5f; -fx-border-radius: 5;" text="ADICIONAR PERSONAGEM">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
          </children>
       </HBox>
 
         <!-- Conteúdo dentro do HBox das Pastas -->
-        <ScrollPane fitToHeight="true" prefHeight="230.0" prefWidth="699.0" style="-fx-background-color: TRASPARENT;" VBox.vgrow="ALWAYS" />
+        <ScrollPane fx:id="charactersScrollPane" fitToHeight="true" prefHeight="230.0" prefWidth="699.0" style="-fx-background-color: TRASPARENT;" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox fx:id="charactersVBox" prefHeight="200.0" prefWidth="698.0" />
+         </content></ScrollPane>
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>

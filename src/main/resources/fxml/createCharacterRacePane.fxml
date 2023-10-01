@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.CreateCharacterClassController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.CreateCharacterRaceController">
     <!-- Menu Lateral -->
     <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="260.0" spacing="17.0" style="-fx-background-color: #e7e4df;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
         <!-- Ícone e texto do Menu Principal -->
@@ -27,7 +27,7 @@
                 <HBox.margin>
                     <Insets left="15.0" />
                 </HBox.margin>
-                <Image url="@../../media/menuIcon.png" />
+                <Image url="@../media/menuIcon.png" />
             </ImageView>
             <Text fill="#4b5c6b" strokeType="OUTSIDE" strokeWidth="0.0">
                 MENU PRINCIPAL
@@ -67,7 +67,7 @@
         <!-- Logo e texto -->
         <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="10.0" layoutY="32.0">
             <image>
-                <Image url="@../../media/logoElixir.png" />
+                <Image url="@../media/logoElixir.png" />
             </image></ImageView>
 
         <!-- Agrupar Line e Text em uma VBox -->
@@ -105,7 +105,7 @@
                     <Circle centerX="17.5" centerY="17.5" radius="17.5" />
                 </clip>
                 <image>
-                    <Image url="@../../media/emptyPerfilImage.png" />
+                    <Image url="@../media/emptyPerfilImage.png" />
                 </image>
             </ImageView>
         </HBox>
@@ -131,7 +131,7 @@
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="AttributeSectionButton" onAction="#AttributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="ATRIBUTOS">
+                     <Button fx:id="attributeSectionButton" onAction="#attributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="ATRIBUTOS">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
@@ -218,7 +218,7 @@
                                                             </font>
                                                          </Text>
                                                          <Region HBox.hgrow="ALWAYS" />
-                                                         <Button fx:id="choiseClerigoButton" mnemonicParsing="false" onAction="#choiseClerigoButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
+                                                         <Button fx:id="choiseHumanButton" mnemonicParsing="false" onAction="#choiseHumanButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
                                                       </children>
                                                    </HBox>
                                                 </children>
@@ -243,7 +243,7 @@
                                                             </font>
                                                          </Text>
                                                          <Region HBox.hgrow="ALWAYS" />
-                                                         <Button fx:id="choiseHDAButton" mnemonicParsing="false" onAction="#choiseHDAButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
+                                                         <Button fx:id="choiseDwarfButton" mnemonicParsing="false" onAction="#choiseDwarfButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
                                                       </children>
                                                    </HBox>
                                                 </children>
@@ -268,7 +268,7 @@
                                                             </font>
                                                          </Text>
                                                          <Region HBox.hgrow="ALWAYS" />
-                                                         <Button fx:id="choiseLadraoButton" mnemonicParsing="false" onAction="#choiseLadraoButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
+                                                         <Button fx:id="choiseElfButton" mnemonicParsing="false" onAction="#choiseElfButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
                                                       </children>
                                                    </HBox>
                                                 </children>
@@ -293,7 +293,7 @@
                                                             </font>
                                                          </Text>
                                                          <Region prefHeight="38.0" prefWidth="199.0" HBox.hgrow="ALWAYS" />
-                                                         <Button fx:id="choiseMagoButton" mnemonicParsing="false" onAction="#choiseMagoButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
+                                                         <Button fx:id="choiseHalflingButton" layoutX="376.0" layoutY="10.0" mnemonicParsing="false" onAction="#choiseHalflingButtonAction" prefHeight="30.0" prefWidth="99.0" text="Escolher" textFill="#4b5c6b" />
                                                       </children>
                                                    </HBox>
                                                 </children>
@@ -315,22 +315,15 @@
                            <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                         </VBox.margin>
                      </VBox>
-                     <VBox alignment="CENTER" prefHeight="56.0" prefWidth="208.0">
+                     <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="208.0">
                         <children>
-                           <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
-                              <children>
-                                 <Button fx:id="nextClassButton" mnemonicParsing="false" onAction="#nextClassButtonAction" prefHeight="41.0" prefWidth="113.0" style="-fx-background-color: #897a5f; -fx-border-radius: 3; -fx-border-width: 3; -fx-text-fill: WHITE;" text="AVANÇAR">
-                                    <font>
-                                       <Font name="System Bold" size="16.0" />
-                                    </font>
-                                 </Button>
-                              </children>
-                              <padding>
-                                 <Insets right="15.0" />
-                              </padding>
-                           </HBox>
+                           <ImageView fitHeight="56.0" fitWidth="150.0">
+                              <image>
+                                 <Image url="@../media/OldDragonLogo.png" />
+                              </image>
+                           </ImageView>
                         </children>
-                     </VBox>
+                     </HBox>
                   </children>
                </VBox>
             </children>

@@ -23,12 +23,13 @@ public class Character implements Serializable {
     private String appearance;
     private int classArmorBonus;
     private String background;
+    private String image;
 
     // Construtor
     public Character() {
     }
 
-    public Character(int attributeId, int raceId, int alignmentId, int classId, String name, String playerName, int idFolder, int experience, int level, int height, int weight, int currentPv, int maxPv, int currencyId, int slots, String appearance, int classArmorBonus, String background) {
+    public Character(int attributeId, int raceId, int alignmentId, int classId, String name, String playerName, int idFolder, int experience, int level, int height, int weight, int currentPv, int maxPv, int currencyId, int slots, String appearance, int classArmorBonus, String background, String image) {
         setAttributeId(attributeId);
         setRaceId(raceId);
         setAlignmentId(alignmentId);
@@ -47,6 +48,7 @@ public class Character implements Serializable {
         setAppearance(appearance);
         setClassArmorBonus(classArmorBonus);
         setBackground(background);
+        setImage(image);
     }
 
     // Getters e Setters
@@ -228,6 +230,14 @@ public class Character implements Serializable {
 
     public void setBackground(String background) {
         this.background = background;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     // Equals e HashCode

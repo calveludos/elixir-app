@@ -1,29 +1,26 @@
 package com.elixir.controller;
 
+import com.elixir.controller.abstractControllers.MenuController;
 import com.elixir.controller.objects.CharacterObject;
 import com.elixir.controller.objects.FolderObject;
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
 import com.elixir.dao.FolderDAO;
+import com.elixir.manager.ObjectSaveManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import com.elixir.model.Folder;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
-import javafx.stage.Stage;
-import com.elixir.manager.*;
 
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class myCharactersController extends MenuController {
+public class MyCharactersController extends MenuController {
 
     @FXML
     private HBox hboxCharacters;
@@ -67,11 +64,11 @@ public class myCharactersController extends MenuController {
                 vBox.setPrefWidth(100.0);
                 try {
                     Folder folder1 = folderMap.get(indexs[i]);
-                    vBox.getChildren().add(new FolderObject(folder1.getName()));
+                    vBox.getChildren().add(new FolderObject(folder1));
                     Folder folder2 = folderMap.get(indexs[i + 1]);
-                    vBox.getChildren().add(new FolderObject(folder2.getName()));
+                    vBox.getChildren().add(new FolderObject(folder2));
                     Folder folder3 = folderMap.get(indexs[i + 2]);
-                    vBox.getChildren().add(new FolderObject(folder3.getName()));
+                    vBox.getChildren().add(new FolderObject(folder3));
                 } catch (IndexOutOfBoundsException ignored){}
 
                 hboxFolders.getChildren().add(vBox);
@@ -124,7 +121,7 @@ public class myCharactersController extends MenuController {
 
     }
 
-    private String getClassId(int classId) {
+    public static String getClassId(int classId) {
         switch (classId){
             case 1:
                 return "Homem de Armas";
@@ -139,7 +136,7 @@ public class myCharactersController extends MenuController {
         }
     }
 
-    private String getRaceId(int raceId) {
+    public static String getRaceId(int raceId) {
         switch (raceId){
             case 1:
                 return "Humano";

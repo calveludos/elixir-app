@@ -13,10 +13,11 @@ public class ObjectSaveManager {
         if (!file.exists()) {
             map = new HashMap<>();
             saveMapToFile();
+            System.out.println("Map criado");
         } else {
             map = readMap();
+            System.out.println("Map lido");
         }
-        System.out.println("Map criado");
     }
 
     public void saveObject(String key, Object object) {
@@ -57,6 +58,7 @@ public class ObjectSaveManager {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
+        System.out.println("mapa nulo");
         return new HashMap<>();
     }
     public void printMap() {

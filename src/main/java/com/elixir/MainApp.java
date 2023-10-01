@@ -1,5 +1,6 @@
 package com.elixir;
 
+import com.elixir.manager.ObjectSaveManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -35,6 +36,8 @@ public class MainApp extends Application {
 
 
     public static void main(String[] args) {
+        ObjectSaveManager saver = new ObjectSaveManager();
+        saver.cleanObjects();
         launch(args);
     }
 }

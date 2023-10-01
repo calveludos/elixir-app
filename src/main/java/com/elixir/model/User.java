@@ -1,9 +1,10 @@
 package com.elixir.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.UUID;
 
-public class User {
+public class User implements Serializable {
     private int id;
     private String email;
     private String userName;

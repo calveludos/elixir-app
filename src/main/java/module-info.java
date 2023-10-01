@@ -11,4 +11,6 @@ module com.app {
     requires javafx.graphics;
     opens media;
     opens com.elixir.controller to javafx.fxml;
+    exports com.elixir.controller.abstractControllers;
+    opens com.elixir.controller.abstractControllers to javafx.fxml;
 }
