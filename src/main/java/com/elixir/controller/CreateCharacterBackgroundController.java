@@ -1,5 +1,6 @@
 package com.elixir.controller;
 
+import com.elixir.controller.abstractControllers.CreateCharacterSectionController;
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
 import com.elixir.manager.ObjectSaveManager;
@@ -15,7 +16,7 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-public class CreateCharacterBackgroundController {
+public class CreateCharacterBackgroundController extends CreateCharacterSectionController {
 
     @FXML
     private TextArea backgroundField;
@@ -43,40 +44,6 @@ public class CreateCharacterBackgroundController {
             character = new Character();
         }
     }
-
-    @FXML
-    void myCharacterMenuButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
-        paneManager.openPane("myCharactersPane");
-    }
-
-    @FXML
-    void backgroundCharacterButtonAction(ActionEvent event) {}
-
-    @FXML
-    void classCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterClassPane");
-    }
-
-    @FXML
-    void createCharacterButtonAction(ActionEvent event) {
-        saveCharacter("newCharacterPane");
-    }
-
-    @FXML
-    void attributesCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterAttributesPane");
-    }
-
-    @FXML
-    void dateCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterDatePane");
-    }
-
-    public void raceCharacterButtonAction(ActionEvent event) {
-        saveCharacter("createCharacterRacePane");
-    }
-
     @FXML
     void finishButtonAction(ActionEvent event) throws SQLException {
         finishCharacter();
@@ -96,7 +63,8 @@ public class CreateCharacterBackgroundController {
         paneManager.openPane("newCharacterPane");
     }
 
-    private void saveCharacter(String fxml){
+    @Override
+    protected void saveCharacter(String fxml){
         character.setBackground(backgroundField.getText());
 
         ObjectSaveManager saver = new ObjectSaveManager();
