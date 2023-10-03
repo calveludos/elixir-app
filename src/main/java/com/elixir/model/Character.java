@@ -6,6 +6,7 @@ import java.util.Objects;
 public class Character implements Serializable {
     private int id;
     private int raceId;
+    private int userId;
     private int attributeId;
     private int alignmentId;
     private int classId;
@@ -29,12 +30,13 @@ public class Character implements Serializable {
     public Character() {
     }
 
-    public Character(int attributeId, int raceId, int alignmentId, int classId, String name, String playerName, int idFolder, int experience, int level, int height, int weight, int currentPv, int maxPv, int currencyId, int slots, String appearance, int classArmorBonus, String background, String image) {
+    public Character(int attributeId, int raceId, int alignmentId, int userId, int classId, String name, String playerName, int idFolder, int experience, int level, int height, int weight, int currentPv, int maxPv, int currencyId, int slots, String appearance, int classArmorBonus, String background, String image) {
         setAttributeId(attributeId);
         setRaceId(raceId);
         setAlignmentId(alignmentId);
         setClassId(classId);
         setName(name);
+        setUserId(userId);
         setPlayerName(playerName);
         setIdFolder(idFolder);
         setExperience(experience);
@@ -238,6 +240,14 @@ public class Character implements Serializable {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     // Equals e HashCode

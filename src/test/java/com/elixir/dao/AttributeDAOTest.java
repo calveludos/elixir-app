@@ -23,7 +23,7 @@ class AttributeDAOTest {
     @Test
     void update() throws SQLException{
         Map<Integer, Attribute> attributeMap = attributeDAO.read();
-        Attribute attribute = attributeMap.get(id);
+        Attribute attribute = attributeMap.get(17);
         attribute.setStrength(18);
         attributeDAO.update(attribute);
 
@@ -42,7 +42,7 @@ class AttributeDAOTest {
     @Test
     void delete() throws SQLException {
         Map<Integer, Attribute> attributeMap = attributeDAO.read();
-        Attribute attribute = attributeMap.get(id);
+        Attribute attribute = attributeMap.get(17);
         attributeDAO.delete(attribute);
 
         read();

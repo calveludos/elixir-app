@@ -15,7 +15,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage s) throws IOException {
         stage=s;
-        setRoot("newCharacterPane","");
+        setRoot("initialScreenPane","");
     }
 
     static void setRoot(String fxml) throws IOException {

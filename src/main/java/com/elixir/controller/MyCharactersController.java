@@ -10,6 +10,7 @@ import com.elixir.manager.ObjectSaveManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import com.elixir.model.Folder;
+import com.elixir.model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -31,26 +32,24 @@ public class MyCharactersController extends MenuController {
 
     @FXML
     private void initialize(){
+        ObjectSaveManager reader = new ObjectSaveManager();
+        int userId = ((User) reader.getObject("user")).getId();
 
         try {
             CharacterDAO characterDAO = new CharacterDAO();
-            characterMap = characterDAO.read();
+            Character filter = new Character();
+            filter.setUserId(userId);
+            characterMap = characterDAO.read(filter);
         } catch (SQLException e){
             e.printStackTrace();
-        }
-
-        try {
-            AttributeDAO attributeDAO = new AttributeDAO();
-            Map<Integer, Attribute> attributeMap = attributeDAO.read();
-        } catch (SQLException e){
-            e.printStackTrace();
-            return;
         }
 
         Map<Integer, Folder> folderMap;
         try {
             FolderDAO folderDAO = new FolderDAO();
-            folderMap = folderDAO.read();
+            Folder filter = new Folder();
+            filter.setId_user(userId);
+            folderMap = folderDAO.read(filter);
         } catch (SQLException e){
             e.printStackTrace();
             return;

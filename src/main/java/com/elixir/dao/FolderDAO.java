@@ -44,6 +44,53 @@ public class FolderDAO extends CrudDAO<Folder> {
         return generatedId;
     }
 
+    public Map<Integer, Folder> read(Folder filter) throws SQLException {
+        StringBuilder query = new StringBuilder("SELECT * FROM Folder WHERE 1=1");
+
+        if (filter.getId() > 0) {
+            query.append(" AND id = ").append(filter.getId());
+        }
+        if (filter.getId_user() > 0) {
+            query.append(" AND id_user = ").append(filter.getId_user());
+        }
+        if (filter.getName() != null && !filter.getName().isEmpty()) {
+            query.append(" AND name = '").append(filter.getName()).append("'");
+        }
+        if (filter.getColor() != null && !filter.getColor().isEmpty()) {
+            query.append(" AND color = '").append(filter.getColor()).append("'");
+        }
+
+        ResultSet resultSet = null;
+        Map<Integer, Folder> folderMap = new HashMap<>();
+
+        try {
+            conn = ConnectionFactory.createConnection();
+            stmt = conn.prepareStatement(query.toString());
+            resultSet = stmt.executeQuery();
+
+            while (resultSet.next()) {
+                Folder folder = new Folder();
+                folder.setId(resultSet.getInt("id"));
+                folder.setId_user(resultSet.getInt("id_user"));
+                folder.setName(resultSet.getString("name"));
+                folder.setColor(resultSet.getString("color"));
+
+                folderMap.put(folder.getId(), folder);
+            }
+
+        } catch (SQLException e) {
+            throw new SQLException(e);
+
+        } finally {
+            closeResources();
+            if (resultSet != null) {
+                resultSet.close();
+            }
+        }
+
+        return folderMap;
+    }
+
     @Override
     public void update(Folder folder) throws SQLException {
         String query = "UPDATE Folder SET id_user = ?, name = ?, color = ? WHERE id = ?";

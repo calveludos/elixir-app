@@ -3,6 +3,7 @@ package com.elixir.dao;
 import com.elixir.factory.ConnectionFactory;
 import com.elixir.model.Character;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,82 +14,92 @@ public class CharacterDAO extends CrudDAO<Character> {
 
     @Override
     public int create(Character character) throws SQLException {
-        String query = "INSERT INTO `Character` (id_attribute, id_race, id_alignment, id_class, name, player_name, id_folder, experience, level, height, weight, current_pv, max_pv, id_currency, id_slots, apperance, class_armor_bonus, background, image_path) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO `Character` (id_user, id_race, id_attribute, id_alignment, id_class, name, player_name, id_folder, experience, level, height, weight, current_pv, max_pv, id_currency, id_slots, apperance, class_armor_bonus, background, image_path) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        int generatedId = -1;
 
         try {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setInt(1, character.getAttributeId());
+
+            stmt.setInt(1, character.getUserId());
             stmt.setInt(2, character.getRaceId());
-            stmt.setInt(3, character.getAlignmentId());
-            stmt.setInt(4, character.getClassId());
-            stmt.setString(5, character.getName());
-            stmt.setString(6, character.getPlayerName());
-            stmt.setInt(7, character.getIdFolder());
-            stmt.setInt(8, character.getExperience());
-            stmt.setInt(9, character.getLevel());
-            stmt.setInt(10, character.getHeight());
-            stmt.setInt(11, character.getWeight());
-            stmt.setInt(12, character.getCurrentPv());
-            stmt.setInt(13, character.getMaxPv());
-            stmt.setInt(14, character.getCurrencyId());
-            stmt.setInt(15, character.getSlots());
-            stmt.setString(16, character.getAppearance());
-            stmt.setInt(17, character.getClassArmorBonus());
-            stmt.setString(18, character.getBackground());
-            stmt.setString(19, character.getImage());
+            stmt.setInt(3, character.getAttributeId());
+            stmt.setInt(4, character.getAlignmentId());
+            stmt.setInt(5, character.getClassId());
+            stmt.setString(6, character.getName());
+            stmt.setString(7, character.getPlayerName());
+            stmt.setInt(8, character.getIdFolder());
+            stmt.setInt(9, character.getExperience());
+            stmt.setInt(10, character.getLevel());
+            stmt.setInt(11, character.getHeight());
+            stmt.setInt(12, character.getWeight());
+            stmt.setInt(13, character.getCurrentPv());
+            stmt.setInt(14, character.getMaxPv());
+            stmt.setInt(15, character.getCurrencyId());
+            stmt.setInt(16, character.getSlots());
+            stmt.setString(17, character.getAppearance());
+            stmt.setInt(18, character.getClassArmorBonus());
+            stmt.setString(19, character.getBackground());
+            stmt.setString(20, character.getImage());
 
             int affectedRows = stmt.executeUpdate();
 
             if (affectedRows > 0) {
                 ResultSet generatedKeys = stmt.getGeneratedKeys();
                 if (generatedKeys.next()) {
-                    int generatedId = generatedKeys.getInt(1);
-                    character.setId(generatedId);
+                    int primaryKey = generatedKeys.getInt(1);
+                    generatedId = primaryKey;
+                    System.out.println("Chave primária gerada: " + primaryKey);
                 }
                 generatedKeys.close();
             }
+
         } catch (SQLException e) {
             throw new SQLException(e);
+
         } finally {
             closeResources();
         }
-        return character.getId();
+        return generatedId;
     }
 
     @Override
     public void update(Character character) throws SQLException {
-        String query = "UPDATE `Character` SET id_attribute = ?, id_race = ?, id_alignment = ?, id_class = ?, name = ?, player_name = ?, id_folder = ?, experience = ?, level = ?, height = ?, weight = ?, current_pv = ?, max_pv = ?, id_currency = ?, id_slots = ?, apperance = ?, class_armor_bonus = ?, background = ?, image_path = ? WHERE id = ?";
+        String query = "UPDATE `Character` SET id_user = ?, id_race = ?, id_attribute = ?, id_alignment = ?, id_class = ?, name = ?, player_name = ?, id_folder = ?, experience = ?, level = ?, height = ?, weight = ?, current_pv = ?, max_pv = ?, id_currency = ?, id_slots = ?, apperance = ?, class_armor_bonus = ?, background = ?, image_path = ? WHERE id = ?";
 
         try {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query);
 
-            stmt.setInt(1, character.getAttributeId());
+            stmt.setInt(1, character.getUserId());
             stmt.setInt(2, character.getRaceId());
-            stmt.setInt(3, character.getAlignmentId());
-            stmt.setInt(4, character.getClassId());
-            stmt.setString(5, character.getName());
-            stmt.setString(6, character.getPlayerName());
-            stmt.setInt(7, character.getIdFolder());
-            stmt.setInt(8, character.getExperience());
-            stmt.setInt(9, character.getLevel());
-            stmt.setInt(10, character.getHeight());
-            stmt.setInt(11, character.getWeight());
-            stmt.setInt(12, character.getCurrentPv());
-            stmt.setInt(13, character.getMaxPv());
-            stmt.setInt(14, character.getCurrencyId());
-            stmt.setInt(15, character.getSlots());
-            stmt.setString(16, character.getAppearance());
-            stmt.setInt(17, character.getClassArmorBonus());
-            stmt.setString(18, character.getBackground());
-            stmt.setString(19, character.getImage());
-            stmt.setInt(20, character.getId());
+            stmt.setInt(3, character.getAttributeId());
+            stmt.setInt(4, character.getAlignmentId());
+            stmt.setInt(5, character.getClassId());
+            stmt.setString(6, character.getName());
+            stmt.setString(7, character.getPlayerName());
+            stmt.setInt(8, character.getIdFolder());
+            stmt.setInt(9, character.getExperience());
+            stmt.setInt(10, character.getLevel());
+            stmt.setInt(11, character.getHeight());
+            stmt.setInt(12, character.getWeight());
+            stmt.setInt(13, character.getCurrentPv());
+            stmt.setInt(14, character.getMaxPv());
+            stmt.setInt(15, character.getCurrencyId());
+            stmt.setInt(16, character.getSlots());
+            stmt.setString(17, character.getAppearance());
+            stmt.setInt(18, character.getClassArmorBonus());
+            stmt.setString(19, character.getBackground());
+            stmt.setString(20, character.getImage());
+            stmt.setInt(21, character.getId());
 
             stmt.executeUpdate();
+
         } catch (SQLException e) {
             throw new SQLException(e);
+
         } finally {
             closeResources();
         }
@@ -108,8 +119,9 @@ public class CharacterDAO extends CrudDAO<Character> {
             while (resultSet.next()) {
                 Character character = new Character();
                 character.setId(resultSet.getInt("id"));
-                character.setAttributeId(resultSet.getInt("id_attribute"));
+                character.setUserId(resultSet.getInt("id_user"));
                 character.setRaceId(resultSet.getInt("id_race"));
+                character.setAttributeId(resultSet.getInt("id_attribute"));
                 character.setAlignmentId(resultSet.getInt("id_alignment"));
                 character.setClassId(resultSet.getInt("id_class"));
                 character.setName(resultSet.getString("name"));
@@ -130,22 +142,28 @@ public class CharacterDAO extends CrudDAO<Character> {
 
                 characterMap.put(character.getId(), character);
             }
+
         } catch (SQLException e) {
             throw new SQLException(e);
+
         } finally {
             closeResources();
             if (resultSet != null) {
                 resultSet.close();
             }
         }
+
         return characterMap;
     }
 
     public Map<Integer, Character> read(Character filter) throws SQLException {
-        StringBuilder query = new StringBuilder("SELECT * FROM `Character` WHERE id");
+        StringBuilder query = new StringBuilder("SELECT * FROM `Character` WHERE 1=1");
 
         if (filter.getId() != 0) {
-            query.append(" = ").append(filter.getId());
+            query.append(" AND id = ").append(filter.getId());
+        }
+        if (filter.getUserId() != 0) {
+            query.append(" AND id_user = ").append(filter.getUserId());
         }
         if (filter.getAttributeId() != 0) {
             query.append(" AND id_attribute = ").append(filter.getAttributeId());
@@ -205,24 +223,20 @@ public class CharacterDAO extends CrudDAO<Character> {
             query.append(" AND image_path = '").append(filter.getImage()).append("'");
         }
 
-        query.append(";");
-
-        String queryString = query.toString();
-
         ResultSet resultSet = null;
         Map<Integer, Character> characterMap = new HashMap<>();
-        System.out.println(queryString);
 
         try {
             conn = ConnectionFactory.createConnection();
-            stmt = conn.prepareStatement(queryString);
+            stmt = conn.prepareStatement(query.toString());
             resultSet = stmt.executeQuery();
 
             while (resultSet.next()) {
                 Character character = new Character();
                 character.setId(resultSet.getInt("id"));
-                character.setAttributeId(resultSet.getInt("id_attribute"));
+                character.setUserId(resultSet.getInt("id_user"));
                 character.setRaceId(resultSet.getInt("id_race"));
+                character.setAttributeId(resultSet.getInt("id_attribute"));
                 character.setAlignmentId(resultSet.getInt("id_alignment"));
                 character.setClassId(resultSet.getInt("id_class"));
                 character.setName(resultSet.getString("name"));
@@ -266,8 +280,10 @@ public class CharacterDAO extends CrudDAO<Character> {
             stmt = conn.prepareStatement(query);
             stmt.setInt(1, character.getId());
             stmt.executeUpdate();
+
         } catch (SQLException e) {
             throw new SQLException(e);
+
         } finally {
             closeResources();
         }
