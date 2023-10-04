@@ -5,8 +5,8 @@ import java.util.Objects;
 
 public class Currency implements Serializable{
     private int id;
+    private int id_character;
     private double gold;
-
     private double silver;
     private double copper;
     private double electrium;
@@ -16,7 +16,8 @@ public class Currency implements Serializable{
     public Currency(){
     }
 
-    public Currency(double gold, double silver, double copper, double electrium, double platinium) {
+    public Currency(int id_character,double gold, double silver, double copper, double electrium, double platinium) {
+        setIdCharacter(id_character);
         setGold(gold);
         setSilver(silver);
         setCopper(copper);
@@ -27,6 +28,10 @@ public class Currency implements Serializable{
     public int getId() {return id;}
 
     public void setId(int id) {this.id = id;}
+
+    public int getIdCharacter() {return id_character;}
+
+    public void setIdCharacter(int id_character) {this.id_character =id_character;}
 
     public double getGold() {return gold;}
 
@@ -52,6 +57,7 @@ public class Currency implements Serializable{
     public String toString() {
         return "Attribute{" +
                 "id=" + id +
+                ", id_character=" + id_character+
                 ", gold=" + gold +
                 ", silver=" + silver +
                 ", copper=" + copper +
