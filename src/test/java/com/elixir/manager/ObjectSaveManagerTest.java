@@ -1,4 +1,4 @@
-package com.elixir;
+package com.elixir.manager;
 
 import com.elixir.manager.ObjectSaveManager;
 import org.junit.jupiter.api.Test;
