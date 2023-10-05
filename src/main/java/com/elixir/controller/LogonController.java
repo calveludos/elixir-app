@@ -7,6 +7,8 @@ import javafx.scene.AccessibleRole;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.util.Scanner;
+
 public class LogonController {
 
     @FXML
@@ -31,6 +33,9 @@ public class LogonController {
     private CheckBox viewPasswordCheckbox;
 
     @FXML
+    private TextField textPassword;
+
+    @FXML
     void loginButtonAction(ActionEvent event) {
         PaneManager manager = new PaneManager((Stage) loginButton.getScene().getWindow());
         manager.openPane("login");
@@ -42,10 +47,19 @@ public class LogonController {
 
     @FXML
     void viewPasswordCheckboxAction(ActionEvent event) {
-        passwordField.setAccessibleRole(AccessibleRole.TEXT);
+
+        String password;
+        if (viewPasswordCheckbox.isSelected()){
+            password = passwordField.getText();
+            textPassword.setText(password);
+            textPassword.setMinHeight(39.0);
+            passwordField.setMinHeight(0);
+        } else {
+            password = textPassword.getText();
+            passwordField.setText(password);
+            passwordField.setMinHeight(39.0);
+            textPassword.setMinHeight(0);
+        }
     }
 
-    @FXML
-    public void passwordFieldAction(ActionEvent event) {
-    }
 }

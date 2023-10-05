@@ -7,6 +7,7 @@ import com.elixir.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
@@ -34,6 +35,12 @@ public class LoginController {
 
     @FXML
     private TextField usernameField;
+
+    @FXML
+    private CheckBox viewPasswordCheckbox;
+
+    @FXML
+    private TextField textPassword;
 
     @FXML
     void createAccountButtonAction(ActionEvent event) {
@@ -81,6 +88,23 @@ public class LoginController {
 
         System.out.println(errorLabel.getText());
 
+    }
+
+    @FXML
+    void viewPasswordCheckboxAction(ActionEvent event) {
+
+        String password;
+        if (viewPasswordCheckbox.isSelected()){
+            password = passwordField.getText();
+            textPassword.setText(password);
+            textPassword.setMinHeight(39.0);
+            passwordField.setMinHeight(0);
+        } else {
+            password = textPassword.getText();
+            passwordField.setText(password);
+            passwordField.setMinHeight(39.0);
+            textPassword.setMinHeight(0);
+        }
     }
 
 }
