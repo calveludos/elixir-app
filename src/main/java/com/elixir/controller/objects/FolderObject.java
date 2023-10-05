@@ -23,7 +23,7 @@ public class FolderObject extends HBox {
         imageView.setFitWidth(52.0);
 
         text = new Text(folder.getName());
-        text.setFill(Color.web((folder.getColor().equals("#FFFFFF"))?"#4b5c6b":folder.getColor()));
+        text.setFill(Color.web("#4b5c6b"));
         text.setStrokeType(StrokeType.OUTSIDE);
         text.setStrokeWidth(0.0);
 

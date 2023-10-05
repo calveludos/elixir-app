@@ -65,7 +65,6 @@ public class JsonManger {
         return ret;
     }
 
-
     public static void write(JSONObject jsonObject, String name) throws IOException {
         FileWriter writeFile = null;
 

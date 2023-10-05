@@ -3,9 +3,8 @@ package com.elixir.controller;
 import com.elixir.manager.PaneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.AccessibleRole;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class LogonController {
@@ -23,10 +22,13 @@ public class LogonController {
     private Button logonButton;
 
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
 
     @FXML
     private TextField usernameField;
+
+    @FXML
+    private CheckBox viewPasswordCheckbox;
 
     @FXML
     void loginButtonAction(ActionEvent event) {
@@ -38,4 +40,12 @@ public class LogonController {
     void logonButtonAction(ActionEvent event) {
     }
 
+    @FXML
+    void viewPasswordCheckboxAction(ActionEvent event) {
+        passwordField.setAccessibleRole(AccessibleRole.TEXT);
+    }
+
+    @FXML
+    public void passwordFieldAction(ActionEvent event) {
+    }
 }

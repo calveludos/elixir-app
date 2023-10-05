@@ -38,7 +38,7 @@ public class MyCharactersController extends MenuController {
         try {
             CharacterDAO characterDAO = new CharacterDAO();
             Character filter = new Character();
-            filter.setUserId(userId);
+            filter.setFolderId(userId);
             characterMap = characterDAO.read(filter);
         } catch (SQLException e){
             e.printStackTrace();
@@ -48,7 +48,7 @@ public class MyCharactersController extends MenuController {
         try {
             FolderDAO folderDAO = new FolderDAO();
             Folder filter = new Folder();
-            filter.setId_user(userId);
+            filter.setUserId(userId);
             folderMap = folderDAO.read(filter);
         } catch (SQLException e){
             e.printStackTrace();

@@ -23,11 +23,11 @@ public class CharacterDAO extends CrudDAO<Character> {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
-            stmt.setInt(1, character.getIdAlignment());
-            stmt.setInt(2, character.getIdAttribute());
-            stmt.setInt(3, character.getIdClass());
-            stmt.setInt(4, character.getIdRace());
-            stmt.setInt(5, character.getIdFolder());
+            stmt.setInt(1, character.getAlignmentId());
+            stmt.setInt(2, character.getAttributeId());
+            stmt.setInt(3, character.getClassId());
+            stmt.setInt(4, character.getRaceId());
+            stmt.setInt(5, character.getFolderId());
             stmt.setString(6, character.getName());
             stmt.setString(7, character.getPlayerName());
             stmt.setInt(8, character.getExperience());
@@ -69,11 +69,11 @@ public class CharacterDAO extends CrudDAO<Character> {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query);
 
-            stmt.setInt(1, character.getIdAlignment());
-            stmt.setInt(2, character.getIdAttribute());
-            stmt.setInt(3, character.getIdClass());
-            stmt.setInt(4, character.getIdRace());
-            stmt.setInt(5, character.getIdFolder());
+            stmt.setInt(1, character.getAlignmentId());
+            stmt.setInt(2, character.getAttributeId());
+            stmt.setInt(3, character.getClassId());
+            stmt.setInt(4, character.getRaceId());
+            stmt.setInt(5, character.getFolderId());
             stmt.setString(6, character.getName());
             stmt.setString(7, character.getPlayerName());
             stmt.setInt(8, character.getExperience());
@@ -111,11 +111,11 @@ public class CharacterDAO extends CrudDAO<Character> {
             while (resultSet.next()) {
                 Character character = new Character();
                 character.setId(resultSet.getInt("id"));
-                character.setIdAlignment(resultSet.getInt("id_alignment"));
-                character.setIdAttribute(resultSet.getInt("id_attribute"));
-                character.setIdClass(resultSet.getInt("id_class"));
-                character.setIdRace(resultSet.getInt("id_race"));
-                character.setIdFolder(resultSet.getInt("id_folder"));
+                character.setAlignmentId(resultSet.getInt("id_alignment"));
+                character.setAttributeId(resultSet.getInt("id_attribute"));
+                character.setClassId(resultSet.getInt("id_class"));
+                character.setRaceId(resultSet.getInt("id_race"));
+                character.setFolderId(resultSet.getInt("id_folder"));
                 character.setName(resultSet.getString("name"));
                 character.setPlayerName(resultSet.getString("player_name"));
                 character.setExperience(resultSet.getInt("experience"));
@@ -151,20 +151,20 @@ public class CharacterDAO extends CrudDAO<Character> {
         if (filter.getId() != 0) {
             query.append(" AND id = ").append(filter.getId());
         }
-        if (filter.getIdAlignment() != 0) {
-            query.append(" AND id_alignment = ").append(filter.getIdAlignment());
+        if (filter.getAlignmentId() != 0) {
+            query.append(" AND id_alignment = ").append(filter.getAlignmentId());
         }
-        if (filter.getIdAttribute() != 0) {
-            query.append(" AND id_attribute = ").append(filter.getIdAttribute());
+        if (filter.getAttributeId() != 0) {
+            query.append(" AND id_attribute = ").append(filter.getAttributeId());
         }
-        if (filter.getIdClass() != 0) {
-            query.append(" AND id_class = ").append(filter.getIdClass());
+        if (filter.getClassId() != 0) {
+            query.append(" AND id_class = ").append(filter.getClassId());
         }
-        if (filter.getIdRace() != 0) {
-            query.append(" AND id_race = ").append(filter.getIdRace());
+        if (filter.getRaceId() != 0) {
+            query.append(" AND id_race = ").append(filter.getRaceId());
         }
-        if (filter.getIdFolder() != 0) {
-            query.append(" AND id_folder = ").append(filter.getIdFolder());
+        if (filter.getFolderId() != 0) {
+            query.append(" AND id_folder = ").append(filter.getFolderId());
         }
         if (filter.getName() != null && !filter.getName().isEmpty()) {
             query.append(" AND name = '").append(filter.getName()).append("'");
@@ -211,11 +211,11 @@ public class CharacterDAO extends CrudDAO<Character> {
             while (resultSet.next()) {
                 Character character = new Character();
                 character.setId(resultSet.getInt("id"));
-                character.setIdAlignment(resultSet.getInt("id_alignment"));
-                character.setIdAttribute(resultSet.getInt("id_attribute"));
-                character.setIdClass(resultSet.getInt("id_class"));
-                character.setIdRace(resultSet.getInt("id_race"));
-                character.setIdFolder(resultSet.getInt("id_folder"));
+                character.setAlignmentId(resultSet.getInt("id_alignment"));
+                character.setAttributeId(resultSet.getInt("id_attribute"));
+                character.setClassId(resultSet.getInt("id_class"));
+                character.setRaceId(resultSet.getInt("id_race"));
+                character.setFolderId(resultSet.getInt("id_folder"));
                 character.setName(resultSet.getString("name"));
                 character.setPlayerName(resultSet.getString("player_name"));
                 character.setExperience(resultSet.getInt("experience"));

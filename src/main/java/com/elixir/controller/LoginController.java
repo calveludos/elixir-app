@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -44,12 +45,14 @@ public class LoginController {
     void loginButtonAction(ActionEvent event) throws SQLException {
         UserDAO userDAO = new UserDAO();
         User filter = new User(true);
-        filter.setUserName(usernameField.getText());
-        System.out.println(filter.getUserName());
+        filter.setUsername(usernameField.getText());
+        System.out.println(filter.getUsername());
         User user = null;
         errorLabel.setMaxWidth(20.0);
         errorLabel.setPrefWidth(20.0);
+        errorLabel.setMinWidth(20.0);
         errorLabel.setTextFill(Color.BLACK);
+        errorLabel.setFont(Font.font("System Bold", FontWeight.BOLD, 12.0));
         errorLabel.setText("Carregando...");
 
         try {

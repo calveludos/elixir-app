@@ -29,6 +29,9 @@ public class User implements Serializable {
         this.isVerify = isVerify;
     }
 
+    public User(boolean b) {
+    }
+
     public int getId() {
         return id;
     }
