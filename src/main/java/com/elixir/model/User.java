@@ -10,34 +10,23 @@ public class User implements Serializable {
     private String email;
     private String username;
     private String password;
-    private String verificationCode;
-    private Timestamp registrationDate;
-    private boolean isVerified;
+    private String codeVerify;
+    private Timestamp dataRegister;
+    private boolean isVerify;
 
     public User() {
-        this.verificationCode = UUID.randomUUID().toString().substring(8);
-        this.registrationDate = new Timestamp(System.currentTimeMillis());
+        this.codeVerify = UUID.randomUUID().toString().substring(0, 8);
+        this.dataRegister = new Timestamp(System.currentTimeMillis());
+        this.isVerify = false;
     }
 
-    public User(boolean bool) {
-    }
-
-    public User(String email, String username, String password) {
+    public User(String email, String username, String password, String codeVerify, Timestamp dataRegister, boolean isVerify) {
         this.email = email;
         this.username = username;
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-        this.verificationCode = UUID.randomUUID().toString().substring(8);
-        this.registrationDate = new Timestamp(System.currentTimeMillis());
-        this.isVerified = false;
-    }
-
-    public User(String email, String username, String password, String verificationCode, Timestamp registrationDate, boolean isVerified) {
-        this.email = email;
-        this.username = username;
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-        this.verificationCode = verificationCode;
-        this.registrationDate = registrationDate;
-        this.isVerified = isVerified;
+        this.password = password;
+        this.codeVerify = codeVerify;
+        this.dataRegister = dataRegister;
+        this.isVerify = isVerify;
     }
 
     public int getId() {
@@ -56,11 +45,11 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getUserName() {
+    public String getUsername() {
         return username;
     }
 
-    public void setUserName(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -72,32 +61,32 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public void setHashPassword(String password) {
+    public String getCodeVerify() {
+        return codeVerify;
+    }
+
+    public void setCodeVerify(String codeVerify) {
+        this.codeVerify = codeVerify;
+    }
+
+    public Timestamp getDataRegister() {
+        return dataRegister;
+    }
+
+    public void setDataRegister(Timestamp dataRegister) {
+        this.dataRegister = dataRegister;
+    }
+
+    public boolean isVerify() {
+        return isVerify;
+    }
+
+    public void setVerify(boolean verify) {
+        isVerify = verify;
+    }
+
+    public void setHashPassword(String password){
         this.password = BCrypt.hashpw(password, BCrypt.gensalt());
-    }
-
-    public String getVerificationCode() {
-        return verificationCode;
-    }
-
-    public void setVerificationCode(String verificationCode) {
-        this.verificationCode = verificationCode;
-    }
-
-    public Timestamp getRegistrationDate() {
-        return registrationDate;
-    }
-
-    public void setRegistrationDate(Timestamp registrationDate) {
-        this.registrationDate = registrationDate;
-    }
-
-    public boolean isVerified() {
-        return isVerified;
-    }
-
-    public void setVerified(boolean verified) {
-        isVerified = verified;
     }
 
     @Override
@@ -107,10 +96,9 @@ public class User implements Serializable {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", verificationCode='" + verificationCode + '\'' +
-                ", registrationDate=" + registrationDate +
-                ", isVerified=" + isVerified +
+                ", codeVerify='" + codeVerify + '\'' +
+                ", dataRegister=" + dataRegister +
+                ", isVerify=" + isVerify +
                 '}';
     }
-
 }

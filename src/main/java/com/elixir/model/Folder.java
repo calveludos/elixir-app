@@ -4,17 +4,15 @@ import java.io.Serializable;
 
 public class Folder implements Serializable {
     private int id;
-    private int id_user;
+    private int userId;
     private String name;
-    private String color;
 
     public Folder() {
     }
 
-     public Folder(int id_user, String name, String color) {
-        this.id_user = id_user;
+    public Folder(int userId, String name) {
+        this.userId = userId;
         this.name = name;
-        this.color = color;
     }
 
     public int getId() {
@@ -25,12 +23,12 @@ public class Folder implements Serializable {
         this.id = id;
     }
 
-    public int getId_user() {
-        return id_user;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -41,11 +39,12 @@ public class Folder implements Serializable {
         this.name = name;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
+    @Override
+    public String toString() {
+        return "Folder{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

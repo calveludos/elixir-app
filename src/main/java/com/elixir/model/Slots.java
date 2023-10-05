@@ -4,29 +4,31 @@ import java.io.Serializable;
 
 public class Slots implements Serializable {
     private int id;
-    private int I_level;
-    private int II_level;
-    private int III_level;
-    private int IV_level;
-    private int V_level;
-    private int VI_level;
-    private int VII_level;
-    private int VIII_level;
-    private int IX_level;
+    private int characterId;
+    private int iLevel;
+    private int iiLevel;
+    private int iiiLevel;
+    private int ivLevel;
+    private int vLevel;
+    private int viLevel;
+    private int viiLevel;
+    private int viiiLevel;
+    private int ixLevel;
 
     public Slots() {
     }
 
-    public Slots(int i_level, int II_level, int III_level, int IV_level, int v_level, int VI_level, int VII_level, int VIII_level, int IX_level) {
-        I_level = i_level;
-        this.II_level = II_level;
-        this.III_level = III_level;
-        this.IV_level = IV_level;
-        V_level = v_level;
-        this.VI_level = VI_level;
-        this.VII_level = VII_level;
-        this.VIII_level = VIII_level;
-        this.IX_level = IX_level;
+    public Slots(int characterId, int iLevel, int iiLevel, int iiiLevel, int ivLevel, int vLevel, int viLevel, int viiLevel, int viiiLevel, int ixLevel) {
+        this.characterId = characterId;
+        this.iLevel = iLevel;
+        this.iiLevel = iiLevel;
+        this.iiiLevel = iiiLevel;
+        this.ivLevel = ivLevel;
+        this.vLevel = vLevel;
+        this.viLevel = viLevel;
+        this.viiLevel = viiLevel;
+        this.viiiLevel = viiiLevel;
+        this.ixLevel = ixLevel;
     }
 
     public int getId() {
@@ -37,75 +39,100 @@ public class Slots implements Serializable {
         this.id = id;
     }
 
-    public int getI_level() {
-        return I_level;
+    public int getCharacterId() {
+        return characterId;
     }
 
-    public void setI_level(int i_level) {
-        I_level = i_level;
+    public void setCharacterId(int characterId) {
+        this.characterId = characterId;
     }
 
-    public int getII_level() {
-        return II_level;
+    public int getILevel() {
+        return iLevel;
     }
 
-    public void setII_level(int II_level) {
-        this.II_level = II_level;
+    public void setILevel(int iLevel) {
+        this.iLevel = iLevel;
     }
 
-    public int getIII_level() {
-        return III_level;
+    public int getIiLevel() {
+        return iiLevel;
     }
 
-    public void setIII_level(int III_level) {
-        this.III_level = III_level;
+    public void setIiLevel(int iiLevel) {
+        this.iiLevel = iiLevel;
     }
 
-    public int getIV_level() {
-        return IV_level;
+    public int getIiiLevel() {
+        return iiiLevel;
     }
 
-    public void setIV_level(int IV_level) {
-        this.IV_level = IV_level;
+    public void setIiiLevel(int iiiLevel) {
+        this.iiiLevel = iiiLevel;
     }
 
-    public int getV_level() {
-        return V_level;
+    public int getIvLevel() {
+        return ivLevel;
     }
 
-    public void setV_level(int v_level) {
-        V_level = v_level;
+    public void setIvLevel(int ivLevel) {
+        this.ivLevel = ivLevel;
     }
 
-    public int getVI_level() {
-        return VI_level;
+    public int getVLevel() {
+        return vLevel;
     }
 
-    public void setVI_level(int VI_level) {
-        this.VI_level = VI_level;
+    public void setVLevel(int vLevel) {
+        this.vLevel = vLevel;
     }
 
-    public int getVII_level() {
-        return VII_level;
+    public int getViLevel() {
+        return viLevel;
     }
 
-    public void setVII_level(int VII_level) {
-        this.VII_level = VII_level;
+    public void setViLevel(int viLevel) {
+        this.viLevel = viLevel;
     }
 
-    public int getVIII_level() {
-        return VIII_level;
+    public int getViiLevel() {
+        return viiLevel;
     }
 
-    public void setVIII_level(int VIII_level) {
-        this.VIII_level = VIII_level;
+    public void setViiLevel(int viiLevel) {
+        this.viiLevel = viiLevel;
     }
 
-    public int getIX_level() {
-        return IX_level;
+    public int getViiiLevel() {
+        return viiiLevel;
     }
 
-    public void setIX_level(int IX_level) {
-        this.IX_level = IX_level;
+    public void setViiiLevel(int viiiLevel) {
+        this.viiiLevel = viiiLevel;
+    }
+
+    public int getIxLevel() {
+        return ixLevel;
+    }
+
+    public void setIxLevel(int ixLevel) {
+        this.ixLevel = ixLevel;
+    }
+
+    @Override
+    public String toString() {
+        return "Slots{" +
+                "id=" + id +
+                ", characterId=" + characterId +
+                ", iLevel=" + iLevel +
+                ", iiLevel=" + iiLevel +
+                ", iiiLevel=" + iiiLevel +
+                ", ivLevel=" + ivLevel +
+                ", vLevel=" + vLevel +
+                ", viLevel=" + viLevel +
+                ", viiLevel=" + viiLevel +
+                ", viiiLevel=" + viiiLevel +
+                ", ixLevel=" + ixLevel +
+                '}';
     }
 }
