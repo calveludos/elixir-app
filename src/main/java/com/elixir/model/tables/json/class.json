@@ -504,8 +504,9 @@
         "Vampiro": 3
       }
       ],
+    "id" : 4,
     "Dado de Vida": "d8",
-    "Atributo mínimo": {"str": 0, "dex":  0, "int": 0, "wis":16},
+    "Atributo_mínimo": {"str": 0, "dex":  0, "con": 12, "int": 0, "wis":14},
     "Armadura": 1,
     "Arma": ["maça", "cajado", "mangual", "funda"],
     "Itens Mágicos": 1,
@@ -671,8 +672,9 @@
         "Jogada de Proteção": 10
       }
     ],
+    "id" : 1,
     "dado de vida": "d10",
-    "atributo mínimo": {"str": 12, "dex":  0, "con": 12, "int": 0, "wis":16},
+    "Atributo_mínimo": {"str": 12, "dex":  0, "con": 12, "int": 0, "wis":0},
     "armadura": 1,
     "arma": 1,
     "itens magicos": 0,
@@ -1034,8 +1036,9 @@
         "9o": 2
       }
 ],
+    "id" : 3,
     "dado_de_vida": "d4",
-    "atributo mínimo": {"str": 0, "dex":  0, "con": 0, "int": 14, "wis":0},
+    "Atributo_mínimo": {"str": 0, "dex":  0, "con": 0, "int": 14, "wis":0},
     "armadura": 0,
     "arma": ["adaga", "cajados"],
     "itens_magicos": 1,
@@ -1427,8 +1430,9 @@
         }
       }
     ],
+    "id" : 3,
     "dado_de_vida": "d6",
-    "atributo mínimo": {
+    "Atributo_mínimo": {
       "str": 0,
       "dex": 12,
       "con": 0,
