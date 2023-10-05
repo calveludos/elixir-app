@@ -4,11 +4,11 @@ import java.io.Serializable;
 
 public class Character implements Serializable {
     private int id;
-    private int idAlignment;
-    private int idAttribute;
-    private int idClass;
-    private int idRace;
-    private int idFolder;
+    private int alignmentId;
+    private int attributeId;
+    private int classId;
+    private int raceId;
+    private int folderId;
     private String name;
     private String playerName;
     private int experience;
@@ -21,16 +21,18 @@ public class Character implements Serializable {
     private String background;
     private String imagePath;
 
+    public int level;
+
     public Character() {
         // Construtor vazio
     }
 
-    public Character(int idAlignment, int idAttribute, int idClass, int idRace, int idFolder, String name, String playerName, int experience, int height, int weight, int currentPv, int maxPv, int classArmorBonus, String appearance, String background, String imagePath) {
-        this.idAlignment = idAlignment;
-        this.idAttribute = idAttribute;
-        this.idClass = idClass;
-        this.idRace = idRace;
-        this.idFolder = idFolder;
+    public Character(int alignmentId, int attributeId, int classId, int raceId, int folderId, String name, String playerName, int experience, int height, int weight, int currentPv, int maxPv, int classArmorBonus, String appearance, String background, String imagePath) {
+        this.alignmentId = alignmentId;
+        this.attributeId = attributeId;
+        this.classId = classId;
+        this.raceId = raceId;
+        this.folderId = folderId;
         this.name = name;
         this.playerName = playerName;
         this.experience = experience;
@@ -54,44 +56,44 @@ public class Character implements Serializable {
         this.id = id;
     }
 
-    public int getIdAlignment() {
-        return idAlignment;
+    public int getAlignmentId() {
+        return alignmentId;
     }
 
-    public void setIdAlignment(int idAlignment) {
-        this.idAlignment = idAlignment;
+    public void setAlignmentId(int alignmentId) {
+        this.alignmentId = alignmentId;
     }
 
-    public int getIdAttribute() {
-        return idAttribute;
+    public int getAttributeId() {
+        return attributeId;
     }
 
-    public void setIdAttribute(int idAttribute) {
-        this.idAttribute = idAttribute;
+    public void setAttributeId(int attributeId) {
+        this.attributeId = attributeId;
     }
 
-    public int getIdClass() {
-        return idClass;
+    public int getClassId() {
+        return classId;
     }
 
-    public void setIdClass(int idClass) {
-        this.idClass = idClass;
+    public void setClassId(int classId) {
+        this.classId = classId;
     }
 
-    public int getIdRace() {
-        return idRace;
+    public int getRaceId() {
+        return raceId;
     }
 
-    public void setIdRace(int idRace) {
-        this.idRace = idRace;
+    public void setRaceId(int raceId) {
+        this.raceId = raceId;
     }
 
-    public int getIdFolder() {
-        return idFolder;
+    public int getFolderId() {
+        return folderId;
     }
 
-    public void setIdFolder(int idFolder) {
-        this.idFolder = idFolder;
+    public void setFolderId(int folderId) {
+        this.folderId = folderId;
     }
 
     public String getName() {
@@ -186,11 +188,11 @@ public class Character implements Serializable {
     public String toString() {
         return "Character{" +
                 "id=" + id +
-                ", idAlignment=" + idAlignment +
-                ", idAttribute=" + idAttribute +
-                ", idClass=" + idClass +
-                ", idRace=" + idRace +
-                ", idFolder=" + idFolder +
+                ", alignmentId=" + alignmentId +
+                ", attributeId=" + attributeId +
+                ", classId=" + classId +
+                ", raceId=" + raceId +
+                ", folderId=" + folderId +
                 ", name='" + name + '\'' +
                 ", playerName='" + playerName + '\'' +
                 ", experience=" + experience +
@@ -204,4 +206,5 @@ public class Character implements Serializable {
                 ", imagePath='" + imagePath + '\'' +
                 '}';
     }
+
 }

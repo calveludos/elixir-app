@@ -3,6 +3,7 @@ package com.elixir.controller;
 import com.elixir.controller.abstractControllers.CreateCharacterSectionController;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
+import com.elixir.manager.Tuple;
 import com.elixir.model.Character;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,7 +14,9 @@ import javafx.util.StringConverter;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 
 public class CreateCharacterDateController extends CreateCharacterSectionController {
 
@@ -115,13 +118,16 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
         character = (Character) reader.getObject("character");
 
         try{
-            if (!character.isDateNull()){
-                nameField.setText(character.getName());
-                namePlayerField.setText(character.getPlayerName());
-                apperanceField.setText(character.getAppearance());
-                levelField.getValueFactory().setValue(character.getExperience());
-                aliagmentSelectionFiled.setText(alignmentIdMap.get(character.getAlignmentId()));
-            }
+            assert character.getName() != null;
+            nameField.setText(character.getName());
+            assert character.getPlayerName() != null;
+            namePlayerField.setText(character.getPlayerName());
+            assert character.getAppearance() != null;
+            apperanceField.setText(character.getAppearance());
+            assert character.level != 0;
+            levelField.getValueFactory().setValue(character.level);
+            assert character.getAlignmentId() != 0;
+            aliagmentSelectionFiled.setText(alignmentIdMap.get(character.getAlignmentId()));
         } catch (NullPointerException e){
             character = new Character();
         }
@@ -148,7 +154,7 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
     protected void saveCharacter(String fxml){
         try {
             character.setName(nameField.getText());
-            character.setExperience(levelField.getValue());
+            character.level = levelField.getValue();
             character.setAppearance(apperanceField.getText());
             character.setPlayerName(namePlayerField.getText());
         } catch (IllegalArgumentException e) {

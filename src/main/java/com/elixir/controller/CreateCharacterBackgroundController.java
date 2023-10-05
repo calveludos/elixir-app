@@ -63,7 +63,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
 
         List<Object> path = new ArrayList<>();
         path.add(getClass(character.getClassId()));
-        path.add(new Tuple<>("level", character.getLevel()));
+        path.add(new Tuple<>("level", character.level));
         path.add("XP");
 
         long classXP = (long) JsonManger.get("class", path);
@@ -89,7 +89,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
 
         int minWeight = (int) JsonManger.get("race", path);
 
-        character.setUserId(user.getId());
+        character.setFolderId(1);
         character.setAttributeId(attributeId);
         character.setExperience((int) classXP);
         character.setHeight((maxHeight + minHeight) / 2);
