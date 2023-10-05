@@ -15,6 +15,8 @@ public abstract class CrudDAO<T> {
 
     public abstract Map<Integer, T> read() throws SQLException;
 
+    public abstract Map<Integer, T> read(T model) throws SQLException;
+
     public abstract void delete(T model) throws SQLException;
 
     protected void closeResources() {
