@@ -9,6 +9,7 @@ import com.elixir.manager.PaneManager;
 import com.elixir.manager.Tuple;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
+import com.elixir.model.Slots;
 import com.elixir.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,6 +36,8 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
 
     private Character character;
     private Attribute attribute;
+
+    private Slots slots;
     private User user;
 
     @FXML
@@ -60,6 +63,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
     private void finishCharacter() throws SQLException, IOException, ParseException {
         AttributeDAO daoAttribute = new AttributeDAO();
         int attributeId = daoAttribute.create(attribute);
+
 
         List<Object> path = new ArrayList<>();
         path.add(getClass(character.getClassId()));
@@ -89,16 +93,29 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
 
         int minWeight = (int) JsonManger.get("race", path);
 
+        path.clear();
+        path.add(new Tuple<>("alignments", character.getAlignmentId()));
+        path.add("id");
+
+        int aligmentId = (int) JsonManger.get("alignments", path);
+
+        path.clear();
+        path.add(new Tuple<>("class", character.getClassId()));
+        path.add("dado de vida");
+
+        int dicePV = (int) JsonManger.get("class", path);
+        dicePV = Integer.parseInt(String.valueOf(dicePV).replace("d", ""));
+
+        path.clear();
+
         character.setFolderId(1);
         character.setAttributeId(attributeId);
         character.setExperience((int) classXP);
         character.setHeight((maxHeight + minHeight) / 2);
-        character.setWeight((maxWeight + maxWeight) / 2);
-        /*
-        character.setCurrentPv();
-        character.setMaxPv();
-        character.setBackground();
-        */
+        character.setWeight((maxWeight + minWeight) / 2);
+        character.setMaxPv(attribute.getConstitution() + dicePV);
+        character.setClassArmorBonus(attribute.getDexterity() + 10);
+
         CharacterDAO dao = new CharacterDAO();
         dao.create(character);
 
@@ -109,13 +126,37 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
 
     @Override
     protected void saveCharacter(String fxml){
-        character.setBackground(backgroundField.getText());
+        if (character.getClassId() == 2) {
+            slots.setILevel(1);
+            Tuple<Character, Slots> characterWithSlots = new Tuple<>(character, slots);
 
-        ObjectSaveManager saver = new ObjectSaveManager();
-        saver.saveObject("character", character);
+            ObjectSaveManager saver = new ObjectSaveManager();
+            saver.saveObject("character", characterWithSlots);
 
-        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
-        paneManager.openPane(fxml);
+            PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+            paneManager.openPane(fxml);
+        }
+
+        else if (character.getClassId() == 4) {
+            slots.setILevel(0);
+            Tuple<Character, Slots> characterWithSlots = new Tuple<>(character, slots);
+
+            ObjectSaveManager saver = new ObjectSaveManager();
+            saver.saveObject("character", characterWithSlots);
+
+            PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+            paneManager.openPane(fxml);
+        }
+        else {
+            character.setBackground(backgroundField.getText());
+
+            ObjectSaveManager saver = new ObjectSaveManager();
+            saver.saveObject("character", character);
+
+            PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+            paneManager.openPane(fxml);
+        }
+
     }
 
     private String getClass(int classId){

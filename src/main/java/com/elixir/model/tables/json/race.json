@@ -3,7 +3,6 @@
     {
       "id": 1,
       "name": "Humano",
-      "dicePv": "1d10",
       "minHeight": 1.60,
       "maxHeight": 1.90,
       "minWeight": 55,
@@ -34,7 +33,6 @@
     {
       "id": 2,
       "name": "Anão",
-      "dicePv": "1d10",
       "minHeight": 1.30,
       "maxHeight": 1.50,
       "minWeight": 50,
@@ -45,11 +43,11 @@
       "bonus": {
         "attribute": {
           "str": 0,
-          "dex": 2,
-          "con": 0,
+          "dex": 0,
+          "con": 2,
           "int": 0,
           "wis": 0,
-          "cha": 0
+          "cha": -2
         },
         "attack": 0,
         "class armor": 6
@@ -65,7 +63,6 @@
     {
       "id": 3,
       "name": "Elfo",
-      "dicePv": "1d6",
       "minHeight": 1.50,
       "maxHeight": 1.70,
       "minWeight": 40,
@@ -101,7 +98,6 @@
     {
       "id": 4,
       "name": "Halfling",
-      "dicePv": "1d10",
       "minHeight": 0.70,
       "maxHeight": 0.90,
       "minWeight": 20,
