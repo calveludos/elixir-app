@@ -46,11 +46,12 @@ public class LoginController {
         UserDAO userDAO = new UserDAO();
         User filter = new User(true);
         filter.setUsername(usernameField.getText());
+        filter.setVerify(true);
         System.out.println(filter.getUsername());
         User user = null;
-        errorLabel.setMaxWidth(20.0);
-        errorLabel.setPrefWidth(20.0);
-        errorLabel.setMinWidth(20.0);
+        errorLabel.setMinHeight(20.0);
+        errorLabel.setMinHeight(20.0);
+        errorLabel.setMinHeight(20.0);
         errorLabel.setTextFill(Color.BLACK);
         errorLabel.setFont(Font.font("System Bold", FontWeight.BOLD, 12.0));
         errorLabel.setText("Carregando...");

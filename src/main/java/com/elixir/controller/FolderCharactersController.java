@@ -33,7 +33,7 @@ public class FolderCharactersController extends MenuController {
         Folder folder = (Folder) reader.getObject("folder");
         CharacterDAO characterDAO = new CharacterDAO();
         Character filter = new Character();
-        filter.setIdFolder(folder.getId());
+        filter.setFolderId(folder.getId());
         Map<Integer, Character> characterMap = characterDAO.read(filter);
 
         Integer[] indexs = characterMap.keySet().toArray(new Integer[0]);

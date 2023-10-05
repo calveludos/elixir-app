@@ -6,6 +6,7 @@ import com.elixir.controller.objects.FolderObject;
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
 import com.elixir.dao.FolderDAO;
+import com.elixir.factory.ConnectionFactory;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
@@ -17,7 +18,11 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,15 +40,6 @@ public class MyCharactersController extends MenuController {
         ObjectSaveManager reader = new ObjectSaveManager();
         int userId = ((User) reader.getObject("user")).getId();
 
-        try {
-            CharacterDAO characterDAO = new CharacterDAO();
-            Character filter = new Character();
-            filter.setFolderId(userId);
-            characterMap = characterDAO.read(filter);
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-
         Map<Integer, Folder> folderMap;
         try {
             FolderDAO folderDAO = new FolderDAO();
@@ -53,6 +49,59 @@ public class MyCharactersController extends MenuController {
         } catch (SQLException e){
             e.printStackTrace();
             return;
+        }
+        
+        int defaultId = -1;
+        for (Folder f :
+                folderMap.values()) {
+            if (f.getName().equals("default")){
+                defaultId = f.getId();
+            }
+        }
+        folderMap.remove(defaultId);
+
+        ResultSet resultSet = null;
+
+        String query = "SELECT c.* FROM `Character` c JOIN Folder f\n" +
+                "ON c.id_folder = f.id \n" +
+                "WHERE f.id_user = ?;";
+
+        characterMap = new HashMap<>();
+
+        try (
+                Connection conn = ConnectionFactory.createConnection();
+                PreparedStatement stmt = conn.prepareStatement(query)
+        ) {
+            stmt.setInt(1, userId);
+
+            resultSet = stmt.executeQuery();
+
+
+            while (resultSet.next()) {
+                Character character = new Character();
+                character.setId(resultSet.getInt("id"));
+                character.setAlignmentId(resultSet.getInt("id_alignment"));
+                character.setAttributeId(resultSet.getInt("id_attribute"));
+                character.setClassId(resultSet.getInt("id_class"));
+                character.setRaceId(resultSet.getInt("id_race"));
+                character.setFolderId(resultSet.getInt("id_folder"));
+                character.setName(resultSet.getString("name"));
+                character.setPlayerName(resultSet.getString("player_name"));
+                character.setExperience(resultSet.getInt("experience"));
+                character.setHeight(resultSet.getInt("height"));
+                character.setWeight(resultSet.getInt("weight"));
+                character.setCurrentPv(resultSet.getInt("current_pv"));
+                character.setMaxPv(resultSet.getInt("max_pv"));
+                character.setClassArmorBonus(resultSet.getInt("class_armor_bonus"));
+                character.setAppearance(resultSet.getString("apperance"));
+                character.setBackground(resultSet.getString("background"));
+                character.setImagePath(resultSet.getString("image_path"));
+
+                characterMap.put(character.getId(), character);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         if(!folderMap.isEmpty()){
@@ -77,7 +126,7 @@ public class MyCharactersController extends MenuController {
         var oldMap = characterMap;
         Map<Integer, Character> newMap = new HashMap<>();
         for (Character c : oldMap.values()) {
-            if (c.getIdFolder() == 0){
+            if (c.getFolderId() == defaultId){
                 newMap.put(c.getId(), c);
             }
         }

@@ -138,6 +138,8 @@ public class UserDAO extends CrudDAO<User> {
         ResultSet resultSet = null;
         Map<Integer, User> userMap = new HashMap<>();
 
+        System.out.println(query);
+
         try {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query.toString());
