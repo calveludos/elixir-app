@@ -3,6 +3,7 @@ package com.elixir.dao;
 import com.elixir.factory.ConnectionFactory;
 import com.elixir.model.Attribute;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -10,9 +11,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AttributeDAO extends CrudDAO<Attribute> {
+
     @Override
     public int create(Attribute attribute) throws SQLException {
-        String query = "INSERT INTO Attribute (strength, dexterity, constitution, intelligence, wisdom, charisma) VALUES (?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO `Attribute` (strength, dexterity, constitution, intelligence, wisdom, charisma) VALUES (?, ?, ?, ?, ?, ?)";
         int generatedId = -1;
         try {
             conn = ConnectionFactory.createConnection();
@@ -36,7 +38,6 @@ public class AttributeDAO extends CrudDAO<Attribute> {
                 generatedKeys.close();
             }
 
-            stmt.close();
         } catch (SQLException e) {
             throw new SQLException(e);
 
@@ -48,7 +49,7 @@ public class AttributeDAO extends CrudDAO<Attribute> {
 
     @Override
     public void update(Attribute attribute) throws SQLException {
-        String query = "UPDATE Attribute SET strength = ?, dexterity = ?, constitution = ?, intelligence = ?, wisdom = ?, charisma = ? WHERE id = ?";
+        String query = "UPDATE `Attribute` SET strength = ?, dexterity = ?, constitution = ?, intelligence = ?, wisdom = ?, charisma = ? WHERE id = ?";
 
         try {
             conn = ConnectionFactory.createConnection();
@@ -74,7 +75,67 @@ public class AttributeDAO extends CrudDAO<Attribute> {
 
     @Override
     public Map<Integer, Attribute> read() throws SQLException {
-        String query = "SELECT * FROM Attribute";
+        String query = "SELECT * FROM `Attribute`";
+        ResultSet resultSet = null;
+        Map<Integer, Attribute> attributeMap = new HashMap<>();
+
+        try {
+            conn = ConnectionFactory.createConnection();
+            stmt = conn.prepareStatement(query);
+            resultSet = stmt.executeQuery();
+
+            while (resultSet.next()) {
+                Attribute attribute = new Attribute();
+                attribute.setId(resultSet.getInt("id"));
+                attribute.setStrength(resultSet.getInt("strength"));
+                attribute.setDexterity(resultSet.getInt("dexterity"));
+                attribute.setConstitution(resultSet.getInt("constitution"));
+                attribute.setIntelligence(resultSet.getInt("intelligence"));
+                attribute.setWisdom(resultSet.getInt("wisdom"));
+                attribute.setCharisma(resultSet.getInt("charisma"));
+
+                attributeMap.put(attribute.getId(), attribute);
+            }
+
+        } catch (SQLException e) {
+            throw new SQLException(e);
+
+        } finally {
+            closeResources();
+            if (resultSet != null) {
+                resultSet.close();
+            }
+        }
+
+        return attributeMap;
+    }
+
+    @Override
+    public Map<Integer, Attribute> read(Attribute filter) throws SQLException {
+        String query = "SELECT * FROM `Attribute` WHERE 1=1";
+
+        if (filter.getId() != 0) {
+            query += " AND id = " + filter.getId();
+        }
+        if (filter.getStrength() != 0) {
+            query += " AND strength = " + filter.getStrength();
+        }
+        if (filter.getDexterity() != 0) {
+            query += " AND dexterity = " + filter.getDexterity();
+        }
+        if (filter.getConstitution() != 0) {
+            query += " AND constitution = " + filter.getConstitution();
+        }
+        if (filter.getIntelligence() != 0) {
+            query += " AND intelligence = " + filter.getIntelligence();
+        }
+        if (filter.getWisdom() != 0) {
+            query += " AND wisdom = " + filter.getWisdom();
+        }
+        if (filter.getCharisma() != 0) {
+            query += " AND charisma = " + filter.getCharisma();
+        }
+
         ResultSet resultSet = null;
         Map<Integer, Attribute> attributeMap = new HashMap<>();
 
@@ -111,7 +172,7 @@ public class AttributeDAO extends CrudDAO<Attribute> {
 
     @Override
     public void delete(Attribute attribute) throws SQLException {
-        String query = "DELETE FROM Attribute WHERE id = ?";
+        String query = "DELETE FROM `Attribute` WHERE id = ?";
 
         try {
             conn = ConnectionFactory.createConnection();

@@ -1,29 +1,32 @@
 package com.elixir.controller;
 
+import com.elixir.controller.abstractControllers.MenuController;
 import com.elixir.controller.objects.CharacterObject;
 import com.elixir.controller.objects.FolderObject;
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
 import com.elixir.dao.FolderDAO;
+import com.elixir.factory.ConnectionFactory;
+import com.elixir.manager.ObjectSaveManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import com.elixir.model.Folder;
-import javafx.event.ActionEvent;
+import com.elixir.model.User;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
-import javafx.stage.Stage;
-import com.elixir.manager.*;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class myCharactersController extends MenuController {
+public class MyCharactersController extends MenuController {
 
     @FXML
     private HBox hboxCharacters;
@@ -34,29 +37,71 @@ public class myCharactersController extends MenuController {
 
     @FXML
     private void initialize(){
-
-        try {
-            CharacterDAO characterDAO = new CharacterDAO();
-            characterMap = characterDAO.read();
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-
-        try {
-            AttributeDAO attributeDAO = new AttributeDAO();
-            Map<Integer, Attribute> attributeMap = attributeDAO.read();
-        } catch (SQLException e){
-            e.printStackTrace();
-            return;
-        }
+        ObjectSaveManager reader = new ObjectSaveManager();
+        int userId = ((User) reader.getObject("user")).getId();
 
         Map<Integer, Folder> folderMap;
         try {
             FolderDAO folderDAO = new FolderDAO();
-            folderMap = folderDAO.read();
+            Folder filter = new Folder();
+            filter.setUserId(userId);
+            folderMap = folderDAO.read(filter);
         } catch (SQLException e){
             e.printStackTrace();
             return;
+        }
+        
+        int defaultId = -1;
+        for (Folder f :
+                folderMap.values()) {
+            if (f.getName().equals("default")){
+                defaultId = f.getId();
+            }
+        }
+        folderMap.remove(defaultId);
+
+        ResultSet resultSet = null;
+
+        String query = "SELECT c.* FROM `Character` c JOIN Folder f\n" +
+                "ON c.id_folder = f.id \n" +
+                "WHERE f.id_user = ?;";
+
+        characterMap = new HashMap<>();
+
+        try (
+                Connection conn = ConnectionFactory.createConnection();
+                PreparedStatement stmt = conn.prepareStatement(query)
+        ) {
+            stmt.setInt(1, userId);
+
+            resultSet = stmt.executeQuery();
+
+
+            while (resultSet.next()) {
+                Character character = new Character();
+                character.setId(resultSet.getInt("id"));
+                character.setAlignmentId(resultSet.getInt("id_alignment"));
+                character.setAttributeId(resultSet.getInt("id_attribute"));
+                character.setClassId(resultSet.getInt("id_class"));
+                character.setRaceId(resultSet.getInt("id_race"));
+                character.setFolderId(resultSet.getInt("id_folder"));
+                character.setName(resultSet.getString("name"));
+                character.setPlayerName(resultSet.getString("player_name"));
+                character.setExperience(resultSet.getInt("experience"));
+                character.setHeight(resultSet.getInt("height"));
+                character.setWeight(resultSet.getInt("weight"));
+                character.setCurrentPv(resultSet.getInt("current_pv"));
+                character.setMaxPv(resultSet.getInt("max_pv"));
+                character.setClassArmorBonus(resultSet.getInt("class_armor_bonus"));
+                character.setAppearance(resultSet.getString("apperance"));
+                character.setBackground(resultSet.getString("background"));
+                character.setImagePath(resultSet.getString("image_path"));
+
+                characterMap.put(character.getId(), character);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         if(!folderMap.isEmpty()){
@@ -67,11 +112,11 @@ public class myCharactersController extends MenuController {
                 vBox.setPrefWidth(100.0);
                 try {
                     Folder folder1 = folderMap.get(indexs[i]);
-                    vBox.getChildren().add(new FolderObject(folder1.getName()));
+                    vBox.getChildren().add(new FolderObject(folder1));
                     Folder folder2 = folderMap.get(indexs[i + 1]);
-                    vBox.getChildren().add(new FolderObject(folder2.getName()));
+                    vBox.getChildren().add(new FolderObject(folder2));
                     Folder folder3 = folderMap.get(indexs[i + 2]);
-                    vBox.getChildren().add(new FolderObject(folder3.getName()));
+                    vBox.getChildren().add(new FolderObject(folder3));
                 } catch (IndexOutOfBoundsException ignored){}
 
                 hboxFolders.getChildren().add(vBox);
@@ -81,7 +126,7 @@ public class myCharactersController extends MenuController {
         var oldMap = characterMap;
         Map<Integer, Character> newMap = new HashMap<>();
         for (Character c : oldMap.values()) {
-            if (c.getIdFolder() == 0){
+            if (c.getFolderId() == defaultId){
                 newMap.put(c.getId(), c);
             }
         }
@@ -124,7 +169,7 @@ public class myCharactersController extends MenuController {
 
     }
 
-    private String getClassId(int classId) {
+    public static String getClassId(int classId) {
         switch (classId){
             case 1:
                 return "Homem de Armas";
@@ -139,7 +184,7 @@ public class myCharactersController extends MenuController {
         }
     }
 
-    private String getRaceId(int raceId) {
+    public static String getRaceId(int raceId) {
         switch (raceId){
             case 1:
                 return "Humano";

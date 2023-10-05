@@ -9,6 +9,10 @@ module com.app {
     exports com.elixir.controller;
     requires javafx.base;
     requires javafx.graphics;
+    requires jbcrypt;
+    requires mysql.connector.j;
     opens media;
     opens com.elixir.controller to javafx.fxml;
+    exports com.elixir.controller.abstractControllers;
+    opens com.elixir.controller.abstractControllers to javafx.fxml;
 }

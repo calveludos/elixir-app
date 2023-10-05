@@ -1,4 +1,4 @@
-package com.elixir.controller;
+package com.elixir.controller.abstractControllers;
 
 import com.elixir.manager.PaneManager;
 import javafx.event.ActionEvent;

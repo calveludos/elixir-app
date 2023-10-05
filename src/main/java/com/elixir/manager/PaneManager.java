@@ -3,14 +3,13 @@ package com.elixir.manager;
 import com.elixir.MainApp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
 import java.io.IOException;
 
 public class PaneManager {
-    private Stage stage;
+    private final Stage stage;
 
     public PaneManager(Stage stage) {
         this.stage = stage;

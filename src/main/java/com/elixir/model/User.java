@@ -1,40 +1,35 @@
 package com.elixir.model;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.UUID;
+import org.mindrot.jbcrypt.BCrypt;
 
-public class User {
+public class User implements Serializable {
     private int id;
     private String email;
-    private String userName;
-    private String name;
+    private String username;
     private String password;
-    private String verificationCode;
-    private Timestamp registrationDate;
-    private boolean isVerified;
+    private String codeVerify;
+    private Timestamp dataRegister;
+    private boolean isVerify;
 
     public User() {
-        this.verificationCode = UUID.randomUUID().toString();
-        this.registrationDate = new Timestamp(System.currentTimeMillis());
+        this.codeVerify = UUID.randomUUID().toString().substring(0, 8);
+        this.dataRegister = new Timestamp(System.currentTimeMillis());
+        this.isVerify = false;
     }
 
-    public User(String email, String userName, String name, String password) {
+    public User(String email, String username, String password, String codeVerify, Timestamp dataRegister, boolean isVerify) {
         this.email = email;
-        this.userName = userName;
-        this.name = name;
-        setPassword(password);
-        this.verificationCode = UUID.randomUUID().toString();
-        this.registrationDate = new Timestamp(System.currentTimeMillis());
+        this.username = username;
+        this.password = password;
+        this.codeVerify = codeVerify;
+        this.dataRegister = dataRegister;
+        this.isVerify = isVerify;
     }
 
-    public User(String email, String userName, String name, String password, String verificationCode, Timestamp registrationDate, boolean isVerified) {
-        this.email = email;
-        this.userName = userName;
-        this.name = name;
-        setPassword(password);
-        this.verificationCode = verificationCode;
-        this.registrationDate = registrationDate;
-        this.isVerified = isVerified;
+    public User(boolean b) {
     }
 
     public int getId() {
@@ -53,49 +48,60 @@ public class User {
         this.email = email;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {}
-
-    public String getVerificationCode() {
-        return verificationCode;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setVerificationCode(String verificationCode) {
-        this.verificationCode = verificationCode;
+    public String getCodeVerify() {
+        return codeVerify;
     }
 
-    public Timestamp getRegistrationDate() {
-        return registrationDate;
+    public void setCodeVerify(String codeVerify) {
+        this.codeVerify = codeVerify;
     }
 
-    public void setRegistrationDate(Timestamp registrationDate) {
-        this.registrationDate = registrationDate;
+    public Timestamp getDataRegister() {
+        return dataRegister;
     }
 
-    public boolean isVerified() {
-        return isVerified;
+    public void setDataRegister(Timestamp dataRegister) {
+        this.dataRegister = dataRegister;
     }
 
-    public void setVerified(boolean verified) {
-        isVerified = verified;
+    public boolean isVerify() {
+        return isVerify;
+    }
+
+    public void setVerify(boolean verify) {
+        isVerify = verify;
+    }
+
+    public void setHashPassword(String password){
+        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", codeVerify='" + codeVerify + '\'' +
+                ", dataRegister=" + dataRegister +
+                ", isVerify=" + isVerify +
+                '}';
     }
 }

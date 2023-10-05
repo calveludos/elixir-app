@@ -1,7 +1,7 @@
 package com.elixir.dao;
 
 import com.elixir.factory.ConnectionFactory;
-import com.elixir.model.Inventory;
+import com.elixir.model.Speech;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,21 +10,20 @@ import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InventoryDAO extends CrudDAO<Inventory> {
+public class SpeechDAO extends CrudDAO<Speech> {
 
     @Override
-    public int create(Inventory inventory) throws SQLException {
-        String query = "INSERT INTO `Inventory` (character_id, item_id, type_item_id) " +
-                "VALUES (?, ?, ?)";
+    public int create(Speech speech) throws SQLException {
+        String query = "INSERT INTO `Speech` (id_character, id_language) " +
+                "VALUES (?, ?)";
         int generatedId = -1;
 
         try {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
-            stmt.setInt(1, inventory.getCharacterId());
-            stmt.setInt(2, inventory.getItemId());
-            stmt.setInt(3, inventory.getTypeItemId());
+            stmt.setInt(1, speech.getCharacterId());
+            stmt.setInt(2, speech.getLanguageId());
 
             int affectedRows = stmt.executeUpdate();
 
@@ -48,17 +47,16 @@ public class InventoryDAO extends CrudDAO<Inventory> {
     }
 
     @Override
-    public void update(Inventory inventory) throws SQLException {
-        String query = "UPDATE `Inventory` SET character_id = ?, item_id = ?, type_item_id = ? WHERE id = ?";
+    public void update(Speech speech) throws SQLException {
+        String query = "UPDATE `Speech` SET id_character = ?, id_language = ? WHERE id = ?";
 
         try {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query);
 
-            stmt.setInt(1, inventory.getCharacterId());
-            stmt.setInt(2, inventory.getItemId());
-            stmt.setInt(3, inventory.getTypeItemId());
-            stmt.setInt(4, inventory.getId());
+            stmt.setInt(1, speech.getCharacterId());
+            stmt.setInt(2, speech.getLanguageId());
+            stmt.setInt(3, speech.getId());
 
             stmt.executeUpdate();
 
@@ -71,10 +69,10 @@ public class InventoryDAO extends CrudDAO<Inventory> {
     }
 
     @Override
-    public Map<Integer, Inventory> read() throws SQLException {
-        String query = "SELECT * FROM `Inventory`";
+    public Map<Integer, Speech> read() throws SQLException {
+        String query = "SELECT * FROM `Speech`";
         ResultSet resultSet = null;
-        Map<Integer, Inventory> inventoryMap = new HashMap<>();
+        Map<Integer, Speech> speechMap = new HashMap<>();
 
         try {
             conn = ConnectionFactory.createConnection();
@@ -82,13 +80,12 @@ public class InventoryDAO extends CrudDAO<Inventory> {
             resultSet = stmt.executeQuery();
 
             while (resultSet.next()) {
-                Inventory inventory = new Inventory();
-                inventory.setId(resultSet.getInt("id"));
-                inventory.setCharacterId(resultSet.getInt("character_id"));
-                inventory.setItemId(resultSet.getInt("item_id"));
-                inventory.setTypeItemId(resultSet.getInt("type_item_id"));
+                Speech speech = new Speech();
+                speech.setId(resultSet.getInt("id"));
+                speech.setCharacterId(resultSet.getInt("id_character"));
+                speech.setLanguageId(resultSet.getInt("id_language"));
 
-                inventoryMap.put(inventory.getId(), inventory);
+                speechMap.put(speech.getId(), speech);
             }
 
         } catch (SQLException e) {
@@ -101,28 +98,25 @@ public class InventoryDAO extends CrudDAO<Inventory> {
             }
         }
 
-        return inventoryMap;
+        return speechMap;
     }
 
     @Override
-    public Map<Integer, Inventory> read(Inventory filter) throws SQLException {
-        StringBuilder query = new StringBuilder("SELECT * FROM `Inventory` WHERE 1=1");
+    public Map<Integer, Speech> read(Speech filter) throws SQLException {
+        StringBuilder query = new StringBuilder("SELECT * FROM `Speech` WHERE 1=1");
 
         if (filter.getId() != 0) {
             query.append(" AND id = ").append(filter.getId());
         }
         if (filter.getCharacterId() != 0) {
-            query.append(" AND character_id = ").append(filter.getCharacterId());
+            query.append(" AND id_character = ").append(filter.getCharacterId());
         }
-        if (filter.getItemId() != 0) {
-            query.append(" AND item_id = ").append(filter.getItemId());
-        }
-        if (filter.getTypeItemId() != 0) {
-            query.append(" AND type_item_id = ").append(filter.getTypeItemId());
+        if (filter.getLanguageId() != 0) {
+            query.append(" AND id_language = ").append(filter.getLanguageId());
         }
 
         ResultSet resultSet = null;
-        Map<Integer, Inventory> inventoryMap = new HashMap<>();
+        Map<Integer, Speech> speechMap = new HashMap<>();
 
         try {
             conn = ConnectionFactory.createConnection();
@@ -130,13 +124,12 @@ public class InventoryDAO extends CrudDAO<Inventory> {
             resultSet = stmt.executeQuery();
 
             while (resultSet.next()) {
-                Inventory inventory = new Inventory();
-                inventory.setId(resultSet.getInt("id"));
-                inventory.setCharacterId(resultSet.getInt("character_id"));
-                inventory.setItemId(resultSet.getInt("item_id"));
-                inventory.setTypeItemId(resultSet.getInt("type_item_id"));
+                Speech speech = new Speech();
+                speech.setId(resultSet.getInt("id"));
+                speech.setCharacterId(resultSet.getInt("id_character"));
+                speech.setLanguageId(resultSet.getInt("id_language"));
 
-                inventoryMap.put(inventory.getId(), inventory);
+                speechMap.put(speech.getId(), speech);
             }
 
         } catch (SQLException e) {
@@ -149,17 +142,17 @@ public class InventoryDAO extends CrudDAO<Inventory> {
             }
         }
 
-        return inventoryMap;
+        return speechMap;
     }
 
     @Override
-    public void delete(Inventory inventory) throws SQLException {
-        String query = "DELETE FROM `Inventory` WHERE id = ?";
+    public void delete(Speech speech) throws SQLException {
+        String query = "DELETE FROM `Speech` WHERE id = ?";
 
         try {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query);
-            stmt.setInt(1, inventory.getId());
+            stmt.setInt(1, speech.getId());
             stmt.executeUpdate();
 
         } catch (SQLException e) {

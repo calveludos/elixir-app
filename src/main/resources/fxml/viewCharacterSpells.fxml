@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.myCharactersController">
+
+
+    <!-- Cabeçalho superior -->
+    <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <!-- Logo e texto -->
+        <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="10.0" layoutY="32.0">
+         <image>
+            <Image url="@../media/logoElixir.png" />
+         </image></ImageView>
+
+        <!-- Agrupar Line e Text em uma VBox -->
+        <VBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="32.0" spacing="5.0">
+            <Text fill="#FFFFFF">
+                ELIXIR MAKER
+                <font>
+                    <Font name="System Bold" size="20.0" />
+                </font>
+                <style>
+                    -fx-font-style: italic;
+                </style>
+            </Text>
+            <Line endX="120.0" stroke="WHITE" strokeWidth="3.0" />
+         <padding>
+            <Insets bottom="28.0" />
+         </padding>
+        </VBox>
+
+        <!-- Nome de usuário e foto de perfil agrupados em uma HBox -->
+        <HBox alignment="TOP_RIGHT" layoutX="752.0" layoutY="42.0" prefHeight="114.0" spacing="10.0" AnchorPane.rightAnchor="0.0" HBox.hgrow="ALWAYS">
+            <!-- Nome de usuário e foto de perfil -->
+            <Text fill="#FFFFFF">
+                Nome de Usuário
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+                <style>
+                    -fx-font-style: italic;
+                </style>
+            </Text>
+            <ImageView fitHeight="35.0" fitWidth="35.0">
+                <!-- Coloque aqui a imagem de perfil -->
+                <clip>
+                    <Circle centerX="17.5" centerY="17.5" radius="17.5" />
+                </clip>
+            <image>
+               <Image url="@../media/emptyPerfilImage.png" />
+            </image>
+            </ImageView>
+        </HBox>
+      <padding>
+         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+    </HBox>
+
+    <!-- Corpo da página -->
+    <VBox layoutX="260.0" layoutY="114.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+      <children>
+         <HBox prefHeight="646.0" prefWidth="939.0" VBox.vgrow="ALWAYS">
+            <children>
+               <VBox prefHeight="625.0" prefWidth="774.0" HBox.hgrow="ALWAYS">
+                  <children>
+                     <HBox alignment="CENTER" maxHeight="127.0" minHeight="99.0" prefHeight="107.0" prefWidth="753.0" spacing="5.0">
+                        <children>
+                           <ImageView fx:id="oldDragonLogo" fitHeight="106.0" fitWidth="272.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../media/OldDragonLogo.png" />
+                              </image>
+                           </ImageView>
+                           <HBox maxHeight="70.0" minHeight="0.0" prefHeight="70.0" prefWidth="463.0" spacing="25.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;" HBox.hgrow="ALWAYS">
+                              <children>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="98.0" prefWidth="205.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Label prefHeight="18.0" prefWidth="115.0" text="PERSONAGEM" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold Italic" size="16.0" />
+                                          </font>
+                                       </Label>
+                                       <TextField minHeight="30.0" prefHeight="35.0" prefWidth="205.0" promptText="Nome do Personagem" style="-fx-background-radius: 0;" />
+                                    </children>
+                                    <HBox.margin>
+                                       <Insets />
+                                    </HBox.margin>
+                                 </VBox>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="98.0" prefWidth="205.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Label prefHeight="18.0" prefWidth="115.0" text="CLASSE/RAÇA" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold Italic" size="16.0" />
+                                          </font>
+                                       </Label>
+                                       <TextField prefHeight="35.0" prefWidth="205.0" promptText="Classe / Raça" style="-fx-background-radius: 0;" />
+                                    </children>
+                                 </VBox>
+                                 <VBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="109.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Label prefHeight="18.0" prefWidth="115.0" text="NIVEL" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold Italic" size="16.0" />
+                                          </font>
+                                       </Label>
+                                       <Spinner editable="true" prefHeight="35.0" prefWidth="76.0" />
+                                    </children>
+                                 </VBox>
+                              </children>
+                              <HBox.margin>
+                                 <Insets />
+                              </HBox.margin>
+                              <padding>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </padding>
+                           </HBox>
+                        </children>
+                     </HBox>
+                     <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #e7e4df; -fx-border-color: #aca28f; -fx-border-width: 2;" VBox.vgrow="ALWAYS">
+                        <children>
+                           <HBox alignment="TOP_CENTER" maxHeight="-Infinity" prefHeight="181.0" prefWidth="760.0" spacing="10.0" VBox.vgrow="ALWAYS">
+                              <children>
+                                 <VBox prefHeight="277.0" prefWidth="455.0" HBox.hgrow="ALWAYS">
+                                    <children>
+                                       <Pane prefHeight="0.0" prefWidth="729.0">
+                                          <children>
+                                             <Rectangle fill="#ced8e0" height="489.0" stroke="#788896" strokeType="INSIDE" strokeWidth="2.0" width="103.0" />
+                                          </children>
+                                       </Pane>
+                                       <VBox alignment="TOP_CENTER" minHeight="160.0" prefHeight="162.0" prefWidth="409.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;">
+                                          <padding>
+                                             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                          </padding>
+                                          <children>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
+                                                <children>
+                                                   <Label prefHeight="25.0" prefWidth="365.0" text="ACESSO A MAGIAS (possuídas)" textFill="#4b5c6b">
+                                                      <font>
+                                                         <Font name="System Bold Italic" size="16.0" />
+                                                      </font>
+                                                   </Label>
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="3.0">
+                                                <children>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="32.0" prefWidth="416.0" spacing="3.0">
+                                                <children>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <Label alignment="CENTER" prefHeight="39.0" prefWidth="49.0" text="1°" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold" size="28.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <Label contentDisplay="CENTER" prefHeight="40.0" prefWidth="28.0" text="2°" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="28.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <Label text="3°" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="29.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <Label prefHeight="40.0" prefWidth="27.0" text="4°" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="28.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <Label text="5°" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="28.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <Label text="6°" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="28.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <Label text="7°" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="28.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <Label text="8°" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="25.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox alignment="CENTER" prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <Label text="9°" textFill="#4b5c6b">
+                                                            <font>
+                                                               <Font name="System Bold Italic" size="28.0" />
+                                                            </font>
+                                                         </Label>
+                                                      </children>
+                                                   </HBox>
+                                                </children>
+                                             </HBox>
+                                             <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="3.0">
+                                                <children>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                   <HBox prefHeight="29.0" prefWidth="49.0">
+                                                      <children>
+                                                         <TextField prefHeight="29.0" prefWidth="45.0" style="-fx-background-radius: 0;" />
+                                                      </children>
+                                                   </HBox>
+                                                </children>
+                                             </HBox>
+                                             <Label prefHeight="25.0" prefWidth="365.0" text="MAGIAS POR DIA (memorizadas)" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold Italic" size="16.0" />
+                                                </font>
+                                             </Label>
+                                          </children>
+                                          <VBox.margin>
+                                             <Insets left="25.0" top="10.0" />
+                                          </VBox.margin>
+                                       </VBox>
+                                    </children>
+                                    <padding>
+                                       <Insets bottom="10.0" top="10.0" />
+                                    </padding>
+                                 </VBox>
+                                 <VBox alignment="TOP_CENTER" layoutX="446.0" layoutY="10.0" prefHeight="305.0" prefWidth="326.0">
+                                    <children>
+                                       <Pane prefHeight="0.0" prefWidth="729.0" />
+                                       <Label contentDisplay="CENTER" prefHeight="70.0" prefWidth="272.0" text="FICHA DE MAGIAS" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold Italic" size="31.0" />
+                                          </font>
+                                       </Label>
+                                       <Button minWidth="-Infinity" prefHeight="44.0" prefWidth="258.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="ADICIONAR NOVA MAGIA">
+                                          <font>
+                                             <Font name="System Bold" size="18.0" />
+                                          </font>
+                                       </Button>
+                                    </children>
+                                    <padding>
+                                       <Insets bottom="10.0" top="10.0" />
+                                    </padding>
+                                 </VBox>
+                              </children>
+                           </HBox>
+                           <VBox prefHeight="290.0" prefWidth="722.0" style="-fx-background-color: #e7e4df; -fx-border-color: #aca28f; -fx-border-width: 2;">
+                              <children>
+                                 <HBox alignment="CENTER" prefHeight="22.0" prefWidth="677.0" spacing="20.0">
+                                    <children>
+                                       <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                          <children>
+                                             <Label alignment="CENTER" prefWidth="78.0" text="CÍRCULO" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold" size="14.0" />
+                                                </font>
+                                             </Label>
+                                          </children>
+                                       </HBox>
+                                       <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                          <children>
+                                             <Label alignment="CENTER" prefWidth="131.0" text="NOME DA MAGIA" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold" size="14.0" />
+                                                </font>
+                                             </Label>
+                                          </children>
+                                       </HBox>
+                                       <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                          <children>
+                                             <Label alignment="CENTER" prefWidth="70.0" text="ALCANCE" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold" size="14.0" />
+                                                </font>
+                                             </Label>
+                                          </children>
+                                       </HBox>
+                                       <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                          <children>
+                                             <Label alignment="CENTER" prefWidth="88.0" text="DURAÇÃO" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold" size="14.0" />
+                                                </font>
+                                             </Label>
+                                          </children>
+                                       </HBox>
+                                       <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                          <children>
+                                             <Label alignment="CENTER" prefHeight="20.0" prefWidth="246.0" text="DESCRIÇÃO DA MAGIA" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold" size="14.0" />
+                                                </font>
+                                             </Label>
+                                          </children>
+                                       </HBox>
+                                    </children>
+                                    <padding>
+                                       <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                 </HBox>
+                                 <HBox alignment="CENTER" prefHeight="38.0" prefWidth="696.0" spacing="20.0">
+                                    <children>
+                                       <TextField prefHeight="36.0" prefWidth="78.0" HBox.hgrow="ALWAYS" />
+                                       <TextField prefHeight="36.0" prefWidth="131.0" HBox.hgrow="ALWAYS" />
+                                       <TextField prefHeight="36.0" prefWidth="70.0" HBox.hgrow="ALWAYS" />
+                                       <TextField prefHeight="36.0" prefWidth="88.0" HBox.hgrow="ALWAYS" />
+                                       <TextField prefHeight="36.0" prefWidth="246.0" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                    <VBox.margin>
+                                       <Insets />
+                                    </VBox.margin>
+                                    <padding>
+                                       <Insets left="10.0" right="10.0" />
+                                    </padding>
+                                 </HBox>
+                              </children>
+                              <padding>
+                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                              </padding>
+                              <VBox.margin>
+                                 <Insets left="25.0" />
+                              </VBox.margin>
+                           </VBox>
+                        </children>
+                        <padding>
+                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                        </padding>
+                     </VBox>
+                  </children>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </VBox>
+               <VBox alignment="TOP_CENTER" prefHeight="625.0" prefWidth="171.0" spacing="5.0">
+                  <padding>
+                     <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+                  </padding>
+                  <children>
+                     <ImageView fx:id="emptyImage" fitHeight="122.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@../media/emptyImage.png" />
+                        </image>
+                     </ImageView>
+                     <VBox alignment="TOP_CENTER" prefHeight="394.0" prefWidth="177.0" style="-fx-border-color: #aca28f; -fx-background-color: #e7e4df; -fx-border-width: 2;" VBox.vgrow="ALWAYS">
+                        <VBox.margin>
+                           <Insets />
+                        </VBox.margin>
+                        <padding>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </padding>
+                        <children>
+                           <Label alignment="CENTER" prefHeight="26.0" prefWidth="149.0" text="CARACTERISTICAS" textFill="#4b5c6b">
+                              <font>
+                                 <Font name="System Bold Italic" size="16.0" />
+                              </font>
+                           </Label>
+                           <TextArea prefHeight="363.0" prefWidth="155.0" VBox.vgrow="ALWAYS" />
+                        </children>
+                     </VBox>
+                     <VBox prefHeight="95.0" prefWidth="150.0" spacing="10.0">
+                        <children>
+                           <Button prefHeight="39.0" prefWidth="187.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="PROXIMA PAGINA" VBox.vgrow="ALWAYS">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font>
+                           </Button>
+                           <HBox alignment="BOTTOM_CENTER" minHeight="2.0" prefHeight="42.0" prefWidth="150.0">
+                              <children>
+                                 <Button minWidth="-Infinity" prefHeight="37.0" prefWidth="72.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="VOLTAR">
+                                    <font>
+                                       <Font name="System Bold" size="12.0" />
+                                    </font>
+                                 </Button>
+                                 <HBox prefHeight="56.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
+                                 <Button minWidth="-Infinity" prefHeight="38.0" prefWidth="46.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;">
+                                    <font>
+                                       <Font name="System Bold" size="12.0" />
+                                    </font>
+                                    <graphic>
+                                       <ImageView fitHeight="27.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                             <Image url="@../media/editButtonImage.png" />
+                                          </image>
+                                       </ImageView>
+                                    </graphic>
+                                 </Button>
+                              </children>
+                           </HBox>
+                        </children>
+                        <VBox.margin>
+                           <Insets top="10.0" />
+                        </VBox.margin></VBox>
+                  </children>
+                  <HBox.margin>
+                     <Insets left="5.0" />
+                  </HBox.margin>
+               </VBox>
+            </children>
+            <VBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </VBox.margin>
+         </HBox>
+      </children>
+    </VBox>
+
+
+</AnchorPane>

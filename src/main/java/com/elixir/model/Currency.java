@@ -1,57 +1,89 @@
 package com.elixir.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-public class Currency implements Serializable{
+public class Currency implements Serializable {
     private int id;
-    private double gold;
+    private int characterId;
+    private int gold;
+    private int silver;
+    private int copper;
+    private int electrium;
+    private int platinium;
 
-    private double silver;
-    private double copper;
-    private double electrium;
-    private double platinium;
-
-
-    public Currency(){
+    public Currency() {
     }
 
-    public Currency(double gold, double silver, double copper, double electrium, double platinium) {
-        setGold(gold);
-        setSilver(silver);
-        setCopper(copper);
-        setElectrium(electrium);
-        setPlatinium(platinium);
+    public Currency(int characterId, int gold, int silver, int copper, int electrium, int platinium) {
+        this.characterId = characterId;
+        this.gold = gold;
+        this.silver = silver;
+        this.copper = copper;
+        this.electrium = electrium;
+        this.platinium = platinium;
     }
 
-    public int getId() {return id;}
+    public int getId() {
+        return id;
+    }
 
-    public void setId(int id) {this.id = id;}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public double getGold() {return gold;}
+    public int getCharacterId() {
+        return characterId;
+    }
 
-    public void setGold(double gold) {this.gold = gold;}
+    public void setCharacterId(int characterId) {
+        this.characterId = characterId;
+    }
 
-    public double getSilver() {return silver;}
+    public int getGold() {
+        return gold;
+    }
 
-    public void setSilver(double silver) {this.silver = silver;}
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
 
-    public double getCopper() {return copper;}
+    public int getSilver() {
+        return silver;
+    }
 
-    public void setCopper(double copper) {this.copper = copper;}
+    public void setSilver(int silver) {
+        this.silver = silver;
+    }
 
-    public double getElectrium() {return electrium;}
+    public int getCopper() {
+        return copper;
+    }
 
-    public void setElectrium(double electrium) {this.electrium = electrium;}
+    public void setCopper(int copper) {
+        this.copper = copper;
+    }
 
-    public double getPlatinium() {return platinium;}
+    public int getElectrium() {
+        return electrium;
+    }
 
-    public void setPlatinium(double platinium) {this.platinium = platinium;}
+    public void setElectrium(int electrium) {
+        this.electrium = electrium;
+    }
+
+    public int getPlatinium() {
+        return platinium;
+    }
+
+    public void setPlatinium(int platinium) {
+        this.platinium = platinium;
+    }
 
     @Override
     public String toString() {
-        return "Attribute{" +
+        return "Currency{" +
                 "id=" + id +
+                ", characterId=" + characterId +
                 ", gold=" + gold +
                 ", silver=" + silver +
                 ", copper=" + copper +
@@ -60,6 +92,3 @@ public class Currency implements Serializable{
                 '}';
     }
 }
-
-
-
