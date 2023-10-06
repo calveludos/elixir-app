@@ -387,6 +387,11 @@
                      </VBox>
                      <VBox prefHeight="500.0" prefWidth="341.0">
                         <children>
+                           <Label id="errorLabel" alignment="CENTER" prefHeight="51.0" prefWidth="341.0" textFill="#f20d0d">
+                              <font>
+                                 <Font name="System Bold" size="22.0" />
+                              </font>
+                           </Label>
                            <VBox alignment="CENTER_LEFT" maxHeight="100.0" prefHeight="558.0" prefWidth="337.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
                               <children>
                                  <Region prefHeight="200.0" prefWidth="200.0" />
@@ -440,14 +445,9 @@
                                  </Text>
                               </children>
                            </VBox>
-                           <Label id="errorLabel" alignment="CENTER" prefHeight="51.0" prefWidth="341.0" textFill="#f20d0d">
-                              <font>
-                                 <Font size="22.0" />
-                              </font>
-                           </Label>
                         </children>
                         <HBox.margin>
-                           <Insets left="60.0" top="110.0" />
+                           <Insets left="60.0" top="90.0" />
                         </HBox.margin>
                      </VBox>
                      <VBox alignment="CENTER_RIGHT" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="0.0">

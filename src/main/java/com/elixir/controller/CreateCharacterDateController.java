@@ -68,7 +68,7 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
         });
 
         nameField.textProperty().addListener((object, oldValue, newValue) -> {
-            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9 ]*")) {
+            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9 çÇáÁéÉíÍóÓúÚâÂêÊôÔãÃõÕüÜ]*")) {
                 nameField.textProperty().setValue(oldValue);
             } else {
                 nameField.textProperty().setValue(newValue);
@@ -76,7 +76,7 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
         });
 
         namePlayerField.textProperty().addListener((object, oldValue, newValue) -> {
-            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9 ]*")) {
+            if (newValue.length() > 100 || !newValue.matches("[a-zA-Z0-9 çÇáÁéÉíÍóÓúÚâÂêÊôÔãÃõÕüÜ]*")) {
                 namePlayerField.textProperty().setValue(oldValue);
             } else {
                 namePlayerField.textProperty().setValue(newValue);

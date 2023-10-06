@@ -110,6 +110,7 @@ public class AttributeDAO extends CrudDAO<Attribute> {
         return attributeMap;
     }
 
+
     @Override
     public Map<Integer, Attribute> read(Attribute filter) throws SQLException {
         String query = "SELECT * FROM `Attribute` WHERE 1=1";

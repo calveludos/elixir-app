@@ -1,8 +1,11 @@
 package com.elixir.controller;
 
 import com.elixir.controller.abstractControllers.CreateCharacterSectionController;
+
+import com.elixir.manager.JsonManger;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
+import com.elixir.manager.Tuple;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import javafx.application.Platform;
@@ -11,7 +14,9 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.util.converter.IntegerStringConverter;
 
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class CreateCharacterAttributesController extends CreateCharacterSectionController {
 
@@ -32,6 +37,9 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
 
     @FXML
     private TextField wisField;
+
+    @FXML
+    private Label errorLabel;
 
     private Character character;
     private Attribute attribute;
@@ -141,22 +149,28 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
     @Override
     protected void saveCharacter(String fxml){
 
-        attribute.setStrength(Integer.parseInt(strField.getText()));
-        attribute.setWisdom(Integer.parseInt(wisField.getText()));
-        attribute.setDexterity(Integer.parseInt(dexField.getText()));
-        attribute.setIntelligence(Integer.parseInt(intField.getText()));
-        attribute.setConstitution(Integer.parseInt(conField.getText()));
-        attribute.setCharisma(Integer.parseInt(chaField.getText()));
 
-        ObjectSaveManager saver = new ObjectSaveManager();
-        saver.saveObject("attribute", attribute);
 
-        ObjectSaveManager saverCharacter = new ObjectSaveManager();
-        saverCharacter.saveObject("character", character);
+            attribute.setStrength(Integer.parseInt(strField.getText()));
+            attribute.setWisdom(Integer.parseInt(wisField.getText()));
+            attribute.setDexterity(Integer.parseInt(dexField.getText()));
+            attribute.setIntelligence(Integer.parseInt(intField.getText()));
+            attribute.setConstitution(Integer.parseInt(conField.getText()));
+            attribute.setCharisma(Integer.parseInt(chaField.getText()));
 
-        System.out.println(character.toString());
+            ObjectSaveManager saver = new ObjectSaveManager();
+            saver.saveObject("attribute", attribute);
 
-        PaneManager paneManager = new PaneManager((Stage) strField.getScene().getWindow());
-        paneManager.openPane(fxml);
+            ObjectSaveManager saverCharacter = new ObjectSaveManager();
+            saverCharacter.saveObject("character", character);
+
+            System.out.println(character.toString());
+
+            PaneManager paneManager = new PaneManager((Stage) strField.getScene().getWindow());
+            paneManager.openPane(fxml);
+
+
     }
+
+
 }
