@@ -15,7 +15,7 @@ public class User implements Serializable {
     private boolean isVerify;
 
     public User() {
-        this.codeVerify = UUID.randomUUID().toString().substring(0, 8);
+        this.codeVerify = UUID.randomUUID().toString().substring(0, 6);
         this.dataRegister = new Timestamp(System.currentTimeMillis());
         this.isVerify = false;
     }

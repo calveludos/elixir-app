@@ -1,5 +1,6 @@
 package com.elixir.controller;
 
+import com.elixir.controller.objects.ValidationButton;
 import com.elixir.dao.UserDAO;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -43,6 +45,11 @@ public class LoginController {
     private TextField textPassword;
 
     @FXML
+    private VBox vboxBody;
+
+    private String password;
+
+    @FXML
     void createAccountButtonAction(ActionEvent event) {
         PaneManager manager = new PaneManager((Stage) createAccountButton.getScene().getWindow());
         manager.openPane("logon");
@@ -69,13 +76,26 @@ public class LoginController {
             errorLabel.setTextFill(Color.RED);
             errorLabel.setText(exception.getMessage());
             throw new SQLException(exception);
+        } catch (java.lang.ArrayIndexOutOfBoundsException exception){
+            errorLabel.setTextFill(Color.RED);
+            errorLabel.setText("Usuário ainda não confirmado");
+            vboxBody.getChildren().add(new ValidationButton("Confimação"));
+            return;
         }
+
         ObjectSaveManager saveManager = new ObjectSaveManager();
         saveManager.saveObject("user", user);
 
-        System.out.println(passwordField.getText());
+        if (viewPasswordCheckbox.isSelected()){
+            password = textPassword.getText();
+        } else {
+            password = passwordField.getText();
+        }
+
+        System.out.println(password);
         System.out.println(user.getPassword());
-        if (BCrypt.checkpw(passwordField.getText(), user.getPassword())){
+
+        if (BCrypt.checkpw(password, user.getPassword())){
             errorLabel.setTextFill(Color.GREEN);
             errorLabel.setText("Inciando Seção...");
 
@@ -93,7 +113,6 @@ public class LoginController {
     @FXML
     void viewPasswordCheckboxAction(ActionEvent event) {
 
-        String password;
         if (viewPasswordCheckbox.isSelected()){
             password = passwordField.getText();
             textPassword.setText(password);

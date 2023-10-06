@@ -30,7 +30,7 @@
                         </ImageView>
                      </children>
                   </Pane>
-                  <VBox alignment="CENTER" prefHeight="625.0" prefWidth="940.0" style="-fx-border-color: #897a5f; -fx-border-width: 2;">
+                  <VBox fx:id="vboxBody" alignment="CENTER" prefHeight="625.0" prefWidth="940.0" style="-fx-border-color: #897a5f; -fx-border-width: 2;">
                      <padding>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </padding>
