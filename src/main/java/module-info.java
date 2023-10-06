@@ -11,6 +11,7 @@ module com.app {
     requires javafx.graphics;
     requires jbcrypt;
     requires mysql.connector.j;
+    requires commons.email;
     opens media;
     opens com.elixir.controller to javafx.fxml;
     exports com.elixir.controller.abstractControllers;
