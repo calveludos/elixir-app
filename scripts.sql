@@ -1,4 +1,4 @@
-USE `bywkvhsiabss77ybfqwq`;
+USE estudante1;
 
 -- Drop tables if they exist
 DROP TABLE IF EXISTS `Speech`;
@@ -307,6 +307,11 @@ ORDER BY c.id_class ASC;
 
 
 
+
+
+
+-- VIEWS
+CREATE OR REPLACE VIEW characterMaisDinheiro AS
 SELECT u.id, u.first_name, SUM(cy.copper + cy.silver + cy.gold + cy.electrium + cy.platinium) as total_moedas, SUM(cy.copper) as total_copper, SUM(cy.silver) as total_silver, SUM(cy.gold) as total_gold, SUM(cy.electrium) as total_electrium, SUM(cy.platinium) as total_platinium
 FROM `User` u
 LEFT JOIN `Character` c ON u.id = c.id_user
@@ -315,4 +320,10 @@ GROUP BY u.id, u.first_name
 HAVING total_moedas > 700
 ORDER BY total_moedas DESC;
 
-SELECT * FROM `Character`;
+CREATE OR REPLACE VIEW usuario AS
+SELECT email, first_name, last_name, code_verify, data_register, is_verify
+FROM `User`;
+
+
+SELECT * FROM `characterMaisDinheiro`;
+SELECT * FROM `usuario`;
