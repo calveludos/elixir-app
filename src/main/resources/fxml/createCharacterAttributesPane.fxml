@@ -387,12 +387,12 @@
                      </VBox>
                      <VBox prefHeight="500.0" prefWidth="341.0">
                         <children>
-                           <Label id="errorLabel" alignment="CENTER" prefHeight="51.0" prefWidth="341.0" textFill="#f20d0d">
-                              <font>
-                                 <Font name="System Bold" size="22.0" />
-                              </font>
-                           </Label>
-                           <VBox alignment="CENTER_LEFT" maxHeight="100.0" prefHeight="558.0" prefWidth="337.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
+                            <Label fx:id="errorLabel" alignment="CENTER" prefHeight="51.0" prefWidth="341.0" textFill="#f20d0d">
+                                <font>
+                                    <Font name="System Bold" size="22.0" />
+                                </font>
+                            </Label>
+                            <VBox alignment="CENTER_LEFT" maxHeight="100.0" prefHeight="558.0" prefWidth="337.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
                               <children>
                                  <Region prefHeight="200.0" prefWidth="200.0" />
                                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CONSTITUIÇÃO: Reflete a resistência e saúde." wrappingWidth="310.13000106811523">

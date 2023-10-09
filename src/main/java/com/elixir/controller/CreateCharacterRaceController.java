@@ -21,9 +21,9 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
     @FXML
     private Label chosenRaceLabel;
     @FXML
-    private TextField errorLabel;
+    private Label messageLabel;
     @FXML
-    private TextField conField;
+    private Label showUpdateLabel;
     private Character character;
     private Attribute attribute;
 
@@ -66,6 +66,8 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
         dwarfAtt.setConstitution(dwarfAtt.getConstitution()+2);
         System.out.println(dwarfAtt.getConstitution());
         chosenRaceLabel.setText("Anão");
+        messageLabel.setText("Bônus de anão adicionado: +2 em constituição e -2 em carisma");
+        showUpdateLabel.setText("Novos valores em constituição: " + dwarfAtt.getConstitution() + " e carisma: " + dwarfAtt.getCharisma());
         character.setRaceId(3);
     }
 
@@ -78,6 +80,8 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
         elfAtt.setDexterity(elfAtt.getDexterity()+2);
         elfAtt.setConstitution(elfAtt.getConstitution()-2);
         chosenRaceLabel.setText("Elfo");
+        messageLabel.setText("Bônus de elfo adicionado: +2 em destreza e -2 em constituição");
+        showUpdateLabel.setText("Novos valores em destreza: " + elfAtt.getDexterity() + " e constituição: " + elfAtt.getConstitution());
         character.setRaceId(2);
     }
     @FXML
@@ -88,11 +92,16 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
         halAtt.setStrength(halAtt.getStrength()-2);
         reader.saveObject("attribute", halAtt);
         chosenRaceLabel.setText("Halfing");
+        messageLabel.setText("Bônus de halfing adicionado: +2 em destreza e -2 em força");
+        showUpdateLabel.setText("Novos valores em constituição: " + halAtt.getDexterity() + " e carisma: " + halAtt.getStrength());
+
         character.setRaceId(4);
     }
     @FXML
     void choiseHumanButtonAction(ActionEvent event) {
         chosenRaceLabel.setText("Humano");
+        messageLabel.setText("");
+        showUpdateLabel.setText("");
         character.setRaceId(1);
     }
 
