@@ -53,14 +53,29 @@ public class LogonController {
     }
 
     @FXML
-    void logonButtonAction(ActionEvent event) throws SQLException {
-        String username = usernameField.getText();
-        String email = emailField.getText();
+void logonButtonAction(ActionEvent event) throws SQLException {
+    String username = usernameField.getText();
+    String email = emailField.getText();
+    String password = passwordField.getText();
+    String firstName = firstNameField.getText();
+    String lastName = lastNameField.getText();
 
-        errorLabel.setMinHeight(20.0);
-        errorLabel.setMinHeight(20.0);
-        errorLabel.setMinHeight(20.0);
-        errorLabel.setFont(Font.font("System Bold", FontWeight.BOLD, 12.0));
+    errorLabel.setMinHeight(20.0);
+    errorLabel.setFont(Font.font("System Bold", FontWeight.BOLD, 12.0));
+
+    if (firstName.isEmpty() || lastName.isEmpty()) {
+        errorLabel.setText("Por favor, insira o primeiro e o último nome.");
+    } else if (password.isEmpty()) {
+        errorLabel.setText("Por favor, insira a senha.");
+    } else if (password.length() < 6 || password.length() > 12) {
+        errorLabel.setText("A senha deve ter entre 6 e 12 caracteres.");
+    } else if (!password.matches(".*[A-Z].*")) {
+        errorLabel.setText("A senha deve conter pelo menos uma letra maiúscula.");
+    } else if (!password.matches(".*[a-z].*")) {
+        errorLabel.setText("A senha deve conter pelo menos uma letra minúscula.");
+    } else if (!password.matches(".*\\d.*")) {
+        errorLabel.setText("A senha deve conter pelo menos um número.");
+}
 
         if (viewPasswordCheckbox.isSelected()){
             password = textPassword.getText();

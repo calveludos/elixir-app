@@ -56,19 +56,38 @@ public class LoginController {
     }
 
     @FXML
-    void loginButtonAction(ActionEvent event) throws SQLException {
-        UserDAO userDAO = new UserDAO();
-        User filter = new User(true);
-        filter.setUsername(usernameField.getText());
-        filter.setVerify(true);
-        System.out.println(filter.getUsername());
-        User user = null;
-        errorLabel.setMinHeight(20.0);
-        errorLabel.setMinHeight(20.0);
-        errorLabel.setMinHeight(20.0);
-        errorLabel.setTextFill(Color.BLACK);
-        errorLabel.setFont(Font.font("System Bold", FontWeight.BOLD, 12.0));
-        errorLabel.setText("Carregando...");
+void loginButtonAction(ActionEvent event) throws SQLException {
+    String username = usernameField.getText();
+    String password = passwordField.getText();
+    UserDAO userDAO = new UserDAO();
+    User filter = new User(true);
+    filter.setUsername(username);
+    filter.setVerify(true);
+    System.out.println(filter.getUsername());
+    User user = null;
+    errorLabel.setMinHeight(20.0);
+    errorLabel.setMinHeight(20.0);
+    errorLabel.setMinHeight(20.0);
+    errorLabel.setTextFill(Color.BLACK);
+    errorLabel.setFont(Font.font("System Bold", FontWeight.BOLD, 12.0));
+    
+    String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{6,12}$";
+    if (!password.matches(regex)) {
+        errorLabel.setText("Senha inválida. A senha deve ter entre 6 e 12 caracteres, incluindo pelo menos uma letra maiúscula, uma letra minúscula e um número.");
+        return;
+    }
+    
+    user = userDAO.getUserByUsernameAndPassword(username, password); 
+    
+    if (user == null) {
+        errorLabel.setText("Nome de usuário ou senha incorretos.");
+        return;
+    }
+    
+    errorLabel.setText("Carregando...");
+
+   
+}
 
         try {
             user = (User) userDAO.read(filter).values().toArray()[0];
