@@ -30,6 +30,6 @@ public class MenuController {
     @FXML
     void startPaneMenuButtonAction(ActionEvent event) {
         PaneManager paneManager = new PaneManager((Stage) startPaneMenuButton.getScene().getWindow());
-        paneManager.openPane("NormalStartScreen");
+        paneManager.openPane("startScreenPane");
     }
 }

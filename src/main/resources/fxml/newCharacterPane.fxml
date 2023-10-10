@@ -120,7 +120,7 @@
       </ImageView>
         <ImageView fitHeight="343.0" fitWidth="272.0" layoutX="310.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../media/newCharacterPaneImage.png" />
+                <Image url="@../media/newCharacterPaneImage.jpg" />
             </image>
         </ImageView>
       <Button fx:id="createNewCharacterButton" onAction="#createNewCharacterButtonAction" prefHeight="32.0" prefWidth="166.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="CRIAR FICHA">

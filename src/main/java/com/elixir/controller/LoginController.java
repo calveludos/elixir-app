@@ -100,7 +100,7 @@ public class LoginController {
             errorLabel.setText("Inciando Seção...");
 
             PaneManager manager = new PaneManager((Stage) loginButton.getScene().getWindow());
-            manager.openPane("myCharactersPane");
+            manager.openPane("startScreenPane");
         } else {
             errorLabel.setTextFill(Color.RED);
             errorLabel.setText("Usuário ou Senha inválidos");

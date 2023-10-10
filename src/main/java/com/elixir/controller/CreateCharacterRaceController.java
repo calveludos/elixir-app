@@ -32,6 +32,7 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
     private void initialize(){
         ObjectSaveManager reader = new ObjectSaveManager();
         character = (Character) reader.getObject("character");
+        attribute = (Attribute) reader.getObject("attribute");
 
         try{
             if(character.getRaceId() > 0){
@@ -60,14 +61,12 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
 
     @FXML
     void choiseDwarfButtonAction(ActionEvent event) {
-        ObjectSaveManager reader = new ObjectSaveManager();
-        Attribute dwarfAtt = (Attribute) reader.getObject("attribute");
-        dwarfAtt.setCharisma(dwarfAtt.getCharisma()-2);
-        dwarfAtt.setConstitution(dwarfAtt.getConstitution()+2);
-        System.out.println(dwarfAtt.getConstitution());
+        attribute.setCharisma(attribute.getCharisma()-2);
+        attribute.setConstitution(attribute.getConstitution()+2);
+        System.out.println(attribute.getConstitution());
         chosenRaceLabel.setText("Anão");
         messageLabel.setText("Bônus de anão adicionado: +2 em constituição e -2 em carisma");
-        showUpdateLabel.setText("Novos valores em constituição: " + dwarfAtt.getConstitution() + " e carisma: " + dwarfAtt.getCharisma());
+        showUpdateLabel.setText("Novos valores em constituição: " + attribute.getConstitution() + " e carisma: " + attribute.getCharisma());
         character.setRaceId(3);
     }
 
@@ -75,25 +74,21 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
 
     @FXML
     void choiseElfButtonAction(ActionEvent event) {
-        ObjectSaveManager reader = new ObjectSaveManager();
-        Attribute elfAtt = (Attribute) reader.getObject("attribute");
-        elfAtt.setDexterity(elfAtt.getDexterity()+2);
-        elfAtt.setConstitution(elfAtt.getConstitution()-2);
+        attribute.setCharisma(attribute.getDexterity()-2);
+        attribute.setConstitution(attribute.getConstitution()+2);
         chosenRaceLabel.setText("Elfo");
         messageLabel.setText("Bônus de elfo adicionado: +2 em destreza e -2 em constituição");
-        showUpdateLabel.setText("Novos valores em destreza: " + elfAtt.getDexterity() + " e constituição: " + elfAtt.getConstitution());
+        showUpdateLabel.setText("Novos valores em destreza: " + attribute.getDexterity() + " e constituição: " + attribute.getConstitution());
         character.setRaceId(2);
     }
+
     @FXML
     void choiseHalflingButtonAction(ActionEvent event) {
-        ObjectSaveManager reader = new ObjectSaveManager();
-        Attribute halAtt = (Attribute) reader.getObject("attribute");
-        halAtt.setDexterity(halAtt.getDexterity()+2);
-        halAtt.setStrength(halAtt.getStrength()-2);
-        reader.saveObject("attribute", halAtt);
+        attribute.setCharisma(attribute.getStrength()-2);
+        attribute.setConstitution(attribute.getDexterity()+2);
         chosenRaceLabel.setText("Halfing");
         messageLabel.setText("Bônus de halfing adicionado: +2 em destreza e -2 em força");
-        showUpdateLabel.setText("Novos valores em constituição: " + halAtt.getDexterity() + " e carisma: " + halAtt.getStrength());
+        showUpdateLabel.setText("Novos valores em constituição: " + attribute.getDexterity() + " e carisma: " + attribute.getStrength());
 
         character.setRaceId(4);
     }
@@ -109,6 +104,7 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
     protected void saveCharacter(String fxml){
         ObjectSaveManager saver = new ObjectSaveManager();
         saver.saveObject("character", character);
+        saver.saveObject("attribute", attribute);
 
         PaneManager paneManager = new PaneManager((Stage) chosenRaceLabel.getScene().getWindow());
         paneManager.openPane(fxml);
