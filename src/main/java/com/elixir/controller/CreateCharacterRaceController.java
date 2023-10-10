@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.util.Map;
 
 import java.sql.SQLException;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.Filter;
 
 
@@ -26,6 +27,8 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
     private Label showUpdateLabel;
     private Character character;
     private Attribute attribute;
+    private Attribute copyAttribute;
+
 
 
     @FXML
@@ -61,35 +64,61 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
 
     @FXML
     void choiseDwarfButtonAction(ActionEvent event) {
-        attribute.setCharisma(attribute.getCharisma()-2);
-        attribute.setConstitution(attribute.getConstitution()+2);
-        System.out.println(attribute.getConstitution());
+        copyAttribute = new Attribute(
+                attribute.getStrength(),
+                attribute.getDexterity(),
+                attribute.getCharisma(),
+                attribute.getIntelligence(),
+                attribute.getWisdom(),
+                attribute.getConstitution()
+        );
+        copyAttribute.setConstitution(copyAttribute.getConstitution()+2);
+        copyAttribute.setCharisma(copyAttribute.getCharisma()-2);
         chosenRaceLabel.setText("Anão");
         messageLabel.setText("Bônus de anão adicionado: +2 em constituição e -2 em carisma");
-        showUpdateLabel.setText("Novos valores em constituição: " + attribute.getConstitution() + " e carisma: " + attribute.getCharisma());
+        showUpdateLabel.setText("Novos valores em constituição: " + copyAttribute.getConstitution() + " e carisma: " + copyAttribute.getCharisma());
         character.setRaceId(3);
+        System.out.println(copyAttribute);
+
     }
 
 
 
     @FXML
     void choiseElfButtonAction(ActionEvent event) {
-        attribute.setCharisma(attribute.getDexterity()-2);
-        attribute.setConstitution(attribute.getConstitution()+2);
+        copyAttribute = new Attribute(
+                attribute.getStrength(),
+                attribute.getDexterity(),
+                attribute.getCharisma(),
+                attribute.getIntelligence(),
+                attribute.getWisdom(),
+                attribute.getConstitution()
+        );
+        copyAttribute.setDexterity(copyAttribute.getDexterity()+2);
+        copyAttribute.setConstitution(copyAttribute.getConstitution()-2);
         chosenRaceLabel.setText("Elfo");
         messageLabel.setText("Bônus de elfo adicionado: +2 em destreza e -2 em constituição");
-        showUpdateLabel.setText("Novos valores em destreza: " + attribute.getDexterity() + " e constituição: " + attribute.getConstitution());
+        showUpdateLabel.setText("Novos valores em destreza: " + copyAttribute.getDexterity() + " e constituição: " + copyAttribute.getConstitution());
         character.setRaceId(2);
-    }
+        System.out.println(copyAttribute);
 
+    }
     @FXML
     void choiseHalflingButtonAction(ActionEvent event) {
-        attribute.setCharisma(attribute.getStrength()-2);
-        attribute.setConstitution(attribute.getDexterity()+2);
+        copyAttribute = new Attribute(
+                attribute.getStrength(),
+                attribute.getDexterity(),
+                attribute.getCharisma(),
+                attribute.getIntelligence(),
+                attribute.getWisdom(),
+                attribute.getConstitution()
+        );
+        copyAttribute.setDexterity(copyAttribute.getDexterity()+2);
+        copyAttribute.setStrength(copyAttribute.getStrength()-2);
         chosenRaceLabel.setText("Halfing");
         messageLabel.setText("Bônus de halfing adicionado: +2 em destreza e -2 em força");
-        showUpdateLabel.setText("Novos valores em constituição: " + attribute.getDexterity() + " e carisma: " + attribute.getStrength());
-
+        showUpdateLabel.setText("Novos valores em constituição: " + copyAttribute.getDexterity() + " e carisma: " + copyAttribute.getStrength());
+        System.out.println(copyAttribute);
         character.setRaceId(4);
     }
     @FXML
@@ -103,9 +132,9 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
     @Override
     protected void saveCharacter(String fxml){
         ObjectSaveManager saver = new ObjectSaveManager();
+        attribute = copyAttribute;
         saver.saveObject("character", character);
         saver.saveObject("attribute", attribute);
-
         PaneManager paneManager = new PaneManager((Stage) chosenRaceLabel.getScene().getWindow());
         paneManager.openPane(fxml);
     }
