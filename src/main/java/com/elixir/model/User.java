@@ -14,6 +14,8 @@ public class User implements Serializable {
     private Timestamp dataRegister;
     private boolean isVerify;
 
+    public boolean filterVerify;
+
     public User() {
         this.codeVerify = UUID.randomUUID().toString().substring(0, 6);
         this.dataRegister = new Timestamp(System.currentTimeMillis());
@@ -29,7 +31,8 @@ public class User implements Serializable {
         this.isVerify = isVerify;
     }
 
-    public User(boolean b) {
+    public User(boolean filterVerify) {
+        this.filterVerify = filterVerify;
     }
 
     public int getId() {
@@ -80,7 +83,7 @@ public class User implements Serializable {
         this.dataRegister = dataRegister;
     }
 
-    public boolean isVerify() {
+    public Boolean isVerify() {
         return isVerify;
     }
 

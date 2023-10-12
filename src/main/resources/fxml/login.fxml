@@ -55,7 +55,7 @@
                               <Insets top="30.0" />
                            </VBox.margin>
                         </HBox>
-                        <Label fx:id="errorLabel" alignment="TOP_CENTER" minHeight="-Infinity" prefHeight="34.0" prefWidth="295.0" textFill="RED">
+                        <Label fx:id="errorLabel" alignment="TOP_CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="34.0" prefWidth="295.0" textFill="RED">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

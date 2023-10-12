@@ -166,7 +166,7 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
         ObjectSaveManager saver = new ObjectSaveManager();
         saver.saveObject("character", character);
 
-        PaneManager paneManager = new PaneManager((Stage) apperanceField.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane(fxml);
     }
 }

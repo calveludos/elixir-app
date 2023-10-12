@@ -166,7 +166,7 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
 
             System.out.println(character.toString());
 
-            PaneManager paneManager = new PaneManager((Stage) strField.getScene().getWindow());
+            PaneManager paneManager = new PaneManager();
             paneManager.openPane(fxml);
 
 

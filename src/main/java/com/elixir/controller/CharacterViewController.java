@@ -287,13 +287,13 @@ public class CharacterViewController {
     }
 
     public void createCharacterButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) myCharacterMenuButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane("newCharacterPane");
     }
 
     @FXML
     void myCharacterMenuButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) myCharacterMenuButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane("myCharactersPane");
     }
 }

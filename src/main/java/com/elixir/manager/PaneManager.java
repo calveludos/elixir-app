@@ -11,8 +11,8 @@ import java.io.IOException;
 public class PaneManager {
     private final Stage stage;
 
-    public PaneManager(Stage stage) {
-        this.stage = stage;
+    public PaneManager() {
+        this.stage = MainApp.getStage();
     }
 
     public void openPane(String caminhoFXML) {

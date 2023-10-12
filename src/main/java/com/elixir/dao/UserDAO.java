@@ -133,7 +133,9 @@ public class UserDAO extends CrudDAO<User> {
         if (filter.getDataRegister() != null) {
             query.append(" AND data_register = '").append(filter.getDataRegister()).append("'");
         }
-        query.append(" AND is_verify = ").append(filter.isVerify() ? 1 : 0);
+        if (!filter.filterVerify) {
+            query.append(" AND is_verify = ").append(filter.isVerify() ? 1 : 0);
+        }
 
         ResultSet resultSet = null;
         Map<Integer, User> userMap = new HashMap<>();

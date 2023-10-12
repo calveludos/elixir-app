@@ -27,12 +27,24 @@ class JsonMangerTest {
     }
 
     @Test
+    void get12() throws IOException, ParseException {
+        String habilite = (String) JsonManger.get("class/cleric/Especialização/Cultista/Habilidades/Nível 8");
+        assertEquals("A partir do 8° nível, o cultista pode optar, ao invés de afastar automaticamente um morto-vivo, por controlá-lo por até 24 horas. Findo esse período, o morto-vivo não estará mais sob o controle do cultista.", habilite);
+    }
+
+    @Test
     void get2() throws IOException, ParseException {
         List<Object> path = new ArrayList<>();
         path.add("cleric");
         path.add(new Tuple<>("level", 7));
         path.add("XP");
         long XP = (long) JsonManger.get("class", path);
+        assertEquals(48000, XP);
+    }
+
+    @Test
+    void get22() throws IOException, ParseException {
+        long XP = (long) JsonManger.get("class/cleric/level:7/XP");
         assertEquals(48000, XP);
     }
 

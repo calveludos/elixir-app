@@ -8,6 +8,7 @@ import com.elixir.dao.CharacterDAO;
 import com.elixir.dao.FolderDAO;
 import com.elixir.factory.ConnectionFactory;
 import com.elixir.manager.ObjectSaveManager;
+import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import com.elixir.model.Folder;
@@ -17,6 +18,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
+import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,23 +36,12 @@ public class MyCharactersController extends MenuController {
     @FXML
     private HBox hboxFolders;
 
-    private Map<Integer, Character> characterMap;
-
     @FXML
     private void initialize(){
         ObjectSaveManager reader = new ObjectSaveManager();
         int userId = ((User) reader.getObject("user")).getId();
-
-        Map<Integer, Folder> folderMap;
-        try {
-            FolderDAO folderDAO = new FolderDAO();
-            Folder filter = new Folder();
-            filter.setUserId(userId);
-            folderMap = folderDAO.read(filter);
-        } catch (SQLException e){
-            e.printStackTrace();
-            return;
-        }
+        Map<Integer, Character> characterMap = (Map<Integer, Character>) reader.getObject("characters");
+        Map<Integer, Folder> folderMap = (Map<Integer, Folder>) reader.getObject("folders");
         
         int defaultId = -1;
         for (Folder f :
@@ -59,50 +51,6 @@ public class MyCharactersController extends MenuController {
             }
         }
         folderMap.remove(defaultId);
-
-        ResultSet resultSet = null;
-
-        String query = "SELECT c.* FROM `Character` c JOIN Folder f\n" +
-                "ON c.id_folder = f.id \n" +
-                "WHERE f.id_user = ?;";
-
-        characterMap = new HashMap<>();
-
-        try (
-                Connection conn = ConnectionFactory.createConnection();
-                PreparedStatement stmt = conn.prepareStatement(query)
-        ) {
-            stmt.setInt(1, userId);
-
-            resultSet = stmt.executeQuery();
-
-
-            while (resultSet.next()) {
-                Character character = new Character();
-                character.setId(resultSet.getInt("id"));
-                character.setAlignmentId(resultSet.getInt("id_alignment"));
-                character.setAttributeId(resultSet.getInt("id_attribute"));
-                character.setClassId(resultSet.getInt("id_class"));
-                character.setRaceId(resultSet.getInt("id_race"));
-                character.setFolderId(resultSet.getInt("id_folder"));
-                character.setName(resultSet.getString("name"));
-                character.setPlayerName(resultSet.getString("player_name"));
-                character.setExperience(resultSet.getInt("experience"));
-                character.setHeight(resultSet.getInt("height"));
-                character.setWeight(resultSet.getInt("weight"));
-                character.setCurrentPv(resultSet.getInt("current_pv"));
-                character.setMaxPv(resultSet.getInt("max_pv"));
-                character.setClassArmorBonus(resultSet.getInt("class_armor_bonus"));
-                character.setAppearance(resultSet.getString("apperance"));
-                character.setBackground(resultSet.getString("background"));
-                character.setImagePath(resultSet.getString("image_path"));
-
-                characterMap.put(character.getId(), character);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
 
         if(!folderMap.isEmpty()){
             Integer[] indexs = folderMap.keySet().toArray(new Integer[0]);
@@ -166,7 +114,7 @@ public class MyCharactersController extends MenuController {
 
     @FXML
     private void newFolderButtonAction(){
-
+        PaneManager paneManager = new PaneManager();
     }
 
     public static String getClassId(int classId) {

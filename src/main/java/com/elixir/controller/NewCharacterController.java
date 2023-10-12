@@ -17,7 +17,7 @@ public class NewCharacterController extends MenuController {
         ObjectSaveManager objectSaveManager = new ObjectSaveManager();
         objectSaveManager.cleanObjects();
 
-        PaneManager paneManager = new PaneManager((Stage) createNewCharacterButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane("createCharacterDatePane");
     }
 

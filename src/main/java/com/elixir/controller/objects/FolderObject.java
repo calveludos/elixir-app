@@ -42,7 +42,7 @@ public class FolderObject extends HBox {
             Folder folder1 = (Folder) saver.getObject("folder");
             System.out.println(folder1.getId());
 
-            PaneManager paneManager = new PaneManager((Stage) this.getScene().getWindow());
+            PaneManager paneManager = new PaneManager();
             paneManager.openPane("folderCharacters");
         });
     }

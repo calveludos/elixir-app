@@ -15,7 +15,7 @@ public class MainApp extends Application {
     @Override
     public void start(Stage s) throws IOException {
         stage=s;
-        setRoot("initialScreenPane","");
+        setRoot("initialScreenPane","Elixir Maker");
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -34,6 +34,9 @@ public class MainApp extends Application {
         return fxmlLoader.load();
     }
 
+    public static Stage getStage() {
+        return stage;
+    }
 
     public static void main(String[] args) {
         ObjectSaveManager saver = new ObjectSaveManager();

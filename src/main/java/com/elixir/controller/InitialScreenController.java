@@ -17,13 +17,13 @@ public class InitialScreenController {
 
     @FXML
     void loginButtonAction(ActionEvent event) {
-        PaneManager manager = new PaneManager((Stage) loginButton.getScene().getWindow());
+        PaneManager manager = new PaneManager();
         manager.openPane("login");
     }
 
     @FXML
     void logonButtonAction(ActionEvent event) {
-        PaneManager manager = new PaneManager((Stage) loginButton.getScene().getWindow());
+        PaneManager manager = new PaneManager();
         manager.openPane("logon");
     }
 

@@ -17,19 +17,19 @@ public class MenuController {
     private Button startPaneMenuButton;
 
     public void createNewCharacterMenuButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) createNewCharacterMenuButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane("newCharacterPane");
     }
 
     @FXML
     void myCharactersMenuButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) myCharactersMenuButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane("myCharactersPane");
     }
 
     @FXML
     void startPaneMenuButtonAction(ActionEvent event) {
-        PaneManager paneManager = new PaneManager((Stage) startPaneMenuButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane("startScreenPane");
     }
 }

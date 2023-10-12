@@ -113,7 +113,7 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
         ObjectSaveManager saver = new ObjectSaveManager();
         saver.saveObject("character", character);
 
-        PaneManager paneManager = new PaneManager((Stage) chosenClassLabel.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane(fxml);
     }
 }

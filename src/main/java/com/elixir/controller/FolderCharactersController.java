@@ -31,10 +31,8 @@ public class FolderCharactersController extends MenuController {
         ObjectSaveManager reader = new ObjectSaveManager();
         reader.printMap();
         Folder folder = (Folder) reader.getObject("folder");
-        CharacterDAO characterDAO = new CharacterDAO();
-        Character filter = new Character();
-        filter.setFolderId(folder.getId());
-        Map<Integer, Character> characterMap = characterDAO.read(filter);
+        Map<Integer, Character> characterMap = (Map<Integer, Character>) reader.getObject("characters");
+        characterMap.values().removeIf(c -> c.getFolderId() != folder.getId());
 
         Integer[] indexs = characterMap.keySet().toArray(new Integer[0]);
         for (int i = 0; i < characterMap.size(); i = i + 2) {

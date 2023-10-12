@@ -3,14 +3,13 @@ package com.elixir.controller;
 import com.elixir.controller.abstractControllers.CreateCharacterSectionController;
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
+import com.elixir.dao.SlotsDAO;
 import com.elixir.manager.JsonManger;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.manager.Tuple;
-import com.elixir.model.Attribute;
+import com.elixir.model.*;
 import com.elixir.model.Character;
-import com.elixir.model.Slots;
-import com.elixir.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,9 +21,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class CreateCharacterBackgroundController extends CreateCharacterSectionController {
 
@@ -61,102 +58,72 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
     }
 
     private void finishCharacter() throws SQLException, IOException, ParseException {
+
+        long classXP = (long) JsonManger.get("class/" + getClass(character.getClassId()) + "/level:" + character.level + "/XP");
+        double maxHeight = (double) JsonManger.get("race/race:" + character.getRaceId() + "/maxHeight");
+        double minHeight = (double) JsonManger.get("race/race:" + character.getRaceId() + "/minHeight");
+        long maxWeight = (long) JsonManger.get("race/race:" + character.getRaceId() + "/maxWeight");
+        long minWeight = (long) JsonManger.get("race/race:" + character.getRaceId()  + "/minWeight");
+        String jsonDicePv = (String) JsonManger.get("class/" + getClass(character.getClassId()) + "/Dado de Vida");
+        int dicePV = Integer.parseInt(String.valueOf(jsonDicePv).replace("d", ""));
+        var bonusPV = JsonManger.get("class/" + getClass(character.getClassId()) + "/level:" + character.level + "/Dado de Vida");
+        int bonusDicePv = 0;
+
+        System.out.println(bonusPV);
+        if (bonusPV instanceof String){
+            Object maxBonusPV = null;
+            for (int i = 1; i <= character.level; i++) {
+                maxBonusPV = JsonManger.get("class/" + getClass(character.getClassId()) + "/level:" + i + "/Dado de Vida");
+                if (maxBonusPV instanceof String){
+                    bonusDicePv = Integer.parseInt(((String) maxBonusPV).replace("PV", "").replace("+", "").trim());
+                    maxBonusPV = i - 1;
+                }
+            }
+            bonusPV = maxBonusPV;
+        }
+
+        ObjectSaveManager reader = new ObjectSaveManager();
+        Map<Integer, Folder> folderMap = (Map<Integer, Folder>) reader.getObject("folders");
+
+        int defaultId = folderMap.values()
+                .stream()
+                .filter(f -> f.getName().equals("default"))
+                .findFirst()
+                .map(Folder::getId)
+                .orElse(-1);
+
+        character.setFolderId(defaultId);
+        character.setExperience((int) classXP);
+        character.setHeight((int) ((maxHeight + minHeight) / 2));
+        character.setWeight((int) ((maxWeight + minWeight) / 2));
+        character.setMaxPv(((attribute.getConstitution() + dicePV) * character.level) + (int) bonusPV + bonusDicePv);
+        character.setImagePath("default");
+        character.setBackground(backgroundField.getText());
+
+
         AttributeDAO daoAttribute = new AttributeDAO();
         int attributeId = daoAttribute.create(attribute);
-
-
-        List<Object> path = new ArrayList<>();
-        path.add(getClass(character.getClassId()));
-        path.add(new Tuple<>("level", character.level));
-        path.add("XP");
-
-        long classXP = (long) JsonManger.get("class", path);
-
-        path.clear();
-        path.add(new Tuple<>("race", character.getRaceId()));
-        path.add("maxHeight");
-
-        int maxHeight = (int) JsonManger.get("race", path);
-
-        path.remove(path.size()-1);
-        path.add("minHeight");
-
-        int minHeight = (int) JsonManger.get("race", path);
-
-        path.remove(path.size()-1);
-        path.add("maxWeight");
-
-        int maxWeight = (int) JsonManger.get("race", path);
-
-        path.remove(path.size()-1);
-        path.add("minWeight");
-
-        int minWeight = (int) JsonManger.get("race", path);
-
-        path.clear();
-        path.add(new Tuple<>("alignments", character.getAlignmentId()));
-        path.add("id");
-
-        int aligmentId = (int) JsonManger.get("alignments", path);
-
-        path.clear();
-        path.add(new Tuple<>("class", character.getClassId()));
-        path.add("dado de vida");
-
-        int dicePV = (int) JsonManger.get("class", path);
-        dicePV = Integer.parseInt(String.valueOf(dicePV).replace("d", ""));
-
-        path.clear();
-
-        character.setFolderId(1);
         character.setAttributeId(attributeId);
-        character.setExperience((int) classXP);
-        character.setHeight((maxHeight + minHeight) / 2);
-        character.setWeight((maxWeight + minWeight) / 2);
-        character.setMaxPv(attribute.getConstitution() + dicePV);
-        character.setClassArmorBonus(attribute.getDexterity() + 10);
 
         CharacterDAO dao = new CharacterDAO();
         dao.create(character);
 
-        PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane("newCharacterPane");
+
+
     }
 
 
     @Override
     protected void saveCharacter(String fxml){
-        if (character.getClassId() == 2) {
-            slots.setILevel(1);
-            Tuple<Character, Slots> characterWithSlots = new Tuple<>(character, slots);
+        character.setBackground(backgroundField.getText());
 
-            ObjectSaveManager saver = new ObjectSaveManager();
-            saver.saveObject("character", characterWithSlots);
+        ObjectSaveManager saver = new ObjectSaveManager();
+        saver.saveObject("character", character);
 
-            PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
-            paneManager.openPane(fxml);
-        }
-
-        else if (character.getClassId() == 4) {
-            slots.setILevel(0);
-            Tuple<Character, Slots> characterWithSlots = new Tuple<>(character, slots);
-
-            ObjectSaveManager saver = new ObjectSaveManager();
-            saver.saveObject("character", characterWithSlots);
-
-            PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
-            paneManager.openPane(fxml);
-        }
-        else {
-            character.setBackground(backgroundField.getText());
-
-            ObjectSaveManager saver = new ObjectSaveManager();
-            saver.saveObject("character", character);
-
-            PaneManager paneManager = new PaneManager((Stage) createCharacterButton.getScene().getWindow());
-            paneManager.openPane(fxml);
-        }
-
+        PaneManager paneManager = new PaneManager();
+        paneManager.openPane(fxml);
     }
 
     private String getClass(int classId){

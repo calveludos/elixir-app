@@ -244,6 +244,49 @@ public class CharacterDAO extends CrudDAO<Character> {
         return characterMap;
     }
 
+    public Map<Integer, Character> readQuery() throws SQLException {
+        ResultSet resultSet = null;
+        Map<Integer, Character> characterMap = new HashMap<>();
+
+        try {
+            resultSet = stmt.executeQuery();
+
+            while (resultSet.next()) {
+                Character character = new Character();
+                character.setId(resultSet.getInt("id"));
+                character.setAlignmentId(resultSet.getInt("id_alignment"));
+                character.setAttributeId(resultSet.getInt("id_attribute"));
+                character.setClassId(resultSet.getInt("id_class"));
+                character.setRaceId(resultSet.getInt("id_race"));
+                character.setFolderId(resultSet.getInt("id_folder"));
+                character.setName(resultSet.getString("name"));
+                character.setPlayerName(resultSet.getString("player_name"));
+                character.setExperience(resultSet.getInt("experience"));
+                character.setHeight(resultSet.getInt("height"));
+                character.setWeight(resultSet.getInt("weight"));
+                character.setCurrentPv(resultSet.getInt("current_pv"));
+                character.setMaxPv(resultSet.getInt("max_pv"));
+                character.setClassArmorBonus(resultSet.getInt("class_armor_bonus"));
+                character.setAppearance(resultSet.getString("apperance"));
+                character.setBackground(resultSet.getString("background"));
+                character.setImagePath(resultSet.getString("image_path"));
+
+                characterMap.put(character.getId(), character);
+            }
+
+        } catch (SQLException e) {
+            throw new SQLException(e);
+
+        } finally {
+            closeResources();
+            if (resultSet != null) {
+                resultSet.close();
+            }
+        }
+
+        return characterMap;
+    }
+
     @Override
     public void delete(Character character) throws SQLException {
         String query = "DELETE FROM `Character` WHERE id = ?";

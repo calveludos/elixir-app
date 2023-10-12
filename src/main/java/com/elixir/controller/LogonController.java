@@ -8,15 +8,15 @@ import com.elixir.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-import java.sql.SQLException;
+import java.util.Properties;
+import javax.mail.*;
+import javax.mail.internet.*;
 
-import org.apache.commons.mail.DefaultAuthenticator;
-import org.apache.commons.mail.SimpleEmail;
+import java.sql.SQLException;
 
 public class LogonController {
 
@@ -48,7 +48,7 @@ public class LogonController {
 
     @FXML
     void loginButtonAction(ActionEvent event) {
-        PaneManager manager = new PaneManager((Stage) loginButton.getScene().getWindow());
+        PaneManager manager = new PaneManager();
         manager.openPane("login");
     }
 
@@ -77,10 +77,11 @@ public class LogonController {
             user.setEmail(email);
             user.setHashPassword(password);
 
-
             var userDAO = new UserDAO();
             System.out.println(user.getCodeVerify());
-            //sendEmail(user);
+
+            sendEmail(user);
+
             try {
                 int id = userDAO.create(user);
                 user.setId(id);
@@ -93,9 +94,8 @@ public class LogonController {
             ObjectSaveManager saver = new ObjectSaveManager();
             saver.saveObject("user", user);
 
-            PaneManager manager = new PaneManager((Stage) loginButton.getScene().getWindow());
+            PaneManager manager = new PaneManager();
             manager.openPane("validationEmailPane");
-
         } else {
             errorLabel.setText("Preencha todos os campos");
         }
@@ -118,28 +118,43 @@ public class LogonController {
         }
     }
 
-    private void sendEmail(User user){
-        String myEmail = Secrets.EMAIL;
-        String myPassword = Secrets.EMAIL_PASSWORD;
+    private void sendEmail(User user) {
+        // Configurações do servidor SMTP do Gmail
+        String host = "smtp.gmail.com";
+        String port = "587"; // Porta para TLS
+        String username = Secrets.EMAIL; // Substitua com seu endereço de e-mail Gmail
+        String password = Secrets.EMAIL_PASSWORD; // Substitua com sua senha de e-mail Gmail
 
-        SimpleEmail gmail = new SimpleEmail();
-        gmail.setHostName("smtp.gmail.com");
-        gmail.setSmtpPort(465);
-        gmail.setAuthenticator(new DefaultAuthenticator(myEmail, myPassword));
-        gmail.setSSLOnConnect(true);
+        // Configurações adicionais
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", port);
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        // Cria uma sessão de e-mail com autenticação
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
         try {
-            gmail.setFrom(myEmail);
-            gmail.setSubject("Confirmação de Email - Elixr Maker");
-            gmail.setMsg("Aqui está o seu código: " + user.getCodeVerify());
-            gmail.addTo(user.getEmail());
-            gmail.send();
-            System.out.println("Email foi enviado com sucesso!");
+            // Cria a mensagem de e-mail
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(username)); // Remetente
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail())); // Destinatário
+            message.setSubject("Assunto do E-mail");
+            message.setText("Corpo do E-mail");
 
-            errorLabel.setText("Usuário Cadastrado, confirme seu email. Carregando...");
+            // Envia a mensagem de e-mail
+            Transport.send(message);
 
-        } catch (Exception e) {
-            errorLabel.setText(e.getMessage());
+            System.out.println("E-mail enviado com sucesso!");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+            System.err.println("Erro ao enviar o e-mail: " + e.getMessage());
         }
     }
 

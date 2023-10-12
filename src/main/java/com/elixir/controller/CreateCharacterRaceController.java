@@ -135,7 +135,7 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
         attribute = copyAttribute;
         saver.saveObject("character", character);
         saver.saveObject("attribute", attribute);
-        PaneManager paneManager = new PaneManager((Stage) chosenRaceLabel.getScene().getWindow());
+        PaneManager paneManager = new PaneManager();
         paneManager.openPane(fxml);
     }
 

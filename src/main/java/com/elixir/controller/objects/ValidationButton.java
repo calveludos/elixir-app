@@ -13,7 +13,7 @@ public class ValidationButton extends Button {
         setStyle("-fx-background-color: #897a5f;");
         setTextFill(Color.WHITE);
         setOnAction(event -> {
-            PaneManager manager = new PaneManager((Stage) this.getScene().getWindow());
+            PaneManager manager = new PaneManager();
             manager.openPane("validationEmailPane");
         });
     }

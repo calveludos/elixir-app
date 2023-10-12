@@ -6,6 +6,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -63,6 +64,24 @@ public class JsonManger {
             System.out.println(jsonObject.toString());
         }
         return ret;
+    }
+
+    public static Object get(String path) throws IOException, ParseException {
+        List<Object> listPath = new ArrayList<>();
+        for (String p :
+                path.split("/")) {
+            if (p.contains(":")){
+                listPath.add(new Tuple<>(p.split(":")[0], Integer.parseInt(p.split(":")[1])));
+            } else {
+                listPath.add(p);
+            }
+        }
+        String first = (String) listPath.get(0);
+        listPath.remove(0);
+
+        System.out.println(listPath);
+
+        return get(first, listPath);
     }
 
     public static void write(JSONObject jsonObject, String name) throws IOException {

@@ -1,12 +1,19 @@
 package com.elixir.controller;
 
 import com.elixir.controller.objects.ValidationButton;
+import com.elixir.dao.CharacterDAO;
+import com.elixir.dao.FolderDAO;
 import com.elixir.dao.UserDAO;
+import com.elixir.factory.ConnectionFactory;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
+import com.elixir.model.Folder;
 import com.elixir.model.User;
+import com.elixir.model.Character;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -16,10 +23,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import org.mindrot.jbcrypt.BCrypt;
 
+import org.mindrot.jbcrypt.BCrypt;
 import java.sql.SQLException;
-import java.util.Arrays;
+import java.util.Map;
+
 
 public class LoginController {
 
@@ -51,63 +59,90 @@ public class LoginController {
 
     @FXML
     void createAccountButtonAction(ActionEvent event) {
-        PaneManager manager = new PaneManager((Stage) createAccountButton.getScene().getWindow());
+        PaneManager manager = new PaneManager();
         manager.openPane("logon");
     }
 
     @FXML
     void loginButtonAction(ActionEvent event) throws SQLException {
-        UserDAO userDAO = new UserDAO();
-        User filter = new User(true);
-        filter.setUsername(usernameField.getText());
-        filter.setVerify(true);
-        System.out.println(filter.getUsername());
-        User user = null;
-        errorLabel.setMinHeight(20.0);
-        errorLabel.setMinHeight(20.0);
-        errorLabel.setMinHeight(20.0);
-        errorLabel.setTextFill(Color.BLACK);
-        errorLabel.setFont(Font.font("System Bold", FontWeight.BOLD, 12.0));
+        normalErrorLabel();
         errorLabel.setText("Carregando...");
 
+        UserDAO userDAO = new UserDAO();
+        User filterUser = new User(true);
+        filterUser.setUsername(usernameField.getText());
+        System.out.println("Buscando: " + filterUser.getUsername());
+
+        User user;
+
         try {
-            user = (User) userDAO.read(filter).values().toArray()[0];
+            user = (User) userDAO.read(filterUser).values().toArray()[0];
         } catch (SQLException exception){
             errorLabel.setTextFill(Color.RED);
             errorLabel.setText(exception.getMessage());
-            throw new SQLException(exception);
-        } catch (java.lang.ArrayIndexOutOfBoundsException exception){
-            errorLabel.setTextFill(Color.RED);
-            errorLabel.setText("Usuário ainda não confirmado");
-            vboxBody.getChildren().add(new ValidationButton("Confimação"));
-            return;
+            throw exception;
         }
 
         ObjectSaveManager saveManager = new ObjectSaveManager();
         saveManager.saveObject("user", user);
 
-        if (viewPasswordCheckbox.isSelected()){
-            password = textPassword.getText();
-        } else {
-            password = passwordField.getText();
+        if (!user.isVerify()){
+            errorLabel.setTextFill(Color.RED);
+            errorLabel.setText("Esse usuário ainda não foi confirmado");
+            if (vboxBody.getChildren().size() < 5) {
+                Insets insets = new Insets(
+                        vboxBody.getInsets().getTop(),
+                        vboxBody.getInsets().getRight(),
+                        30.0,
+                        vboxBody.getInsets().getLeft()
+                );
+                vboxBody.setPadding(insets);
+                vboxBody.getChildren().add(new ValidationButton("Confimação"));
+            }
+            return;
         }
 
-        System.out.println(password);
-        System.out.println(user.getPassword());
+        password = viewPasswordCheckbox.isSelected() ? textPassword.getText() : passwordField.getText();
+
+        System.out.println("Senha: " + password);
+        System.out.println("Senha Hash: " + user.getPassword());
 
         if (BCrypt.checkpw(password, user.getPassword())){
             errorLabel.setTextFill(Color.GREEN);
             errorLabel.setText("Inciando Seção...");
 
-            PaneManager manager = new PaneManager((Stage) loginButton.getScene().getWindow());
+            String query = "SELECT c.* FROM `Character` c JOIN Folder f\n" +
+                    "ON c.id_folder = f.id \n" +
+                    "WHERE f.id_user = ?;";
+
+            CharacterDAO characterDAO = new CharacterDAO();
+            characterDAO.conn = ConnectionFactory.createConnection();
+            characterDAO.stmt = characterDAO.conn.prepareStatement(query);
+            characterDAO.stmt.setInt(1, user.getId());
+
+            FolderDAO folderDAO = new FolderDAO();
+            Folder folderFilter = new Folder();
+            folderFilter.setUserId(user.getId());
+
+            Map<Integer, Folder> folderMap;
+            Map<Integer, Character> characterMap;
+            try {
+                folderMap = folderDAO.read(folderFilter);
+                characterMap = characterDAO.readQuery();
+            } catch (SQLException e){
+                e.printStackTrace();
+                throw e;
+            }
+
+            saveManager.saveObject("folders", folderMap);
+            saveManager.saveObject("characters", characterMap);
+
+            PaneManager manager = new PaneManager();
             manager.openPane("startScreenPane");
         } else {
             errorLabel.setTextFill(Color.RED);
             errorLabel.setText("Usuário ou Senha inválidos");
         }
-
-        System.out.println(errorLabel.getText());
-
     }
 
     @FXML
@@ -125,5 +160,12 @@ public class LoginController {
             textPassword.setMinHeight(0);
         }
     }
+
+    public void normalErrorLabel(){
+        errorLabel.setMinHeight(20.0);
+        errorLabel.setTextFill(Color.GREEN);
+        errorLabel.setFont(Font.font("System Bold", FontWeight.BOLD, 14.0));
+    }
+
 
 }

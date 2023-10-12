@@ -41,22 +41,34 @@ public class ValidationEmailController {
     private Button verificationButton;
 
     @FXML
+    private Button backButton;
+
+    @FXML
     void verificationButtonAction(ActionEvent event) throws SQLException {
         ObjectSaveManager reader  = new ObjectSaveManager();
         User user = (User) reader.getObject("user");
+        if (user == null){
+            errorLabel.setText("Código inválido");
+        }
 
-        if (Objects.equals(user.getCodeVerify(), num1.getText() + num2.getText() + num3.getText() + num4.getText() + num5.getText() + num6.getText())){
+        if (user.getCodeVerify().equals((num1.getText() + num2.getText() + num3.getText() + num4.getText() + num5.getText() + num6.getText()).toLowerCase())){
             user.setVerify(true);
             errorLabel.setText("Usuário confirmado com sucesso. Carregando...");
 
             var userDAO = new UserDAO();
             userDAO.update(user);
 
-            PaneManager paneManager = new PaneManager((Stage) verificationButton.getScene().getWindow());
+            PaneManager paneManager = new PaneManager();
             paneManager.openPane("login");
         } else {
             errorLabel.setText("Código inválido");
         }
+    }
+
+    @FXML
+    public void backButtonAction(ActionEvent event){
+        PaneManager manager = new PaneManager();
+        manager.openPane("login");
     }
 
 }
