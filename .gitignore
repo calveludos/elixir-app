@@ -1,18 +1,28 @@
-target/
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.versionsBackup
-pom.xml.next
-release.properties
-dependency-reduced-pom.xml
-buildNumber.properties
-.mvn/timing.properties
-src/main/java/com/elixir/Secrets.java
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
-.mvn/wrapper/maven-wrapper.jar
-# Eclipse m2e generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
+# Arquivos e diretórios Maven
+/target/
+mvn/
+.mvn/
+
+# Dependências do Maven (arquivos JAR, por exemplo)
+*.jar
+
+# Arquivos e diretórios específicos do IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Arquivos de configuração do IntelliJ IDEA
+.idea_modules/
+
+# Arquivos de configuração do Visual Studio Code
+.vscode/
+.settings/
+*.code-workspace
+
+#Outras pastas e arquivos
 object.bin
+src/main/java/com/elixir/Secrets.java
+/object.bin
+/src/main/java/com/elixir/Secrets.java
