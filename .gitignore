@@ -1,24 +1,24 @@
 # Arquivos e diretórios Maven
 /target/
-mvn/
-.mvn/
+mvn/*
+.mvn/*
 
 # Dependências do Maven (arquivos JAR, por exemplo)
 *.jar
 
 # Arquivos e diretórios específicos do IntelliJ IDEA
-.idea/
+.idea/*
 *.iml
 *.ipr
 *.iws
-out/
+out/*
 
 # Arquivos de configuração do IntelliJ IDEA
-.idea_modules/
+.idea_modules/*
 
 # Arquivos de configuração do Visual Studio Code
-.vscode/
-.settings/
+.vscode/*
+.settings/*
 *.code-workspace
 
 #Outras pastas e arquivos
