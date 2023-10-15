@@ -1,13 +1,13 @@
 # Arquivos e diretórios Maven
 /target/
-mvn/*
-.mvn/*
+/mvn/
+/.mvn/
 
 # Dependências do Maven (arquivos JAR, por exemplo)
 *.jar
 
 # Arquivos e diretórios específicos do IntelliJ IDEA
-.idea/*
+/.idea/
 *.iml
 *.ipr
 *.iws
@@ -17,12 +17,10 @@ out/*
 .idea_modules/*
 
 # Arquivos de configuração do Visual Studio Code
-.vscode/*
+/.vscode/
 .settings/*
 *.code-workspace
 
 #Outras pastas e arquivos
-object.bin
-src/main/java/com/elixir/Secrets.java
 /object.bin
 /src/main/java/com/elixir/Secrets.java
