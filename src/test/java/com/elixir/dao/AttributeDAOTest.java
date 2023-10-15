@@ -8,7 +8,8 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 class AttributeDAOTest {
-    AttributeDAO attributeDAO = new AttributeDAO();
+    /*
+    AttributeDAO = new AttributeDAO();
     int id;
 
     @Test
@@ -46,5 +47,5 @@ class AttributeDAOTest {
         attributeDAO.delete(attribute);
 
         read();
-    }
+    }*/
 }

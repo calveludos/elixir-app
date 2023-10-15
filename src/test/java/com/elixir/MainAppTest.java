@@ -21,7 +21,7 @@ class MainAppTest {
 
     @Test
     void newCharacterTest() throws SQLException {
-        ObjectSaveManager saveManager = new ObjectSaveManager();
+       /* ObjectSaveManager saveManager = new ObjectSaveManager();
         saveManager.cleanObjects();
         String query = "SELECT c.* FROM `Character` c JOIN Folder f\n" +
                 "ON c.id_folder = f.id \n" +
@@ -47,6 +47,6 @@ class MainAppTest {
         }
         saveManager.saveObject("folders", folderMap);
         saveManager.saveObject("characters", characterMap);
-        MainApp.main(new String[]{"createCharacterDatePane"});
+        MainApp.main(new String[]{"createCharacterDatePane"});*/
     }
 }

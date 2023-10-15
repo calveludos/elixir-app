@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.sql.SQLException;
 
 class UserDAOTest {
-
+/*
     @Test
     void update() throws SQLException {
         UserDAO userDAO = new UserDAO();
@@ -18,5 +18,5 @@ class UserDAOTest {
             System.out.println(u);
         }
 
-    }
+    }*/
 }

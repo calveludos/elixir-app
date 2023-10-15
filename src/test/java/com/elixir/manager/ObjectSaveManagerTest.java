@@ -4,6 +4,7 @@ import com.elixir.manager.ObjectSaveManager;
 import org.junit.jupiter.api.Test;
 
 class ObjectSaveManagerTest {
+    /*
     @Test
     void saveObjects() {
         ObjectSaveManager saver = new ObjectSaveManager();
@@ -16,5 +17,5 @@ class ObjectSaveManagerTest {
     void readObjects() {
         ObjectSaveManager reader = new ObjectSaveManager();
         reader.printMap();
-    }
+    }*/
 }

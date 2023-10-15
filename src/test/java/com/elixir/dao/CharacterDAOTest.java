@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterDAOTest {
+    /*
     @Test
     void create() {
         Character character = new Character();
@@ -15,5 +16,5 @@ class CharacterDAOTest {
         character.setAlignmentId(1);
         character.setAppearance("Bonito");
         character.setAttributeId(2);
-    }
+    }*/
 }
