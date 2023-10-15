@@ -190,6 +190,11 @@
                      </padding>
                     </VBox>
                   <TextArea fx:id="backgroundField" layoutX="93.0" layoutY="153.0" prefHeight="286.0" prefWidth="508.0" style="-fx-border-color: #bbc3c94; -fx-border-radius: 0;" />
+                  <Label fx:id="errorLabel" alignment="CENTER" layoutX="200.0" layoutY="5.0" prefHeight="17.0" prefWidth="317.0" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                 </Pane>
             </children>
          </VBox>

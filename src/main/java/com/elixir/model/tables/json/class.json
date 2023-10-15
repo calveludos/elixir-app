@@ -1037,7 +1037,7 @@
       }
 ],
     "id" : 3,
-    "dado_de_vida": "d4",
+    "Dado de Vida": "d4",
     "Atributo_mínimo": {"str": 0, "dex":  0, "con": 0, "int": 14, "wis":0},
     "armadura": 0,
     "arma": ["adaga", "cajados"],
@@ -1431,7 +1431,7 @@
       }
     ],
     "id" : 3,
-    "dado_de_vida": "d6",
+    "Dado de Vida": "d6",
     "Atributo_mínimo": {
       "str": 0,
       "dex": 12,

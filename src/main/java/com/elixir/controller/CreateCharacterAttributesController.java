@@ -148,27 +148,23 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
 
     @Override
     protected void saveCharacter(String fxml){
+         attribute.setStrength(Integer.parseInt(strField.getText()));
+        attribute.setWisdom(Integer.parseInt(wisField.getText()));
+        attribute.setDexterity(Integer.parseInt(dexField.getText()));
+        attribute.setIntelligence(Integer.parseInt(intField.getText()));
+        attribute.setConstitution(Integer.parseInt(conField.getText()));
+        attribute.setCharisma(Integer.parseInt(chaField.getText()));
 
+        ObjectSaveManager saver = new ObjectSaveManager();
+        saver.saveObject("attribute", attribute);
 
+        ObjectSaveManager saverCharacter = new ObjectSaveManager();
+        saverCharacter.saveObject("character", character);
 
-            attribute.setStrength(Integer.parseInt(strField.getText()));
-            attribute.setWisdom(Integer.parseInt(wisField.getText()));
-            attribute.setDexterity(Integer.parseInt(dexField.getText()));
-            attribute.setIntelligence(Integer.parseInt(intField.getText()));
-            attribute.setConstitution(Integer.parseInt(conField.getText()));
-            attribute.setCharisma(Integer.parseInt(chaField.getText()));
+        System.out.println(character.toString());
 
-            ObjectSaveManager saver = new ObjectSaveManager();
-            saver.saveObject("attribute", attribute);
-
-            ObjectSaveManager saverCharacter = new ObjectSaveManager();
-            saverCharacter.saveObject("character", character);
-
-            System.out.println(character.toString());
-
-            PaneManager paneManager = new PaneManager();
-            paneManager.openPane(fxml);
-
+        PaneManager paneManager = new PaneManager();
+        paneManager.openPane(fxml);
 
     }
 

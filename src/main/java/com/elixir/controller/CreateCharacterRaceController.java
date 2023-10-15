@@ -132,7 +132,15 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
     @Override
     protected void saveCharacter(String fxml){
         ObjectSaveManager saver = new ObjectSaveManager();
-        attribute = copyAttribute;
+
+        if (copyAttribute != null) {
+            attribute.setStrength(copyAttribute.getStrength());
+            attribute.setDexterity(copyAttribute.getDexterity());
+            attribute.setIntelligence(copyAttribute.getIntelligence());
+            attribute.setWisdom(copyAttribute.getWisdom());
+            attribute.setCharisma(copyAttribute.getCharisma());
+            attribute.setConstitution(copyAttribute.getConstitution());
+        }
         saver.saveObject("character", character);
         saver.saveObject("attribute", attribute);
         PaneManager paneManager = new PaneManager();

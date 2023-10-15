@@ -54,6 +54,7 @@ public class ObjectSaveManager {
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("object.bin"))) {
             map = (Map<String, Object>) inputStream.readObject();
             System.out.println("Map de objetos carregado");
+            printMap();
             return map;
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

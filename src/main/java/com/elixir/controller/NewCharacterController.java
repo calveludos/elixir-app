@@ -14,8 +14,6 @@ public class NewCharacterController extends MenuController {
 
     @FXML
     void createNewCharacterButtonAction(ActionEvent event) {
-        ObjectSaveManager objectSaveManager = new ObjectSaveManager();
-        objectSaveManager.cleanObjects();
 
         PaneManager paneManager = new PaneManager();
         paneManager.openPane("createCharacterDatePane");

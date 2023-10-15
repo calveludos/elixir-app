@@ -61,7 +61,7 @@ public class JsonManger {
                 }
             }
             System.out.println("get " + p);
-            System.out.println(jsonObject.toString());
+            System.out.println(ret);
         }
         return ret;
     }

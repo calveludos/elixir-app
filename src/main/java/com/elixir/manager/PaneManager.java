@@ -15,10 +15,11 @@ public class PaneManager {
         this.stage = MainApp.getStage();
     }
 
-    public void openPane(String caminhoFXML) {
+    public void openPane(String caminhoFXML) {;
         try {
             Scene scene = new Scene(loadFXML(caminhoFXML));
             stage.setScene(scene);
+            stage.setFullScreen(true);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

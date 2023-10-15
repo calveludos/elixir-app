@@ -11,11 +11,12 @@ import java.io.IOException;
 
 public class MainApp extends Application {
     private static Stage stage;
+    private static String root = "initialScreenPane";
 
     @Override
     public void start(Stage s) throws IOException {
         stage=s;
-        setRoot("initialScreenPane","Elixir Maker");
+        setRoot(root,"Elixir Maker");
     }
 
     static void setRoot(String fxml) throws IOException {
@@ -41,6 +42,11 @@ public class MainApp extends Application {
     public static void main(String[] args) {
         ObjectSaveManager saver = new ObjectSaveManager();
         saver.cleanObjects();
+
+        if (args.length != 0){
+            root = args[0];
+        }
+
         launch(args);
     }
 }

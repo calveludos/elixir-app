@@ -31,6 +31,9 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
     @FXML
     private Button createCharacterButton;
 
+    @FXML
+    private Label errorLabel;
+
     private Character character;
     private Attribute attribute;
 
@@ -65,22 +68,19 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         long maxWeight = (long) JsonManger.get("race/race:" + character.getRaceId() + "/maxWeight");
         long minWeight = (long) JsonManger.get("race/race:" + character.getRaceId()  + "/minWeight");
         String jsonDicePv = (String) JsonManger.get("class/" + getClass(character.getClassId()) + "/Dado de Vida");
+        System.out.println(jsonDicePv);
         int dicePV = Integer.parseInt(String.valueOf(jsonDicePv).replace("d", ""));
-        var bonusPV = JsonManger.get("class/" + getClass(character.getClassId()) + "/level:" + character.level + "/Dado de Vida");
-        int bonusDicePv = 0;
 
-        System.out.println(bonusPV);
-        if (bonusPV instanceof String){
-            Object maxBonusPV = null;
-            for (int i = 1; i <= character.level; i++) {
-                maxBonusPV = JsonManger.get("class/" + getClass(character.getClassId()) + "/level:" + i + "/Dado de Vida");
-                if (maxBonusPV instanceof String){
-                    bonusDicePv = Integer.parseInt(((String) maxBonusPV).replace("PV", "").replace("+", "").trim());
-                    maxBonusPV = i - 1;
-                }
+        int totalBonusPV = 0;
+        for (int i = 1; i <= character.level; i++) {
+            String levelBonusPV = String.valueOf(JsonManger.get("class/" + getClass(character.getClassId()) + "/level:" + i + "/Dado de Vida"));
+            if (levelBonusPV.contains("PV")){
+                totalBonusPV += Integer.parseInt(levelBonusPV.replace("PV", ""));
+            } else {
+                totalBonusPV += dicePV;
             }
-            bonusPV = maxBonusPV;
         }
+        System.out.println(totalBonusPV);
 
         ObjectSaveManager reader = new ObjectSaveManager();
         Map<Integer, Folder> folderMap = (Map<Integer, Folder>) reader.getObject("folders");
@@ -96,7 +96,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         character.setExperience((int) classXP);
         character.setHeight((int) ((maxHeight + minHeight) / 2));
         character.setWeight((int) ((maxWeight + minWeight) / 2));
-        character.setMaxPv(((attribute.getConstitution() + dicePV) * character.level) + (int) bonusPV + bonusDicePv);
+        character.setMaxPv((int) (((Math.round((float) ((attribute.getConstitution() - 10) / 2) + 0.5) + dicePV) * character.level) + totalBonusPV));
         character.setImagePath("default");
         character.setBackground(backgroundField.getText());
 
@@ -105,12 +105,22 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         int attributeId = daoAttribute.create(attribute);
         character.setAttributeId(attributeId);
 
-        CharacterDAO dao = new CharacterDAO();
-        dao.create(character);
+        System.out.println(character);
+
+        try {
+            CharacterDAO dao = new CharacterDAO();
+            character.setId(dao.create(character));
+        } catch (SQLException e){
+            errorLabel.setText("Preencha todos os campos corretamente para criar o seu personagem");
+            throw e;
+        }
+
+        Map<Integer, Character> characters = (Map<Integer, Character>) reader.getObject("characters");
+        characters.put(character.getId(), character);
+        reader.saveObject("characters", characters);
 
         PaneManager paneManager = new PaneManager();
-        paneManager.openPane("newCharacterPane");
-
+        paneManager.openPane("myCharactersPane");
 
     }
 
