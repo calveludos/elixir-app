@@ -122,13 +122,16 @@
                       <Image url="@../media/d20.png" />
                   </image>
                <VBox.margin>
-                  <Insets bottom="10.0" top="10.0" />
+                  <Insets bottom="5.0" top="10.0" />
                </VBox.margin>
               </ImageView>
-            <Label fx:id="diceValue" alignment="CENTER" prefHeight="17.0" prefWidth="94.0">
+            <Label fx:id="diceValue" alignment="CENTER" prefHeight="39.0" prefWidth="94.0">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="19.0" />
                </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
             </Label>
             <HBox alignment="CENTER" prefHeight="161.0" prefWidth="700.0">
                <children>
@@ -194,7 +197,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="76.0" prefWidth="700.0">
                <children>
-                  <Button fx:id="rollDiceButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #c08888;" text="ROLAR!" textFill="WHITE">
+                  <Button fx:id="rollDiceButton" mnemonicParsing="false" onAction="#rollDiceButtonOnAction" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #c08888;" text="ROLAR!" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
