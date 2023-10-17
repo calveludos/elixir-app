@@ -16,6 +16,9 @@ public class MenuController {
     @FXML
     private Button startPaneMenuButton;
 
+    @FXML
+    private Button diceMenuButtonAction;
+
     public void createNewCharacterMenuButtonAction(ActionEvent event) {
         PaneManager paneManager = new PaneManager();
         paneManager.openPane("newCharacterPane");
@@ -31,5 +34,11 @@ public class MenuController {
     void startPaneMenuButtonAction(ActionEvent event) {
         PaneManager paneManager = new PaneManager();
         paneManager.openPane("startScreenPane");
+    }
+
+    @FXML
+    void diceMenuButtonAction(ActionEvent event) {
+        PaneManager paneManager = new PaneManager();
+        paneManager.openPane("rollDicePane");
     }
 }

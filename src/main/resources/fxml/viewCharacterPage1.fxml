@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.MyCharactersController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.MyCharactersController">
 
 
     <!-- Cabeçalho superior -->
@@ -136,16 +136,16 @@
                            </HBox>
                         </children>
                      </HBox>
-                     <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #e7e4df; -fx-border-color: #aca28f; -fx-border-width: 2;" VBox.vgrow="ALWAYS">
+                     <VBox prefHeight="520.0" prefWidth="784.0" style="-fx-background-color: #e7e4df; -fx-border-color: #aca28f; -fx-border-width: 2;" VBox.vgrow="ALWAYS">
                         <children>
                            <HBox maxHeight="495.0" minHeight="200.0" prefHeight="495.0" prefWidth="760.0" spacing="10.0" VBox.vgrow="ALWAYS">
                               <children>
                                  <Region maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0" prefWidth="9.0" HBox.hgrow="ALWAYS" />
-                                 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="191.0" HBox.hgrow="ALWAYS">
+                                 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="164.0" HBox.hgrow="ALWAYS">
                                     <children>
                                        <Pane prefHeight="0.0" prefWidth="729.0">
                                           <children>
-                                             <Rectangle fill="#ced8e0" height="507.0" layoutX="-12.0" stroke="#788896" strokeType="INSIDE" strokeWidth="2.0" width="115.0" />
+                                             <Rectangle fill="#ced8e0" height="483.0" layoutX="-12.0" stroke="#788896" strokeType="INSIDE" strokeWidth="2.0" width="115.0" />
                                           </children>
                                        </Pane>
                                        <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="507.0" prefWidth="187.0">
@@ -408,188 +408,580 @@
                                        <Insets bottom="10.0" top="10.0" />
                                     </padding>
                                  </VBox>
-                                 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="355.0" HBox.hgrow="ALWAYS">
+                                 <VBox prefHeight="511.0" prefWidth="556.0">
                                     <children>
-                                       <VBox prefHeight="66.0" prefWidth="355.0">
+                                       <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="416.0" prefWidth="556.0">
                                           <children>
-                                             <HBox prefHeight="17.0" prefWidth="355.0">
+                                             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="355.0" HBox.hgrow="ALWAYS">
                                                 <children>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="182.0" text="AJUSTES DE ATAQUE E DANO">
-                                                      <HBox.margin>
-                                                         <Insets left="5.0" />
-                                                      </HBox.margin>
-                                                   </Label>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="CARGA/MAXIMA" />
+                                                   <VBox prefHeight="66.0" prefWidth="355.0">
+                                                      <children>
+                                                         <HBox prefHeight="17.0" prefWidth="355.0">
+                                                            <children>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="182.0" text="AJUSTES DE ATAQUE E DANO">
+                                                                  <HBox.margin>
+                                                                     <Insets left="5.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                               <Label alignment="CENTER" prefHeight="17.0" prefWidth="170.0" text="CARGA/MAXIMA">
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                            </children>
+                                                         </HBox>
+                                                         <HBox prefHeight="54.0" prefWidth="454.0">
+                                                            <children>
+                                                               <TextField prefHeight="38.0" prefWidth="188.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                               <TextField prefHeight="42.0" prefWidth="162.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                            </children>
+                                                         </HBox>
+                                                      </children>
+                                                   </VBox>
+                                                   <Pane prefHeight="0.0" prefWidth="729.0" />
+                                                   <VBox prefHeight="66.0" prefWidth="355.0">
+                                                      <children>
+                                                         <HBox prefHeight="17.0" prefWidth="355.0">
+                                                            <children>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="78.0" text="AJUSTES">
+                                                                  <HBox.margin>
+                                                                     <Insets left="5.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="262.0" text="TALENTOS LADINOS">
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                            </children>
+                                                         </HBox>
+                                                         <HBox prefHeight="54.0" prefWidth="454.0">
+                                                            <children>
+                                                               <TextField prefHeight="38.0" prefWidth="77.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                               <TextField prefHeight="38.0" prefWidth="253.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                            </children>
+                                                         </HBox>
+                                                      </children>
+                                                   </VBox>
+                                                   <VBox prefHeight="66.0" prefWidth="355.0">
+                                                      <children>
+                                                         <HBox prefHeight="17.0" prefWidth="355.0">
+                                                            <children>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="178.0" text="AJUSTES DE PV E PROTECAO">
+                                                                  <HBox.margin>
+                                                                     <Insets left="5.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="\%RESSURREICAO">
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                            </children>
+                                                         </HBox>
+                                                         <HBox prefHeight="54.0" prefWidth="454.0">
+                                                            <children>
+                                                               <TextField prefHeight="38.0" prefWidth="181.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                               <TextField prefHeight="42.0" prefWidth="162.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                            </children>
+                                                         </HBox>
+                                                      </children>
+                                                   </VBox>
+                                                   <VBox prefHeight="66.0" prefWidth="355.0">
+                                                      <children>
+                                                         <HBox prefHeight="17.0" prefWidth="355.0">
+                                                            <children>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="88.0" text="IDIOMAS">
+                                                                  <HBox.margin>
+                                                                     <Insets left="5.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="\%APRENDER MAGIA">
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="MAGIAS ADICONAIS">
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                            </children>
+                                                         </HBox>
+                                                         <HBox prefHeight="54.0" prefWidth="454.0">
+                                                            <children>
+                                                               <TextField prefHeight="42.0" prefWidth="81.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                               <TextField prefHeight="42.0" prefWidth="144.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                               <TextField prefHeight="42.0" prefWidth="162.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                            </children>
+                                                         </HBox>
+                                                      </children>
+                                                   </VBox>
+                                                   <VBox prefHeight="66.0" prefWidth="355.0">
+                                                      <children>
+                                                         <HBox prefHeight="17.0" prefWidth="355.0">
+                                                            <children>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="371.0" text="AJUSTES DE PROTECAO">
+                                                                  <HBox.margin>
+                                                                     <Insets left="5.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                            </children>
+                                                         </HBox>
+                                                         <HBox prefHeight="54.0" prefWidth="454.0">
+                                                            <children>
+                                                               <TextField prefHeight="38.0" prefWidth="349.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                            </children>
+                                                         </HBox>
+                                                      </children>
+                                                   </VBox>
+                                                   <VBox prefHeight="66.0" prefWidth="355.0">
+                                                      <children>
+                                                         <HBox prefHeight="17.0" prefWidth="355.0">
+                                                            <children>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="N° SEGUIDORES">
+                                                                  <HBox.margin>
+                                                                     <Insets left="5.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="169.0" text="AJUSTE DE REAÇAO">
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="MORTOS-VIVOS">
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
+                                                            </children>
+                                                         </HBox>
+                                                         <HBox prefHeight="54.0" prefWidth="454.0">
+                                                            <children>
+                                                               <TextField prefHeight="42.0" prefWidth="141.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                               <TextField prefHeight="42.0" prefWidth="154.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                               <TextField prefHeight="42.0" prefWidth="162.0">
+                                                                  <HBox.margin>
+                                                                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                  </HBox.margin>
+                                                               </TextField>
+                                                            </children>
+                                                         </HBox>
+                                                      </children>
+                                                   </VBox>
                                                 </children>
-                                             </HBox>
-                                             <HBox prefHeight="54.0" prefWidth="454.0">
+                                                <padding>
+                                                   <Insets bottom="10.0" top="10.0" />
+                                                </padding>
+                                                <HBox.margin>
+                                                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                </HBox.margin>
+                                             </VBox>
+                                             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="212.0">
                                                 <children>
-                                                   <TextField prefHeight="38.0" prefWidth="188.0">
-                                                      <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                      </HBox.margin>
-                                                   </TextField>
-                                                   <TextField prefHeight="42.0" prefWidth="162.0">
-                                                      <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                      </HBox.margin>
-                                                   </TextField>
+                                                   <Pane prefHeight="0.0" prefWidth="729.0">
+                                                      <children>
+                                                         <Rectangle fill="#ced8e0" height="376.0" layoutX="6.0" stroke="#788896" strokeType="INSIDE" strokeWidth="2.0" width="97.0" />
+                                                         <HBox layoutX="-107.0" layoutY="-20.0" prefHeight="100.0" prefWidth="200.0" />
+                                                      </children>
+                                                   </Pane>
+                                                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="222.0">
+                                                      <children>
+                                                         <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="165.0" prefHeight="70.0" prefWidth="165.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
+                                                            <children>
+                                                               <VBox prefHeight="67.0" prefWidth="96.0">
+                                                                  <children>
+                                                                     <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="46.0" prefWidth="68.0" text="PV" textFill="#4b566b">
+                                                                        <font>
+                                                                           <Font name="System Bold Italic" size="31.0" />
+                                                                        </font>
+                                                                     </Label>
+                                                                     <Label alignment="TOP_LEFT" prefHeight="0.0" prefWidth="71.0" text="PONTOS DE VIDA" textFill="#4b566b">
+                                                                        <font>
+                                                                           <Font name="System Bold" size="8.0" />
+                                                                        </font>
+                                                                        <VBox.margin>
+                                                                           <Insets bottom="6.0" />
+                                                                        </VBox.margin>
+                                                                     </Label>
+                                                                  </children>
+                                                                  <padding>
+                                                                     <Insets left="5.0" />
+                                                                  </padding>
+                                                                  <HBox.margin>
+                                                                     <Insets />
+                                                                  </HBox.margin>
+                                                               </VBox>
+                                                               <TextField fx:id="strField1" maxHeight="40.0" maxWidth="40.0" prefHeight="40.0" prefWidth="40.0">
+                                                                  <HBox.margin>
+                                                                     <Insets right="20.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font size="15.0" />
+                                                                  </font>
+                                                               </TextField>
+                                                            </children>
+                                                            <VBox.margin>
+                                                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </VBox.margin>
+                                                         </HBox>
+                                                         <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="166.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
+                                                            <children>
+                                                               <VBox prefHeight="70.0" prefWidth="168.0">
+                                                                  <children>
+                                                                     <TextField fx:id="dexField1" maxHeight="48.0" maxWidth="140.0" prefHeight="18.0" prefWidth="165.0">
+                                                                        <font>
+                                                                           <Font size="15.0" />
+                                                                        </font>
+                                                                        <VBox.margin>
+                                                                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                        </VBox.margin>
+                                                                     </TextField>
+                                                                     <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="71.0" text="PV ATUAL" textFill="#4b566b">
+                                                                        <font>
+                                                                           <Font name="System Bold" size="12.0" />
+                                                                        </font>
+                                                                        <VBox.margin>
+                                                                           <Insets bottom="2.0" />
+                                                                        </VBox.margin>
+                                                                     </Label>
+                                                                  </children>
+                                                                  <padding>
+                                                                     <Insets left="5.0" />
+                                                                  </padding>
+                                                                  <HBox.margin>
+                                                                     <Insets />
+                                                                  </HBox.margin>
+                                                               </VBox>
+                                                            </children>
+                                                            <VBox.margin>
+                                                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </VBox.margin>
+                                                         </HBox>
+                                                         <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="165.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
+                                                            <children>
+                                                               <VBox prefHeight="68.0" prefWidth="96.0">
+                                                                  <children>
+                                                                     <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="44.0" prefWidth="101.0" text="MV" textFill="#4b566b">
+                                                                        <font>
+                                                                           <Font name="System Bold Italic" size="31.0" />
+                                                                        </font>
+                                                                     </Label>
+                                                                     <Label alignment="TOP_LEFT" prefHeight="22.0" prefWidth="105.0" text="MOVIMENTO" textFill="#4b566b">
+                                                                        <font>
+                                                                           <Font name="System Bold" size="12.0" />
+                                                                        </font>
+                                                                        <VBox.margin>
+                                                                           <Insets bottom="6.0" />
+                                                                        </VBox.margin>
+                                                                     </Label>
+                                                                  </children>
+                                                                  <padding>
+                                                                     <Insets left="5.0" />
+                                                                  </padding>
+                                                               </VBox>
+                                                               <TextField fx:id="conField1" maxHeight="40.0" maxWidth="40.0" prefHeight="40.0" prefWidth="40.0">
+                                                                  <HBox.margin>
+                                                                     <Insets right="20.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font size="15.0" />
+                                                                  </font>
+                                                               </TextField>
+                                                            </children>
+                                                            <VBox.margin>
+                                                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </VBox.margin>
+                                                         </HBox>
+                                                         <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="165.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
+                                                            <children>
+                                                               <VBox prefHeight="68.0" prefWidth="96.0">
+                                                                  <children>
+                                                                     <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="44.0" prefWidth="101.0" text="JP" textFill="#4b566b">
+                                                                        <font>
+                                                                           <Font name="System Bold Italic" size="31.0" />
+                                                                        </font>
+                                                                     </Label>
+                                                                     <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="101.0" text="JOGADA DE PROTEÇÃO" textFill="#4b566b">
+                                                                        <font>
+                                                                           <Font name="System Bold" size="8.0" />
+                                                                        </font>
+                                                                        <VBox.margin>
+                                                                           <Insets bottom="6.0" />
+                                                                        </VBox.margin>
+                                                                     </Label>
+                                                                  </children>
+                                                                  <padding>
+                                                                     <Insets left="5.0" />
+                                                                  </padding>
+                                                               </VBox>
+                                                               <TextField fx:id="intField1" maxHeight="40.0" maxWidth="40.0" prefHeight="40.0" prefWidth="40.0">
+                                                                  <HBox.margin>
+                                                                     <Insets right="20.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font size="15.0" />
+                                                                  </font>
+                                                               </TextField>
+                                                            </children>
+                                                            <VBox.margin>
+                                                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </VBox.margin>
+                                                         </HBox>
+                                                         <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="70.0" prefWidth="165.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
+                                                            <children>
+                                                               <VBox prefHeight="68.0" prefWidth="96.0">
+                                                                  <children>
+                                                                     <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="44.0" prefWidth="96.0" text="CA" textFill="#4b566b">
+                                                                        <font>
+                                                                           <Font name="System Bold Italic" size="31.0" />
+                                                                        </font>
+                                                                     </Label>
+                                                                     <Label alignment="TOP_LEFT" prefHeight="22.0" prefWidth="100.0" text="CLASSE ARMADURA" textFill="#4b566b">
+                                                                        <font>
+                                                                           <Font name="System Bold" size="9.0" />
+                                                                        </font>
+                                                                        <VBox.margin>
+                                                                           <Insets bottom="6.0" />
+                                                                        </VBox.margin>
+                                                                     </Label>
+                                                                  </children>
+                                                                  <padding>
+                                                                     <Insets left="5.0" />
+                                                                  </padding>
+                                                               </VBox>
+                                                               <TextField fx:id="wisField1" maxHeight="40.0" maxWidth="41.0" prefHeight="40.0" prefWidth="41.0">
+                                                                  <HBox.margin>
+                                                                     <Insets right="20.0" />
+                                                                  </HBox.margin>
+                                                                  <font>
+                                                                     <Font size="15.0" />
+                                                                  </font>
+                                                               </TextField>
+                                                            </children>
+                                                            <VBox.margin>
+                                                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                            </VBox.margin>
+                                                         </HBox>
+                                                      </children>
+                                                   </VBox>
                                                 </children>
-                                             </HBox>
+                                                <padding>
+                                                   <Insets bottom="10.0" top="10.0" />
+                                                </padding>
+                                             </VBox>
                                           </children>
-                                       </VBox>
-                                       <Pane prefHeight="0.0" prefWidth="729.0" />
-                                       <VBox prefHeight="66.0" prefWidth="355.0">
+                                       </HBox>
+                                       <VBox prefHeight="200.0" prefWidth="100.0">
                                           <children>
-                                             <HBox prefHeight="17.0" prefWidth="355.0">
+                                             <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="556.0">
                                                 <children>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="78.0" text="AJUSTES">
+                                                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="171.0" text="ARMAS E ATAQUES">
                                                       <HBox.margin>
-                                                         <Insets left="5.0" />
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                      <font>
+                                                         <Font name="System Bold" size="12.0" />
+                                                      </font>
+                                                   </Label>
+                                                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="105.0" text="INICIATIVA">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                       </HBox.margin>
                                                    </Label>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="262.0" text="TALENTOS LADINOS" />
-                                                </children>
-                                             </HBox>
-                                             <HBox prefHeight="54.0" prefWidth="454.0">
-                                                <children>
-                                                   <TextField prefHeight="38.0" prefWidth="77.0">
+                                                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="128.0" text="BA TOTAL">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
                                                       <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                      </HBox.margin>
-                                                   </TextField>
-                                                   <TextField prefHeight="38.0" prefWidth="253.0">
-                                                      <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                      </HBox.margin>
-                                                   </TextField>
-                                                </children>
-                                             </HBox>
-                                          </children>
-                                       </VBox>
-                                       <VBox prefHeight="66.0" prefWidth="355.0">
-                                          <children>
-                                             <HBox prefHeight="17.0" prefWidth="355.0">
-                                                <children>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="178.0" text="AJUSTES DE PV E PROTECAO">
-                                                      <HBox.margin>
-                                                         <Insets left="5.0" />
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                       </HBox.margin>
                                                    </Label>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="\%RESSURREICAO" />
-                                                </children>
-                                             </HBox>
-                                             <HBox prefHeight="54.0" prefWidth="454.0">
-                                                <children>
-                                                   <TextField prefHeight="38.0" prefWidth="181.0">
+                                                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="128.0" text="DANO">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
                                                       <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                      </HBox.margin>
-                                                   </TextField>
-                                                   <TextField prefHeight="42.0" prefWidth="162.0">
-                                                      <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                                      </HBox.margin>
-                                                   </TextField>
-                                                </children>
-                                             </HBox>
-                                          </children>
-                                       </VBox>
-                                       <VBox prefHeight="66.0" prefWidth="355.0">
-                                          <children>
-                                             <HBox prefHeight="17.0" prefWidth="355.0">
-                                                <children>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="88.0" text="IDIOMAS">
-                                                      <HBox.margin>
-                                                         <Insets left="5.0" />
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                       </HBox.margin>
                                                    </Label>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="\%APRENDER MAGIA" />
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="MAGIAS ADICONAIS" />
-                                                </children>
-                                             </HBox>
-                                             <HBox prefHeight="54.0" prefWidth="454.0">
-                                                <children>
-                                                   <TextField prefHeight="42.0" prefWidth="81.0">
+                                                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="128.0" text="COMBATE">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
                                                       <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" />
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                       </HBox.margin>
-                                                   </TextField>
-                                                   <TextField prefHeight="42.0" prefWidth="144.0">
+                                                   </Label>
+                                                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="128.0" text="ALCANCE">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
                                                       <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" />
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                       </HBox.margin>
-                                                   </TextField>
-                                                   <TextField prefHeight="42.0" prefWidth="162.0" />
-                                                </children>
-                                             </HBox>
-                                          </children>
-                                       </VBox>
-                                       <VBox prefHeight="66.0" prefWidth="355.0">
-                                          <children>
-                                             <HBox prefHeight="17.0" prefWidth="355.0">
-                                                <children>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="371.0" text="AJUSTES DE PROTECAO">
+                                                   </Label>
+                                                   <Label alignment="CENTER" prefHeight="17.0" prefWidth="128.0" text="TAMANHO">
+                                                      <font>
+                                                         <Font size="9.0" />
+                                                      </font>
                                                       <HBox.margin>
-                                                         <Insets left="5.0" />
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                       </HBox.margin>
                                                    </Label>
                                                 </children>
                                              </HBox>
-                                             <HBox prefHeight="54.0" prefWidth="454.0">
+                                             <HBox prefHeight="31.0" prefWidth="556.0">
                                                 <children>
-                                                   <TextField prefHeight="38.0" prefWidth="349.0">
+                                                   <TextField prefHeight="27.0" prefWidth="115.0">
                                                       <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="49.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="70.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="78.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="67.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="83.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="65.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                       </HBox.margin>
                                                    </TextField>
                                                 </children>
                                              </HBox>
-                                          </children>
-                                       </VBox>
-                                       <VBox prefHeight="66.0" prefWidth="355.0">
-                                          <children>
-                                             <HBox prefHeight="17.0" prefWidth="355.0">
+                                             <HBox prefHeight="7.0" prefWidth="556.0">
                                                 <children>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="N° SEGUIDORES">
+                                                   <TextField prefHeight="27.0" prefWidth="115.0">
                                                       <HBox.margin>
-                                                         <Insets left="5.0" />
-                                                      </HBox.margin>
-                                                   </Label>
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="169.0" text="AJUSTE DE REAÇAO" />
-                                                   <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="MORTOS-VIVOS" />
-                                                </children>
-                                             </HBox>
-                                             <HBox prefHeight="54.0" prefWidth="454.0">
-                                                <children>
-                                                   <TextField prefHeight="42.0" prefWidth="141.0">
-                                                      <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" />
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                       </HBox.margin>
                                                    </TextField>
-                                                   <TextField prefHeight="42.0" prefWidth="154.0">
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="49.0">
                                                       <HBox.margin>
-                                                         <Insets bottom="5.0" left="5.0" right="5.0" />
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                                       </HBox.margin>
                                                    </TextField>
-                                                   <TextField prefHeight="42.0" prefWidth="162.0" />
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="70.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="78.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="67.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="83.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
+                                                   <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="27.0" prefWidth="65.0">
+                                                      <HBox.margin>
+                                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                                      </HBox.margin>
+                                                   </TextField>
                                                 </children>
                                              </HBox>
                                           </children>
                                        </VBox>
                                     </children>
-                                    <padding>
-                                       <Insets bottom="10.0" top="10.0" />
-                                    </padding>
-                                    <HBox.margin>
-                                       <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                                    </HBox.margin>
                                  </VBox>
-                                 <Rectangle fill="#ced8e0" height="378.0" stroke="#788896" strokeType="INSIDE" strokeWidth="2.0" width="115.0">
-                                    <HBox.margin>
-                                       <Insets top="10.0" />
-                                    </HBox.margin>
-                                 </Rectangle>
                               </children>
                            </HBox>
                            <HBox>

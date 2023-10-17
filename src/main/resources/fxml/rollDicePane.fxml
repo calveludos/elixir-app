@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.newCharacterController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.rollDiceController">
     <!-- Menu Lateral -->
     <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="260.0" spacing="17.0" style="-fx-background-color: #e7e4df;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
         <!-- Ícone e texto do Menu Principal -->
@@ -49,7 +50,7 @@
             <Button fx:id="startPaneMenuButton" onAction="#startPaneMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Tela Inicial" />
             <Button fx:id="myCharactersMenuButton" onAction="#myCharactersMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Meus Personagens" />
             <Button fx:id="createNewCharacterMenuButton" onAction="#createNewCharacterMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Criar nova ficha" />
-            <Button fx:id="diceMenuButtonAction"  onAction="#diceMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="ROLAR DADOS!" />
+            <Button fx:id="diceMenuButtonAction" onAction="#diceMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="ROLAR DADOS!" />
             <padding>
                 <Insets left="20.0" />
             </padding>
@@ -114,33 +115,30 @@
 
     <!-- Corpo da página -->
     <VBox alignment="CENTER" layoutX="260.0" layoutY="100.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-      <VBox alignment="TOP_CENTER" prefHeight="379.0" prefWidth="700.0">
+      <VBox alignment="TOP_CENTER" prefHeight="379.0" prefWidth="700.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
          <children>
-              <ImageView fitHeight="156.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+              <ImageView fx:id="diceImage" fitHeight="156.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
                   <image>
-                      <Image url="@../media/pastImage.png" />
+                      <Image url="@../media/d20.png" />
                   </image>
                <VBox.margin>
-                  <Insets bottom="15.0" />
+                  <Insets bottom="10.0" top="10.0" />
                </VBox.margin>
               </ImageView>
-            <Label prefHeight="28.0" prefWidth="141.0" text="Nome da Pasta">
+            <Label fx:id="diceValue" alignment="CENTER" prefHeight="17.0" prefWidth="94.0">
                <font>
-                  <Font name="System Bold Italic" size="19.0" />
+                  <Font size="18.0" />
                </font>
-               <VBox.margin>
-                  <Insets bottom="30.0" />
-               </VBox.margin>
             </Label>
-            <HBox alignment="CENTER" prefHeight="73.0" prefWidth="700.0">
+            <HBox alignment="CENTER" prefHeight="161.0" prefWidth="700.0">
                <children>
-                  <VBox prefHeight="73.0" prefWidth="275.0" style="-fx-border-color: #c08888; -fx-border-width: 2; -fx-background-color: #eee0e0;">
+                  <VBox alignment="CENTER" prefHeight="128.0" prefWidth="275.0" style="-fx-border-color: #c08888; -fx-border-width: 2; -fx-background-color: #eee0e0;">
                      <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
                            <children>
-                              <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="ADICIONE OS PERSONAGENS">
+                              <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="QUANTIDADE DE FACES">
                                  <HBox.margin>
-                                    <Insets left="12.0" right="10.0" top="5.0" />
+                                    <Insets left="12.0" right="10.0" top="10.0" />
                                  </HBox.margin>
                                  <font>
                                     <Font name="System Bold" size="13.0" />
@@ -150,33 +148,58 @@
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="51.0" prefWidth="271.0">
                            <children>
-                              <Accordion />
-                              <ChoiceBox prefWidth="150.0" />
+                              <ChoiceBox fx:id="diceType" prefWidth="150.0" />
                            </children>
                            <VBox.margin>
                               <Insets left="12.0" right="12.0" />
                            </VBox.margin>
                         </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
+                           <children>
+                              <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="QUANTIDADE">
+                                 <HBox.margin>
+                                    <Insets left="12.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Spinner fx:id="diceAmount" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
+                           <children>
+                              <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="BÔNUS">
+                                 <HBox.margin>
+                                    <Insets left="12.0" right="10.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <TextField fx:id="diceBonus" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </TextField>
                      </children>
                   </VBox>
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="76.0" prefWidth="700.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #ffffff; -fx-border-color: #c08888; -fx-border-width: 2;" text="CRIAR" textFill="#c08888">
+                  <Button fx:id="rollDiceButton" mnemonicParsing="false" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #c08888;" text="ROLAR!" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                      <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #c08888;" text="FEITO!" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="127.0" />
+                        <Insets bottom="10.0" top="10.0" />
                      </HBox.margin>
                   </Button>
                </children>
