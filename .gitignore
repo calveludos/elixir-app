@@ -1,10 +1,5 @@
 # Arquivos e diretórios Maven
 /target/
-/mvn/
-/.mvn/
-
-# Dependências do Maven (arquivos JAR, por exemplo)
-*.jar
 
 # Arquivos e diretórios específicos do IntelliJ IDEA
 /.idea/

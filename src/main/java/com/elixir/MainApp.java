@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,10 +25,16 @@ public class MainApp extends Application {
     }
 
     static void setRoot(String fxml, String title) throws IOException {
-        Scene scene = new Scene(loadFXML(fxml));
+        Parent root = loadFXML(fxml);
+        Scene scene = new Scene(root);
         stage.setTitle(title);
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
+    }
+
+    static void setStage(Stage stage, String title) throws IOException {
+
     }
 
     private static Parent loadFXML(String fxml) throws IOException {

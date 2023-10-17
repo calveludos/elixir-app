@@ -3,6 +3,7 @@ package com.elixir.manager;
 import com.elixir.MainApp;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 
@@ -18,8 +19,9 @@ public class PaneManager {
     public void openPane(String caminhoFXML) {;
         try {
             Scene scene = new Scene(loadFXML(caminhoFXML));
+            stage.setWidth(stage.getWidth());
+            stage.setHeight(stage.getHeight());
             stage.setScene(scene);
-            stage.setFullScreen(true);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
