@@ -21,50 +21,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.CreateCharacterDateController">
-    <!-- Menu Lateral -->
-    <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="260.0" spacing="17.0" style="-fx-background-color: #e7e4df;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <!-- Ícone e texto do Menu Principal -->
-        <HBox spacing="2.0">
-            <ImageView fitHeight="30.0" fitWidth="30.0">
-                <HBox.margin>
-                    <Insets left="15.0" />
-                </HBox.margin>
-                <Image url="@../media/menuIcon.png" />
-            </ImageView>
-            <Text fill="#4b5c6b" strokeType="OUTSIDE" strokeWidth="0.0">
-                MENU PRINCIPAL
-                <font>
-                    <Font size="16.0" />
-                </font>
-                <style>
-                    -fx-font-weight: bold;
-                    -fx-font-style: italic;
-                </style>
-                <HBox.margin>
-                    <Insets top="4.0" />
-                </HBox.margin>
-            </Text>
-            <VBox.margin>
-                <Insets />
-            </VBox.margin>
-        </HBox>
-
-        <!-- Botões -->
-        <VBox alignment="CENTER" spacing="25.0">
-            <Button fx:id="startPaneMenuButton" onAction="#startPaneMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Tela Inicial" />
-            <Button fx:id="myCharactersMenuButton" onAction="#myCharactersMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Meus Personagens" />
-            <Button fx:id="createNewCharacterMenuButton" onAction="#createNewCharacterMenuButtonAction" prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Criar nova ficha" />
-            <padding>
-                <Insets left="20.0" />
-            </padding>
-        </VBox>
-        <padding>
-            <Insets top="120.0" />
-        </padding>
-    </VBox>
-
-
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.CreateCharacterDateController" fx:id="anchorRoot">
     <!-- Cabeçalho superior -->
     <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <!-- Logo e texto -->

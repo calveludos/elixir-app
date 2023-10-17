@@ -45,7 +45,9 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
     private Attribute attribute;
 
     @FXML
-    private void initialize() {
+    public void initialize() {
+        super.initialize();
+
         applyIntegerFormatter(chaField);
         applyIntegerFormatter(conField);
         applyIntegerFormatter(dexField);

@@ -27,7 +27,9 @@ public class FolderCharactersController extends MenuController {
     private VBox charactersVBox;
 
     @FXML
-    private void initialize() throws SQLException {
+    public void initialize() {
+        super.initialize();
+
         ObjectSaveManager reader = new ObjectSaveManager();
         reader.printMap();
         Folder folder = (Folder) reader.getObject("folder");

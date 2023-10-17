@@ -41,7 +41,8 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
     private Character character;
 
     @FXML
-    private void initialize() {
+    public void initialize() {
+        super.initialize();
 
         Map<Integer, String> alignmentIdMap = new HashMap<>();
 

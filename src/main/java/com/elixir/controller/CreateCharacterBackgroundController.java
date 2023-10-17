@@ -41,7 +41,9 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
     private User user;
 
     @FXML
-    private void initialize(){
+    public void initialize(){
+        super.initialize();
+
         ObjectSaveManager reader = new ObjectSaveManager();
         character = (Character) reader.getObject("character");
         attribute = (Attribute) reader.getObject("attribute");

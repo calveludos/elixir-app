@@ -37,7 +37,9 @@ public class MyCharactersController extends MenuController {
     private HBox hboxFolders;
 
     @FXML
-    private void initialize(){
+    public void initialize(){
+        super.initialize();
+
         ObjectSaveManager reader = new ObjectSaveManager();
         int userId = ((User) reader.getObject("user")).getId();
         Map<Integer, Character> characterMap = (Map<Integer, Character>) reader.getObject("characters");

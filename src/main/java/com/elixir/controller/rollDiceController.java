@@ -28,7 +28,9 @@ public class rollDiceController extends MenuController {
     private TextField diceBonus;
 
     @FXML
-    private void initialize() {
+    public void initialize() {
+        super.initialize();
+
         ObservableList<Integer> diceOptions = FXCollections.observableArrayList(4, 6, 8, 12, 20);
         diceType.getItems().addAll(diceOptions);
 
@@ -64,7 +66,7 @@ public class rollDiceController extends MenuController {
     }
 
     @FXML
-    public void rollDiceButtonOnAction(ActionEvent event)    {
+    public void rollDiceButtonOnAction(ActionEvent event) {
         diceValue.setTextFill(Color.BLACK);
         int total = 0;
         double randomNumber = Math.random();
