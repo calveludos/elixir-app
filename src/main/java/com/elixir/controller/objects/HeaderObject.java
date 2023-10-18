@@ -1,5 +1,7 @@
 package com.elixir.controller.objects;
 
+import com.elixir.MainApp;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.*;
 import javafx.scene.image.*;
 import javafx.scene.shape.Line;
@@ -9,10 +11,14 @@ import javafx.scene.paint.*;
 
 public class HeaderObject extends HBox {
     public HeaderObject() {
+        FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/objects/headerObject.fxml"));
+
+
         // Defina as propriedades da HBox
-        setAlignment(Pos.CENTER_LEFT);
+        setAlignment(Pos.TOP_LEFT);
         setPrefHeight(114.0);
         setPrefWidth(1000.0);
+        setMaxHeight(116.2);
         setStyle("-fx-background-color: #434343;");
         setPadding(new Insets(10.0));
 
@@ -22,37 +28,35 @@ public class HeaderObject extends HBox {
         logo.setFitWidth(84.0);
         setMargin(logo, new Insets(0, 0, 0, 10.0));
 
-        VBox logoAndText = new VBox(5.0);
-        logoAndText.setAlignment(Pos.CENTER_LEFT);
+        VBox lineAndText = new VBox(5.0);
+        lineAndText.setAlignment(Pos.CENTER_LEFT);
+        setMargin(logo, new Insets(0, 0, 28.0, 0));
 
         Text headerText = new Text("ELIXIR MAKER");
         headerText.setFill(Color.WHITE);
         headerText.setFont(Font.font("System Bold", 20.0));
-        headerText.setStyle("-fx-font-style: italic");
 
         Line headerLine = new Line(0, 0, 120.0, 0);
         headerLine.setStroke(Color.WHITE);
         headerLine.setStrokeWidth(3.0);
 
-        logoAndText.getChildren().addAll(headerText, headerLine);
-        setMargin(logoAndText, new Insets(0, 0, 28.0, 90.0));
+        lineAndText.getChildren().addAll(headerText, headerLine);
+
+        Region region = new Region();
+        region.setMaxHeight(0.0);
+        setHgrow(region, Priority.ALWAYS);
 
         // Nome de usuário e foto de perfil
-        HBox userBox = new HBox(10.0);
-        userBox.setAlignment(Pos.TOP_RIGHT);
 
         Text userName = new Text("Nome de Usuário");
         userName.setFill(Color.WHITE);
-        userName.setFont(Font.font("System Bold", 16.0));
-        userName.setStyle("-fx-font-style: italic");
+        userName.setFont(Font.font("System Bold Italic", 16.0));
 
         ImageView profileImage = new ImageView(new Image("/media/emptyPerfilImage.png"));
         profileImage.setFitHeight(35.0);
         profileImage.setFitWidth(35.0);
+        setMargin(userName, new Insets(profileImage.getFitHeight()/2));
 
-        userBox.getChildren().addAll(userName, profileImage);
-        setMargin(userBox, new Insets(0, 10.0, 0, 0));
-
-        getChildren().addAll(logo, logoAndText, userBox);
+        getChildren().addAll(logo, lineAndText, region, userName, profileImage);
     }
 }

@@ -1,16 +1,17 @@
 package com.elixir.controller.abstractControllers;
 
-import com.elixir.controller.objects.HeaderObject;
+import com.elixir.MainApp;
 import com.elixir.controller.objects.SideMenuObject;
 import com.elixir.manager.PaneManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.geometry.Side;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MenuController {
     @FXML
@@ -41,11 +42,17 @@ public class MenuController {
     }
 
     protected void addHeader(){
-        HBox header = new HeaderObject();
+        HBox header;
+        try {
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/fxml/objects/headerObject.fxml"));
+            header = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         AnchorPane.setLeftAnchor(header, 0.0);
         AnchorPane.setTopAnchor(header, 0.0);
         AnchorPane.setRightAnchor(header, 0.0);
-        anchorRoot.getChildren().add(1, header);
+        anchorRoot.getChildren().add(header);
     }
 
     @FXML
