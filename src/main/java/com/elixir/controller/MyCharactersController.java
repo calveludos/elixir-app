@@ -96,9 +96,9 @@ public class MyCharactersController extends MenuController {
                 vBox.setSpacing(5);
                 try {
                     Character character1 = characterMap.get(indexs[i]);
-                    vBox.getChildren().add(new CharacterObject(character1.getName(), getRaceId(character1.getRaceId()), getClassId(character1.getClassId())));
+                    vBox.getChildren().add(new CharacterObject(character1));
                     Character character2 = characterMap.get(indexs[i+1]);
-                    vBox.getChildren().add(new CharacterObject(character2.getName(), getRaceId(character2.getRaceId()), getClassId(character2.getClassId())));
+                    vBox.getChildren().add(new CharacterObject(character2));
                 } catch (IndexOutOfBoundsException ignored){}
                 hboxCharacters.getChildren().add(vBox);
             }

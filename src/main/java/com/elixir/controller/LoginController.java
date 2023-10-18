@@ -1,12 +1,14 @@
 package com.elixir.controller;
 
 import com.elixir.controller.objects.ValidationButton;
+import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
 import com.elixir.dao.FolderDAO;
 import com.elixir.dao.UserDAO;
 import com.elixir.factory.ConnectionFactory;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
+import com.elixir.model.Attribute;
 import com.elixir.model.Folder;
 import com.elixir.model.User;
 import com.elixir.model.Character;
@@ -120,15 +122,41 @@ public class LoginController {
             characterDAO.stmt = characterDAO.conn.prepareStatement(query);
             characterDAO.stmt.setInt(1, user.getId());
 
+            System.out.println(characterDAO.conn.isClosed());
+            System.out.println(characterDAO.stmt.isClosed());
+            characterDAO.conn.beginRequest();
+            System.out.println(characterDAO.conn.isClosed());
+            System.out.println(characterDAO.stmt.isClosed());
+
+            String query2 = "SELECT a.* FROM Attribute a \n" +
+                    "JOIN `Character` c ON c.id_attribute = a.id\n" +
+                    "JOIN Folder f ON c.id_folder = f.id\n" +
+                    "WHERE f.id_user = ?;";
+
+            AttributeDAO attributeDAO = new AttributeDAO();
+            attributeDAO.conn = null;
+            attributeDAO.stmt = null;
+            attributeDAO.conn = ConnectionFactory.createConnection();
+            attributeDAO.stmt = characterDAO.conn.prepareStatement(query2);
+            attributeDAO.stmt.setInt(1, user.getId());
+
+            System.out.println(characterDAO.conn.isClosed());
+            System.out.println(attributeDAO.conn.isClosed());
+            characterDAO.conn.beginRequest();
+            System.out.println(characterDAO.conn.isClosed());
+            System.out.println(attributeDAO.conn.isClosed());
+
             FolderDAO folderDAO = new FolderDAO();
             Folder folderFilter = new Folder();
             folderFilter.setUserId(user.getId());
 
             Map<Integer, Folder> folderMap;
             Map<Integer, Character> characterMap;
+            Map<Integer, Attribute> attributesMap;
             try {
                 folderMap = folderDAO.read(folderFilter);
                 characterMap = characterDAO.readQuery();
+                attributesMap = attributeDAO.readQuery();
             } catch (SQLException e){
                 e.printStackTrace();
                 throw e;
@@ -136,6 +164,7 @@ public class LoginController {
 
             saveManager.saveObject("folders", folderMap);
             saveManager.saveObject("characters", characterMap);
+            saveManager.saveObject("attributes", attributesMap);
 
             PaneManager manager = new PaneManager();
             manager.openPane("startScreenPane");

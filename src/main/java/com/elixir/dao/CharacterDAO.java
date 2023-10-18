@@ -278,10 +278,10 @@ public class CharacterDAO extends CrudDAO<Character> {
             throw new SQLException(e);
 
         } finally {
-            closeResources();
+           /* closeResources();
             if (resultSet != null) {
                 resultSet.close();
-            }
+            }*/
         }
 
         return characterMap;

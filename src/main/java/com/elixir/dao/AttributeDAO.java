@@ -110,6 +110,38 @@ public class AttributeDAO extends CrudDAO<Attribute> {
         return attributeMap;
     }
 
+    public Map<Integer, Attribute> readQuery() throws SQLException {
+        ResultSet resultSet = null;
+        Map<Integer, Attribute> attributeMap = new HashMap<>();
+
+        try {
+            resultSet = stmt.executeQuery();
+
+            while (resultSet.next()) {
+                Attribute attribute = new Attribute();
+                attribute.setId(resultSet.getInt("id"));
+                attribute.setStrength(resultSet.getInt("strength"));
+                attribute.setDexterity(resultSet.getInt("dexterity"));
+                attribute.setConstitution(resultSet.getInt("constitution"));
+                attribute.setIntelligence(resultSet.getInt("intelligence"));
+                attribute.setWisdom(resultSet.getInt("wisdom"));
+                attribute.setCharisma(resultSet.getInt("charisma"));
+
+                attributeMap.put(attribute.getId(), attribute);
+            }
+
+        } catch (SQLException e) {
+            throw new SQLException(e);
+
+        } finally {
+            closeResources();
+            if (resultSet != null) {
+                resultSet.close();
+            }
+        }
+
+        return attributeMap;
+    }
 
     @Override
     public Map<Integer, Attribute> read(Attribute filter) throws SQLException {

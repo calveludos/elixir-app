@@ -44,9 +44,9 @@ public class FolderCharactersController extends MenuController {
             hBox.setSpacing(10);
             try {
                 Character character1 = characterMap.get(indexs[i]);
-                hBox.getChildren().add(new CharacterObject(character1.getName(), getRaceId(character1.getRaceId()), getClassId(character1.getClassId())));
+                hBox.getChildren().add(new CharacterObject(character1));
                 Character character2 = characterMap.get(indexs[i+1]);
-                hBox.getChildren().add(new CharacterObject(character2.getName(), getRaceId(character2.getRaceId()), getClassId(character2.getClassId())));
+                hBox.getChildren().add(new CharacterObject(character2));
             } catch (IndexOutOfBoundsException ignored){}
             charactersVBox.getChildren().add(hBox);
         }
