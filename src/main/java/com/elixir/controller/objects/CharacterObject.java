@@ -1,6 +1,5 @@
 package com.elixir.controller.objects;
 import com.elixir.controller.MyCharactersController;
-import com.elixir.controller.abstractControllers.MenuController;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
@@ -27,20 +26,6 @@ public class CharacterObject extends HBox {
         ImageView imageView = new ImageView(new Image("/media/emptyImage.png"));
         imageView.setFitHeight(108.0);
         imageView.setFitWidth(118.0);
-
-        imageView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                ObjectSaveManager saver = new ObjectSaveManager();
-                Map<Integer, Attribute> attributeMap = (Map<Integer, Attribute>) saver.getObject("attributes");
-                Attribute attribute = attributeMap.get(character.getAttributeId());
-                saver.saveObject("character", character);
-                saver.saveObject("attribute", attribute);
-
-                PaneManager manager = new PaneManager();
-                manager.openPane("viewCharacterPage1");
-            }
-        });
 
         // Crie um VBox para os textos
         VBox textVBox = new VBox(5);
@@ -69,6 +54,20 @@ public class CharacterObject extends HBox {
 
         // Configure o preenchimento (padding) do VBox
         VBox.setMargin(textVBox, new Insets(20.0, 0, 20.0, 0));
+
+        setOnMouseClicked(mouseEvent -> {
+                    System.out.println("clicou");
+                    ObjectSaveManager saver = new ObjectSaveManager();
+                    Map<Integer, Attribute> attributeMap = (Map<Integer, Attribute>) saver.getObject("attributes");
+                    Attribute attribute = attributeMap.get(character.getAttributeId());
+                    System.out.println(attribute);
+                    saver.saveObject("character", character);
+                    saver.saveObject("attribute", attribute);
+
+                    PaneManager manager = new PaneManager();
+                    manager.openPane("viewCharacterPage1");
+                }
+        );
     }
 
     private Text createText(String text) {
