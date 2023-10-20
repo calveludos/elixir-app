@@ -71,6 +71,7 @@ public class rollDiceController extends MenuController {
         int total = 0;
         double randomNumber = Math.random();
         Integer selectedValueDiceType = diceType.getValue();
+
         int numberOfRolls = diceAmount.getValue();
 
         if(Objects.equals(diceBonus.getText(), "")){diceBonus.setText("0");}

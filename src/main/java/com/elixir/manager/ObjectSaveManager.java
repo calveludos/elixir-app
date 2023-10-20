@@ -42,6 +42,8 @@ public class ObjectSaveManager {
         System.out.println("Map limpo");
     }
 
+
+
     private void saveMapToFile() {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("object.bin"))) {
             outputStream.writeObject(map);

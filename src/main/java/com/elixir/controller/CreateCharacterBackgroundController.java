@@ -124,6 +124,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         PaneManager paneManager = new PaneManager();
         paneManager.openPane("myCharactersPane");
 
+
     }
 
 
@@ -136,6 +137,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
 
         PaneManager paneManager = new PaneManager();
         paneManager.openPane(fxml);
+
     }
 
     public static String getClass(int classId){
