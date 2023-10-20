@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.FolderCharactersController" fx:id="anchorRoot">
+<AnchorPane fx:id="anchorRoot" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.FolderCharactersController">
     <!-- Cabeçalho superior -->
     <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <!-- Logo e texto -->
@@ -69,7 +69,7 @@
 
     <!-- Corpo da página -->
     <VBox layoutX="260.0" layoutY="114.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
-      <HBox prefHeight="0.0" prefWidth="700.0">
+      <HBox prefHeight="0.0" prefWidth="700.0" spacing="10.0">
          <children>
               <!-- Título "MINHAS PASTAS" -->
               <Text fill="#4b5c6b" strokeType="OUTSIDE" strokeWidth="0.0" text="NOME DA PASTA" wrappingWidth="201.21604919433594">
@@ -78,8 +78,13 @@
                       <Font name="System Bold Italic" size="24.0" />
                   </font>
               </Text>
-            <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="newFolderButton" onAction="#newFolderButtonAction" prefHeight="32.0" prefWidth="221.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #897a5f; -fx-border-color: #897a5f; -fx-border-radius: 5;" text="ADICIONAR PERSONAGEM">
+            <Region prefHeight="32.0" prefWidth="18.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="removeCharacterButton" onAction="#removeCharacterButtonAction" prefHeight="32.0" prefWidth="203.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #c08888; -fx-border-radius: 5;" text="REMOVER PERSONAGEM" textFill="#c08888">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="addCharacterButton" onAction="#addCharacterButtonAction" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #897a5f; -fx-border-color: #897a5f; -fx-border-radius: 5;" text="ADICIONAR PERSONAGEM">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>

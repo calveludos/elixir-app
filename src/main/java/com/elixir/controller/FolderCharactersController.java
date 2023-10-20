@@ -6,6 +6,7 @@ import com.elixir.controller.objects.FolderObject;
 import com.elixir.dao.CharacterDAO;
 import com.elixir.dao.FolderDAO;
 import com.elixir.manager.ObjectSaveManager;
+import com.elixir.manager.PaneManager;
 import com.elixir.model.Character;
 import com.elixir.model.Folder;
 import javafx.event.ActionEvent;
@@ -53,8 +54,15 @@ public class FolderCharactersController extends MenuController {
     }
 
     @FXML
-    void newFolderButtonAction(ActionEvent event) {
+    void addCharacterButtonAction(ActionEvent event) {
+        PaneManager manager = new PaneManager();
+        manager.openPane("newFolderCharacters");
+    }
 
+    @FXML
+    void removeCharacterButtonAction(ActionEvent event){
+        PaneManager manager = new PaneManager();
+        manager.openPane("removeFolderCharacters");
     }
 
 }

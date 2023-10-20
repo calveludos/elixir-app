@@ -117,6 +117,7 @@ public class MyCharactersController extends MenuController {
     @FXML
     private void newFolderButtonAction(){
         PaneManager paneManager = new PaneManager();
+        paneManager.openPane("newFolderName");
     }
 
     public static String getClassId(int classId) {
