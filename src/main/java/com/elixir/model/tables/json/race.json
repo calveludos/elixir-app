@@ -32,36 +32,6 @@
     },
     {
       "id": 2,
-      "name": "Anão",
-      "minHeight": 1.30,
-      "maxHeight": 1.50,
-      "minWeight": 50,
-      "maxWeight": 70,
-      "matureAge": 70,
-      "lifeExpect": 350,
-      "languages": [1, 2, 8],
-      "bonus": {
-        "attribute": {
-          "str": 0,
-          "dex": 0,
-          "con": 2,
-          "int": 0,
-          "wis": 0,
-          "cha": -2
-        },
-        "attack": 0,
-        "class armor": 6
-      },
-      "moveBase": 6,
-      "alignment": [1],
-      "vision": {
-        "dark": 15,
-        "twilight": 0
-      },
-      "abilities": "Detectar desníveis, fossos ou armadilhas de pedra com resultado de 1 ou 2 em 1d6"
-    },
-    {
-      "id": 3,
       "name": "Elfo",
       "minHeight": 1.50,
       "maxHeight": 1.70,
@@ -94,6 +64,36 @@
         "Percepção de Passagens Secretas: Detectam passagens secretas passivamente com resultado 1 em 1d6 e ativamente com 1 e 2 em 1d6.",
         "Imunidade a Efeitos de Sono: Elfos não dormem, sendo imunes a magias ou efeitos que envolvam sono."
       ]
+    },
+    {
+      "id": 3,
+      "name": "Anão",
+      "minHeight": 1.30,
+      "maxHeight": 1.50,
+      "minWeight": 50,
+      "maxWeight": 70,
+      "matureAge": 70,
+      "lifeExpect": 350,
+      "languages": [1, 2, 8],
+      "bonus": {
+        "attribute": {
+          "str": 0,
+          "dex": 0,
+          "con": 2,
+          "int": 0,
+          "wis": 0,
+          "cha": -2
+        },
+        "attack": 0,
+        "class armor": 6
+      },
+      "moveBase": 6,
+      "alignment": [1],
+      "vision": {
+        "dark": 15,
+        "twilight": 0
+      },
+      "abilities": "Detectar desníveis, fossos ou armadilhas de pedra com resultado de 1 ou 2 em 1d6"
     },
     {
       "id": 4,

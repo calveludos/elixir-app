@@ -138,7 +138,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         paneManager.openPane(fxml);
     }
 
-    private String getClass(int classId){
+    public static String getClass(int classId){
         switch (classId){
             case 1:
                 return "warrior";

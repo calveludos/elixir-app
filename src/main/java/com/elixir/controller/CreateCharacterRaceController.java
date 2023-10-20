@@ -29,8 +29,6 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
     private Attribute attribute;
     private Attribute copyAttribute;
 
-
-
     @FXML
     public void initialize(){
         super.initialize();
