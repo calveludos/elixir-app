@@ -1072,140 +1072,140 @@
         "XP": 0,
         "Dado de Vida": 1,
         "Base de Ataque": "+1",
-        "JP": 15
+        "Jogada de Proteção": 15
       },
       {
         "Nível": 2,
         "XP": 1250,
         "Dado de Vida": 2,
         "Base de Ataque": "+1",
-        "JP": 15
+        "Jogada de Proteção": 15
       },
       {
         "Nível": 3,
         "XP": 2500,
         "Dado de Vida": 3,
         "Base de Ataque": "+2",
-        "JP": 15
+        "Jogada de Proteção": 15
       },
       {
         "Nível": 4,
         "XP": 5000,
         "Dado de Vida": 4,
         "Base de Ataque": "+2",
-        "JP": 14
+        "Jogada de Proteção": 14
       },
       {
         "Nível": 5,
         "XP": 10000,
         "Dado de Vida": 5,
         "Base de Ataque": "+2",
-        "JP": 14
+        "Jogada de Proteção": 14
       },
       {
         "Nível": 6,
         "XP": 20000,
         "Dado de Vida": 6,
         "Base de Ataque": "+3",
-        "JP": 14
+        "Jogada de Proteção": 14
       },
       {
         "Nível": 7,
         "XP": 40000,
         "Dado de Vida": 7,
         "Base de Ataque": "+3",
-        "JP": 13
+        "Jogada de Proteção": 13
       },
       {
         "Nível": 8,
         "XP": 80000,
         "Dado de Vida": 8,
         "Base de Ataque": "+3",
-        "JP": 13
+        "Jogada de Proteção": 13
       },
       {
         "Nível": 9,
         "XP": 160000,
         "Dado de Vida": 9,
         "Base de Ataque": "+4",
-        "JP": 13
+        "Jogada de Proteção": 13
       },
       {
         "Nível": 10,
         "XP": 240000,
         "Dado de Vida": "+1 PV",
         "Base de Ataque": "+4",
-        "JP": 12
+        "Jogada de Proteção": 12
       },
       {
         "Nível": 11,
         "XP": 400000,
         "Dado de Vida": "+1 PV",
         "Base de Ataque": "+4",
-        "JP": 12
+        "Jogada de Proteção": 12
       },
       {
         "Nível": 12,
         "XP": 520000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+5",
-        "JP": 12
+        "Jogada de Proteção": 12
       },
       {
         "Nível": 13,
         "XP": 640000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+5",
-        "JP": 11
+        "Jogada de Proteção": 11
       },
       {
         "Nível": 14,
         "XP": 760000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+5",
-        "JP": 11
+        "Jogada de Proteção": 11
       },
       {
         "Nível": 15,
         "XP": 880000,
         "Dado de Vida": "+3 PV",
         "Base de Ataque": "+6",
-        "JP": 11
+        "Jogada de Proteção": 11
       },
       {
         "Nível": 16,
         "XP": 1000000,
         "Dado de Vida": "+3 PV",
         "Base de Ataque": "+6",
-        "JP": 10
+        "Jogada de Proteção": 10
       },
       {
         "Nível": 17,
         "XP": 1120000,
         "Dado de Vida": "+3 PV",
         "Base de Ataque": "+6",
-        "JP": 10
+        "Jogada de Proteção": 10
       },
       {
         "Nível": 18,
         "XP": 1240000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+7",
-        "JP": 10
+        "Jogada de Proteção": 10
       },
       {
         "Nível": 19,
         "XP": 1360000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+7",
-        "JP": 9
+        "Jogada de Proteção": 9
       },
       {
         "Nível": 20,
         "XP": 1480000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+7",
-        "JP": 9
+        "Jogada de Proteção": 9
       }
     ],
     "Thief Skills": [
