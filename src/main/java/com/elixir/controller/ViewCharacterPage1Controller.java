@@ -202,6 +202,9 @@ public class ViewCharacterPage1Controller {
 
     @FXML
     void backButtonAction(ActionEvent event) {
+        ObjectSaveManager saveManager = new ObjectSaveManager();
+        saveManager.removeObject("character");
+
         PaneManager manager = new PaneManager();
         manager.openPane("myCharactersPane");
     }
