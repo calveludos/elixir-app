@@ -75,7 +75,7 @@ public class CharacterAttributes {
     }
 
     public static class Intelligence {
-        private Map<Integer, Map<String, Object>> tableIntelligence;
+        private final Map<Integer, Map<String, Object>> tableIntelligence;
 
         public Intelligence() {
             tableIntelligence = new HashMap<>();
@@ -96,7 +96,7 @@ public class CharacterAttributes {
                     countIdiomas++;
                     if (countChance == 0) {
                         countChance += 25;
-                    } else if (countChance >= 25 && i > 14) {
+                    } else if (countChance >= 25) {
                         countChance += 10;
                     }
                 }
@@ -159,7 +159,7 @@ public class CharacterAttributes {
     }
 
     public static class Wisdom {
-        private Map<Integer, Map<String, Object>> tableWisdom;
+        private final Map<Integer, Map<String, Object>> tableWisdom;
 
         public Wisdom() {
             tableWisdom = new HashMap<>();
@@ -294,7 +294,7 @@ public class CharacterAttributes {
     }
 
     public static class Constitution {
-        private Map<Integer, Map<String, Object>> table;
+        private final Map<Integer, Map<String, Object>> table;
 
         public Constitution() {
             table = new HashMap<>();
@@ -342,8 +342,9 @@ public class CharacterAttributes {
             return table.get(key);
         }
     }
+
     public static class Dexterity {
-        private Map<Integer, Map<String, Object>> table;
+        private final Map<Integer, Map<String, Object>> table;
 
         public Dexterity() {
             table = new HashMap<>();
