@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 
 public class SideMenuObject extends VBox {
     MenuController controller;
+
     public SideMenuObject() {
         controller = new MenuController();
 

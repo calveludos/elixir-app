@@ -741,6 +741,8 @@ public class ViewCharacterPage1Controller {
 
     @FXML
     void nextPageButtonAction(ActionEvent event) {
+        PaneManager manager = new PaneManager();
+        manager.openPane("viewCharacterPage2");
 
     }
 
