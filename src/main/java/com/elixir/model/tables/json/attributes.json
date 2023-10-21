@@ -1,0 +1,33 @@
+{
+  "atributos": [
+    { "atributo": 1, "modificador": -5 },
+    { "atributo": 2, "modificador": -4 },
+    { "atributo": 3, "modificador": -4 },
+    { "atributo": 4, "modificador": -3 },
+    { "atributo": 5, "modificador": -3 },
+    { "atributo": 6, "modificador": -2 },
+    { "atributo": 7, "modificador": -2 },
+    { "atributo": 8, "modificador": -1 },
+    { "atributo": 9, "modificador": -1 },
+    { "atributo": 10, "modificador": 0 },
+    { "atributo": 11, "modificador": 0 },
+    { "atributo": 12, "modificador": 1 },
+    { "atributo": 13, "modificador": 1 },
+    { "atributo": 14, "modificador": 2 },
+    { "atributo": 15, "modificador": 2 },
+    { "atributo": 16, "modificador": 3 },
+    { "atributo": 17, "modificador": 3 },
+    { "atributo": 18, "modificador": 4 },
+    { "atributo": 19, "modificador": 4 },
+    { "atributo": 20, "modificador": 5 },
+    { "atributo": 21, "modificador": 5 },
+    { "atributo": 22, "modificador": 6 },
+    { "atributo": 23, "modificador": 6 },
+    { "atributo": 24, "modificador": 7 },
+    { "atributo": 25, "modificador": 7 },
+    { "atributo": 26, "modificador": 8 },
+    { "atributo": 27, "modificador": 8 },
+    { "atributo": 28, "modificador": 9 },
+    { "atributo": 29, "modificador": 9 }
+  ]
+}

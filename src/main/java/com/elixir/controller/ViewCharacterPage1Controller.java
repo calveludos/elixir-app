@@ -26,7 +26,9 @@ public class ViewCharacterPage1Controller {
     private TextArea appereanceField;
 
     @FXML
-    private TextField baField;
+    private TextField baFieldStr;
+    @FXML
+    private TextField baFieldDex;
 
     @FXML
     private Button backButton;
@@ -123,6 +125,7 @@ public class ViewCharacterPage1Controller {
 
     private Character character;
     private Attribute attribute;
+    private String protectionAjustFieldText;
 
     private int level;
 
@@ -193,7 +196,16 @@ public class ViewCharacterPage1Controller {
         System.out.println("Level" + level);
         String mv = String.valueOf((long) JsonManger.get("race/race:" + character.getRaceId() + "/moveBase" ));
         String jp = String.valueOf((long) JsonManger.get("class/" + CreateCharacterBackgroundController.getClass(character.getClassId()) + "/level:" + level + "/Jogada de Proteção"));
+        String ba = (String) JsonManger.get("class/" + CreateCharacterBackgroundController.getClass(character.getClassId()) + "/level:" + level + "/Base de Ataque");
+        String attModStr = String.valueOf((long) JsonManger.get("attributes/atributos:" + attribute.getStrength() + "/modificador"));
+        String attModDex = String.valueOf((long) JsonManger.get("attributes/atributos:" + attribute.getDexterity() + "/modificador"));
 
+        int baFieldStrText = Integer.parseInt(ba) + Integer.parseInt(attModStr);
+        int baFieldDexText = Integer.parseInt(ba) + Integer.parseInt(attModDex);
+
+
+        baFieldStr.setText(String.valueOf(baFieldStrText));
+        baFieldDex.setText(String.valueOf(baFieldDexText));
         mvField.setText(mv);
         jpField.setText(jp);
     }
@@ -202,9 +214,8 @@ public class ViewCharacterPage1Controller {
         String chargeText = "";
         String damageAjustText = "";
 
-        int strength = attribute.getStrength();
 
-        switch (strength) {
+        switch (attribute.getStrength()) {
             case 1:
                 chargeText = "1 KG";
                 damageAjustText = "-5";
@@ -293,7 +304,7 @@ public class ViewCharacterPage1Controller {
         String learnMagicFieldText = "";
         String addsMagicFieldText = "";
 
-        switch (attribute.getStrength()) {
+        switch (attribute.getIntelligence()) {
             case 1:
                 languagesFieldText = "0";
                 learnMagicFieldText = "0%";
@@ -487,7 +498,7 @@ public class ViewCharacterPage1Controller {
         addsMagicField.setText(addsMagicFieldText);
         String protectionAjustFieldText = "";
 
-        switch (attribute.getWisdom()) {
+        switch (attribute.getDexterity()) {
             case 1:
                 protectionAjustFieldText = "-5";
                 break;
@@ -553,6 +564,11 @@ public class ViewCharacterPage1Controller {
         }
 
         protectionAjustField.setText(protectionAjustFieldText);
+        int caFieldText = Integer.parseInt(protectionAjustFieldText) + 10;
+        if(character.getRaceId() == 4){
+            caFieldText+= 2;
+        }
+        caField.setText(String.valueOf(caFieldText));
 
         String followersFieldText = "";
         String reactionFieldText = "";
@@ -664,63 +680,63 @@ public class ViewCharacterPage1Controller {
 
         switch (attribute.getDexterity()) {
             case 1:
-                thiefTalentsFieldText = "-5 -25% -25% -25%";
+                thiefTalentsFieldText = "15%   20%   80%   20%   10%   20%   1-2   x2";
                 break;
             case 2:
             case 3:
-                thiefTalentsFieldText = "-4 -20% -20% -20%";
+                thiefTalentsFieldText = "20%   25%   81%   25%   15%   25%   1-2   x2";
                 break;
             case 4:
             case 5:
-                thiefTalentsFieldText = "-3 -15% -15% -15%";
+                thiefTalentsFieldText = "25%   30%   82%   30%   20%   30%   1-2   x2";
                 break;
             case 6:
             case 7:
-                thiefTalentsFieldText = "-2 -10% -10% -10%";
+                thiefTalentsFieldText = "30%   35%   83%   35%   25%   35%   1-2   x2";
                 break;
             case 8:
             case 9:
-                thiefTalentsFieldText = "-1 -5% -5% -5%";
+                thiefTalentsFieldText = "35%   40%   84%   40%   30%   40%   1-3   x2";
                 break;
             case 10:
             case 11:
-                thiefTalentsFieldText = "0 0 0 0";
+                thiefTalentsFieldText = "40%   45%   85%   45%   35%   45%   1-3   x3";
                 break;
             case 12:
             case 13:
-                thiefTalentsFieldText = "+1 0 +5% 0";
+                thiefTalentsFieldText = "64%   66%   91%   72%   62%   72%   1-4   x4";
                 break;
             case 14:
             case 15:
-                thiefTalentsFieldText = "+2 0 +10% +5%";
+                thiefTalentsFieldText = "68%   70%   93%   76%   66%   76%   1-4   x4";
                 break;
             case 16:
             case 17:
-                thiefTalentsFieldText = "+3 +5% +15% +10%";
+                thiefTalentsFieldText = "72%   74%   95%   80%   70%   80%   1-5   x4";
                 break;
             case 18:
             case 19:
-                thiefTalentsFieldText = "+4 +10% +20% +15%";
+                thiefTalentsFieldText = "76%   78%   97%   84%   74%   84%   1-5   x5";
                 break;
             case 20:
             case 21:
-                thiefTalentsFieldText = "+5 +15% +25% +20%";
+                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
                 break;
             case 22:
             case 23:
-                thiefTalentsFieldText = "+6 +20% +30% +25%";
+                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
                 break;
             case 24:
             case 25:
-                thiefTalentsFieldText = "+7 +25% +35% +30%";
+                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
                 break;
             case 26:
             case 27:
-                thiefTalentsFieldText = "+8 +30% +40% +35%";
+                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
                 break;
             case 28:
             case 29:
-                thiefTalentsFieldText = "+9 +35% +45% +40%";
+                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
                 break;
             default:
                 thiefTalentsFieldText = "Valores fora da faixa";
