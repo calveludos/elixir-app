@@ -1,6 +1,8 @@
 package com.elixir;
 
 import com.elixir.manager.ObjectSaveManager;
+import com.elixir.manager.PaneManager;
+import com.elixir.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -47,11 +49,16 @@ public class MainApp extends Application {
     }
 
     public static void main(String[] args) {
-        ObjectSaveManager saver = new ObjectSaveManager();
-        saver.cleanObjects();
-
         if (args.length != 0){
             root = args[0];
+        }
+
+        ObjectSaveManager saveManager = new ObjectSaveManager();
+        User user = (User) saveManager.getObject("user");
+
+        if (user != null && user.isVerify()) {
+            System.out.println(user);
+            root = "startScreenPane";
         }
 
         launch(args);

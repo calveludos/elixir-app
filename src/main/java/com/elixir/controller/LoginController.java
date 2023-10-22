@@ -83,6 +83,10 @@ public class LoginController {
             errorLabel.setTextFill(Color.RED);
             errorLabel.setText(exception.getMessage());
             throw exception;
+        } catch (NullPointerException exception){
+            errorLabel.setTextFill(Color.RED);
+            errorLabel.setText("Verifique sua conexão");
+            throw exception;
         }
 
         ObjectSaveManager saveManager = new ObjectSaveManager();

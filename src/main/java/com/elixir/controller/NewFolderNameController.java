@@ -15,7 +15,7 @@ import javafx.scene.layout.AnchorPane;
 import java.sql.SQLException;
 import java.util.Map;
 
-public class newFolderNameController extends MenuController {
+public class NewFolderNameController extends MenuController {
 
     @FXML
     private AnchorPane anchorRoot;

@@ -1,6 +1,8 @@
 package com.elixir.controller;
 
+import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
+import com.elixir.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -14,6 +16,10 @@ public class InitialScreenController {
 
     @FXML
     private Button logonButton;
+
+    @FXML
+    void initialize(){
+    }
 
     @FXML
     void loginButtonAction(ActionEvent event) {

@@ -2,14 +2,18 @@ package com.elixir.controller.abstractControllers;
 
 import com.elixir.MainApp;
 import com.elixir.controller.objects.SideMenuObject;
+import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
+import com.elixir.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 import java.io.IOException;
 
@@ -49,6 +53,29 @@ public class MenuController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        ObjectSaveManager reader = new ObjectSaveManager();
+        User user = (User) reader.getObject("user");
+
+        Text username = ((Text) ((HBox) header.getChildren().get(2)).getChildren().get(0));
+        username.setText(user.getUsername());
+
+        HBox hboxUser = ((HBox) header.getChildren().get(2));
+        hboxUser.setOnMouseClicked(mouseEvent -> {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Sair");
+            alert.setHeaderText("SAIR DA CONTA");
+            alert.setContentText("Tem certeza que deseja sair da sua conta?");
+
+            alert.showAndWait().ifPresent(response -> {
+                if (response.getText().equals("OK")){
+                    reader.cleanObjects();
+                    PaneManager manager = new PaneManager();
+                    manager.openPane("initialScreenPane");
+                }
+            });
+
+        });
+
         AnchorPane.setLeftAnchor(header, 0.0);
         AnchorPane.setTopAnchor(header, 0.0);
         AnchorPane.setRightAnchor(header, 0.0);
