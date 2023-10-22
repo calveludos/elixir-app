@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.MyCharactersController" fx:id="anchorRoot">
+<AnchorPane fx:id="anchorRoot" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.MyCharactersController">
     <!-- Menu Lateral -->
 
     <!-- Cabeçalho superior -->
@@ -80,7 +80,7 @@
 
         <!-- Conteúdo dentro do HBox das Pastas -->
         <ScrollPane fitToHeight="true" prefHeight="230.0" prefWidth="699.0" style="-fx-background-color: TRASPARENT;">
-            <HBox fx:id="hboxFolders" prefHeight="230.0" prefWidth="699.0" spacing="10.0" />
+            <HBox fx:id="hboxFolders" prefHeight="230.0" prefWidth="0.0" spacing="10.0" />
         </ScrollPane>
 
         <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="200.0">
@@ -101,7 +101,7 @@
 
         <!-- Conteúdo dentro do HBox dos Personagens -->
         <ScrollPane fitToHeight="true" prefHeight="280.0" prefWidth="714.0" style="-fx-background-color: TRASPARENT;">
-            <HBox fx:id="hboxCharacters" layoutY="357.0" prefHeight="250.0" prefWidth="714.0" spacing="10.0" />
+            <HBox fx:id="hboxCharacters" layoutY="357.0" prefHeight="250.0" prefWidth="0.0" spacing="10.0" />
         </ScrollPane>
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

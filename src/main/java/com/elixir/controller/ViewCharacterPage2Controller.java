@@ -3,6 +3,7 @@ package com.elixir.controller;
 import com.elixir.controller.abstractControllers.MenuController;
 import com.elixir.manager.JsonManger;
 import com.elixir.manager.ObjectSaveManager;
+import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import javafx.event.ActionEvent;
@@ -186,12 +187,14 @@ public class ViewCharacterPage2Controller extends MenuController {
 
     @FXML
     void backButtonAction(ActionEvent event) {
-
+        PaneManager manager = new PaneManager();
+        manager.openPane("viewCharacterPage1");
     }
 
     @FXML
     void nextPageButtonAction(ActionEvent event) {
-
+        PaneManager manager = new PaneManager();
+        manager.openPane("viewCharacterPage3");
     }
 
     @FXML

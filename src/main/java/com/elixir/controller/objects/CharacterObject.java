@@ -7,7 +7,9 @@ import com.elixir.model.Character;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -56,18 +58,33 @@ public class CharacterObject extends HBox {
         VBox.setMargin(textVBox, new Insets(20.0, 0, 20.0, 0));
 
         setOnMouseClicked(mouseEvent -> {
-                    System.out.println("clicou");
-                    ObjectSaveManager saver = new ObjectSaveManager();
-                    Map<Integer, Attribute> attributeMap = (Map<Integer, Attribute>) saver.getObject("attributes");
-                    Attribute attribute = attributeMap.get(character.getAttributeId());
-                    System.out.println(attribute);
-                    saver.saveObject("character", character);
-                    saver.saveObject("attribute", attribute);
+            if (mouseEvent.getButton() == MouseButton.PRIMARY) {
+                System.out.println("clicou");
+                ObjectSaveManager saver = new ObjectSaveManager();
+                Map<Integer, Attribute> attributeMap = (Map<Integer, Attribute>) saver.getObject("attributes");
+                Attribute attribute = attributeMap.get(character.getAttributeId());
+                System.out.println(attribute);
+                saver.saveObject("character", character);
+                saver.saveObject("attribute", attribute);
 
-                    PaneManager manager = new PaneManager();
-                    manager.openPane("viewCharacterPage1");
-                }
-        );
+                PaneManager manager = new PaneManager();
+                manager.openPane("viewCharacterPage1");
+            } else if (mouseEvent.getButton() == MouseButton.SECONDARY){
+
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("DELETAR PERSONAGEM");
+                alert.setContentText("Você tem certeza que deseja deletar o personagem: " + character.getName() + "\n" +
+                        "Essa ação não pode ser desfeita");
+
+                alert.showAndWait().ifPresent(response -> {
+                    if (response.getText().equals("OK")){
+                        alert.setHeaderText("Nao foi possível deletar por que não");
+                        alert.setContentText("Nao");
+                        alert.showAndWait();
+                    }
+                });
+            }
+        });
     }
 
     private Text createText(String text) {

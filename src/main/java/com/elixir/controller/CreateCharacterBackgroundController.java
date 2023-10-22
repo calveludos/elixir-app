@@ -18,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+import org.w3c.dom.Attr;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -118,8 +119,12 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         }
 
         Map<Integer, Character> characters = (Map<Integer, Character>) reader.getObject("characters");
+        Map<Integer, Attribute> attributeMap = (Map<Integer, Attribute>) reader.getObject("attributes");
         characters.put(character.getId(), character);
+        attributeMap.put(attribute.getId(), attribute);
+
         reader.saveObject("characters", characters);
+        reader.saveObject("attributes", attributeMap);
 
         PaneManager paneManager = new PaneManager();
         paneManager.openPane("myCharactersPane");

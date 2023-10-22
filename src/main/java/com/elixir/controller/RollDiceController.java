@@ -129,7 +129,7 @@ public class RollDiceController extends MenuController {
                 Label bonusLabel = new Label();
                 bonusLabel.setFont(new Font("System Bold", 19.0));
                 bonusLabel.setTextFill(Color.RED);
-                bonusLabel.setText(" (+" + numDiceBonus + ")");
+                bonusLabel.setText(" (" + numDiceBonus + ")");
                 HBoxDiceValue.getChildren().add(bonusLabel);
             }
 

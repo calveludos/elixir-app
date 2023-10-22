@@ -13,6 +13,16 @@ public class NewCharacterController extends MenuController {
     private Button createNewCharacterButton;
 
     @FXML
+    public void initialize(){
+        super.initialize();
+
+        ObjectSaveManager objectSaveManager = new ObjectSaveManager();
+        if (objectSaveManager.getObject("character") != null){
+            objectSaveManager.removeObject("character");
+        }
+    }
+
+    @FXML
     void createNewCharacterButtonAction(ActionEvent event) {
 
         PaneManager paneManager = new PaneManager();
