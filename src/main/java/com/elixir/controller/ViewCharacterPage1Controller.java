@@ -678,7 +678,8 @@ public class ViewCharacterPage1Controller {
 
         String thiefTalentsFieldText = "";
 
-        switch (attribute.getDexterity()) {
+        switch (character.level) {
+
             case 1:
                 thiefTalentsFieldText = "15%   20%   80%   20%   10%   20%   1-2   x2";
                 break;

@@ -69,58 +69,58 @@
 
     <!-- Corpo da página -->
     <VBox alignment="CENTER" layoutX="260.0" layoutY="114.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
-      <VBox alignment="TOP_CENTER" prefHeight="379.0" prefWidth="700.0">
-         <children>
-              <ImageView fitHeight="156.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                      <Image url="@../media/pastImage.png" />
-                  </image>
-               <VBox.margin>
-                  <Insets bottom="50.0" />
-               </VBox.margin>
-              </ImageView>
-            <HBox alignment="CENTER" prefHeight="73.0" prefWidth="700.0">
-               <children>
-                  <VBox prefHeight="73.0" prefWidth="275.0" style="-fx-border-color: #c08888; -fx-border-width: 2; -fx-background-color: #eee0e0;">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
-                           <children>
-                              <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="116.0" text="Nome da Pasta">
-                                 <HBox.margin>
-                                    <Insets left="12.0" right="10.0" top="5.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="51.0" prefWidth="271.0">
-                           <children>
-                              <TextField fx:id="folderNameField" prefHeight="25.0" prefWidth="248.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets left="12.0" right="12.0" />
-                           </VBox.margin>
-                        </HBox>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="700.0">
-               <children>
-                  <Button fx:id="createFolderButton" onAction="#createFolderButtonAction" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #c08888;" text="CRIAR" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="200.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+        <VBox alignment="TOP_CENTER" prefHeight="379.0" prefWidth="700.0">
+            <children>
+                <ImageView fitHeight="156.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../media/pastImage.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets bottom="50.0" />
+                    </VBox.margin>
+                </ImageView>
+                <HBox alignment="CENTER" prefHeight="73.0" prefWidth="700.0">
+                    <children>
+                        <VBox prefHeight="73.0" prefWidth="275.0" style="-fx-border-color: #c08888; -fx-border-width: 2; -fx-background-color: #eee0e0;">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
+                                    <children>
+                                        <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="116.0" text="Nome da Pasta">
+                                            <HBox.margin>
+                                                <Insets left="12.0" right="10.0" top="5.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="System Bold" size="13.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="51.0" prefWidth="271.0">
+                                    <children>
+                                        <TextField fx:id="folderNameField" prefHeight="25.0" prefWidth="248.0" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="12.0" right="12.0" />
+                                    </VBox.margin>
+                                </HBox>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="48.0" prefWidth="700.0">
+                    <children>
+                        <Button fx:id="createFolderButton" onAction="#createFolderButtonAction" mnemonicParsing="false" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: #c08888;" text="CRIAR" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="200.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
 
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

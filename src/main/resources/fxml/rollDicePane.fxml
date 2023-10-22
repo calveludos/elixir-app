@@ -63,104 +63,104 @@
 
     <!-- Corpo da página -->
     <VBox alignment="CENTER" layoutX="260.0" layoutY="100.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-      <VBox alignment="TOP_CENTER" prefHeight="379.0" prefWidth="700.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
-         <children>
-              <ImageView fx:id="diceImage" fitHeight="156.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                      <Image url="@../media/d20.png" />
-                  </image>
-               <VBox.margin>
-                  <Insets bottom="5.0" top="10.0" />
-               </VBox.margin>
-              </ImageView>
-            <HBox fx:id="HBoxDiceValue" alignment="CENTER" spacing="3.0">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
-               </VBox.margin>
-               <children>
-                  <Label fx:id="diceValue" alignment="CENTER" prefHeight="39.0" prefWidth="68.0">
-                     <font>
-                        <Font name="System Bold" size="19.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="161.0" prefWidth="700.0">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="128.0" prefWidth="275.0" style="-fx-border-color: #c08888; -fx-border-width: 2; -fx-background-color: #eee0e0;">
-                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
-                           <children>
-                              <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="QUANTIDADE DE FACES">
-                                 <HBox.margin>
-                                    <Insets left="12.0" right="10.0" top="10.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="51.0" prefWidth="271.0">
-                           <children>
-                              <ChoiceBox fx:id="diceType" prefWidth="150.0" />
-                           </children>
-                           <VBox.margin>
-                              <Insets left="12.0" right="12.0" />
-                           </VBox.margin>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
-                           <children>
-                              <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="QUANTIDADE">
-                                 <HBox.margin>
-                                    <Insets left="12.0" right="10.0" top="5.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Spinner fx:id="diceAmount" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
-                           <children>
-                              <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="BÔNUS">
-                                 <HBox.margin>
-                                    <Insets left="12.0" right="10.0" top="5.0" />
-                                 </HBox.margin>
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </HBox>
-                        <TextField fx:id="diceBonus" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0">
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </TextField>
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="76.0" prefWidth="700.0">
-               <children>
-                  <Button fx:id="rollDiceButton" mnemonicParsing="false" onAction="#rollDiceButtonOnAction" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #c08888;" text="ROLAR!" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="10.0" top="10.0" />
-                     </HBox.margin>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
+        <VBox alignment="TOP_CENTER" prefHeight="379.0" prefWidth="700.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 2;">
+            <children>
+                <ImageView fx:id="diceImage" fitHeight="156.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../media/d20.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets bottom="5.0" top="10.0" />
+                    </VBox.margin>
+                </ImageView>
+                <HBox fx:id="HBoxDiceValue" alignment="CENTER" spacing="3.0">
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="5.0" right="5.0" top="5.0" />
+                    </VBox.margin>
+                    <children>
+                        <Label fx:id="diceValue" alignment="CENTER" prefHeight="39.0" prefWidth="68.0">
+                            <font>
+                                <Font name="System Bold" size="19.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="161.0" prefWidth="700.0">
+                    <children>
+                        <VBox alignment="CENTER" prefHeight="128.0" prefWidth="275.0" style="-fx-border-color: #c08888; -fx-border-width: 2; -fx-background-color: #eee0e0;">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
+                                    <children>
+                                        <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="QUANTIDADE DE FACES">
+                                            <HBox.margin>
+                                                <Insets left="12.0" right="10.0" top="10.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="System Bold" size="13.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="51.0" prefWidth="271.0">
+                                    <children>
+                                        <ChoiceBox fx:id="diceType" prefWidth="150.0" />
+                                    </children>
+                                    <VBox.margin>
+                                        <Insets left="12.0" right="12.0" />
+                                    </VBox.margin>
+                                </HBox>
+                                <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
+                                    <children>
+                                        <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="QUANTIDADE">
+                                            <HBox.margin>
+                                                <Insets left="12.0" right="10.0" top="5.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="System Bold" size="13.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                        <Spinner fx:id="diceAmount" />
+                                    </children>
+                                </HBox>
+                                <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="271.0">
+                                    <children>
+                                        <Label contentDisplay="CENTER" prefHeight="19.0" prefWidth="198.0" text="BÔNUS">
+                                            <HBox.margin>
+                                                <Insets left="12.0" right="10.0" top="5.0" />
+                                            </HBox.margin>
+                                            <font>
+                                                <Font name="System Bold" size="13.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                                <TextField fx:id="diceBonus" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="147.0">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" />
+                                    </VBox.margin>
+                                </TextField>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" prefHeight="76.0" prefWidth="700.0">
+                    <children>
+                        <Button fx:id="rollDiceButton" mnemonicParsing="false" onAction="#rollDiceButtonOnAction" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #c08888;" text="ROLAR!" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets bottom="10.0" top="10.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
 
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
