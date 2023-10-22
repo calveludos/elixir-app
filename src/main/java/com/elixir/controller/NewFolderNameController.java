@@ -45,17 +45,17 @@ public class NewFolderNameController extends MenuController {
         } else {
             folder = new Folder(user.getId(), "Pasta sem nome");
         }
-            FolderDAO dao = new FolderDAO();
-            try {
-                folder.setId(dao.create(folder));
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-            folderMap.put(folder.getId(), folder);
+        FolderDAO dao = new FolderDAO();
+        try {
+            folder.setId(dao.create(folder));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        folderMap.put(folder.getId(), folder);
 
-            saveManager.saveObject("folder", folder);
-            saveManager.saveObject("folders", folderMap);
-            PaneManager manager = new PaneManager();
-            manager.openPane("newFolderCharacters");
+        saveManager.saveObject("folder", folder);
+        saveManager.saveObject("folders", folderMap);
+        PaneManager manager = new PaneManager();
+        manager.openPane("newFolderCharacters");
     }
 }

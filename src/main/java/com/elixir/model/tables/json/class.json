@@ -1208,227 +1208,227 @@
         "Jogada de Proteção": 9
       }
     ],
-    "Thief Skills": [
-      {
-        "Nível 1": {
-          "Abrir fechaduras": 15,
-          "Reconhecer e desarmar armadilhas": 20,
-          "Escalar muros": 80,
-          "Mover-se em silêncio": 20,
-          "Esconder-se nas sombras": 10,
-          "Pungar": "1-2",
-          "Ataque pelas costas": 2
+    "Thief_Skills": [
+        {
+          "Nível": 1,
+          "abrirFechaduras": 15,
+          "Reconhecer_desarmar_armadilhas": 20,
+          "escalar_muros": 80,
+          "Mover-se_em_silêncio": 20,
+          "Esconder-se_nas_sombras": 10,
+          "Pungar": 20,
+          "escutar": "1-2",
+          "apunhalar": 2
+        },
+        {
+          "Nível": 2,
+          "abrirFechaduras": 20,
+          "Reconhecer_desarmar_armadilhas": 25,
+          "escalar_muros": 81,
+          "Mover-se_em_silêncio": 25,
+          "Esconder-se_nas_sombras": 15,
+          "escutar": "1-2",
+          "apunhalar": 2,
+          "Pungar": 25
+        },
+        {
+          "Nível": 3,
+          "abrirFechaduras": 25,
+          "Reconhecer_desarmar_armadilhas": 30,
+          "escalar_muros": 82,
+          "Mover-se_em_silêncio": 30,
+          "Esconder-se_nas_sombras": 20,
+          "escutar": "1-2",
+          "apunhalar": 2,
+          "Pungar": 30
+        },
+        {
+          "Nível": 4,
+          "abrirFechaduras": 30,
+          "Reconhecer_desarmar_armadilhas": 35,
+          "escalar_muros": 83,
+          "Mover-se_em_silêncio": 35,
+          "Esconder-se_nas_sombras": 25,
+          "escutar": "1-2",
+          "apunhalar": 2,
+          "Pungar": 35
+        },
+        {
+          "Nível": 5,
+          "abrirFechaduras": 35,
+          "Reconhecer_desarmar_armadilhas": 40,
+          "escalar_muros": 84,
+          "Mover-se_em_silêncio": 40,
+          "Esconder-se_nas_sombras": 30,
+          "escutar": "1-3",
+          "apunhalar": 2,
+          "Pungar": 40
+        },
+        {
+          "Nível": 6,
+          "abrirFechaduras": 40,
+          "Reconhecer_desarmar_armadilhas": 45,
+          "escalar_muros": 85,
+          "Mover-se_em_silêncio": 45,
+          "Esconder-se_nas-sombras": 35,
+          "escutar": "1-3",
+          "apunhalar": 3,
+          "Pungar": 45
+        },
+        {
+          "Nível": 7,
+          "abrirFechaduras": 45,
+          "Reconhecer_desarmar_armadilhas": 50,
+          "escalar_muros": 86,
+          "Mover-se_em_silêncio": 50,
+          "Esconder-se_nas_sombras": 40,
+          "escutar": "1-3",
+          "apunhalar": 3,
+          "Pungar": 50
+        },
+        {
+          "Nível": 8,
+          "abrirFechaduras": 50,
+          "Reconhecer_desarmar_armadilhas": 55,
+          "escalar_muros": 87,
+          "Mover-se_em_silêncio": 55,
+          "Esconder-se_nas-sombras": 45,
+          "escutar": "1-3",
+          "apunhalar": 3,
+          "Pungar": 55
+        },
+        {
+          "Nível": 9,
+          "abrirFechaduras": 55,
+          "Reconhecer_desarmar_armadilhas": 60,
+          "escalar_muros": 88,
+          "Mover-se_em_silêncio": 60,
+          "Esconder-se_nas-sombras": 50,
+          "escutar": "1-3",
+          "apunhalar": 3,
+          "Pungar": 60
+        },
+        {
+          "Nível": 10,
+          "abrirFechaduras": 60,
+          "Reconhecer_desarmar_armadilhas": 62,
+          "escalar_muros": 89,
+          "Mover-se_em_silêncio": 65,
+          "Esconder-se_nas-sombras": 55,
+          "escutar": "1-4",
+          "apunhalar": 3,
+          "Pungar": 65
+        },
+        {
+          "Nível": 11,
+          "abrirFechaduras": 62,
+          "Reconhecer_desarmar_armadilhas": 64,
+          "escalar_muros": 90,
+          "Mover-se_em_silêncio": 70,
+          "Esconder-se_nas-sombras": 60,
+          "escutar": "1-4",
+          "apunhalar": 3,
+          "Pungar": 70
+        },
+        {
+          "Nível": 12,
+          "abrirFechaduras": 64,
+          "Reconhecer_desarmar_armadilhas": 66,
+          "escalar_muros": 91,
+          "Mover-se_em_silêncio": 72,
+          "Esconder-se_nas-sombras": 62,
+          "escutar": "1-4",
+          "apunhalar": 4,
+          "Pungar": 72
+        },
+        {
+          "Nível": 13,
+          "abrirFechaduras": 66,
+          "Reconhecer_desarmar_armadilhas": 68,
+          "escalar_muros": 92,
+          "Mover-se_em_silêncio": 74,
+          "Esconder-se_nas-sombras": 64,
+          "escutar": "1-4",
+          "apunhalar": 4,
+          "Pungar": 74
+        },
+        {
+          "Nível": 14,
+          "abrirFechaduras": 68,
+          "Reconhecer_desarmar_armadilhas": 70,
+          "escalar_muros": 93,
+          "Mover-se_em_silêncio": 76,
+          "Esconder-se_nas-sombras": 66,
+          "escutar": "1-4",
+          "apunhalar": 4,
+          "Pungar": 76
+        },
+        {
+          "Nível": 15,
+          "abrirFechaduras": 70,
+          "Reconhecer_desarmar_armadilhas": 72,
+          "escalar_muros": 94,
+          "Mover-se_em_silêncio": 78,
+          "Esconder-se_nas-sombras": 68,
+          "escutar": "1-4",
+          "apunhalar": 4,
+          "Pungar": 78
+        },
+        {
+          "Nível": 16,
+          "abrirFechaduras": 72,
+          "Reconhecer_desarmar_armadilhas": 74,
+          "escalar_muros": 95,
+          "Mover-se_em_silêncio": 80,
+          "Esconder-se_nas-sombras": 70,
+          "escutar": "1-5",
+          "apunhalar": 4,
+          "Pungar": 80
+        },
+        {
+          "Nível": 17,
+          "abrirFechaduras": 74,
+          "Reconhecer_desarmar_armadilhas": 76,
+          "escalar_muros": 96,
+          "Mover-se_em_silêncio": 82,
+          "Esconder-se_nas-sombras": 72,
+          "escutar": "1-5",
+          "apunhalar": 4,
+          "Pungar": 82
+        },
+        {
+          "Nível": 18,
+          "abrirFechaduras": 76,
+          "Reconhecer_desarmar_armadilhas": 78,
+          "escalar_muros": 97,
+          "Mover-se_em_silêncio": 84,
+          "Esconder-se_nas-sombras": 74,
+          "escutar": "1-5",
+          "apunhalar": 5,
+          "Pungar": 84
+        },
+        {
+          "Nível": 19,
+          "abrirFechaduras": 78,
+          "Reconhecer_desarmar_armadilhas": 80,
+          "escalar_muros": 98,
+          "Mover-se_em_silêncio": 86,
+          "Esconder-se_nas-sombras": 76,
+          "escutar": "1-5",
+          "apunhalar": 5,
+          "Pungar": 86
+        },
+        {
+          "Nível": 20,
+          "abrirFechaduras": 80,
+          "Reconhecer_desarmar_armadilhas": 82,
+          "escalar_muros": 99,
+          "Mover-se_em_silêncio": 88,
+          "Esconder-se_nas-sombras": 78,
+          "escutar": "1-5",
+          "apunhalar": 5,
+          "Pungar": 88
         }
-      },
-      {
-        "Nível 2": {
-          "Abrir fechaduras": 20,
-          "Reconhecer e desarmar armadilhas": 25,
-          "Escalar muros": 81,
-          "Mover-se em silêncio": 25,
-          "Esconder-se nas sombras": 15,
-          "Pungar": "1-2",
-          "Ataque pelas costas": 2
-        }
-      },
-      {
-        "Nível 3": {
-          "Abrir fechaduras": 25,
-          "Reconhecer e desarmar armadilhas": 30,
-          "Escalar muros": 82,
-          "Mover-se em silêncio": 30,
-          "Esconder-se nas sombras": 20,
-          "Pungar": "1-2",
-          "Ataque pelas costas": 2
-        }
-      },
-      {
-        "Nível 4": {
-          "Abrir fechaduras": 30,
-          "Reconhecer e desarmar armadilhas": 35,
-          "Escalar muros": 83,
-          "Mover-se em silêncio": 35,
-          "Esconder-se nas sombras": 25,
-          "Pungar": "1-2",
-          "Ataque pelas costas": 2
-        }
-      },
-      {
-        "Nível 5": {
-          "Abrir fechaduras": 35,
-          "Reconhecer e desarmar armadilhas": 40,
-          "Escalar muros": 84,
-          "Mover-se em silêncio": 40,
-          "Esconder-se nas sombras": 30,
-          "Pungar": "1-3",
-          "Ataque pelas costas": 2
-        }
-      },
-      {
-        "Nível 6": {
-          "Abrir fechaduras": 40,
-          "Reconhecer e desarmar armadilhas": 45,
-          "Escalar muros": 85,
-          "Mover-se em silêncio": 45,
-          "Esconder-se nas sombras": 35,
-          "Pungar": "1-3",
-          "Ataque pelas costas": 3
-        }
-      },
-      {
-        "Nível 7": {
-          "Abrir fechaduras": 45,
-          "Reconhecer e desarmar armadilhas": 50,
-          "Escalar muros": 86,
-          "Mover-se em silêncio": 50,
-          "Esconder-se nas sombras": 40,
-          "Pungar": "1-3",
-          "Ataque pelas costas": 3
-        }
-      },
-      {
-        "Nível 8": {
-          "Abrir fechaduras": 50,
-          "Reconhecer e desarmar armadilhas": 55,
-          "Escalar muros": 87,
-          "Mover-se em silêncio": 55,
-          "Esconder-se nas sombras": 45,
-          "Pungar": "1-3",
-          "Ataque pelas costas": 3
-        }
-      },
-      {
-        "Nível 9": {
-          "Abrir fechaduras": 55,
-          "Reconhecer e desarmar armadilhas": 60,
-          "Escalar muros": 88,
-          "Mover-se em silêncio": 60,
-          "Esconder-se nas sombras": 50,
-          "Pungar": "1-3",
-          "Ataque pelas costas": 3
-        }
-      },
-      {
-        "Nível 10": {
-          "Abrir fechaduras": 60,
-          "Reconhecer e desarmar armadilhas": 62,
-          "Escalar muros": 89,
-          "Mover-se em silêncio": 65,
-          "Esconder-se nas sombras": 55,
-          "Pungar": "1-4",
-          "Ataque pelas costas": 3
-        }
-      },
-      {
-        "Nível 11": {
-          "Abrir fechaduras": 62,
-          "Reconhecer e desarmar armadilhas": 64,
-          "Escalar muros": 90,
-          "Mover-se em silêncio": 70,
-          "Esconder-se nas sombras": 60,
-          "Pungar": "1-4",
-          "Ataque pelas costas": 3
-        }
-      },
-      {
-        "Nível 12": {
-          "Abrir fechaduras": 64,
-          "Reconhecer e desarmar armadilhas": 66,
-          "Escalar muros": 91,
-          "Mover-se em silêncio": 72,
-          "Esconder-se nas sombras": 62,
-          "Pungar": "1-4",
-          "Ataque pelas costas": 4
-        }
-      },
-      {
-        "Nível 13": {
-          "Abrir fechaduras": 66,
-          "Reconhecer e desarmar armadilhas": 68,
-          "Escalar muros": 92,
-          "Mover-se em silêncio": 74,
-          "Esconder-se nas sombras": 64,
-          "Pungar": "1-4",
-          "Ataque pelas costas": 4
-        }
-      },
-      {
-        "Nível 14": {
-          "Abrir fechaduras": 68,
-          "Reconhecer e desarmar armadilhas": 70,
-          "Escalar muros": 93,
-          "Mover-se em silêncio": 76,
-          "Esconder-se nas sombras": 66,
-          "Pungar": "1-4",
-          "Ataque pelas costas": 4
-        }
-      },
-      {
-        "Nível 15": {
-          "Abrir fechaduras": 70,
-          "Reconhecer e desarmar armadilhas": 72,
-          "Escalar muros": 94,
-          "Mover-se em silêncio": 78,
-          "Esconder-se nas sombras": 68,
-          "Pungar": "1-4",
-          "Ataque pelas costas": 4
-        }
-      },
-      {
-        "Nível 16": {
-          "Abrir fechaduras": 72,
-          "Reconhecer e desarmar armadilhas": 74,
-          "Escalar muros": 95,
-          "Mover-se em silêncio": 80,
-          "Esconder-se nas sombras": 70,
-          "Pungar": "1-5",
-          "Ataque pelas costas": 4
-        }
-      },
-      {
-        "Nível 17": {
-          "Abrir fechaduras": 74,
-          "Reconhecer e desarmar armadilhas": 76,
-          "Escalar muros": 96,
-          "Mover-se em silêncio": 82,
-          "Esconder-se nas sombras": 72,
-          "Pungar": "1-5",
-          "Ataque pelas costas": 4
-        }
-      },
-      {
-        "Nível 18": {
-          "Abrir fechaduras": 76,
-          "Reconhecer e desarmar armadilhas": 78,
-          "Escalar muros": 97,
-          "Mover-se em silêncio": 84,
-          "Esconder-se nas sombras": 74,
-          "Pungar": "1-5",
-          "Ataque pelas costas": 5
-        }
-      },
-      {
-        "Nível 19": {
-          "Abrir fechaduras": 78,
-          "Reconhecer e desarmar armadilhas": 80,
-          "Escalar muros": 98,
-          "Mover-se em silêncio": 86,
-          "Esconder-se nas sombras": 76,
-          "Pungar": "1-5",
-          "Ataque pelas costas": 5
-        }
-      },
-      {
-        "Nível 20": {
-          "Abrir fechaduras": 80,
-          "Reconhecer e desarmar armadilhas": 82,
-          "Escalar muros": 99,
-          "Mover-se em silêncio": 88,
-          "Esconder-se nas sombras": 78,
-          "Pungar": "1-5",
-          "Ataque pelas costas": 5
-        }
-      }
     ],
     "id" : 3,
     "Dado de Vida": "d6",
@@ -1453,7 +1453,7 @@
           "Alinhamento": 1,
           "Habilidades": {
             "5º Nível": "A partir do 5o nível, o ladrão abandona a vida de crimes, se dedicando à exploração de ruínas e templos perdidos. A partir desse nível o explorador possui 80% de chance de conseguir decifrar qualquer tipo de escrita. Em caso de falha, uma nova tentativa só poderá ser realizada após o explorador ter subido um nível.",
-            "8º Nível": "O explorador ter subido um nível. A partir do 8o nível, o explorador para de progredir em pungar, mas recebe um bônus de 10% para jogadas que envolvam reconhecer e desarmar armadilhas.",
+            "8º Nível": "O explorador ter subido um nível. A partir do 8o nível, o explorador para de progredir em pungar, mas recebe um bônus de 10% para jogadas que envolvam Reconhecer_desarmar_armadilhas.",
             "16º Nível": "A partir do 16o nível, o explorador pode lançar magias arcanas a partir de pergaminhos com 90% de chance de sucesso. Uma falha nessa jogada significa que ocorrerá um evento aleatório e de graves consequências para o explorador e para seu grupo."
           }
         },
@@ -1461,7 +1461,7 @@
           "Alinhamento": 3,
           "Habilidades": {
             "5° Nível": "A partir do 5o nível, o ladrão passa a desenvolver a música e a oratória como forma de contar os feitos de seu grupo e como forma de motivar seus aliados, dando a eles um bônus de +1 para suas jogadas de proteção.",
-            "8° Nível": " A partir do 8o nível, o bardo não progredirá mais em ataque pelas costas. A partir deste nível, o bardo aumenta em 10% a chance de que uma criatura que normalmente seria hostil para com ele aja de forma amistosa.",
+            "8° Nível": " A partir do 8o nível, o bardo não progredirá mais em apunhalar. A partir deste nível, o bardo aumenta em 10% a chance de que uma criatura que normalmente seria hostil para com ele aja de forma amistosa.",
             "16° Nível": "A partir do 16o nível, o bônus de moral conferido pela canção do bardo passa para +3 para os ataques e jogadas de proteção de seus aliados."
           }
         },
@@ -1469,7 +1469,7 @@
           "Alinhamento": 2,
           "Habilidades": {
             "5° Nível": "A partir do 5o nível, o ladrão passa a desenvolver técnicas mais eficientes para matar seus oponentes, recebendo um bônus de +2 no dano sempre que sua jogada de ataque resultar em um acerto crítico.",
-            "8° Nível": "A partir do 8o nível, o assassino não progredirá mais em pungar e em reconhecer e desarmar armadilhas. A progressão antes utilizada para pungar passará a ser utilizada para que o assassino manipule veneno e o aplique com segurança em suas armas ou em objetos.",
+            "8° Nível": "A partir do 8o nível, o assassino não progredirá mais em pungar e em Reconhecer_desarmar_armadilhas. A progressão antes utilizada para pungar passará a ser utilizada para que o assassino manipule veneno e o aplique com segurança em suas armas ou em objetos.",
             "16° Nível": "A partir do 16o nível, sempre que sua jogada de ataque resultar em acerto crítico, o alvo deverá realizar uma jogada de proteção modificada pela sua Constituição ou morrer automaticamente."
           }
         }
