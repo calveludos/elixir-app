@@ -673,7 +673,7 @@
       }
     ],
     "id" : 1,
-    "dado de vida": "d10",
+    "Dado de Vida": "d10",
     "Atributo_mínimo": {"str": 12, "dex":  0, "con": 12, "int": 0, "wis":0},
     "armadura": 1,
     "arma": 1,

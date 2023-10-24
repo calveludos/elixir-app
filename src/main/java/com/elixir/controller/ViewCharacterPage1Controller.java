@@ -139,6 +139,7 @@ public class ViewCharacterPage1Controller {
         setAttributes();
         setSubAttributes();
         setAjusts();
+        setBa();
 
     }
 
@@ -196,18 +197,33 @@ public class ViewCharacterPage1Controller {
         System.out.println("Level" + level);
         String mv = String.valueOf((long) JsonManger.get("race/race:" + character.getRaceId() + "/moveBase" ));
         String jp = String.valueOf((long) JsonManger.get("class/" + CreateCharacterBackgroundController.getClass(character.getClassId()) + "/level:" + level + "/Jogada de Proteção"));
+
+
+        mvField.setText(mv);
+        jpField.setText(jp);
+    }
+
+    private void setBa() throws IOException, ParseException {
         String ba = (String) JsonManger.get("class/" + CreateCharacterBackgroundController.getClass(character.getClassId()) + "/level:" + level + "/Base de Ataque");
         String attModStr = String.valueOf((long) JsonManger.get("attributes/atributos:" + attribute.getStrength() + "/modificador"));
         String attModDex = String.valueOf((long) JsonManger.get("attributes/atributos:" + attribute.getDexterity() + "/modificador"));
 
-        int baFieldStrText = Integer.parseInt(ba) + Integer.parseInt(attModStr);
-        int baFieldDexText = Integer.parseInt(ba) + Integer.parseInt(attModDex);
+        int baFieldStrText;
+        int baFieldDexText;
+        if(character.getClassId() == 1 && character.level > 6){
+             baFieldStrText = Integer.parseInt(String.valueOf(ba.charAt(1))) + Integer.parseInt(attModStr);
+             baFieldDexText = Integer.parseInt(String.valueOf(ba.charAt(4))) + Integer.parseInt(attModDex);
+        }else {
+
+             baFieldStrText = Integer.parseInt(ba) + Integer.parseInt(attModStr);
+             baFieldDexText = Integer.parseInt(ba) + Integer.parseInt(attModDex);
+        }
+
+
 
 
         baFieldStr.setText(String.valueOf(baFieldStrText));
         baFieldDex.setText(String.valueOf(baFieldDexText));
-        mvField.setText(mv);
-        jpField.setText(jp);
     }
 
     private void setAjusts() {
@@ -751,6 +767,8 @@ public class ViewCharacterPage1Controller {
     void backButtonAction(ActionEvent event) {
         ObjectSaveManager saveManager = new ObjectSaveManager();
         saveManager.removeObject("character");
+        saveManager.removeObject("attribute");
+
 
         PaneManager manager = new PaneManager();
         manager.openPane("myCharactersPane");
