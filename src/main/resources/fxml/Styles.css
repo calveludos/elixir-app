@@ -1,0 +1,8 @@
+/* Styles.css */
+
+
+Button {
+    -fx-font-family: "System Bold";
+    -fx-font-size: 16;
+    -fx-text-fill: #110000;
+}
