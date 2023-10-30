@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <AnchorPane fx:id="anchorRoot" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.StartScreenController">
    <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
       <children>
@@ -102,5 +103,7 @@
       </children>
    </StackPane>
 
-
+   <stylesheets>
+      <URL value= "@Styles.css" />
+   </stylesheets>
 </AnchorPane>
