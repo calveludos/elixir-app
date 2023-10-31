@@ -1,10 +1,12 @@
 package com.elixir;
-
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -20,6 +22,7 @@ public class MainApp extends Application {
     public void start(Stage s) throws IOException {
         stage=s;
         setRoot(root,"Elixir Maker");
+        Font.loadFont(getClass().getResourceAsStream("/fonts/Cardinal.ttf"), 16);
     }
 
     static void setRoot(String fxml) throws IOException {

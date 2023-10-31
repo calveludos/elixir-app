@@ -102,7 +102,7 @@
                                         </Label>
                                     </children>
                                 </HBox>
-                                <HBox alignment="CENTER" prefHeight="51.0" prefWidth="271.0">
+                                <HBox alignment="CENTER" prefHeight="89.0" prefWidth="271.0" style="-fx-font-size: 15;">
                                     <children>
                                         <ChoiceBox fx:id="diceType" prefWidth="150.0" />
                                     </children>
@@ -169,6 +169,7 @@
     </VBox>
     <stylesheets>
         <URL value= "@Buttons3.css" />
+        <URL value= "@Font.css" />
     </stylesheets>
 
 </AnchorPane>

@@ -1,6 +1,8 @@
 /* Styles.css */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap');
 
 Button {
+    -fx-font-family: 'IM Fell DW Pica SC', serif;
     -fx-font-size: 13;
     -fx-border-radius: 3;
     -fx-text-fill: white;

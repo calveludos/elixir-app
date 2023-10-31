@@ -32,9 +32,9 @@ public class HeaderObject extends HBox {
         lineAndText.setAlignment(Pos.CENTER_LEFT);
         setMargin(logo, new Insets(0, 0, 28.0, 0));
 
-        Text headerText = new Text("ELIXIR MAKER");
+        Text headerText = new HeaderText("ELIXIR MAKER");
         headerText.setFill(Color.WHITE);
-        headerText.setFont(Font.font("System Bold", 20.0));
+        headerText.setFont(Font.font("Cardinal", 20.0));
 
         Line headerLine = new Line(0, 0, 120.0, 0);
         headerLine.setStroke(Color.WHITE);
@@ -48,7 +48,7 @@ public class HeaderObject extends HBox {
 
         // Nome de usuário e foto de perfil
 
-        Text userName = new Text("Nome de Usuário");
+        Text userName = new HeaderText("Nome de Usuário");
         userName.setFill(Color.WHITE);
         userName.setFont(Font.font("System Bold Italic", 16.0));
 

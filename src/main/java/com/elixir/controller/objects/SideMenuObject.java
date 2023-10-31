@@ -49,10 +49,10 @@ public class SideMenuObject extends VBox {
         // Botões
         VBox buttonContainer = new VBox(25.0);
         buttonContainer.setAlignment(Pos.CENTER);
-        Button button1 = new MenuButton("Tela Inicial");
-        Button button2 = new MenuButton("Meus Personagens");
-        Button button3 = new MenuButton("Criar nova ficha");
-        Button button4 = new MenuButton("Rolar Dados");
+        Button button1 = new MenuButton("TELA INICIAL");
+        Button button2 = new MenuButton("MEUS PERSONAGENS");
+        Button button3 = new MenuButton("CRIAR NOVA FICHA");
+        Button button4 = new MenuButton("ROLAR DADOS");
         button1.setId("startPaneMenuButton");
         button2.setId("myCharactersMenuButton");
         button3.setId("createNewCharacterMenuButton");

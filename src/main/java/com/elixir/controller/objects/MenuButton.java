@@ -8,7 +8,7 @@ public class MenuButton extends Button {
         setPrefHeight(40.0);
         setPrefWidth(208.0);
         setStyle(
-                "-fx-font-size: 13;" +
+                "-fx-font-size: 14;" +
                         "-fx-text-fill: white;" +
                         "-fx-background-color: #897A5F;" +
                         "-fx-background-radius: 3;" +
@@ -20,7 +20,7 @@ public class MenuButton extends Button {
 
         setOnMouseEntered(e -> {
             setStyle(
-                    "-fx-font-size: 13;" +
+                    "-fx-font-size: 14;" +
                             "-fx-text-fill: white;" +
                             "-fx-background-color: #75624F;" +
                             "-fx-cursor: hand;" +
@@ -34,7 +34,7 @@ public class MenuButton extends Button {
 
         setOnMouseExited(e -> {
             setStyle(
-                    "-fx-font-size: 13;" +
+                    "-fx-font-size: 14;" +
                             "-fx-text-fill: white;" +
                             "-fx-background-color: #897A5F;" +
                             "-fx-background-radius: 3;" +

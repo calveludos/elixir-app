@@ -298,5 +298,6 @@
 
     <stylesheets>
         <URL value= "@Buttons2.css" />
+        <URL value= "@Font.css" />
     </stylesheets>
 </AnchorPane>

@@ -75,5 +75,6 @@
    </children>
    <stylesheets>
       <URL value= "@Buttons1.css" />
+      <URL value= "@Font.css" />
    </stylesheets>
 </AnchorPane>
