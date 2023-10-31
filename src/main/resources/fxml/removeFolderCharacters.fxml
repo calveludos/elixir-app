@@ -120,7 +120,7 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="76.0" prefWidth="700.0">
                <children>
-                  <Button fx:id="jumpButton" mnemonicParsing="false" onAction="#jumpButtonAction" prefHeight="40.0" prefWidth="110.0" style="-fx-background-color: #ffffff; -fx-border-color: #c08888; -fx-border-width: 2;" text="CANCELAR" textFill="#c08888">
+                  <Button fx:id="jumpButton" mnemonicParsing="false" onAction="#jumpButtonAction" prefHeight="40.0" prefWidth="110.0" text="CANCELAR" textFill="#c08888">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -128,7 +128,7 @@
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeButtonAction" prefHeight="37.0" prefWidth="102.0" style="-fx-background-color: #c08888;" text="REMOVER" textFill="WHITE">
+                  <Button fx:id="removeButton" mnemonicParsing="false" onAction="#removeButtonAction" prefHeight="37.0" prefWidth="102.0" text="REMOVER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -147,6 +147,6 @@
     </VBox>
 
     <stylesheets>
-        <URL value= "@Styles.css" />
+        <URL value= "@Buttons1.css" />
     </stylesheets>
 </AnchorPane>

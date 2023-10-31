@@ -150,7 +150,7 @@
                 </HBox>
                 <HBox alignment="CENTER" prefHeight="76.0" prefWidth="700.0">
                     <children>
-                        <Button fx:id="rollDiceButton" mnemonicParsing="false" onAction="#rollDiceButtonOnAction" prefHeight="35.0" prefWidth="86.0" style="-fx-background-color: #c08888;" text="ROLAR!" textFill="WHITE">
+                        <Button fx:id="rollDiceButton" mnemonicParsing="false" onAction="#rollDiceButtonOnAction" prefHeight="35.0" prefWidth="86.0" text="ROLAR!" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="16.0" />
                             </font>
@@ -168,7 +168,7 @@
         </padding>
     </VBox>
     <stylesheets>
-        <URL value= "@Styles.css" />
+        <URL value= "@Buttons3.css" />
     </stylesheets>
 
 </AnchorPane>

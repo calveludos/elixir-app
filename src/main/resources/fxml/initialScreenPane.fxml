@@ -68,13 +68,13 @@
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </padding>
                                              <children>
-                                                <Button fx:id="logonButton" onAction="#logonButtonAction" prefHeight="40.0" prefWidth="113.0" style="-fx-background-color: #897a5f; -fx-border-radius: 3; -fx-text-fill: white;" text="Criar Conta">
+                                                <Button fx:id="logonButton" onAction="#logonButtonAction" prefHeight="40.0" prefWidth="113.0" text="Criar Conta">
                                                    <font>
                                                       <Font name="System Bold" size="16.0" />
                                                    </font>
                                                 </Button>
                                                 <Region prefHeight="79.0" prefWidth="64.0" HBox.hgrow="ALWAYS" />
-                                                <Button fx:id="loginButton" onAction="#loginButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-background-color: #897a5f; -fx-border-radius: 3; -fx-text-fill: white;" text="Entrar">
+                                                <Button fx:id="loginButton" onAction="#loginButtonAction" prefHeight="40.0" prefWidth="104.0" text="Entrar">
                                                    <font>
                                                       <Font name="System Bold" size="16.0" />
                                                    </font>
@@ -150,6 +150,6 @@
       </HBox>
    </children>
    <stylesheets>
-      <URL value= "@Styles.css" />
+      <URL value= "@Buttons1.css" />
    </stylesheets>
 </AnchorPane>

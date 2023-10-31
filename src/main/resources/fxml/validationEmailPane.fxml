@@ -107,13 +107,13 @@
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="40.0" prefWidth="287.0">
                                  <children>
-                                    <Button fx:id="verificationButton" alignment="CENTER" mnemonicParsing="false" onAction="#verificationButtonAction" prefHeight="37.0" prefWidth="131.0" style="-fx-background-color: #897a5f;" text="Verificar" textFill="WHITE">
+                                    <Button fx:id="verificationButton" alignment="CENTER" mnemonicParsing="false" onAction="#verificationButtonAction" prefHeight="37.0" prefWidth="131.0" text="Verificar" >
                                        <font>
                                           <Font name="System Bold Italic" size="16.0" />
                                        </font>
                                     </Button>
                                     <Region prefHeight="63.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                    <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: #897a5f;" text="Voltar" textFill="WHITE">
+                                    <Button fx:id="backButton" alignment="CENTER" mnemonicParsing="false" onAction="#backButtonAction" prefHeight="37.0" prefWidth="105.0"  text="Voltar" >
                                        <font>
                                           <Font name="System Bold Italic" size="16.0" />
                                        </font>
@@ -141,6 +141,6 @@
       </HBox>
    </children>
    <stylesheets>
-      <URL value= "@Styles.css" />
+      <URL value= "@Buttons1.css" />
    </stylesheets>
 </AnchorPane>

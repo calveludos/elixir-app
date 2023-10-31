@@ -82,31 +82,31 @@
                 <!-- Sessão de Botoões -->
                <HBox fx:id="sectionsVBoxContainer" alignment="CENTER" prefHeight="113.0" prefWidth="694.0">
                   <children>
-                     <Button fx:id="dateSectionButton" onAction="#dateSectionButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="DADOS">
+                     <Button fx:id="dateSectionButton" onAction="#dateSectionButtonAction" prefHeight="40.0" prefWidth="104.0" text="DADOS">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="attributeSectionButton" onAction="#attributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0" style="-fx-border-color: #897a5f; -fx-border-radius: 3; -fx-background-color: TRASPARENT; -fx-text-fill: #897a5f;" text="ATRIBUTOS">
+                     <Button fx:id="attributeSectionButton" onAction="#attributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0"  text="ATRIBUTOS">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="raceSectionButton" onAction="#raceSectionButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-border-radius: 3; -fx-background-color: TRANSPARENT; -fx-text-fill: #897a5f; -fx-border-color: #897a5f;" text="RAÇA">
+                     <Button fx:id="raceSectionButton" onAction="#raceSectionButtonAction" prefHeight="40.0" prefWidth="104.0" text="RAÇA">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="classSectionButton" onAction="#classSectionButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-border-radius: 3; -fx-background-color: TRANSPARENT; -fx-text-fill: #897a5f; -fx-border-color: #897a5f;" text="CLASSE">
+                     <Button fx:id="classSectionButton" onAction="#classSectionButtonAction" prefHeight="40.0" prefWidth="104.0" text="CLASSE">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="backgroundSectionButton" onAction="#backgroundSectionButtonAction" prefHeight="40.0" prefWidth="106.0" style="-fx-border-radius: 3; -fx-background-color: #897a5f; -fx-text-fill: WHITE;" text="HISTÓRIA">
+                     <Button fx:id="backgroundSectionButton" onAction="#backgroundSectionButtonAction" prefHeight="40.0" prefWidth="106.0" text="HISTÓRIA">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
@@ -122,7 +122,7 @@
                      <children>
                         <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Button fx:id="finishButton" mnemonicParsing="false" onAction="#finishButtonAction" prefHeight="41.0" prefWidth="113.0" style="-fx-background-color: #897a5f; -fx-border-radius: 3; -fx-border-width: 3; -fx-text-fill: WHITE;" text="CONCLUIR">
+                              <Button fx:id="finishButton" mnemonicParsing="false" onAction="#finishButtonAction" prefHeight="41.0" prefWidth="113.0" text="CONCLUIR">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -161,6 +161,6 @@
     </VBox>
 
     <stylesheets>
-        <URL value= "@Styles.css" />
+        <URL value= "@Buttons1.css" />
     </stylesheets>
 </AnchorPane>

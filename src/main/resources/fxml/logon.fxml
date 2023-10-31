@@ -109,7 +109,7 @@
                               </VBox>
                               <HBox alignment="CENTER" prefHeight="57.0" prefWidth="207.0">
                                  <children>
-                                    <Button fx:id="logonButton" alignment="CENTER" mnemonicParsing="false" onAction="#logonButtonAction" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: #897a5f;" text="Criar conta" textFill="WHITE" HBox.hgrow="ALWAYS">
+                                    <Button fx:id="logonButton" alignment="CENTER" mnemonicParsing="false" onAction="#logonButtonAction" prefHeight="33.0" prefWidth="193.0" text="Criar conta" HBox.hgrow="ALWAYS">
                                        <font>
                                           <Font name="System Bold Italic" size="16.0" />
                                        </font>
@@ -128,7 +128,7 @@
                                     <Font name="System Bold Italic" size="15.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: TRASPARENT;" text="Entrar em conta" textFill="#f7c325">
+                              <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="31.0" prefWidth="138.0" text="Entrar em conta">
                                  <font>
                                     <Font name="System Bold Italic" size="15.0" />
                                  </font>
@@ -149,6 +149,6 @@
       </HBox>
    </children>
    <stylesheets>
-      <URL value= "@Styles.css" />
+      <URL value= "@Buttons1.css" />
    </stylesheets>
 </AnchorPane>

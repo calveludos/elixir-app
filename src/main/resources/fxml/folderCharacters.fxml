@@ -80,12 +80,12 @@
                   </font>
               </Text>
             <Region prefHeight="32.0" prefWidth="18.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="removeCharacterButton" onAction="#removeCharacterButtonAction" prefHeight="32.0" prefWidth="203.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #c08888; -fx-border-radius: 5;" text="REMOVER PERSONAGEM" textFill="#c08888">
+            <Button fx:id="removeCharacterButton" onAction="#removeCharacterButtonAction" prefHeight="32.0" prefWidth="203.0" text="REMOVER PERSONAGEM" textFill="#c08888">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="addCharacterButton" onAction="#addCharacterButtonAction" prefHeight="32.0" prefWidth="202.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #897a5f; -fx-border-color: #897a5f; -fx-border-radius: 5;" text="ADICIONAR PERSONAGEM">
+            <Button fx:id="addCharacterButton" onAction="#addCharacterButtonAction" prefHeight="32.0" prefWidth="202.0" text="ADICIONAR PERSONAGEM">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -103,7 +103,7 @@
         </padding>
     </VBox>
     <stylesheets>
-        <URL value= "@Styles.css" />
+        <URL value= "@Buttons1.css" />
     </stylesheets>
 
 </AnchorPane>

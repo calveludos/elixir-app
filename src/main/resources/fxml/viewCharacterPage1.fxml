@@ -1047,20 +1047,20 @@
                      </VBox>
                      <VBox prefHeight="95.0" prefWidth="150.0" spacing="10.0">
                         <children>
-                           <Button fx:id="nextPageButton" onAction="#nextPageButtonAction" prefHeight="39.0" prefWidth="187.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="PROXIMA PAGINA" VBox.vgrow="ALWAYS">
+                           <Button fx:id="nextPageButton" onAction="#nextPageButtonAction" prefHeight="39.0" prefWidth="187.0" text="PROXIMA PAGINA" VBox.vgrow="ALWAYS">
                               <font>
                                  <Font name="System Bold" size="12.0" />
                               </font>
                            </Button>
                            <HBox alignment="BOTTOM_CENTER" minHeight="2.0" prefHeight="42.0" prefWidth="150.0">
                               <children>
-                                 <Button fx:id="backButton" minWidth="-Infinity" onAction="#backButtonAction" prefHeight="37.0" prefWidth="72.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="VOLTAR">
+                                 <Button fx:id="backButton" minWidth="-Infinity" onAction="#backButtonAction" prefHeight="37.0" prefWidth="72.0" text="VOLTAR">
                                     <font>
                                        <Font name="System Bold" size="12.0" />
                                     </font>
                                  </Button>
                                  <HBox prefHeight="56.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
-                                 <Button minWidth="-Infinity" prefHeight="38.0" prefWidth="46.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;">
+                                 <Button minWidth="-Infinity" prefHeight="38.0" prefWidth="46.0" >
                                     <font>
                                        <Font name="System Bold" size="12.0" />
                                     </font>
@@ -1092,6 +1092,6 @@
     </VBox>
 
    <stylesheets>
-      <URL value= "@Styles.css" />
+      <URL value= "@Buttons1.css" />
    </stylesheets>
 </AnchorPane>

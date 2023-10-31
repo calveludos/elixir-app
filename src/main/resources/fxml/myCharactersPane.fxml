@@ -86,7 +86,7 @@
 
         <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="200.0">
             <!-- Botão "NOVA PASTA" -->
-            <Button fx:id="newFolderButton" onAction="#newFolderButtonAction" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #897a5f; -fx-border-color: #897a5f; -fx-border-radius: 5;" text="NOVA PASTA">
+            <Button fx:id="newFolderButton" onAction="#newFolderButtonAction" prefHeight="31.0" prefWidth="113.0" text="NOVA PASTA">
                 <font>
                     <Font name="System Bold" size="14.0" />
                 </font>
@@ -110,7 +110,7 @@
     </VBox>
 
     <stylesheets>
-        <URL value= "@Styles.css" />
+        <URL value= "@Buttons1.css" />
     </stylesheets>
 
 </AnchorPane>

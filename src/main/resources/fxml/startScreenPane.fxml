@@ -104,6 +104,6 @@
    </StackPane>
 
    <stylesheets>
-      <URL value= "@Styles.css" />
+      <URL value= "@Buttons1.css" />
    </stylesheets>
 </AnchorPane>

@@ -87,7 +87,7 @@
                                     <PasswordField fx:id="passwordField" minHeight="39.0" prefHeight="0.0" prefWidth="206.0" />
                                  </children>
                               </VBox>
-                              <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="33.0" prefWidth="193.0" style="-fx-background-color: #897a5f;" text="Entrar" textFill="WHITE">
+                              <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="33.0" prefWidth="193.0" text="Entrar">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
@@ -105,7 +105,7 @@
                                     <Font name="System Bold Italic" size="15.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="createAccountButton" alignment="CENTER" mnemonicParsing="false" onAction="#createAccountButtonAction" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: TRASPARENT;" text="Criar conta" textFill="#f7c325">
+                              <Button fx:id="createAccountButton" alignment="CENTER" mnemonicParsing="false" onAction="#createAccountButtonAction" prefHeight="31.0" prefWidth="107.0" text="Criar conta">
                                  <font>
                                     <Font name="System Bold Italic" size="15.0" />
                                  </font>
@@ -127,6 +127,6 @@
    </children>
 
    <stylesheets>
-      <URL value= "@Styles.css" />
+      <URL value= "@Buttons1.css" />
    </stylesheets>
 </AnchorPane>

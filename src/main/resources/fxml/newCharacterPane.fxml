@@ -83,7 +83,7 @@
                 <Image url="@../media/newCharacterPaneImage.png" />
             </image>
         </ImageView>
-      <Button fx:id="createNewCharacterButton" onAction="#createNewCharacterButtonAction" prefHeight="32.0" prefWidth="166.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="CRIAR FICHA">
+      <Button fx:id="createNewCharacterButton" onAction="#createNewCharacterButtonAction" prefHeight="32.0" prefWidth="166.0" text="CRIAR FICHA">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
@@ -95,6 +95,6 @@
     </VBox>
 
     <stylesheets>
-        <URL value= "@Styles.css" />
+        <URL value= "@Buttons1.css" />
     </stylesheets>
 </AnchorPane>
