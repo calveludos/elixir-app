@@ -32,23 +32,23 @@
                   <children>
                      <Label prefHeight="35.0" prefWidth="237.0" text="BEM VINDO AO ELIXIR MAKER!">
                         <font>
-                           <Font name="System Bold Italic" size="16.0" />
+                           <Font name="System Bold Italic" size="15.0" />
                         </font>
                      </Label>
                      <Region prefHeight="23.0" prefWidth="696.0" />
                      <Label text="ESSE SUA TELA DE INICIO! QUANDO QUISER CRIAR UMA FICHA">
                         <font>
-                           <Font name="System Bold Italic" size="16.0" />
+                           <Font name="System Bold Italic" size="13.0" />
                         </font>
                      </Label>
                      <Label text="ENTRE EM CRIAR NOVA FICHA, QUANDO QUISER VER SEUS">
                         <font>
-                           <Font name="System Bold Italic" size="16.0" />
+                           <Font name="System Bold Italic" size="13.0" />
                         </font>
                      </Label>
                      <Label text="PERSONAGENS ENTRE EM MEUS PERSONAGENS">
                         <font>
-                           <Font name="System Bold Italic" size="16.0" />
+                           <Font name="System Bold Italic" size="13.0" />
                         </font>
                      </Label>
                   </children>
@@ -57,28 +57,28 @@
                   <children>
                      <Label prefHeight="25.0" prefWidth="161.0" text="O QUE NOS SOMOS ?">
                         <font>
-                           <Font name="System Bold Italic" size="16.0" />
+                           <Font name="System Bold Italic" size="15.0" />
                         </font>
                      </Label>
                      <Region minWidth="-Infinity" prefHeight="23.0" prefWidth="696.0" />
                      <Label text="UTILIZANDO COMO BASE O SISTEMA DE RPG OLD DRAGON, ELIXIR É">
                         <font>
-                           <Font name="System Bold Italic" size="16.0" />
+                           <Font name="System Bold Italic" size="13.0" />
                         </font>
                      </Label>
                      <Label text="UMA FERRAMENTA QUE AUXILIA NA CRIAÇÃO DE FICHAS DE RPG">
                         <font>
-                           <Font name="System Bold Italic" size="16.0" />
+                           <Font name="System Bold Italic" size="13.0" />
                         </font>
                      </Label>
                      <Label text="PARA AQUELES QUE QUEREM ENTRAR NO MUNDO DOS TABULEIROS">
                         <font>
-                           <Font name="System Bold Italic" size="16.0" />
+                           <Font name="System Bold Italic" size="13.0" />
                         </font>
                      </Label>
                      <Label text="MAS TÊM DIFICULDADES COM AS REGRAS, NÚMEROS E TABELAS.">
                         <font>
-                           <Font name="System Bold Italic" size="16.0" />
+                           <Font name="System Bold Italic" size="13.0" />
                         </font>
                      </Label>
                   </children>

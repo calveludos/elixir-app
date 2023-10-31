@@ -8,7 +8,7 @@
 <?import javafx.scene.text.*?>
 
 <?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="800.0" prefWidth="1000.0" ="-fx-bastyleckground-color: #434343;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.InitialScreenController">
+<AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.InitialScreenController">
    <children>
       <HBox alignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -38,7 +38,7 @@
                                           <Insets />
                                        </HBox.margin>
                                        <children>
-                                          <Label text="Bem Vindo ao ElixirMaker!" textFill="#4b5c6b">
+                                          <Label text="Bem Vindo ao Elixir Maker!" textFill="#4b5c6b">
                                              <font>
                                                 <Font name="System Bold Italic" size="49.0" />
                                              </font>
@@ -68,13 +68,13 @@
                                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                              </padding>
                                              <children>
-                                                <Button fx:id="logonButton" onAction="#logonButtonAction" prefHeight="40.0" prefWidth="113.0" text="Criar Conta">
+                                                <Button fx:id="logonButton" onAction="#logonButtonAction" prefHeight="40.0" prefWidth="150.0" style="-fx-font-size: 18;" text="Criar Conta">
                                                    <font>
                                                       <Font name="System Bold" size="16.0" />
                                                    </font>
                                                 </Button>
                                                 <Region prefHeight="79.0" prefWidth="64.0" HBox.hgrow="ALWAYS" />
-                                                <Button fx:id="loginButton" onAction="#loginButtonAction" prefHeight="40.0" prefWidth="104.0" text="Entrar">
+                                                <Button fx:id="loginButton" onAction="#loginButtonAction" prefHeight="40.0" prefWidth="104.0" style="-fx-font-size: 18;" text="Entrar">
                                                    <font>
                                                       <Font name="System Bold" size="16.0" />
                                                    </font>

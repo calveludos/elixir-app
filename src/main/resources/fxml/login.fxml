@@ -65,16 +65,16 @@
                            <children>
                               <Label text="nome de usuário ou email">
                                  <font>
-                                    <Font size="14.0" />
+                                    <Font size="16.0" />
                                  </font>
                               </Label>
-                              <TextField fx:id="usernameField" minHeight="39.0" prefHeight="39.0" prefWidth="212.0" />
+                              <TextField fx:id="usernameField" minHeight="39.0" prefHeight="39.0" prefWidth="212.0" style="-fx-font-size: 16;" />
                               <HBox alignment="CENTER" prefHeight="47.0" prefWidth="197.0" />
                               <HBox alignment="CENTER_LEFT" prefHeight="7.0" prefWidth="206.0">
                                  <children>
                                     <Label text="senha">
                                        <font>
-                                          <Font size="14.0" />
+                                          <Font size="16.0" />
                                        </font>
                                     </Label>
                                     <Region prefHeight="20.0" prefWidth="54.0" HBox.hgrow="ALWAYS" />
@@ -83,11 +83,11 @@
                               </HBox>
                               <VBox prefHeight="200.0" prefWidth="100.0">
                                  <children>
-                                    <TextField fx:id="textPassword" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="206.0" />
-                                    <PasswordField fx:id="passwordField" minHeight="39.0" prefHeight="0.0" prefWidth="206.0" />
+                                    <TextField fx:id="textPassword" minHeight="-Infinity" minWidth="-Infinity" prefHeight="0.0" prefWidth="206.0" style="-fx-font-size: 16;" />
+                                    <PasswordField fx:id="passwordField" minHeight="39.0" prefHeight="0.0" prefWidth="206.0" style="-fx-font-size: 16;" />
                                  </children>
                               </VBox>
-                              <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="33.0" prefWidth="193.0" text="Entrar">
+                              <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#loginButtonAction" prefHeight="33.0" prefWidth="193.0" text="Entrar" style="-fx-font-size: 16;">
                                  <font>
                                     <Font name="System Bold" size="16.0" />
                                  </font>
