@@ -13,16 +13,56 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import java.net.URL?>
-<AnchorPane fx:id="anchorRoot" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.MyCharactersController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.CharacterViewController">
     <!-- Menu Lateral -->
+    <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="260.0" spacing="17.0" style="-fx-background-color: #e7e4df;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <!-- Ícone e texto do Menu Principal -->
+        <HBox spacing="2.0">
+            <ImageView fitHeight="30.0" fitWidth="30.0">
+                <HBox.margin>
+                    <Insets left="15.0" />
+                </HBox.margin>
+                <Image url="@../../media/menuIcon.png" />
+            </ImageView>
+            <Text fill="#4b5c6b" strokeType="OUTSIDE" strokeWidth="0.0">
+                MENU PRINCIPAL
+                <font>
+                    <Font size="16.0" />
+                </font>
+                <style>
+                    -fx-font-weight: bold;
+                    -fx-font-style: italic;
+                </style>
+            <HBox.margin>
+               <Insets top="4.0" />
+            </HBox.margin>
+            </Text>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+        </HBox>
+
+        <!-- Botões -->
+        <VBox alignment="CENTER" spacing="25.0">
+            <Button prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Tela Inicial" />
+            <Button prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Meus Personagens" />
+            <Button prefHeight="40.0" prefWidth="208.0" style="-fx-background-color: #897a5f; -fx-text-fill: white;" text="Criar nova ficha" />
+         <padding>
+            <Insets left="20.0" />
+         </padding>
+        </VBox>
+        <padding>
+            <Insets top="120.0" />
+        </padding>
+    </VBox>
+
 
     <!-- Cabeçalho superior -->
     <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <!-- Logo e texto -->
-        <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="10.0" layoutY="32.0">
+        <ImageView fitHeight="95.0" fitWidth="85.0" layoutX="10.0" layoutY="32.0">
          <image>
-            <Image url="@../media/logoElixir.png" />
+            <Image url="@../../media/logoElixir.png" />
          </image></ImageView>
 
         <!-- Agrupar Line e Text em uma VBox -->
@@ -60,7 +100,7 @@
                     <Circle centerX="17.5" centerY="17.5" radius="17.5" />
                 </clip>
             <image>
-               <Image url="@../media/emptyPerfilImage.png" />
+               <Image url="@../../media/emptyPerfilImage.png" />
             </image>
             </ImageView>
         </HBox>
@@ -81,12 +121,12 @@
 
         <!-- Conteúdo dentro do HBox das Pastas -->
         <ScrollPane fitToHeight="true" prefHeight="230.0" prefWidth="699.0" style="-fx-background-color: TRASPARENT;">
-            <HBox fx:id="hboxFolders" prefHeight="230.0" prefWidth="0.0" spacing="10.0" />
+            <HBox fx:id="hboxFolders" prefHeight="230.0" prefWidth="699.0" spacing="10.0" />
         </ScrollPane>
 
         <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="200.0">
             <!-- Botão "NOVA PASTA" -->
-            <Button fx:id="newFolderButton" onAction="#newFolderButtonAction" prefHeight="31.0" prefWidth="113.0" text="NOVA PASTA">
+            <Button fx:id="newFolderButton" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: #FFFFFF; -fx-text-fill: #897a5f; -fx-border-color: #897a5f; -fx-border-radius: 5;" text="NOVA PASTA">
                 <font>
                     <Font name="System Bold" size="14.0" />
                 </font>
@@ -101,17 +141,15 @@
         </Text>
 
         <!-- Conteúdo dentro do HBox dos Personagens -->
-        <ScrollPane fitToHeight="true" prefHeight="280.0" prefWidth="714.0" style="-fx-background-color: TRANSPARENT;">
-            <HBox fx:id="hboxCharacters" layoutY="357.0" prefHeight="250.0" prefWidth="0.0" spacing="10.0" />
+        <ScrollPane fitToHeight="true" prefHeight="280.0" prefWidth="714.0" style="-fx-background-color: TRASPARENT;">
+            <HBox fx:id="hboxCharacters" layoutY="357.0" prefHeight="250.0" prefWidth="714.0" spacing="10.0">
+                <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS" />
+            </HBox>
         </ScrollPane>
         <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
         </padding>
     </VBox>
 
-    <stylesheets>
-        <URL value= "@Buttons1.css" />
-        <URL value= "@Font.css" />
-    </stylesheets>
 
 </AnchorPane>

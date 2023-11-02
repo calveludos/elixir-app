@@ -84,31 +84,31 @@
                 <!-- Sessão de Botoões -->
                <HBox fx:id="sectionsVBoxContainer" alignment="CENTER" minHeight="-Infinity" prefHeight="113.0" prefWidth="694.0">
                   <children>
-                     <Button fx:id="dateSectionButton" onAction="#dateSectionButtonAction" prefHeight="40.0" prefWidth="104.0" stylesheets="@../styles/Buttons1.css" styleClass="Button" text="DADOS">
+                     <Button fx:id="dateSectionButton" onAction="#dateSectionButtonAction" prefHeight="40.0" prefWidth="104.0" stylesheets="@Buttons1.css" styleClass="Button" text="DADOS">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="attributeSectionButton" onAction="#attributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0" stylesheets="@../styles/Buttons1.css" styleClass="Button" text="ATRIBUTOS">
+                     <Button fx:id="attributeSectionButton" onAction="#attributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0" stylesheets="@Buttons1.css" styleClass="Button" text="ATRIBUTOS">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="raceSectionButton" onAction="#raceSectionButtonAction" prefHeight="40.0" prefWidth="104.0" stylesheets="@../styles/Buttons1.css" styleClass="Button" text="RAÇA">
+                     <Button fx:id="raceSectionButton" onAction="#raceSectionButtonAction" prefHeight="40.0" prefWidth="104.0" stylesheets="@Buttons1.css" styleClass="Button" text="RAÇA">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="classSectionButton" onAction="#classSectionButtonAction" prefHeight="40.0" prefWidth="104.0" stylesheets="@../styles/Buttons1.css" styleClass="Button" text="CLASSE">
+                     <Button fx:id="classSectionButton" onAction="#classSectionButtonAction" prefHeight="40.0" prefWidth="104.0" stylesheets="@Buttons1.css" styleClass="Button" text="CLASSE">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="backgroundSectionButton" onAction="#backgroundSectionButtonAction" prefHeight="40.0" prefWidth="106.0" stylesheets="@../styles/Buttons1.css" styleClass="Button" text="HISTÓRIA">
+                     <Button fx:id="backgroundSectionButton" onAction="#backgroundSectionButtonAction" prefHeight="40.0" prefWidth="106.0" stylesheets="@Buttons1.css" styleClass="Button" text="HISTÓRIA">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
@@ -297,7 +297,7 @@
     </VBox>
 
     <stylesheets>
-        <URL value= "@../styles/Buttons2.css" />
-        <URL value= "@../styles/Font.css" />
+        <URL value= "@Buttons2.css" />
+        <URL value= "@Font.css" />
     </stylesheets>
 </AnchorPane>

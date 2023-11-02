@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import com.elixir.controller.objects.SoundPlayer;
+
 import java.lang.Math;
 import java.util.Objects;
 
@@ -70,7 +70,6 @@ public class RollDiceController extends MenuController {
 
     @FXML
     public void rollDiceButtonOnAction(ActionEvent event) {
-
         if (HBoxDiceValue.getChildren().size() > 1){
             HBoxDiceValue.getChildren().clear();
         }
@@ -86,8 +85,6 @@ public class RollDiceController extends MenuController {
 
         if(diceBonus.getText().isEmpty() || diceBonus.getText().isBlank()){diceBonus.setText("0");}
         int numDiceBonus = Integer.parseInt(diceBonus.getText());
-
-        SoundPlayer.playButtonClickSound();
 
         for (int i = 0; i < numberOfRolls; i++) {
             int diceResult = (int) (1 + Math.random() * selectedValueDiceType);

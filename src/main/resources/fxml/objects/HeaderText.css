@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap');
 
-AnchorPane {
-    -fx-pref-width: 1000;
-    -fx-pref-height: 800;
-}
-
 Label{
     -fx-font-family: 'IM Fell DW Pica SC', serif;
 }

@@ -539,7 +539,7 @@
     </VBox>
 
    <stylesheets>
-      <URL value= "@../styles/Buttons1.css" />
-      <URL value= "@../styles/Font.css" />
+      <URL value= "@Buttons1.css" />
+      <URL value= "@Font.css" />
    </stylesheets>
 </AnchorPane>
