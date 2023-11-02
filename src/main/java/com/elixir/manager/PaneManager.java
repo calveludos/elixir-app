@@ -19,8 +19,13 @@ public class PaneManager {
     public void openPane(String caminhoFXML) {;
         try {
             Scene scene = new Scene(loadFXML(caminhoFXML));
+            System.out.println("Tamanho da Tela");
+            System.out.println("Widht: " + stage.getWidth());
+            System.out.println("Height: " + stage.getHeight());
             stage.setWidth(stage.getWidth());
             stage.setHeight(stage.getHeight());
+            System.out.println("Widht: " + stage.getWidth());
+            System.out.println("Height: " + stage.getHeight());
             stage.setScene(scene);
             stage.show();
         } catch (IOException e) {

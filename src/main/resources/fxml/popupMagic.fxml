@@ -62,7 +62,7 @@
       </VBox>
    </children>
    <stylesheets>
-      <URL value= "@Buttons1.css" />
-      <URL value= "@Font.css" />
+      <URL value= "@../styles/Buttons1.css" />
+      <URL value= "@../styles/Font.css" />
    </stylesheets>
 </AnchorPane>

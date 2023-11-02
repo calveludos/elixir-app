@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
 import javafx.scene.text.*;
 import javafx.scene.image.*;
+import javafx.scene.control.Alert.AlertType;
 
 import java.util.Map;
 
@@ -71,7 +72,7 @@ public class CharacterObject extends HBox {
                 manager.openPane("viewCharacterPage1");
             } else if (mouseEvent.getButton() == MouseButton.SECONDARY){
 
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                Alert alert = new Alert(AlertType.CONFIRMATION);
                 alert.setTitle("DELETAR PERSONAGEM");
                 alert.setContentText("Você tem certeza que deseja deletar o personagem: " + character.getName() + "\n" +
                         "Essa ação não pode ser desfeita");

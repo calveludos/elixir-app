@@ -168,8 +168,8 @@
         </padding>
     </VBox>
     <stylesheets>
-        <URL value= "@Buttons3.css" />
-        <URL value= "@Font.css" />
+        <URL value= "@../styles/Buttons3.css" />
+        <URL value= "@../styles/Font.css" />
     </stylesheets>
 
 </AnchorPane>
