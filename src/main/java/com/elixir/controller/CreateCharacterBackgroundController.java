@@ -3,11 +3,9 @@ package com.elixir.controller;
 import com.elixir.controller.abstractControllers.CreateCharacterSectionController;
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
-import com.elixir.dao.SlotsDAO;
 import com.elixir.manager.JsonManger;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
-import com.elixir.manager.Tuple;
 import com.elixir.model.*;
 import com.elixir.model.Character;
 import javafx.event.ActionEvent;
@@ -15,10 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.stage.Stage;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
-import org.w3c.dom.Attr;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -104,13 +99,14 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         character.setBackground(backgroundField.getText());
 
 
-        AttributeDAO daoAttribute = new AttributeDAO();
-        int attributeId = daoAttribute.create(attribute);
-        character.setAttributeId(attributeId);
-
         System.out.println(character);
 
         try {
+            AttributeDAO attributeDAO = new AttributeDAO();
+            attribute.setId(attributeDAO.create(attribute));
+
+            character.setAttributeId(attribute.getId());
+
             CharacterDAO dao = new CharacterDAO();
             character.setId(dao.create(character));
         } catch (SQLException e){

@@ -3,6 +3,7 @@ package com.elixir.model;
 import java.util.List;
 
 public class CharacterMaster extends Character{
+    Character character;
     Attribute attribute;
     Currency currency;
     Folder folder;
@@ -14,14 +15,18 @@ public class CharacterMaster extends Character{
         super(alignmentId, attribute.getId(), classId, raceId, folder.getId(), name, playerName, experience, height, weight, currentPv, maxPv, classArmorBonus, appearance, background, imagePath);
     }
 
-    public CharacterMaster(int alignmentId, int classId, int raceId, String name, String playerName, int experience, int height, int weight, int currentPv, int maxPv, int classArmorBonus, String appearance, String background, String imagePath, Attribute attribute, Currency currency, Folder folder, List<Inventory> inventory, Slots slots, List<Speech> speech) {
-        super(alignmentId, attribute.getId(), classId, raceId, folder.getId(), name, playerName, experience, height, weight, currentPv, maxPv, classArmorBonus, appearance, background, imagePath);
+    public CharacterMaster(Character character, Attribute attribute, Currency currency, Folder folder, List<Inventory> inventory, Slots slots, List<Speech> speech) {
+        super(character.getAlignmentId(), attribute.getId(), character.getClassId(), character.getRaceId(), folder.getId(), character.getName(), character.getPlayerName(), character.getExperience(), character.getHeight(), character.getWeight(), character.getCurrentPv(), character.getMaxPv(), character.getClassArmorBonus(), character.getAppearance(), character.getBackground(), character.getImagePath());
+        this.character = character;
         this.attribute = attribute;
         this.currency = currency;
         this.folder = folder;
         this.inventory = inventory;
         this.slots = slots;
         this.speech = speech;
+    }
+
+    public CharacterMaster() {
     }
 
     public Attribute getAttribute() {
@@ -67,4 +72,14 @@ public class CharacterMaster extends Character{
     public void setSpeech(List<Speech> speech) {
         this.speech = speech;
     }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
+    }
+
+
 }

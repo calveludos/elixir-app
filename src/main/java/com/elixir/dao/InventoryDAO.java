@@ -112,7 +112,7 @@ public class InventoryDAO extends CrudDAO<Inventory> {
             query.append(" AND id = ").append(filter.getId());
         }
         if (filter.getCharacterId() != 0) {
-            query.append(" AND character_id = ").append(filter.getCharacterId());
+            query.append(" AND id_character = ").append(filter.getCharacterId());
         }
         if (filter.getItemId() != 0) {
             query.append(" AND item_id = ").append(filter.getItemId());
@@ -132,7 +132,7 @@ public class InventoryDAO extends CrudDAO<Inventory> {
             while (resultSet.next()) {
                 Inventory inventory = new Inventory();
                 inventory.setId(resultSet.getInt("id"));
-                inventory.setCharacterId(resultSet.getInt("character_id"));
+                inventory.setCharacterId(resultSet.getInt("id_character"));
                 inventory.setItemId(resultSet.getInt("item_id"));
                 inventory.setTypeItemId(resultSet.getInt("type_item_id"));
 
