@@ -220,9 +220,6 @@ public class ViewCharacterPage1Controller {
             baFieldDexText = Integer.parseInt(ba) + Integer.parseInt(attModDex);
         }
 
-
-
-
         baFieldStr.setText(String.valueOf(baFieldStrText));
         baFieldDex.setText(String.valueOf(baFieldDexText));
     }
