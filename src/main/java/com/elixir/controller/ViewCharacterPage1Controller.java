@@ -210,13 +210,14 @@ public class ViewCharacterPage1Controller {
 
         int baFieldStrText;
         int baFieldDexText;
-        if(character.getClassId() == 1 && character.level > 6){
-             baFieldStrText = Integer.parseInt(String.valueOf(ba.charAt(1))) + Integer.parseInt(attModStr);
-             baFieldDexText = Integer.parseInt(String.valueOf(ba.charAt(4))) + Integer.parseInt(attModDex);
+        ba = ba.replaceAll("[+/]", "");
+        if(character.getClassId() == 1 && level > 6){
+            baFieldStrText = Integer.parseInt(String.valueOf(ba.charAt(0))) + Integer.parseInt(attModStr);
+            baFieldDexText = Integer.parseInt(String.valueOf(ba.charAt(1))) + Integer.parseInt(attModDex);
         }else {
 
-             baFieldStrText = Integer.parseInt(ba) + Integer.parseInt(attModStr);
-             baFieldDexText = Integer.parseInt(ba) + Integer.parseInt(attModDex);
+            baFieldStrText = Integer.parseInt(ba) + Integer.parseInt(attModStr);
+            baFieldDexText = Integer.parseInt(ba) + Integer.parseInt(attModDex);
         }
 
 
