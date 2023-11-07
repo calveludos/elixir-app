@@ -5,6 +5,7 @@ import com.elixir.dao.CharacterDAO;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.Character;
+import com.elixir.model.CharacterMaster;
 import com.elixir.model.Folder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,7 +33,7 @@ public class RemoveFolderCharactersController extends MenuController {
     private Label folderNameLabel;
 
     private ObjectSaveManager saveManager;
-    private Map<Integer, Character> characterMap;
+    private Map<Integer, CharacterMaster> characterMap;
     private Map<Integer, Folder> folderMap;
 
     @FXML
@@ -40,22 +41,22 @@ public class RemoveFolderCharactersController extends MenuController {
         super.initialize();
 
         saveManager = new ObjectSaveManager();
-        characterMap = (Map<Integer, Character>) saveManager.getObject("characters");
+        characterMap = (Map<Integer, CharacterMaster>) saveManager.getObject("characters");
         Folder folder = (Folder) saveManager.getObject("folder");
         folderMap = (Map<Integer, Folder>) saveManager.getObject("folders");
 
         folderNameLabel.setText(folder.getName());
 
-        for (Character character :
+        for (CharacterMaster characterMaster :
                 characterMap.values()) {
             System.out.println("sim?");
-            if (character.getFolderId() == folder.getId()){
+            if (characterMaster.getFolderId() == folder.getId()){
                 System.out.println("sim");
-                System.out.println(character.getFolderId());
+                System.out.println(characterMaster.getFolderId());
                 System.out.println(folder.getId());
                 CheckMenuItem menuItem = new CheckMenuItem();
-                menuItem.setText(character.getName());
-                menuItem.setId(String.valueOf(character.getId()));
+                menuItem.setText(characterMaster.getName());
+                menuItem.setId(String.valueOf(characterMaster.getId()));
                 menuItem.setOnAction(event -> {
                     charactersMenuButton.setText(characterMap.get(Integer.parseInt(menuItem.getId())).getName());
                 });
@@ -72,7 +73,7 @@ public class RemoveFolderCharactersController extends MenuController {
                 charactersMenuButton.getItems()) {
             CheckMenuItem checkMenuItem = (CheckMenuItem) menuItem;
             if (checkMenuItem.isSelected()){
-                Character character = characterMap.get(Integer.parseInt(checkMenuItem.getId()));
+                CharacterMaster character = characterMap.get(Integer.parseInt(checkMenuItem.getId()));
 
                 int defaultId = folderMap.values()
                         .stream()

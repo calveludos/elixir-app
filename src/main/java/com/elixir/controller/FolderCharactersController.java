@@ -8,6 +8,7 @@ import com.elixir.dao.FolderDAO;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.Character;
+import com.elixir.model.CharacterMaster;
 import com.elixir.model.Folder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,7 +35,7 @@ public class FolderCharactersController extends MenuController {
         ObjectSaveManager reader = new ObjectSaveManager();
         reader.printMap();
         Folder folder = (Folder) reader.getObject("folder");
-        Map<Integer, Character> characterMap = (Map<Integer, Character>) reader.getObject("characters");
+        Map<Integer, CharacterMaster> characterMap = (Map<Integer, CharacterMaster>) reader.getObject("characters");
         characterMap.values().removeIf(c -> c.getFolderId() != folder.getId());
 
         Integer[] indexs = characterMap.keySet().toArray(new Integer[0]);
@@ -44,9 +45,9 @@ public class FolderCharactersController extends MenuController {
             hBox.setPrefWidth(100.0);
             hBox.setSpacing(10);
             try {
-                Character character1 = characterMap.get(indexs[i]);
+                CharacterMaster character1 = characterMap.get(indexs[i]);
                 hBox.getChildren().add(new CharacterObject(character1));
-                Character character2 = characterMap.get(indexs[i+1]);
+                CharacterMaster character2 = characterMap.get(indexs[i+1]);
                 hBox.getChildren().add(new CharacterObject(character2));
             } catch (IndexOutOfBoundsException ignored){}
             charactersVBox.getChildren().add(hBox);

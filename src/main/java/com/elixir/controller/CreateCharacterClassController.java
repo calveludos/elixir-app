@@ -6,6 +6,7 @@ import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
+import com.elixir.model.CharacterMaster;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -24,7 +25,7 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
     @FXML
     private Label messageLabel1;
 
-    private Character character;
+    private CharacterMaster character;
     private Attribute attribute;
 
     @FXML
@@ -32,8 +33,8 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
         super.initialize();
 
         ObjectSaveManager reader = new ObjectSaveManager();
-        character = (Character) reader.getObject("character");
-        attribute = (Attribute) reader.getObject("attribute");
+        character = (CharacterMaster) reader.getObject("character");
+        attribute = character.getAttribute();
 
         try{
             if(character.getClassId() > 0){
@@ -56,7 +57,7 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
                 }
             }
         } catch (NullPointerException e) {
-            character = new Character();
+            character = new CharacterMaster();
         }
     }
 

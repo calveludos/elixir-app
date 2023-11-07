@@ -5,6 +5,7 @@ import com.elixir.dao.CharacterDAO;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.Character;
+import com.elixir.model.CharacterMaster;
 import com.elixir.model.Folder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,28 +33,26 @@ public class NewFolderCharactersController extends MenuController {
     private Label folderNameLabel;
 
     private ObjectSaveManager saveManager;
-    private Map<Integer, Character> characterMap;
+    private Map<Integer, CharacterMaster> characterMap;
     private Folder folder;
-
-
 
     @FXML
     public void initialize() {
         super.initialize();
 
         saveManager = new ObjectSaveManager();
-        characterMap = (Map<Integer, Character>) saveManager.getObject("characters");
+        characterMap = (Map<Integer, CharacterMaster>) saveManager.getObject("characters");
         folder = (Folder) saveManager.getObject("folder");
 
         folderNameLabel.setText(folder.getName());
 
-        for (Character character :
+        for (CharacterMaster character :
                 characterMap.values()) {
             CheckMenuItem menuItem = new CheckMenuItem();
-            menuItem.setText(character.getName());
-            menuItem.setId(String.valueOf(character.getId()));
+            menuItem.setText(character.getCharacter().getName());
+            menuItem.setId(String.valueOf(character.getCharacter().getId()));
             menuItem.setOnAction(event -> {
-                charactersMenuButton.setText(characterMap.get(Integer.parseInt(menuItem.getId())).getName());
+                charactersMenuButton.setText(character.getCharacter().getName());
             });
             charactersMenuButton.getItems().add(menuItem);
         }
@@ -68,8 +67,9 @@ public class NewFolderCharactersController extends MenuController {
             CheckMenuItem checkMenuItem = (CheckMenuItem) menuItem;
             if (checkMenuItem.isSelected()){
                 System.out.println("entrou");
-                Character character = characterMap.get(Integer.parseInt(checkMenuItem.getId()));
-                character.setFolderId(folder.getId());
+                CharacterMaster character = characterMap.get(Integer.parseInt(checkMenuItem.getId()));
+                character.getCharacter().setFolderId(folder.getId());
+                character.setFolder(folder);
                 characterMap.put(character.getId(), character);
                 try {
                     dao.update(character);

@@ -6,6 +6,7 @@ import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 import com.elixir.dao.AttributeDAO;
+import com.elixir.model.CharacterMaster;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -25,7 +26,7 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
     private Label messageLabel;
     @FXML
     private Label showUpdateLabel;
-    private Character character;
+    private CharacterMaster character;
     private Attribute attribute;
     private Attribute copyAttribute;
 
@@ -34,8 +35,8 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
         super.initialize();
 
         ObjectSaveManager reader = new ObjectSaveManager();
-        character = (Character) reader.getObject("character");
-        attribute = (Attribute) reader.getObject("attribute");
+        character = (CharacterMaster) reader.getObject("character");
+        attribute = character.getAttribute();
 
         try{
             if(character.getRaceId() > 0){
@@ -58,7 +59,7 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
                 }
             }
         } catch (NullPointerException e){
-            character = new Character();
+            character = new CharacterMaster();
         }
     }
 

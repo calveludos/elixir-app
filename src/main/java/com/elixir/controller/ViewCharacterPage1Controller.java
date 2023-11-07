@@ -6,6 +6,8 @@ import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
 
+import com.elixir.model.CharacterMaster;
+import com.elixir.model.Character;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -13,6 +15,7 @@ import javafx.scene.image.ImageView;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
+import org.w3c.dom.Attr;
 
 import java.io.IOException;
 import java.util.Locale;
@@ -123,7 +126,7 @@ public class ViewCharacterPage1Controller {
     @FXML
     private TextField wisField;
 
-    private Character character;
+    private CharacterMaster character;
     private Attribute attribute;
     private String protectionAjustFieldText;
 
@@ -132,8 +135,8 @@ public class ViewCharacterPage1Controller {
     @FXML
     public void initialize() throws IOException, ParseException {
         ObjectSaveManager reader = new ObjectSaveManager();
-        character = (Character) reader.getObject("character");
-        attribute = (Attribute) reader.getObject("attribute");
+        character = (CharacterMaster) reader.getObject("character");
+        attribute = character.getAttribute();
 
         setHeader();
         setAttributes();

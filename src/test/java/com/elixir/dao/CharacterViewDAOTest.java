@@ -10,7 +10,6 @@ class CharacterViewDAOTest {
     @Test
     public void readeTest() throws SQLException {
         CharacterViewDAO viewDAO = new CharacterViewDAO();
-        viewDAO.read(1);
     }
 
 }

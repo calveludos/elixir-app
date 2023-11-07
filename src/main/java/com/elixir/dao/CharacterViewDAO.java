@@ -113,9 +113,13 @@ public class CharacterViewDAO extends CrudDAO {
 
             int count = 0;
             while (resultSet.next()) {
-                String columnName = columns[count].getName();
-                Class<?> columnClass = columns[count].getType();
-                viewMap.put(columnName, columnClass == Integer.class ? resultSet.getInt(columnName) : resultSet.getString(columnName));
+                for (Column collum :
+                        columns) {
+                    String columnName = columns[count].getName();
+                    Class<?> columnClass = columns[count].getType();
+                    viewMap.put(columnName, columnClass == Integer.class ? resultSet.getInt(columnName) : resultSet.getString(columnName));
+                }
+                count++;
             }
 
         } catch (SQLException e) {
