@@ -61,8 +61,16 @@ public class CharacterMaster extends Character{
         this.slots = slots;
     }
 
+    public List<Inventory> getInventory() {
+        return inventory;
+    }
+
     public void setInventory(List<Inventory> inventory) {
         this.inventory = inventory;
+    }
+
+    public void addInventory(Inventory inventory){
+        this.inventory.add(inventory);
     }
 
     public List<Speech> getSpeech() {
@@ -71,6 +79,10 @@ public class CharacterMaster extends Character{
 
     public void setSpeech(List<Speech> speech) {
         this.speech = speech;
+    }
+
+    public void addSpeech(Speech speech) {
+        this.speech.add(speech);
     }
 
     public Character getCharacter() {
