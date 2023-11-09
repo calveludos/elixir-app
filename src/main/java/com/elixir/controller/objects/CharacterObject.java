@@ -4,6 +4,7 @@ import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
+import com.elixir.model.CharacterMaster;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -23,7 +24,7 @@ import static javafx.scene.layout.VBox.setVgrow;
 
 public class CharacterObject extends HBox {
 
-    public CharacterObject(Character character) {
+    public CharacterObject(CharacterMaster character) {
         // Crie um ImageView com a imagem desejada
         ImageView imageView = new ImageView(new Image("/media/emptyImage.png"));
         imageView.setFitHeight(108.0);
@@ -61,8 +62,7 @@ public class CharacterObject extends HBox {
             if (mouseEvent.getButton() == MouseButton.PRIMARY) {
                 System.out.println("clicou");
                 ObjectSaveManager saver = new ObjectSaveManager();
-                Map<Integer, Attribute> attributeMap = (Map<Integer, Attribute>) saver.getObject("attributes");
-                Attribute attribute = attributeMap.get(character.getAttributeId());
+                Attribute attribute = character.getAttribute();
                 System.out.println(attribute);
                 saver.saveObject("character", character);
                 saver.saveObject("attribute", attribute);

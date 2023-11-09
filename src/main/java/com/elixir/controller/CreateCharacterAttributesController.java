@@ -8,6 +8,7 @@ import com.elixir.manager.PaneManager;
 import com.elixir.manager.Tuple;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
+import com.elixir.model.CharacterMaster;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -41,7 +42,7 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
     @FXML
     private Label errorLabel;
 
-    private Character character;
+    private CharacterMaster character;
     private Attribute attribute;
 
     @FXML
@@ -110,8 +111,8 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
         });
 
         ObjectSaveManager reader = new ObjectSaveManager();
-        character = (Character) reader.getObject("character");
-        attribute = (Attribute) reader.getObject("attribute");
+        character = (CharacterMaster) reader.getObject("character");
+        attribute = character.getAttribute();
         reader.printMap();
 
         if (attribute == null) {
@@ -133,7 +134,7 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
         Platform.runLater(() -> strField.requestFocus());
 
         if (character == null){
-            character = new Character();
+            character = new CharacterMaster();
         }
     }
     private void applyIntegerFormatter(TextField textField) {
@@ -150,15 +151,14 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
 
     @Override
     protected void saveCharacter(String fxml){
-         attribute.setStrength(Integer.parseInt(strField.getText()));
+        attribute.setStrength(Integer.parseInt(strField.getText()));
         attribute.setWisdom(Integer.parseInt(wisField.getText()));
         attribute.setDexterity(Integer.parseInt(dexField.getText()));
         attribute.setIntelligence(Integer.parseInt(intField.getText()));
         attribute.setConstitution(Integer.parseInt(conField.getText()));
         attribute.setCharisma(Integer.parseInt(chaField.getText()));
 
-        ObjectSaveManager saver = new ObjectSaveManager();
-        saver.saveObject("attribute", attribute);
+        character.setAttribute(attribute);
 
         ObjectSaveManager saverCharacter = new ObjectSaveManager();
         saverCharacter.saveObject("character", character);

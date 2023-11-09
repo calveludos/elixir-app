@@ -209,7 +209,7 @@ public class LoginController {
             }
 
             saveManager.saveObject("folders", folderMap);
-            saveManager.saveObject("charactersMaster", characterMasterMap);
+            saveManager.saveObject("characters", characterMasterMap);
 
             PaneManager manager = new PaneManager();
             manager.openPane("startScreenPane");

@@ -5,6 +5,7 @@ import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.manager.Tuple;
 import com.elixir.model.Character;
+import com.elixir.model.CharacterMaster;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -38,7 +39,7 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
     @FXML
     private Spinner<Integer> levelField;
 
-    private Character character;
+    private CharacterMaster character;
 
     @FXML
     public void initialize() {
@@ -116,7 +117,7 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
         levelField.getValueFactory().setConverter(converter);
 
         ObjectSaveManager reader = new ObjectSaveManager();
-        character = (Character) reader.getObject("character");
+        character = (CharacterMaster) reader.getObject("character");
 
         try{
             assert character.getName() != null;
@@ -130,7 +131,7 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
             assert character.getAlignmentId() != 0;
             aliagmentSelectionFiled.setText(alignmentIdMap.get(character.getAlignmentId()));
         } catch (NullPointerException e){
-            character = new Character();
+            character = new CharacterMaster();
         }
     }
     @FXML

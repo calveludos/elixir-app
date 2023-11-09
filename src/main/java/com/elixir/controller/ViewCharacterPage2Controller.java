@@ -6,6 +6,7 @@ import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
 import com.elixir.model.Attribute;
 import com.elixir.model.Character;
+import com.elixir.model.CharacterMaster;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -125,13 +126,13 @@ public class ViewCharacterPage2Controller extends MenuController {
     private  TextField stabTextField;
 
     private ObjectSaveManager reader;
-    private Character character;
+    private CharacterMaster character;
     private int nextLevelXP;
 
     @FXML
     public void initialize() {
         reader = new ObjectSaveManager();
-        character = (Character) reader.getObject("character");
+        character = (CharacterMaster) reader.getObject("character");
 
         setHeader();
         setEquipaments();

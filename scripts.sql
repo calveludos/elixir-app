@@ -320,8 +320,8 @@ GROUP BY u.id, u.first_name
 HAVING total_moedas > 700
 ORDER BY total_moedas DESC;
 
-CREATE OR REPLACE VIEW usuario AS
-SELECT email, first_name, last_name, code_verify, data_register, is_verify
+CREATE OR REPLACE VIEW usuarioView AS
+SELECT email, password, first_name, last_name, code_verify, data_register, is_verify
 FROM `User`;
 
 

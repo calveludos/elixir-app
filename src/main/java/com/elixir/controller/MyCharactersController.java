@@ -3,31 +3,19 @@ package com.elixir.controller;
 import com.elixir.controller.abstractControllers.MenuController;
 import com.elixir.controller.objects.CharacterObject;
 import com.elixir.controller.objects.FolderObject;
-import com.elixir.dao.AttributeDAO;
-import com.elixir.dao.CharacterDAO;
-import com.elixir.dao.FolderDAO;
-import com.elixir.factory.ConnectionFactory;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
-import com.elixir.model.Attribute;
+import com.elixir.model.*;
 import com.elixir.model.Character;
-import com.elixir.model.Folder;
-import com.elixir.model.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.*;
-import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class MyCharactersController extends MenuController {
 
@@ -42,17 +30,15 @@ public class MyCharactersController extends MenuController {
 
         ObjectSaveManager reader = new ObjectSaveManager();
         int userId = ((User) reader.getObject("user")).getId();
-        Map<Integer, Character> characterMap = (Map<Integer, Character>) reader.getObject("characters");
+        Map<Integer, CharacterMaster> characterMap = (Map<Integer, CharacterMaster>) reader.getObject("characters");
         Map<Integer, Folder> folderMap = (Map<Integer, Folder>) reader.getObject("folders");
         
-        int defaultId = -1;
-        for (Folder f :
-                folderMap.values()) {
-            if (f.getName().equals("default")){
-                defaultId = f.getId();
-            }
-        }
-        folderMap.remove(defaultId);
+        AtomicInteger defaultId = new AtomicInteger(-1);
+        folderMap.values().forEach(folder -> {
+            if (folder.getName().equals("default"))
+                defaultId.set(folder.getId());
+        });
+        folderMap.remove(defaultId.get());
 
         if(!folderMap.isEmpty()){
             Integer[] indexs = folderMap.keySet().toArray(new Integer[0]);
@@ -73,21 +59,13 @@ public class MyCharactersController extends MenuController {
             }
         }
 
-        var oldMap = characterMap;
-        Map<Integer, Character> newMap = new HashMap<>();
-        for (Character c : oldMap.values()) {
-            if (c.getFolderId() == defaultId){
-                newMap.put(c.getId(), c);
-            }
-        }
-        for (Character c :
-                newMap.values()) {
-            System.out.println(c);
-        }
+        Map<Integer, CharacterMaster> characterDefault = new HashMap<>();
+        characterMap.values().forEach(character -> {
+            if (character.getFolder().getId() == defaultId.get())
+                characterDefault.put(character.getFolder().getId(), character);
+        });
 
-        characterMap = newMap;
-
-        if (!characterMap.isEmpty()) {
+        if (!characterDefault.isEmpty()) {
             Integer[] indexs = characterMap.keySet().toArray(new Integer[0]);
             for (int i = 0; i < characterMap.size(); i = i + 2) {
                 VBox vBox = new VBox();
@@ -95,9 +73,9 @@ public class MyCharactersController extends MenuController {
                 vBox.setPrefWidth(100.0);
                 vBox.setSpacing(5);
                 try {
-                    Character character1 = characterMap.get(indexs[i]);
+                    CharacterMaster character1 = characterMap.get(indexs[i]);
                     vBox.getChildren().add(new CharacterObject(character1));
-                    Character character2 = characterMap.get(indexs[i+1]);
+                    CharacterMaster character2 = characterMap.get(indexs[i+1]);
                     vBox.getChildren().add(new CharacterObject(character2));
                 } catch (IndexOutOfBoundsException ignored){}
                 hboxCharacters.getChildren().add(vBox);
