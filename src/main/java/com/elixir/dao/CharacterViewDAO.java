@@ -1,8 +1,9 @@
 package com.elixir.dao;
 
 import com.elixir.factory.ConnectionFactory;
-import com.elixir.manager.Tuple;
-import com.elixir.model.Folder;
+import com.elixir.model.*;
+import com.elixir.model.Character;
+import com.elixir.model.CharacterMaster;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CharacterViewDAO extends CrudDAO {
+public class CharacterViewDAO extends CrudDAO<CharacterMaster> {
 
     public static class Column {
         String name;
@@ -32,21 +33,18 @@ public class CharacterViewDAO extends CrudDAO {
     }
 
     @Override
-    public int create(Object model) throws SQLException {
+    public int create(CharacterMaster characterMaster) throws SQLException {
         return 0;
     }
 
     @Override
-    public void update(Object model) throws SQLException {
+    public void update(CharacterMaster characterMaster) throws SQLException {
 
     }
 
     @Override
-    public Map read(Object object) throws SQLException {
-        return null;
-    }
-    public List<Map<String, Object>> readList(Object userId) throws SQLException {
-        String query = "SELECT u.id AS user_id, f.id AS folder_id, c.id AS character_id, c.*, a.id AS attribute_id, a.*, cy.id AS currency_id, cy.*, i.id AS inventory_id, i.*, s.id AS slots_id, s.*, sp.id AS speech_id, sp.* \n" +
+    public Map<Integer, CharacterMaster> read(CharacterMaster characterMaster) throws SQLException {
+        String query = "SELECT u.id AS user_id, f.id AS folder_id, f.name AS folder_name, c.id AS character_id, c.*, a.id AS attribute_id, a.*, cy.id AS currency_id, cy.*, i.id AS inventory_id, i.*, s.id AS slots_id, s.*, sp.id AS speech_id, sp.* \n" +
                 "FROM `Character` c \n" +
                 "LEFT JOIN Folder f ON c.id_folder = f.id\n" +
                 "LEFT JOIN `User` u ON f.id_user = u.id\n" +
@@ -61,6 +59,7 @@ public class CharacterViewDAO extends CrudDAO {
 
         Column[] columns = {
                 new Column("user_id", Integer.class),
+                new Column("folder_name", String.class),
                 new Column("folder_id", Integer.class),
                 new Column("character_id", Integer.class),
                 new Column("id_alignment", Integer.class),
@@ -112,12 +111,10 @@ public class CharacterViewDAO extends CrudDAO {
         try {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query);
-            stmt.setInt(1, (Integer) userId);
+            stmt.setInt(1, characterMaster.getFolder().getUserId());
             resultSet = stmt.executeQuery();
 
-            int count = 0;
             while (resultSet.next()) {
-                System.out.println(resultSet);
                 Map<String, Object> tuple = new HashMap<>();
                 for (Column column :
                         columns) {
@@ -126,7 +123,6 @@ public class CharacterViewDAO extends CrudDAO {
 
                     tuple.put(columnName, columnClass == Integer.class ? resultSet.getInt(columnName) : resultSet.getString(columnName));
                 }
-                count++;
                 viewMap.add(tuple);
             }
 
@@ -139,16 +135,143 @@ public class CharacterViewDAO extends CrudDAO {
             }
         }
 
-        return viewMap;
+        int characterId = -1;
+        int inventoryId = -1;
+        int speechId = -1;
+        int folderId = -1;
+        Folder folder = null;
+
+        Map<Integer, CharacterMaster> characterMasterMap = new HashMap<>();
+        CharacterMaster master = null;
+
+        for (Map<String, Object> tuple :
+                viewMap) {
+
+            if (folderId != (int) tuple.get("folder_id")){
+                folder = new Folder(
+                        (int) tuple.get("user_id"),
+                        (String) tuple.get("folder_name")
+                );
+
+                folder.setId((int) tuple.get("folder_id"));
+            }
+
+            if (characterId != (int) tuple.get("character_id")){
+                master = new CharacterMaster();
+                master.setInventory(new ArrayList<>());
+                master.setSpeech(new ArrayList<>());
+
+                Character character = new Character(
+                        (int) tuple.get("id_alignment"),
+                        (int) tuple.get("id_attribute"),
+                        (int) tuple.get("id_class"),
+                        (int) tuple.get("id_race"),
+                        (int) tuple.get("folder_id"),
+                        (String) tuple.get("name"),
+                        (String) tuple.get("player_name"),
+                        (int) tuple.get("experience"),
+                        (int) tuple.get("height"),
+                        (int) tuple.get("weight"),
+                        (int) tuple.get("current_pv"),
+                        (int) tuple.get("max_pv"),
+                        (int) tuple.get("class_armor_bonus"),
+                        (String) tuple.get("apperance"),
+                        (String) tuple.get("background"),
+                        (String) tuple.get("image_path")
+                );
+
+                character.setId((int) tuple.get("character_id"));
+                characterId = character.getId();
+
+                Attribute attribute = new Attribute(
+                        (int) tuple.get("strength"),
+                        (int) tuple.get("dexterity"),
+                        (int) tuple.get("constitution"),
+                        (int) tuple.get("intelligence"),
+                        (int) tuple.get("wisdom"),
+                        (int) tuple.get("charisma")
+                );
+
+                attribute.setId((int) tuple.get("attribute_id"));
+
+                Currency currency = new Currency(
+                        (int) tuple.get("character_id"),
+                        (int) tuple.get("gold"),
+                        (int) tuple.get("silver"),
+                        (int) tuple.get("copper"),
+                        (int) tuple.get("electrium"),
+                        (int) tuple.get("platinium")
+                );
+
+                currency.setId((int) tuple.get("currency_id"));
+
+
+                Slots slots = new Slots(
+                        (int) tuple.get("character_id"),
+                        (int) tuple.get("I_level"),
+                        (int) tuple.get("II_level"),
+                        (int) tuple.get("III_level"),
+                        (int) tuple.get("IV_level"),
+                        (int) tuple.get("V_level"),
+                        (int) tuple.get("VI_level"),
+                        (int) tuple.get("VII_level"),
+                        (int) tuple.get("VIII_level"),
+                        (int) tuple.get("IX_level")
+                );
+
+                slots.setId((int) tuple.get("slots_id"));
+
+                master.setCharacter(character);
+                master.setAttribute(attribute);
+                master.setCurrency(currency.getId() == 0 ? null : currency);
+                master.setSlots(slots.getId() == 0 ? null : slots);
+
+                master.setFolder(folder);
+
+                characterMasterMap.put(master.getId(), master);
+            }
+
+            if (inventoryId != (int) tuple.get("inventory_id")){
+
+                Inventory inventory = new Inventory(
+                        (int) tuple.get("character_id"),
+                        (int) tuple.get("item_id"),
+                        (int) tuple.get("type_item_id")
+                );
+
+                inventory.setId((int) tuple.get("inventory_id"));
+                inventoryId = inventory.getId();
+
+                assert master != null;
+                master.addInventory(inventory);
+            }
+
+            if (speechId != (int) tuple.get("speech_id")){
+
+                Speech speech = new Speech(
+                        (int) tuple.get("character_id"),
+                        (int) tuple.get("id_language")
+                );
+
+                speech.setId((int) tuple.get("speech_id"));
+                speechId = speech.getId();
+
+                assert master != null;
+                master.addSpeech(speech);
+            }
+
+        }
+
+        return characterMasterMap;
     }
 
     @Override
-    public Map read() throws SQLException {
+    public Map<Integer, CharacterMaster> read() throws SQLException {
         return null;
     }
 
     @Override
-    public void delete(Object model) throws SQLException {
+    public void delete(CharacterMaster characterMaster) throws SQLException {
 
     }
 }

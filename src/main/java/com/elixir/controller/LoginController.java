@@ -22,11 +22,10 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import org.mindrot.jbcrypt.BCrypt;
+
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import static com.elixir.model.tables.TypeID.CLERIC;
@@ -115,97 +114,23 @@ public class LoginController {
             errorLabel.setTextFill(Color.GREEN);
             errorLabel.setText("Inciando Seção...");
 
-            String query = "SELECT c.* FROM `Character` c JOIN Folder f\n" +
-                    "ON c.id_folder = f.id \n" +
-                    "WHERE f.id_user = ?;";
-
-            CharacterDAO characterDAO = new CharacterDAO();
-            characterDAO.conn = ConnectionFactory.createConnection();
-            characterDAO.stmt = characterDAO.conn.prepareStatement(query);
-            characterDAO.stmt.setInt(1, user.getId());
-
-            String query2 = "SELECT a.* FROM Attribute a \n" +
-                    "JOIN `Character` c ON c.id_attribute = a.id\n" +
-                    "JOIN Folder f ON c.id_folder = f.id\n" +
-                    "WHERE f.id_user = ?;";
-
-            AttributeDAO attributeDAO = new AttributeDAO();
-            attributeDAO.conn = ConnectionFactory.createConnection();
-            attributeDAO.stmt = characterDAO.conn.prepareStatement(query2);
-            attributeDAO.stmt.setInt(1, user.getId());
 
             FolderDAO folderDAO = new FolderDAO();
             Folder folderFilter = new Folder();
             folderFilter.setUserId(user.getId());
 
+            CharacterViewDAO viewDAO = new CharacterViewDAO();
+            CharacterMaster characterMasterFilter = new CharacterMaster();
+            characterMasterFilter.setFolder(folderFilter);
+
             Map<Integer, Folder> folderMap;
-            Map<Integer, Character> characterMap;
-            Map<Integer, Attribute> attributesMap;
+            Map<Integer, CharacterMaster> characterMasterMap;
             try {
                 folderMap = folderDAO.read(folderFilter);
-                characterMap = characterDAO.readQuery();
-                attributesMap = attributeDAO.readQuery();
+                characterMasterMap = viewDAO.read(characterMasterFilter);
             } catch (SQLException e){
                 e.printStackTrace();
                 throw e;
-            }
-
-
-            Map<Integer, CharacterMaster> characterMasterMap = new HashMap<>();
-
-            for (Character character :
-                    characterMap.values()) {
-
-                CurrencyDAO currencyDAO = new CurrencyDAO();
-                Currency currencyFilter = new Currency();
-                currencyFilter.setCharacterId(character.getId());
-
-                Currency currency = currencyDAO.read(currencyFilter).values().stream().findFirst().orElse(new Currency());
-                currency.setCharacterId(character.getId());
-
-                System.out.println("Currecy lido");
-
-                InventoryDAO inventoryDAO = new InventoryDAO();
-                Inventory inventoryFilter = new Inventory();
-                inventoryFilter.setCharacterId(character.getId());
-
-                List<Inventory> inventories = new ArrayList<>(inventoryDAO.read(inventoryFilter).values());
-
-                System.out.println("Inventory lido");
-
-                Slots slots = null;
-                if (character.getClassId() == CLERIC || character.getClassId() == WIZARD){
-                    SlotsDAO slotsDAO = new SlotsDAO();
-                    Slots slotsFilter = new Slots();
-                    slotsFilter.setCharacterId(character.getId());
-
-                    slots = slotsDAO.read(slotsFilter).values().stream().findFirst().orElse(new Slots());
-                    slots.setCharacterId(character.getId());
-                }
-
-                System.out.println("Slots lido");
-
-                SpeechDAO speechDAO = new SpeechDAO();
-                Speech speechFilter = new Speech();
-                speechFilter.setCharacterId(character.getId());
-
-                List<Speech> speeches = new ArrayList<>(speechDAO.read(speechFilter).values());
-
-                System.out.println("Speech lido");
-
-                CharacterMaster master = new CharacterMaster(
-                        character,
-                        attributesMap.get(character.getAttributeId()),
-                        currency,
-                        folderMap.get(character.getFolderId()),
-                        inventories,
-                        slots,
-                        speeches
-                    );
-
-                System.out.println("CharacterMaster lido");
-
-                characterMasterMap.put(character.getId(), master);
             }
 
             saveManager.saveObject("folders", folderMap);

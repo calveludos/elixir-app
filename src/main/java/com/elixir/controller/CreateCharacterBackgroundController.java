@@ -3,6 +3,7 @@ package com.elixir.controller;
 import com.elixir.controller.abstractControllers.CreateCharacterSectionController;
 import com.elixir.dao.AttributeDAO;
 import com.elixir.dao.CharacterDAO;
+import com.elixir.dao.CharacterMasterDAO;
 import com.elixir.manager.JsonManger;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
@@ -30,27 +31,29 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
     @FXML
     private Label errorLabel;
 
-    private Character character;
+    private CharacterMaster character;
+
     private Attribute attribute;
 
     private Slots slots;
-    private User user;
+
 
     @FXML
     public void initialize(){
         super.initialize();
 
         ObjectSaveManager reader = new ObjectSaveManager();
-        character = (Character) reader.getObject("character");
-        attribute = (Attribute) reader.getObject("attribute");
-        user = (User) reader.getObject("user");
+        character = (CharacterMaster) reader.getObject("character");
 
         try{
             if(character.getBackground() != null){
                 backgroundField.setText(character.getBackground());
             }
+            attribute = character.getAttribute();
         } catch (NullPointerException e){
-            character = new Character();
+            character = new CharacterMaster();
+            character.setAttribute(new Attribute(10, 10, 10, 10, 10, 10));
+            attribute = character.getAttribute();
         }
     }
     @FXML
@@ -98,14 +101,15 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         character.setImagePath("default");
         character.setBackground(backgroundField.getText());
 
+        character.setFolder(folderMap.get(defaultId));
 
         System.out.println(character);
 
         try {
             AttributeDAO attributeDAO = new AttributeDAO();
-            attribute.setId(attributeDAO.create(attribute));
-
-            character.setAttributeId(attribute.getId());
+            int idAttribute = attributeDAO.create(character.getAttribute());
+            character.setAttributeId(idAttribute);
+            character.getAttribute().setId(idAttribute);
 
             CharacterDAO dao = new CharacterDAO();
             character.setId(dao.create(character));
@@ -114,7 +118,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
             throw e;
         }
 
-        Map<Integer, Character> characters = (Map<Integer, Character>) reader.getObject("characters");
+        Map<Integer, CharacterMaster> characters = (Map<Integer, CharacterMaster>) reader.getObject("characters");
         characters.put(character.getId(), character);
 
         reader.saveObject("characters", characters);

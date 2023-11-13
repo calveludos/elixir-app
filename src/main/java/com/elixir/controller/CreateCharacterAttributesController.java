@@ -115,6 +115,10 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
         attribute = character.getAttribute();
         reader.printMap();
 
+        if (character == null){
+            character = new CharacterMaster();
+        }
+
         if (attribute == null) {
             attribute = new Attribute();
         } else {
@@ -133,9 +137,6 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
         Platform.runLater(() -> chaField.requestFocus());
         Platform.runLater(() -> strField.requestFocus());
 
-        if (character == null){
-            character = new CharacterMaster();
-        }
     }
     private void applyIntegerFormatter(TextField textField) {
         TextFormatter<Integer> textFormatter = new TextFormatter<>(new IntegerStringConverter(), 10,

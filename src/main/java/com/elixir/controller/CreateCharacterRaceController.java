@@ -36,7 +36,6 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
 
         ObjectSaveManager reader = new ObjectSaveManager();
         character = (CharacterMaster) reader.getObject("character");
-        attribute = character.getAttribute();
 
         try{
             if(character.getRaceId() > 0){
@@ -57,10 +56,14 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
                         chosenRaceLabel.setText("");
                         break;
                 }
+                attribute = character.getAttribute();
             }
         } catch (NullPointerException e){
             character = new CharacterMaster();
+            attribute = new Attribute(10, 10, 10, 10, 10, 10);
         }
+        if (attribute == null)
+            attribute = new Attribute(10, 10, 10, 10, 10, 10);
     }
 
     @FXML
@@ -142,8 +145,8 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
             attribute.setCharisma(copyAttribute.getCharisma());
             attribute.setConstitution(copyAttribute.getConstitution());
         }
+        character.setAttribute(attribute);
         saver.saveObject("character", character);
-        saver.saveObject("attribute", attribute);
         PaneManager paneManager = new PaneManager();
         paneManager.openPane(fxml);
     }

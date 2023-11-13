@@ -12,12 +12,12 @@ public class CharacterMasterDAO {
 
     public int create(CharacterMaster characterMaster) throws SQLException {
         AttributeDAO attributeDAO = new AttributeDAO();
-        characterMaster.getCharacter().setAttributeId(attributeDAO.create(characterMaster.getAttribute()));
+        characterMaster.setAttributeId(attributeDAO.create(characterMaster.getAttribute()));
 
         CharacterDAO characterDAO = new CharacterDAO();
-        characterDAO.create(characterMaster.getCharacter());
+        characterDAO.create(characterMaster);
 
-        return characterMaster.getCharacter().getId();
+        return characterMaster.getId();
     }
 
 

@@ -34,7 +34,6 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
 
         ObjectSaveManager reader = new ObjectSaveManager();
         character = (CharacterMaster) reader.getObject("character");
-        attribute = character.getAttribute();
 
         try{
             if(character.getClassId() > 0){
@@ -56,8 +55,11 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
                         break;
                 }
             }
+            attribute = character.getAttribute();
         } catch (NullPointerException e) {
             character = new CharacterMaster();
+            character.setAttribute(new Attribute(10, 10, 10, 10, 10, 10));
+            attribute = character.getAttribute();
         }
     }
 

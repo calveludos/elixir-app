@@ -1,9 +1,9 @@
 package com.elixir.model;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class CharacterMaster extends Character{
-    Character character;
+public class CharacterMaster extends Character implements Serializable {
     Attribute attribute;
     Currency currency;
     Folder folder;
@@ -17,7 +17,6 @@ public class CharacterMaster extends Character{
 
     public CharacterMaster(Character character, Attribute attribute, Currency currency, Folder folder, List<Inventory> inventory, Slots slots, List<Speech> speech) {
         super(character.getAlignmentId(), attribute.getId(), character.getClassId(), character.getRaceId(), folder.getId(), character.getName(), character.getPlayerName(), character.getExperience(), character.getHeight(), character.getWeight(), character.getCurrentPv(), character.getMaxPv(), character.getClassArmorBonus(), character.getAppearance(), character.getBackground(), character.getImagePath());
-        this.character = character;
         this.attribute = attribute;
         this.currency = currency;
         this.folder = folder;
@@ -85,13 +84,25 @@ public class CharacterMaster extends Character{
         this.speech.add(speech);
     }
 
-    public Character getCharacter() {
-        return character;
-    }
-
     public void setCharacter(Character character) {
-        this.character = character;
+        setId(character.getId());
+        setAlignmentId(character.getAlignmentId());
+        setAttributeId(character.getAttributeId());
+        setClassId(character.getClassId());
+        setRaceId(character.getRaceId());
+        setFolderId(character.getFolderId());
+        setName(character.getName());
+        setPlayerName(character.getPlayerName());
+        setExperience(character.getExperience());
+        setHeight(character.getHeight());
+        setWeight(character.getWeight());
+        setCurrentPv(character.getCurrentPv());
+        setMaxPv(character.getMaxPv());
+        setClassArmorBonus(character.getClassArmorBonus());
+        setAppearance(character.getAppearance());
+        setBackground(character.getBackground());
+        setImagePath(character.getImagePath());
+        level = character.level;
     }
-
 
 }

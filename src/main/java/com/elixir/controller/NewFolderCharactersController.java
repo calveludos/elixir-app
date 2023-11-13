@@ -49,10 +49,10 @@ public class NewFolderCharactersController extends MenuController {
         for (CharacterMaster character :
                 characterMap.values()) {
             CheckMenuItem menuItem = new CheckMenuItem();
-            menuItem.setText(character.getCharacter().getName());
-            menuItem.setId(String.valueOf(character.getCharacter().getId()));
+            menuItem.setText(character.getName());
+            menuItem.setId(String.valueOf(character.getId()));
             menuItem.setOnAction(event -> {
-                charactersMenuButton.setText(character.getCharacter().getName());
+                charactersMenuButton.setText(character.getName());
             });
             charactersMenuButton.getItems().add(menuItem);
         }
@@ -68,7 +68,7 @@ public class NewFolderCharactersController extends MenuController {
             if (checkMenuItem.isSelected()){
                 System.out.println("entrou");
                 CharacterMaster character = characterMap.get(Integer.parseInt(checkMenuItem.getId()));
-                character.getCharacter().setFolderId(folder.getId());
+                character.setFolderId(folder.getId());
                 character.setFolder(folder);
                 characterMap.put(character.getId(), character);
                 try {
