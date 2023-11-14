@@ -125,11 +125,11 @@ public class ViewCharacterPage3Controller {
     public static class SpellTable{
         public final String level;
         public final String name;
-        public final double range;
+        public final String range;
         public final String duration;
         public final String description;
 
-        public SpellTable(String level, String name, double range, String duration, String description) {
+        public SpellTable(String level, String name, String range, String duration, String description) {
             this.level = level;
             this.name = name;
             this.range = range;
@@ -145,7 +145,7 @@ public class ViewCharacterPage3Controller {
             return name;
         }
 
-        public double getRange() {
+        public String getRange() {
             return range;
         }
 
@@ -177,7 +177,6 @@ public class ViewCharacterPage3Controller {
         ObservableList<SpellTable> observableList = FXCollections.observableList(new ArrayList<>());
 
         character.getSpells().forEach(spell -> {
-            //JSON
             SpellTable spellTable = null;
             observableList.add(spellTable);
         });

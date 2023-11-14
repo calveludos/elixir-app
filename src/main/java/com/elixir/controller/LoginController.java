@@ -119,7 +119,7 @@ public class LoginController {
             Folder folderFilter = new Folder();
             folderFilter.setUserId(user.getId());
 
-            CharacterViewDAO viewDAO = new CharacterViewDAO();
+            CharacterMasterDAO viewDAO = new CharacterMasterDAO();
             CharacterMaster characterMasterFilter = new CharacterMaster();
             characterMasterFilter.setFolder(folderFilter);
 
