@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CharacterViewDAOTest {
     @Test
     public void readeTest() throws SQLException {
-        CharacterViewDAO viewDAO = new CharacterViewDAO();
+        CharacterMasterDAO viewDAO = new CharacterMasterDAO();
         Folder folder = new Folder();
         folder.setUserId(2);
         CharacterMaster master = new CharacterMaster();
@@ -27,6 +27,7 @@ class CharacterViewDAOTest {
             System.out.println(characterMaster.getSlots());
             System.out.println(characterMaster.getInventory());
             System.out.println(characterMaster.getSpeech());
+            System.out.println(characterMaster.getSpells());
         });
     }
 

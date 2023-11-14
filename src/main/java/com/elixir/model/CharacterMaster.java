@@ -10,6 +10,7 @@ public class CharacterMaster extends Character implements Serializable {
     List<Inventory> inventory;
     Slots slots;
     List<Speech> speech;
+    List<Spell> spells;
 
     public CharacterMaster(int alignmentId, Attribute attribute, int classId, int raceId, Folder folder, String name, String playerName, int experience, int height, int weight, int currentPv, int maxPv, int classArmorBonus, String appearance, String background, String imagePath) {
         super(alignmentId, attribute.getId(), classId, raceId, folder.getId(), name, playerName, experience, height, weight, currentPv, maxPv, classArmorBonus, appearance, background, imagePath);
@@ -105,4 +106,15 @@ public class CharacterMaster extends Character implements Serializable {
         level = character.level;
     }
 
+    public List<Spell> getSpells() {
+        return spells;
+    }
+
+    public void setSpells(List<Spell> spells) {
+        this.spells = spells;
+    }
+
+    public void addSpell(Spell spell){
+        spells.add(spell);
+    }
 }
