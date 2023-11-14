@@ -106,6 +106,15 @@ CREATE TABLE `Speech` (
     FOREIGN KEY (`id_character`) REFERENCES `Character`(`id`)
 );
 
+CREATE TABLE `Inventory` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `character_id` INT,
+    `spell_id` INT NOT NULL,
+    `type_spell_id` INT NOT NULL,
+    FOREIGN KEY (`character_id`) REFERENCES `Character`(`id`)
+);
+
+
 -- Inserir dados na tabela Currency
 INSERT INTO Currency (gold, silver, copper, electrium, platinium)
 VALUES (500, 250, 100, 0, 2),
