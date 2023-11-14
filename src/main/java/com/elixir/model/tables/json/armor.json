@@ -5,32 +5,32 @@
     },
 
     {
-      "item": "Armadura de couro",
+      "name": "Armadura de couro",
       "bonus_defesa": "+2",
       "reducao_movimento": "-",
       "preco": "20 PO",
-      "peso": "10 kg"
+      "weight": "10 kg"
     },
     {
-      "item": "Armadura de placas",
+      "name": "Armadura de placas",
       "bonus_defesa": "+6",
       "reducao_movimento": "-2 metros",
       "preco": "200 PO",
-      "peso": "20 kg"
+      "weight": "20 kg"
     },
     {
-      "item": "Cota de malha",
+      "name": "Cota de malha",
       "bonus_defesa": "+4",
       "reducao_movimento": "-1 metros",
       "preco": "60 PO",
-      "peso": "15 kg"
+      "weight": "15 kg"
     },
     {
-      "item": "Armadura completa",
+      "name": "Armadura completa",
       "bonus_defesa": "+8",
       "reducao_movimento": "-3 metros",
       "preco": "2.000 PO",
-      "peso": "35 kg"
+      "weight": "35 kg"
     }
   ]
 }

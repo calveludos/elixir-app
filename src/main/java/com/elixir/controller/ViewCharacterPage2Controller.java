@@ -4,27 +4,35 @@ import com.elixir.controller.abstractControllers.MenuController;
 import com.elixir.manager.JsonManger;
 import com.elixir.manager.ObjectSaveManager;
 import com.elixir.manager.PaneManager;
-import com.elixir.model.Attribute;
-import com.elixir.model.Character;
 import com.elixir.model.CharacterMaster;
+import com.elixir.model.Currency;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
+import com.elixir.model.tables.TypeID;
+
 import java.io.IOException;
 
 public class ViewCharacterPage2Controller extends MenuController {
 
+    public TableView<EquipmentTable> equipmentTableView;
+    public TableColumn<?, String> equipmentColumn;
+    public TableColumn<?, Double> weightColumn;
+    public ListView<String> speechListView;
     @FXML
-    private Button addEquipamentButton;
+    private Button addEquipmentButton;
 
     @FXML
-    private Label addEquipamentLabel;
+    private Label addEquipmentLabel;
 
     @FXML
     private Button addLanguageButton;
@@ -48,19 +56,13 @@ public class ViewCharacterPage2Controller extends MenuController {
     private ImageView emptyImage;
 
     @FXML
-    private VBox inventoryVBox;
-
-    @FXML
-    private VBox languagesVBox;
-
-    @FXML
     private Spinner<Integer> levelSpinner;
 
     @FXML
     private TextField nameCharacterField;
 
     @FXML
-    private VBox newEquipamentsVBox;
+    private VBox newEquipmentsVBox;
 
     @FXML
     private VBox newLanguageVBox;
@@ -129,13 +131,34 @@ public class ViewCharacterPage2Controller extends MenuController {
     private CharacterMaster character;
     private int nextLevelXP;
 
+    public void addEquipamentButtonAction(ActionEvent event) {
+    }
+
+    public static class EquipmentTable{
+        public final String name;
+        public final double weight;
+
+        public EquipmentTable(String name, double weight) {
+            this.name = name;
+            this.weight = weight;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public double getWeight() {
+            return weight;
+        }
+    }
+
     @FXML
     public void initialize() {
         reader = new ObjectSaveManager();
         character = (CharacterMaster) reader.getObject("character");
 
         setHeader();
-        setEquipaments();
+        setEquipments();
         setDeathLives();
         setThiefTalents();
         setLanguages();
@@ -184,8 +207,35 @@ public class ViewCharacterPage2Controller extends MenuController {
 
     }
 
-    private void setEquipaments() {
+    private void setEquipments() {
+        equipmentColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        weightColumn.setCellValueFactory(new PropertyValueFactory<>("weight"));
 
+        ObservableList<EquipmentTable> tableObservableList = FXCollections.observableArrayList();
+        character.getInventory().forEach(inventory -> {
+            JSONObject itemObject = null;
+            try {
+                switch (inventory.getTypeItemId()){
+                    case TypeID.WEAPONS:
+                        itemObject = (JSONObject) JsonManger.get("weapons/weapons:" + inventory.getItemId());
+                    case TypeID.ARMOR:
+                        itemObject = (JSONObject) JsonManger.get("armor/armors:" + inventory.getItemId());
+                    case TypeID.SHIELDS:
+                        itemObject = (JSONObject) JsonManger.get("shields/shields:" + inventory.getItemId());
+                }
+
+                assert itemObject != null;
+                String name = (String) itemObject.get("name");
+                double weight = Double.parseDouble(((String) itemObject.get("weight")).replace(" kg", ""));
+                EquipmentTable equipment = new EquipmentTable(name, weight);
+                tableObservableList.add(equipment);
+            } catch (IOException | ParseException e) {
+                throw new RuntimeException(e);
+            } catch (java.lang.ClassCastException ignored){}
+
+        });
+
+        equipmentTableView.setItems(tableObservableList);
     }
 
     private void setDeathLives() {
@@ -277,10 +327,29 @@ public class ViewCharacterPage2Controller extends MenuController {
     }
 
     private void setLanguages() {
+        ObservableList<String> observableList = FXCollections.observableArrayList();
+        character.getSpeech().forEach(speech -> {
+            String name;
+            try {
+                name = (String) JsonManger.get("languages/languages:" + (speech.getLanguageId()) + "/name");
+                observableList.add(name);
+            } catch (IOException | ParseException e) {
+                throw new RuntimeException(e);
+            } catch (java.lang.IndexOutOfBoundsException ignored){}
+        });
 
+        speechListView.setItems(observableList);
     }
 
     private void setCurrency() {
+        Currency currency = character.getCurrency();
+        if (currency != null){
+            piceOfCupperField.setText(String.valueOf(currency.getCopper()));
+            piceOfElectroField.setText(String.valueOf(currency.getElectrium()));
+            piceOfGoldField.setText(String.valueOf(currency.getGold()));
+            piceOfPlatineField.setText(String.valueOf(currency.getPlatinium()));
+            piceOfSilverField.setText(String.valueOf(currency.getSilver()));
+        }
     }
 
     private void setXP() {
@@ -292,7 +361,7 @@ public class ViewCharacterPage2Controller extends MenuController {
 
 
     @FXML
-    void addEquipamentButtonAction(ActionEvent event) {
+    void addEquipmentButtonAction(ActionEvent event) {
 
     }
 

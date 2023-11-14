@@ -5,6 +5,8 @@
     import java.util.List;
 
     public class CharacterMaster extends Character implements Serializable {
+        private static final long serialVersionUID = -3357784952358612454L;
+
         Attribute attribute;
         Currency currency;
         Folder folder;
@@ -15,7 +17,6 @@
 
         public CharacterMaster(int alignmentId, Attribute attribute, int classId, int raceId, Folder folder, String name, String playerName, int experience, int height, int weight, int currentPv, int maxPv, int classArmorBonus, String appearance, String background, String imagePath) {
             super(alignmentId, attribute.getId(), classId, raceId, folder.getId(), name, playerName, experience, height, weight, currentPv, maxPv, classArmorBonus, appearance, background, imagePath);
-            this.spells = new ArrayList<>();
 
         }
 
@@ -27,7 +28,7 @@
             this.inventory = inventory;
             this.slots = slots;
             this.speech = speech;
-            this.spells = new ArrayList<>();
+            this.spells = spells;
         }
 
         public CharacterMaster() {

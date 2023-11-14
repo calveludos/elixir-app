@@ -13,7 +13,7 @@ class JsonMangerTest {
     @Test
     void read() {
     }
-/*
+
     @Test
     void get1() throws IOException, ParseException {
         String[] path = {"cleric", "Especialização", "Cultista", "Habilidades", "Nível 8"};
@@ -42,5 +42,11 @@ class JsonMangerTest {
         long XP = (long) JsonManger.get("class/cleric/level:7/XP");
         assertEquals(48000, XP);
     }
-*/
+
+    @Test
+    void get222() throws IOException, ParseException {
+        String s = (String) JsonManger.get("languages/languages:1/name");
+        assertEquals("Anão", s);
+    }
+
 }

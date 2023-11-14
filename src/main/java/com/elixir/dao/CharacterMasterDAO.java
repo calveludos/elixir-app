@@ -4,13 +4,11 @@ import com.elixir.factory.ConnectionFactory;
 import com.elixir.model.*;
 import com.elixir.model.Character;
 import com.elixir.model.CharacterMaster;
+import com.elixir.model.Currency;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CharacterMasterDAO extends CrudDAO<CharacterMaster> {
 
@@ -164,6 +162,7 @@ public class CharacterMasterDAO extends CrudDAO<CharacterMaster> {
                 master = new CharacterMaster();
                 master.setInventory(new ArrayList<>());
                 master.setSpeech(new ArrayList<>());
+                master.setSpells(new ArrayList<>());
 
                 Character character = new Character(
                         (int) tuple.get("id_alignment"),
@@ -235,8 +234,8 @@ public class CharacterMasterDAO extends CrudDAO<CharacterMaster> {
                 characterMasterMap.put(master.getId(), master);
             }
 
+            assert master != null;
             if (inventoryId != (int) tuple.get("inventory_id")){
-
                 Inventory inventory = new Inventory(
                         (int) tuple.get("character_id"),
                         (int) tuple.get("item_id"),
@@ -246,23 +245,22 @@ public class CharacterMasterDAO extends CrudDAO<CharacterMaster> {
                 inventory.setId((int) tuple.get("inventory_id"));
                 inventoryId = inventory.getId();
 
-                assert master != null;
-                master.addInventory(inventory);
+                if (!master.getInventory().contains(inventory))
+                    master.addInventory(inventory);
             }
 
             if (speechId != (int) tuple.get("speech_id")){
-
                 Speech speech = new Speech(
                         (int) tuple.get("character_id"),
                         (int) tuple.get("id_language")
                 );
 
                 speech.setId((int) tuple.get("speech_id"));
-                speechId = speech.getId();
 
-                assert master != null;
-                master.addSpeech(speech);
+                if (!master.getSpeech().contains(speech))
+                    master.addSpeech(speech);
             }
+
 
             if (spellId != (int) tuple.get("spell_id")){
 
@@ -273,9 +271,9 @@ public class CharacterMasterDAO extends CrudDAO<CharacterMaster> {
                 );
 
                 spell.setSpellId((int) tuple.get("spell_id"));
-
-                assert master != null;
-                master.addSpell(spell);
+                spellId = spell.getId();
+                if (!master.getSpells().contains(spell))
+                    master.addSpell(spell);
             }
 
         }

@@ -1,6 +1,7 @@
 package com.elixir.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Inventory implements Serializable {
     private int id;
@@ -57,5 +58,18 @@ public class Inventory implements Serializable {
                 ", itemId=" + itemId +
                 ", typeItemId=" + typeItemId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Inventory)) return false;
+        Inventory inventory = (Inventory) o;
+        return getId() == inventory.getId() && getCharacterId() == inventory.getCharacterId() && getItemId() == inventory.getItemId() && getTypeItemId() == inventory.getTypeItemId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getCharacterId(), getItemId(), getTypeItemId());
     }
 }

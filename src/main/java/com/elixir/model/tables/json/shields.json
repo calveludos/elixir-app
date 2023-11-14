@@ -4,18 +4,18 @@
     "id_item_type":"3"
     },
     {
-    "item": "Escudo de madeira",
+    "name": "Escudo de madeira",
     "bonus_defesa": "+1",
     "reducao_movimento": "-",
     "preco": "8 PO",
-    "peso": "5 kg"
+    "weight": "5 kg"
     },
     {
-    "item": "Escudo de aço",
+    "name": "Escudo de aço",
     "bonus_defesa": "+2",
     "reducao_movimento": "-",
     "preco": "15 PO",
-    "peso": "15 kg"
+    "weight": "15 kg"
     }
   ]
 }

@@ -1,6 +1,7 @@
 package com.elixir.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Spell implements Serializable {
     private int id;
@@ -57,5 +58,18 @@ public class Spell implements Serializable {
                 ", spellId=" + spellId +
                 ", typeSpellId=" + typeSpellId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Spell)) return false;
+        Spell spell = (Spell) o;
+        return getId() == spell.getId() && getCharacterId() == spell.getCharacterId() && getSpellId() == spell.getSpellId() && getTypeSpellId() == spell.getTypeSpellId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getCharacterId(), getSpellId(), getTypeSpellId());
     }
 }

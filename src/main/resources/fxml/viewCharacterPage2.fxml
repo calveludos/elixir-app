@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -23,8 +26,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import java.net.URL?>
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.ViewCharacterPage2Controller">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.ViewCharacterPage2Controller">
     <!-- Cabeçalho superior -->
     <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <!-- Logo e texto -->
@@ -168,50 +170,26 @@
                                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                 </padding>
                                                 <children>
-                                                   <ScrollPane prefHeight="291.0" VBox.vgrow="ALWAYS">
-                                                      <content>
-                                                         <VBox fx:id="inventoryVBox" prefHeight="59.0" prefWidth="220.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                                                            <children>
-                                                               <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
-                                                                  <children>
-                                                                     <Label prefHeight="26.0" prefWidth="245.0" text="EQUIPAMENTOS" textFill="#4b5c6b" HBox.hgrow="ALWAYS">
-                                                                        <font>
-                                                                           <Font name="System Bold Italic" size="16.0" />
-                                                                        </font>
-                                                                     </Label>
-                                                                     <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="182.0" HBox.hgrow="ALWAYS">
-                                                                        <children>
-                                                                           <Label prefHeight="22.0" prefWidth="41.0" text="PESO" textFill="#4b5c6b">
-                                                                              <font>
-                                                                                 <Font name="System Bold Italic" size="16.0" />
-                                                                              </font>
-                                                                           </Label>
-                                                                        </children>
-                                                                     </HBox>
-                                                                  </children>
-                                                               </HBox>
-                                                               <HBox alignment="CENTER" prefHeight="30.0" prefWidth="240.0" spacing="3.0">
-                                                                  <children>
-                                                                     <TextField maxWidth="300.0" prefHeight="30.0" prefWidth="156.0" style="-fx-background-radius: 0;" HBox.hgrow="ALWAYS" />
-                                                                     <Region prefHeight="30.0" prefWidth="38.0" />
-                                                                     <TextField prefHeight="30.0" prefWidth="45.0" style="-fx-background-radius: 0;" HBox.hgrow="ALWAYS" />
-                                                                  </children>
-                                                               </HBox>
-                                                            </children>
-                                                         </VBox>
-                                                      </content>
-                                                      <padding>
-                                                         <Insets left="5.0" right="5.0" />
-                                                      </padding>
-                                                   </ScrollPane>
-                                                   <VBox fx:id="newEquipamentsVBox" alignment="CENTER" prefHeight="55.0" prefWidth="290.0">
+                                                   <TableView fx:id="equipmentTableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                     <columns>
+                                                       <TableColumn fx:id="equipmentColumn" maxWidth="265.0" minWidth="165.0" prefWidth="165.59998339414597" text="EQUIPAMENTOS" />
+                                                       <TableColumn fx:id="weightColumn" maxWidth="164.0" minWidth="64.0" prefWidth="64.80006408691406" text="PESO" />
+                                                     </columns>
+                                                      <columnResizePolicy>
+                                                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                      </columnResizePolicy>
+                                                   </TableView>
+                                                   <VBox fx:id="newEquipmentsVBox" alignment="CENTER" prefHeight="55.0" prefWidth="290.0">
                                                       <children>
-                                                         <Button fx:id="addEquipamentButton" minWidth="-Infinity" onAction="#addEquipamentButtonAction" prefHeight="37.0" prefWidth="72.0" text="NOVO">
+                                                         <Button fx:id="addEquipmentButton" minWidth="-Infinity" onAction="#addEquipmentButtonAction" prefHeight="37.0" prefWidth="72.0" text="NOVO">
                                                             <font>
                                                                <Font name="System Bold" size="12.0" />
                                                             </font>
+                                                            <VBox.margin>
+                                                               <Insets bottom="10.0" />
+                                                            </VBox.margin>
                                                          </Button>
-                                                         <Label fx:id="addEquipamentLabel" text="ADICIONE EQUIPAMENTOS">
+                                                         <Label fx:id="addEquipmentLabel" text="ADICIONE EQUIPAMENTOS">
                                                             <font>
                                                                <Font size="10.0" />
                                                             </font>
@@ -617,34 +595,21 @@
                                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                           </padding>
                                           <children>
-                                             <ScrollPane VBox.vgrow="ALWAYS">
-                                                <content>
-                                                   <VBox fx:id="languagesVBox" prefHeight="59.0" prefWidth="122.0">
-                                                      <children>
-                                                         <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
-                                                            <children>
-                                                               <Label prefHeight="22.0" prefWidth="217.0" text="IDIOMAS" textFill="#4b5c6b">
-                                                                  <font>
-                                                                     <Font name="System Bold Italic" size="16.0" />
-                                                                  </font>
-                                                               </Label>
-                                                            </children>
-                                                         </HBox>
-                                                         <HBox alignment="CENTER" prefHeight="29.0" prefWidth="111.0" spacing="10.0">
-                                                            <children>
-                                                               <TextField prefHeight="26.0" prefWidth="110.0" style="-fx-background-radius: 0;" HBox.hgrow="ALWAYS" />
-                                                            </children>
-                                                         </HBox>
-                                                      </children>
-                                                   </VBox>
-                                                </content>
-                                             </ScrollPane>
+                                             <Label alignment="CENTER" prefHeight="22.0" prefWidth="217.0" text="IDIOMAS" textFill="#4b5c6b">
+                                                <font>
+                                                   <Font name="System Bold" size="14.0" />
+                                                </font>
+                                             </Label>
+                                             <ListView fx:id="speechListView" prefHeight="200.0" prefWidth="200.0" />
                                              <VBox fx:id="newLanguageVBox" alignment="CENTER" prefHeight="55.0" prefWidth="290.0">
                                                 <children>
                                                    <Button fx:id="addLanguageButton" minWidth="-Infinity" onAction="#addLanguageButtonAction" prefHeight="37.0" prefWidth="72.0" text="NOVO">
                                                       <font>
                                                          <Font name="System Bold" size="12.0" />
                                                       </font>
+                                                      <VBox.margin>
+                                                         <Insets bottom="10.0" />
+                                                      </VBox.margin>
                                                    </Button>
                                                    <Label fx:id="addLanguageLabel" text="ADICIONE EQUIPAMENTOS">
                                                       <font>
@@ -744,8 +709,8 @@
       </children>
     </VBox>
    <stylesheets>
-      <URL value= "@../styles/Buttons1.css" />
-      <URL value= "@../styles/Font.css" />
+      <URL value="@../styles/Buttons1.css" />
+      <URL value="@../styles/Font.css" />
    </stylesheets>
 
 </AnchorPane>

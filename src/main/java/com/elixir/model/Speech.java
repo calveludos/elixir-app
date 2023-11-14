@@ -1,6 +1,7 @@
 package com.elixir.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Speech implements Serializable {
     private int id;
@@ -46,5 +47,18 @@ public class Speech implements Serializable {
                 ", characterId=" + characterId +
                 ", languageId=" + languageId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Speech)) return false;
+        Speech speech = (Speech) o;
+        return getId() == speech.getId() && getCharacterId() == speech.getCharacterId() && getLanguageId() == speech.getLanguageId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getCharacterId(), getLanguageId());
     }
 }

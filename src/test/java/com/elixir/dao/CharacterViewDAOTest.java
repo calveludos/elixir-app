@@ -15,7 +15,7 @@ class CharacterViewDAOTest {
     public void readeTest() throws SQLException {
         CharacterMasterDAO viewDAO = new CharacterMasterDAO();
         Folder folder = new Folder();
-        folder.setUserId(2);
+        folder.setUserId(6);
         CharacterMaster master = new CharacterMaster();
         master.setFolder(folder);
         Map<Integer, CharacterMaster> characterMasterMap = viewDAO.read(master);
