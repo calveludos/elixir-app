@@ -80,7 +80,6 @@ public class LoginController {
         User user = null;
 
         try {
-            int id = user.getId();
             user = (User) userDAO.read(filterUser).values().toArray()[0];
         } catch (SQLException | NullPointerException exception){
             errorLabel.setTextFill(Color.RED);

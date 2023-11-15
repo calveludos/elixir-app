@@ -26,32 +26,34 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
 
         ObjectSaveManager reader = new ObjectSaveManager();
         character = (CharacterMaster) reader.getObject("character");
+        attribute = new Attribute(character.getAttribute().getStrength(),
+                character.getAttribute().getDexterity(),
+                character.getAttribute().getConstitution(),
+                character.getAttribute().getIntelligence(),
+                character.getAttribute().getWisdom(),
+                character.getAttribute().getCharisma());
 
-        try{
-            if(character.getClassId() > 0){
-                switch (character.getClassId()){
-                    case 1:
-                        chosenClassLabel.setText("Homem de Armas");
-                        break;
-                    case 2:
-                        chosenClassLabel.setText("Mago");
-                        break;
-                    case 3:
-                        chosenClassLabel.setText("Ladrão");
-                        break;
-                    case 4:
-                        chosenClassLabel.setText("Clérigo");
-                        break;
-                    default:
-                        chosenClassLabel.setText("");
-                        break;
-                }
+        if (reader.getObject("bonus") != null){
+            System.out.println("Soma bonus");
+            Attribute bonusAttribute = (Attribute) reader.getObject("bonus");
+            attribute.setStrength(attribute.getStrength() + bonusAttribute.getStrength());
+            attribute.setDexterity(attribute.getDexterity() + bonusAttribute.getDexterity());
+            attribute.setConstitution(attribute.getConstitution() + bonusAttribute.getConstitution());
+            attribute.setIntelligence(attribute.getIntelligence() + bonusAttribute.getIntelligence());
+            attribute.setWisdom(attribute.getWisdom() + bonusAttribute.getWisdom());
+            attribute.setCharisma(attribute.getCharisma() + bonusAttribute.getCharisma());
+        }
+
+        System.out.println(attribute);
+
+        if(character.getClassId() > 0){
+            switch (character.getClassId()) {
+                case 1 -> chosenClassLabel.setText("Homem de Armas");
+                case 2 -> chosenClassLabel.setText("Mago");
+                case 3 -> chosenClassLabel.setText("Ladrão");
+                case 4 -> chosenClassLabel.setText("Clérigo");
+                default -> chosenClassLabel.setText("");
             }
-            attribute = character.getAttribute();
-        } catch (NullPointerException e) {
-            character = new CharacterMaster();
-            character.setAttribute(new Attribute(10, 10, 10, 10, 10, 10));
-            attribute = character.getAttribute();
         }
     }
 

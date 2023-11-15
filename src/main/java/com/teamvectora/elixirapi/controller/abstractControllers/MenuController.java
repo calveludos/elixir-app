@@ -56,10 +56,10 @@ public class MenuController {
         ObjectSaveManager reader = new ObjectSaveManager();
         User user = (User) reader.getObject("user");
 
-        Text username = ((Text) ((HBox) header.getChildren().get(2)).getChildren().get(0));
+        Text username = (Text) ((HBox) ((VBox) header.getChildren().get(3)).getChildren().get(0)).getChildren().get(0);
         username.setText(user.getUsername());
 
-        HBox hboxUser = ((HBox) header.getChildren().get(2));
+        HBox hboxUser = ((HBox) ((VBox) header.getChildren().get(3)).getChildren().get(0));
         hboxUser.setOnMouseClicked(mouseEvent -> {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Sair");

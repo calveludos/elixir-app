@@ -47,16 +47,21 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         ObjectSaveManager reader = new ObjectSaveManager();
         character = (CharacterMaster) reader.getObject("character");
 
-        try{
-            if(character.getBackground() != null){
-                backgroundField.setText(character.getBackground());
-            }
-            attribute = character.getAttribute();
-        } catch (NullPointerException e){
-            character = new CharacterMaster();
-            character.setAttribute(new Attribute(10, 10, 10, 10, 10, 10));
-            attribute = character.getAttribute();
+        if(character.getBackground() != null){
+            backgroundField.setText(character.getBackground());
         }
+        attribute = character.getAttribute();
+
+        if (reader.getObject("bonus") != null){
+            Attribute bonusAttribute = (Attribute) reader.getObject("bonus");
+            attribute.setStrength(attribute.getStrength() + bonusAttribute.getStrength());
+            attribute.setDexterity(attribute.getDexterity() + bonusAttribute.getDexterity());
+            attribute.setConstitution(attribute.getConstitution() + bonusAttribute.getConstitution());
+            attribute.setIntelligence(attribute.getIntelligence() + bonusAttribute.getIntelligence());
+            attribute.setWisdom(attribute.getWisdom() + bonusAttribute.getWisdom());
+            attribute.setCharisma(attribute.getCharisma() + bonusAttribute.getCharisma());
+        }
+
     }
     @FXML
     void finishButtonAction(ActionEvent event) throws SQLException, IOException, ParseException {
@@ -78,7 +83,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         for (int i = 1; i <= character.level; i++) {
             String levelBonusPV = String.valueOf(JsonManger.get("class/" + getClass(character.getClassId()) + "/level:" + i + "/Dado de Vida"));
             if (levelBonusPV.contains("PV")){
-                totalBonusPV += Integer.parseInt(levelBonusPV.replace("PV", ""));
+                totalBonusPV += Integer.parseInt(levelBonusPV.replace("PV", "").trim());
             } else {
                 totalBonusPV += dicePV;
             }

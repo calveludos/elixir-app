@@ -12,6 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.2</junit.version>
+        <mainClass>com.teamvectora.elixirapi/com.teamvectora.elixirapi.MainApp</mainClass>
     </properties>
 
     <dependencies>
@@ -53,7 +54,7 @@
         <dependency>
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
-            <version>0.3m</version>
+            <version>0.4</version>
         </dependency>
 
         <dependency>

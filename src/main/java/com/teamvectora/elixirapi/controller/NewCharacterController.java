@@ -21,6 +21,9 @@ public class NewCharacterController extends MenuController {
         if (objectSaveManager.getObject("character") != null){
             objectSaveManager.removeObject("character");
         }
+        if (objectSaveManager.getObject("bonus") != null){
+            objectSaveManager.removeObject("bonus");
+        }
     }
 
     @FXML

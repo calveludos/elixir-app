@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -11,100 +12,103 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import java.net.URL?>
 <AnchorPane fx:id="anchorRoot" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #434343;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.StartScreenController">
-   <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
+   <HBox alignment="CENTER" layoutX="260.0" layoutY="114.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
       <children>
-         <ImageView fitHeight="686.0" fitWidth="838.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../media/StartScreenBackground.png" />
-            </image>
-         </ImageView>
-          <!-- Menu Lateral -->
-      
-                                                          <!-- Corpo da página -->
-          <VBox alignment="TOP_CENTER" prefHeight="586.0" prefWidth="678.0" spacing="100.0">
-              <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
-              </padding>
+         <StackPane prefHeight="150.0" prefWidth="200.0">
             <children>
-               <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="597.0" style="-fx-background-color: #eee0e0; -fx-border-color: #ac6363; -fx-border-width: 2;">
+               <ImageView fitHeight="686.0" fitWidth="838.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@../media/StartScreenBackground.png" />
+                  </image>
+               </ImageView>
+                <!-- Menu Lateral -->
+            
+                                                                                                          <!-- Corpo da página -->
+                <VBox alignment="TOP_CENTER" prefHeight="586.0" prefWidth="678.0" spacing="100.0">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
+                    </padding>
                   <children>
-                     <Label prefHeight="35.0" prefWidth="237.0" text="BEM VINDO AO ELIXIR MAKER!">
-                        <font>
-                           <Font name="System Bold Italic" size="15.0" />
-                        </font>
-                     </Label>
-                     <Region prefHeight="23.0" prefWidth="696.0" />
-                     <Label text="ESSE SUA TELA DE INICIO! QUANDO QUISER CRIAR UMA FICHA">
-                        <font>
-                           <Font name="System Bold Italic" size="13.0" />
-                        </font>
-                     </Label>
-                     <Label text="ENTRE EM CRIAR NOVA FICHA, QUANDO QUISER VER SEUS">
-                        <font>
-                           <Font name="System Bold Italic" size="13.0" />
-                        </font>
-                     </Label>
-                     <Label text="PERSONAGENS ENTRE EM MEUS PERSONAGENS">
-                        <font>
-                           <Font name="System Bold Italic" size="13.0" />
-                        </font>
-                     </Label>
+                     <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="138.4" prefWidth="597.0" style="-fx-background-color: #eee0e0; -fx-border-color: #ac6363; -fx-border-width: 2;">
+                        <children>
+                           <Label prefHeight="35.0" prefWidth="237.0" text="BEM VINDO AO ELIXIR MAKER!">
+                              <font>
+                                 <Font name="System Bold Italic" size="15.0" />
+                              </font>
+                           </Label>
+                           <Region prefHeight="23.0" prefWidth="696.0" />
+                           <Label text="ESSE SUA TELA DE INICIO! QUANDO QUISER CRIAR UMA FICHA">
+                              <font>
+                                 <Font name="System Bold Italic" size="13.0" />
+                              </font>
+                           </Label>
+                           <Label text="ENTRE EM CRIAR NOVA FICHA, QUANDO QUISER VER SEUS">
+                              <font>
+                                 <Font name="System Bold Italic" size="13.0" />
+                              </font>
+                           </Label>
+                           <Label text="PERSONAGENS ENTRE EM MEUS PERSONAGENS">
+                              <font>
+                                 <Font name="System Bold Italic" size="13.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </VBox>
+                     <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="138.4" prefWidth="597.0" style="-fx-background-color: #eee0e0; -fx-border-color: #ac6363; -fx-border-width: 2;">
+                        <children>
+                           <Label prefHeight="25.0" prefWidth="161.0" text="O QUE NOS SOMOS ?">
+                              <font>
+                                 <Font name="System Bold Italic" size="15.0" />
+                              </font>
+                           </Label>
+                           <Region minWidth="-Infinity" prefHeight="23.0" prefWidth="696.0" />
+                           <Label text="UTILIZANDO COMO BASE O SISTEMA DE RPG OLD DRAGON, ELIXIR É">
+                              <font>
+                                 <Font name="System Bold Italic" size="13.0" />
+                              </font>
+                           </Label>
+                           <Label text="UMA FERRAMENTA QUE AUXILIA NA CRIAÇÃO DE FICHAS DE RPG">
+                              <font>
+                                 <Font name="System Bold Italic" size="13.0" />
+                              </font>
+                           </Label>
+                           <Label text="PARA AQUELES QUE QUEREM ENTRAR NO MUNDO DOS TABULEIROS">
+                              <font>
+                                 <Font name="System Bold Italic" size="13.0" />
+                              </font>
+                           </Label>
+                           <Label text="MAS TÊM DIFICULDADES COM AS REGRAS, NÚMEROS E TABELAS.">
+                              <font>
+                                 <Font name="System Bold Italic" size="13.0" />
+                              </font>
+                           </Label>
+                        </children>
+                     </VBox>
+                     <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                           <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../media/OldDragonLogo.png" />
+                              </image>
+                           </ImageView>
+                           <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                           <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                 <Image url="@../media/character.png" />
+                              </image>
+                           </ImageView>
+                        </children>
+                     </HBox>
                   </children>
-               </VBox>
-               <VBox alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="597.0" style="-fx-background-color: #eee0e0; -fx-border-color: #ac6363; -fx-border-width: 2;">
-                  <children>
-                     <Label prefHeight="25.0" prefWidth="161.0" text="O QUE NOS SOMOS ?">
-                        <font>
-                           <Font name="System Bold Italic" size="15.0" />
-                        </font>
-                     </Label>
-                     <Region minWidth="-Infinity" prefHeight="23.0" prefWidth="696.0" />
-                     <Label text="UTILIZANDO COMO BASE O SISTEMA DE RPG OLD DRAGON, ELIXIR É">
-                        <font>
-                           <Font name="System Bold Italic" size="13.0" />
-                        </font>
-                     </Label>
-                     <Label text="UMA FERRAMENTA QUE AUXILIA NA CRIAÇÃO DE FICHAS DE RPG">
-                        <font>
-                           <Font name="System Bold Italic" size="13.0" />
-                        </font>
-                     </Label>
-                     <Label text="PARA AQUELES QUE QUEREM ENTRAR NO MUNDO DOS TABULEIROS">
-                        <font>
-                           <Font name="System Bold Italic" size="13.0" />
-                        </font>
-                     </Label>
-                     <Label text="MAS TÊM DIFICULDADES COM AS REGRAS, NÚMEROS E TABELAS.">
-                        <font>
-                           <Font name="System Bold Italic" size="13.0" />
-                        </font>
-                     </Label>
-                  </children>
-               </VBox>
-               <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
-                  <children>
-                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../media/OldDragonLogo.png" />
-                        </image>
-                     </ImageView>
-                     <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                        <image>
-                           <Image url="@../media/character.png" />
-                        </image>
-                     </ImageView>
-                  </children>
-               </HBox>
+                </VBox>
             </children>
-          </VBox>
+         </StackPane>
       </children>
-   </StackPane>
+   </HBox>
 
    <stylesheets>
-      <URL value= "@../styles/Buttons1.css" />
-      <URL value= "@../styles/Font.css" />
+      <URL value="@../styles/Buttons1.css" />
+      <URL value="@../styles/Font.css" />
    </stylesheets>
 </AnchorPane>

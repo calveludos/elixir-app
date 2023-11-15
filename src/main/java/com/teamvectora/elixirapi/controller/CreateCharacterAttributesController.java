@@ -8,12 +8,20 @@ import com.teamvectora.elixirapi.model.Attribute;
 import com.teamvectora.elixirapi.model.CharacterMaster;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.util.converter.IntegerStringConverter;
 
 
 public class CreateCharacterAttributesController extends CreateCharacterSectionController {
 
+    public Label strBonusLabel;
+    public Label dexBonusLabel;
+    public Label conBonusLabel;
+    public Label intBonusLabel;
+    public Label wisBonusLabel;
+    public Label chaBonusLabel;
     @FXML
     private TextField chaField;
 
@@ -105,22 +113,33 @@ public class CreateCharacterAttributesController extends CreateCharacterSectionC
 
         ObjectSaveManager reader = new ObjectSaveManager();
         character = (CharacterMaster) reader.getObject("character");
+        Attribute attributeBonus = (Attribute) reader.getObject("bonus");
         attribute = character.getAttribute();
         reader.printMap();
 
-        if (character == null){
-            character = new CharacterMaster();
-        }
+        strField.setText(String.valueOf(attribute.getStrength()));
+        dexField.setText(String.valueOf(attribute.getDexterity()));
+        conField.setText(String.valueOf(attribute.getConstitution()));
+        intField.setText(String.valueOf(attribute.getIntelligence()));
+        wisField.setText(String.valueOf(attribute.getWisdom()));
+        chaField.setText(String.valueOf(attribute.getCharisma()));
 
-        if (attribute == null) {
-            attribute = new Attribute();
-        } else {
-            strField.setText(String.valueOf(attribute.getStrength()));
-            dexField.setText(String.valueOf(attribute.getDexterity()));
-            conField.setText(String.valueOf(attribute.getConstitution()));
-            intField.setText(String.valueOf(attribute.getIntelligence()));
-            wisField.setText(String.valueOf(attribute.getWisdom()));
-            chaField.setText(String.valueOf(attribute.getCharisma()));
+
+        if (attributeBonus != null) {
+            strBonusLabel.setText(attributeBonus.getStrength() == 0 ? "" : String.valueOf(attributeBonus.getStrength()));
+            dexBonusLabel.setText(attributeBonus.getDexterity() == 0 ? "" : String.valueOf(attributeBonus.getDexterity()));
+            conBonusLabel.setText(attributeBonus.getConstitution() == 0 ? "" : String.valueOf(attributeBonus.getConstitution()));
+            intBonusLabel.setText(attributeBonus.getIntelligence() == 0 ? "" : String.valueOf(attributeBonus.getIntelligence()));
+            wisBonusLabel.setText(attributeBonus.getWisdom() == 0 ? "" : String.valueOf(attributeBonus.getWisdom()));
+            chaBonusLabel.setText(attributeBonus.getCharisma() == 0 ? "" : String.valueOf(attributeBonus.getCharisma()));
+
+            strBonusLabel.setTextFill(!strBonusLabel.getText().isEmpty() && Double.parseDouble(strBonusLabel.getText()) > 0 ? Color.GREEN : Color.RED );
+            dexBonusLabel.setTextFill(!dexBonusLabel.getText().isEmpty() && Double.parseDouble(dexBonusLabel.getText()) > 0 ? Color.GREEN : Color.RED );
+            conBonusLabel.setTextFill(!conBonusLabel.getText().isEmpty() && Double.parseDouble(conBonusLabel.getText()) > 0 ? Color.GREEN : Color.RED );
+            intBonusLabel.setTextFill(!intBonusLabel.getText().isEmpty() && Double.parseDouble(intBonusLabel.getText()) > 0 ? Color.GREEN : Color.RED );
+            wisBonusLabel.setTextFill(!wisBonusLabel.getText().isEmpty() && Double.parseDouble(wisBonusLabel.getText()) > 0 ? Color.GREEN : Color.RED );
+            chaBonusLabel.setTextFill(!chaBonusLabel.getText().isEmpty() && Double.parseDouble(chaBonusLabel.getText()) > 0 ? Color.GREEN : Color.RED );
+
         }
 
         Platform.runLater(() -> dexField.requestFocus());

@@ -15,6 +15,7 @@ module com.teamvectora.elixirapi {
     exports com.teamvectora.elixirapi.controller.abstractControllers;
 
     opens media;
+    opens fxml.objects;
     opens com.teamvectora.elixirapi to javafx.fxml;
     opens com.teamvectora.elixirapi.controller to javafx.fxml;
     opens com.teamvectora.elixirapi.controller.abstractControllers to javafx.fxml;

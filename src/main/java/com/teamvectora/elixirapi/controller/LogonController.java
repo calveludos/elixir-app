@@ -1,9 +1,11 @@
 package com.teamvectora.elixirapi.controller;
 
 import com.teamvectora.elixirapi.Secrets;
+import com.teamvectora.elixirapi.dao.FolderDAO;
 import com.teamvectora.elixirapi.dao.UserDAO;
 import com.teamvectora.elixirapi.manager.ObjectSaveManager;
 import com.teamvectora.elixirapi.manager.PaneManager;
+import com.teamvectora.elixirapi.model.Folder;
 import com.teamvectora.elixirapi.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,6 +58,14 @@ public class LogonController {
         String username = usernameField.getText();
         String email = emailField.getText();
 
+        if (username != null) {
+            username = username.replaceFirst("^\\s+", "").replaceFirst("\\s+$", "");
+        }
+
+        if (email != null) {
+            email = email.replaceFirst("^\\s+", "").replaceFirst("\\s+$", "");
+        }
+
         errorLabel.setMinHeight(20.0);
         errorLabel.setMinHeight(20.0);
         errorLabel.setMinHeight(20.0);
@@ -67,9 +77,9 @@ public class LogonController {
             password = passwordField.getText();
         }
 
-        if (username != null && !username.isEmpty() &&
-                email != null && !email.isEmpty() &&
-                password != null && !password.isEmpty()) {
+        if (username != null && !username.isEmpty() && !username.isBlank() && !username.contains(" ") &&
+                email != null && email.contains("@") && !email.contains(" ") &&
+                password != null && !password.isEmpty() && !password.isBlank() && !password.contains(" ")) {
 
             User user = new User();
             user.setUsername(username);
@@ -77,12 +87,15 @@ public class LogonController {
             user.setHashPassword(password);
 
             var userDAO = new UserDAO();
-            System.out.println(user.getCodeVerify());
+            var folderDAO = new FolderDAO();
 
-            sendEmail(user);
+            System.out.println(user.getCodeVerify());
 
             try {
                 int id = userDAO.create(user);
+                Folder folder = new Folder(id, "default");
+                int folderId = folderDAO.create(folder);
+                folder.setId(folderId);
                 user.setId(id);
             } catch (SQLException e){
                 errorLabel.setText("Nome de usuário ja existem ou este email esta sendo utilizando");
@@ -96,9 +109,8 @@ public class LogonController {
             PaneManager manager = new PaneManager();
             manager.openPane("validationEmailPane");
         } else {
-            errorLabel.setText("Preencha todos os campos");
+            errorLabel.setText("Preencha todos os campos corretamente");
         }
-
     }
 
     @FXML
@@ -116,45 +128,4 @@ public class LogonController {
             textPassword.setMinHeight(0);
         }
     }
-
-    private void sendEmail(User user) {
-        // Configurações do servidor SMTP do Gmail
-        String host = "smtp.gmail.com";
-        String port = "587"; // Porta para TLS
-        String username = Secrets.EMAIL; // Substitua com seu endereço de e-mail Gmail
-        String password = Secrets.EMAIL_PASSWORD; // Substitua com sua senha de e-mail Gmail
-
-        // Configurações adicionais
-        Properties props = new Properties();
-        props.put("mail.smtp.host", host);
-        props.put("mail.smtp.port", port);
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-
-        // Cria uma sessão de e-mail com autenticação
-        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
-            }
-        });
-
-        try {
-            // Cria a mensagem de e-mail
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(username)); // Remetente
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail())); // Destinatário
-            message.setSubject("Assunto do E-mail");
-            message.setText("Corpo do E-mail");
-
-            // Envia a mensagem de e-mail
-            Transport.send(message);
-
-            System.out.println("E-mail enviado com sucesso!");
-
-        } catch (MessagingException e) {
-            e.printStackTrace();
-            System.err.println("Erro ao enviar o e-mail: " + e.getMessage());
-        }
-    }
-
 }

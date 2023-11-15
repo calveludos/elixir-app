@@ -3,6 +3,7 @@ package com.teamvectora.elixirapi.controller;
 import com.teamvectora.elixirapi.controller.abstractControllers.CreateCharacterSectionController;
 import com.teamvectora.elixirapi.manager.ObjectSaveManager;
 import com.teamvectora.elixirapi.manager.PaneManager;
+import com.teamvectora.elixirapi.model.Attribute;
 import com.teamvectora.elixirapi.model.CharacterMaster;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -127,6 +128,7 @@ public class CreateCharacterDateController extends CreateCharacterSectionControl
             aliagmentSelectionFiled.setText(alignmentIdMap.get(character.getAlignmentId()));
         } catch (NullPointerException e){
             character = new CharacterMaster();
+            character.setAttribute(new Attribute(10, 10, 10, 10, 10, 10));
         }
     }
     @FXML

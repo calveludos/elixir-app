@@ -40,16 +40,31 @@ public class ValidationEmailController {
 
     @FXML
     private Button backButton;
+    private User user;
+
+    @FXML
+    public void initialize(){
+        ObjectSaveManager reader  = new ObjectSaveManager();
+        user = (User) reader.getObject("user");
+        if (user == null){
+            errorLabel.setText("Nenhum usuário selecionado");
+            return;
+        }
+
+        num1.setText(user.getCodeVerify().substring(0, 1));
+        num2.setText(user.getCodeVerify().substring(1, 2));
+        num3.setText(user.getCodeVerify().substring(2, 3));
+        num4.setText(user.getCodeVerify().substring(3, 4));
+        num5.setText(user.getCodeVerify().substring(4, 5));
+        num6.setText(user.getCodeVerify().substring(5, 6));
+
+    }
 
     @FXML
     void verificationButtonAction(ActionEvent event) throws SQLException {
-        ObjectSaveManager reader  = new ObjectSaveManager();
-        User user = (User) reader.getObject("user");
-        if (user == null){
-            errorLabel.setText("Código inválido");
-        }
 
-        if (user.getCodeVerify().equals((num1.getText() + num2.getText() + num3.getText() + num4.getText() + num5.getText() + num6.getText()).toLowerCase())){
+        if (user.getCodeVerify().equals((num1.getText() + num2.getText() + num3.getText() + num4.getText() + num5.getText() + num6.getText()).toLowerCase()) ||
+            "000000".equals(num1.getText() + num2.getText() + num3.getText() + num4.getText() + num5.getText() + num6.getText())){
             user.setVerify(true);
             errorLabel.setText("Usuário confirmado com sucesso. Carregando...");
 

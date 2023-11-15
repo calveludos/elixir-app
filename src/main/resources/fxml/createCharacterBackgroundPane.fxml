@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
@@ -16,8 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import java.net.URL?>
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.CreateCharacterBackgroundController" fx:id="anchorRoot">
+<AnchorPane fx:id="anchorRoot" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.CreateCharacterBackgroundController">
 
     <!-- Cabeçalho superior -->
     <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -88,7 +88,7 @@
                         </font>
                      </Button>
                      <Line endX="-63.9071159362793" endY="0.09289246797561646" startX="-100.0" stroke="#4b5c6b" />
-                     <Button fx:id="attributeSectionButton" onAction="#attributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0"  text="ATRIBUTOS">
+                     <Button fx:id="attributeSectionButton" onAction="#attributeSectionButtonAction" prefHeight="40.0" prefWidth="122.0" text="ATRIBUTOS">
                         <font>
                            <Font name="System Bold" size="16.0" />
                         </font>
@@ -116,52 +116,71 @@
                      <Insets left="20.0" right="20.0" />
                   </padding>
                </HBox>
-                <!-- Corpo do Corpo da Página -->
-                <Pane prefHeight="200.0" prefWidth="694.0" VBox.vgrow="ALWAYS">
-                  <VBox alignment="CENTER" layoutX="431.0" layoutY="465.0" prefHeight="56.0" prefWidth="208.0">
-                     <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Button fx:id="finishButton" mnemonicParsing="false" onAction="#finishButtonAction" prefHeight="41.0" prefWidth="113.0" text="CONCLUIR">
-                                 <font>
-                                    <Font name="System Bold" size="16.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
-                    <Rectangle fill="#ced8e0" height="333.0" layoutX="51.0" layoutY="130.0" stroke="#788896" strokeWidth="2.0" width="593.0" />
-                    <VBox alignment="CENTER" layoutX="81.0" layoutY="36.0" prefHeight="78.0" prefWidth="523.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 1.0;">
-                         <children>
-                            <HBox alignment="CENTER" prefHeight="70.0" prefWidth="477.0">
-                               <children>
-                              <Label prefHeight="70.0" prefWidth="366.0" text="HISTÓRIA DO PERSONAGEM" textFill="#4b5c6b">
-                                 <font>
-                                    <Font name="System Bold" size="26.0" />
-                                 </font>
-                              </Label>
-                               </children>
-                            </HBox>
-                         </children>
-                     <padding>
-                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                     </padding>
-                    </VBox>
-                  <TextArea fx:id="backgroundField" layoutX="93.0" layoutY="153.0" prefHeight="286.0" prefWidth="508.0" style="-fx-font-size: 20;" />
-                  <Label fx:id="errorLabel" alignment="CENTER" layoutX="200.0" layoutY="5.0" prefHeight="17.0" prefWidth="317.0" textFill="RED" style="-fx-font-size: 16;">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                </Pane>
+               <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                  <children>
+                     <VBox alignment="CENTER" maxHeight="548.0" maxWidth="720.0">
+                        <children>
+                           <Label fx:id="errorLabel" alignment="CENTER" prefHeight="17.0" prefWidth="317.0" style="-fx-font-size: 16;" textFill="RED">
+                              <font>
+                                 <Font name="System Bold" size="30.0" />
+                              </font>
+                              <VBox.margin>
+                                 <Insets bottom="5.0" />
+                              </VBox.margin>
+                           </Label>
+                             <VBox alignment="CENTER" prefHeight="78.0" prefWidth="523.0" style="-fx-background-color: #e7e4df; -fx-border-color: #897a5f; -fx-border-width: 1.0;">
+                                  <children>
+                                     <HBox alignment="CENTER" prefHeight="70.0" prefWidth="477.0">
+                                        <children>
+                                       <Label prefHeight="70.0" prefWidth="366.0" text="HISTÓRIA DO PERSONAGEM" textFill="#4b5c6b">
+                                          <font>
+                                             <Font name="System Bold" size="26.0" />
+                                          </font>
+                                       </Label>
+                                        </children>
+                                     </HBox>
+                                  </children>
+                              <padding>
+                                 <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                              </padding>
+                             </VBox>
+                           <StackPane>
+                              <children>
+                                   <Rectangle fill="#ced8e0" height="333.0" stroke="#788896" strokeWidth="2.0" width="593.0" />
+                                 <TextArea fx:id="backgroundField" prefHeight="286.0" prefWidth="525.0" style="-fx-font-size: 20;" StackPane.alignment="TOP_LEFT">
+                                    <StackPane.margin>
+                                       <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                                    </StackPane.margin>
+                                 </TextArea>
+                              </children>
+                           </StackPane>
+                           <VBox alignment="CENTER" prefHeight="56.0" prefWidth="208.0">
+                              <children>
+                                 <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                    <children>
+                                       <Button fx:id="finishButton" mnemonicParsing="false" onAction="#finishButtonAction" prefHeight="41.0" prefWidth="113.0" text="CONCLUIR">
+                                          <font>
+                                             <Font name="System Bold" size="16.0" />
+                                          </font>
+                                       </Button>
+                                    </children>
+                                 </HBox>
+                              </children>
+                           </VBox>
+                        </children>
+                        <padding>
+                           <Insets bottom="5.0" left="50.0" right="50.0" top="5.0" />
+                        </padding>
+                     </VBox>
+                  </children>
+               </HBox>
             </children>
          </VBox>
       </children>
     </VBox>
 
     <stylesheets>
-        <URL value= "@../styles/Buttons1.css" />
-        <URL value= "@../styles/Font.css" />
+        <URL value="@../styles/Buttons1.css" />
+        <URL value="@../styles/Font.css" />
     </stylesheets>
 </AnchorPane>

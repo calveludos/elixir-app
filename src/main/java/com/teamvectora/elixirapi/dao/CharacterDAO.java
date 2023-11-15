@@ -13,7 +13,7 @@ public class CharacterDAO extends CrudDAO<Character> {
 
     @Override
     public int create(Character character) throws SQLException {
-        String query = "INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_folder, name, player_name, experience, height, weight, current_pv, max_pv, class_armor_bonus, appearance, background, image_path) " +
+        String query = "INSERT INTO `Character` (id_alignment, id_attribute, id_class, id_race, id_folder, name, player_name, experience, height, weight, current_pv, max_pv, class_armor_bonus, apperance, background, image_path) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         int generatedId = -1;

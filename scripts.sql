@@ -60,7 +60,7 @@ CREATE TABLE `Character` (
   `current_pv` smallint DEFAULT '0',
   `max_pv` smallint unsigned NOT NULL,
   `class_armor_bonus` tinyint DEFAULT NULL,
-  `appearance` text NOT NULL,
+  `apperance` text NOT NULL,
   `background` text NOT NULL,
   `image_path` text,
   PRIMARY KEY (`id`),

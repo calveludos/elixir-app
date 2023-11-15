@@ -31,16 +31,16 @@ public class MyCharactersController extends MenuController {
         super.initialize();
 
         ObjectSaveManager reader = new ObjectSaveManager();
-        int userId = ((User) reader.getObject("user")).getId();
         Map<Integer, CharacterMaster> characterMap = (Map<Integer, CharacterMaster>) reader.getObject("characters");
         Map<Integer, Folder> folderMap = (Map<Integer, Folder>) reader.getObject("folders");
-        
-        AtomicInteger defaultId = new AtomicInteger(-1);
-        folderMap.values().forEach(folder -> {
-            if (folder.getName().equals("default"))
-                defaultId.set(folder.getId());
-        });
-        folderMap.remove(defaultId.get());
+
+        int defaultId = folderMap.values()
+                .stream()
+                .filter(f -> f.getName().equals("default"))
+                .findFirst()
+                .map(Folder::getId)
+                .orElse(-1);
+        folderMap.remove(defaultId);
 
         if(!folderMap.isEmpty()){
             Integer[] indexs = folderMap.keySet().toArray(new Integer[0]);
@@ -63,21 +63,21 @@ public class MyCharactersController extends MenuController {
 
         Map<Integer, CharacterMaster> characterDefault = new HashMap<>();
         characterMap.values().forEach(character -> {
-            if (character.getFolder().getId() == defaultId.get())
-                characterDefault.put(character.getFolder().getId(), character);
+            if (character.getFolderId() == defaultId)
+                characterDefault.put(character.getId(), character);
         });
 
         if (!characterDefault.isEmpty()) {
-            Integer[] indexs = characterMap.keySet().toArray(new Integer[0]);
-            for (int i = 0; i < characterMap.size(); i = i + 2) {
+            Integer[] indexs = characterDefault.keySet().toArray(new Integer[0]);
+            for (int i = 0; i < characterDefault.size(); i = i + 2) {
                 VBox vBox = new VBox();
                 vBox.setPrefHeight(200.0);
                 vBox.setPrefWidth(100.0);
                 vBox.setSpacing(5);
                 try {
-                    CharacterMaster character1 = characterMap.get(indexs[i]);
+                    CharacterMaster character1 = characterDefault.get(indexs[i]);
                     vBox.getChildren().add(new CharacterObject(character1));
-                    CharacterMaster character2 = characterMap.get(indexs[i+1]);
+                    CharacterMaster character2 = characterDefault.get(indexs[i+1]);
                     vBox.getChildren().add(new CharacterObject(character2));
                 } catch (IndexOutOfBoundsException ignored){}
                 hboxCharacters.getChildren().add(vBox);
