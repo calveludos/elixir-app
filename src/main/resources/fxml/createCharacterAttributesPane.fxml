@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import java.net.URL?>
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.elixir.controller.CreateCharacterAttributesController" fx:id="anchorRoot">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.CreateCharacterAttributesController" fx:id="anchorRoot">
 
     <!-- Corpo da página -->
     <VBox layoutX="260.0" layoutY="114.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">

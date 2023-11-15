@@ -1,19 +1,21 @@
-module com.app {
+module com.teamvectora.elixirapi {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.media;
     requires java.sql;
-    exports com.elixir;
-    opens com.elixir to javafx.fxml;
     requires json.simple;
-    exports com.elixir.controller;
     requires javafx.base;
     requires javafx.graphics;
     requires jbcrypt;
-    requires mysql.connector.j;
     requires mail;
+    requires mysql.connector.j;
+
+    exports com.teamvectora.elixirapi;
+    exports com.teamvectora.elixirapi.controller;
+    exports com.teamvectora.elixirapi.controller.abstractControllers;
+
     opens media;
-    opens com.elixir.controller to javafx.fxml;
-    exports com.elixir.controller.abstractControllers;
-    opens com.elixir.controller.abstractControllers to javafx.fxml;
+    opens com.teamvectora.elixirapi to javafx.fxml;
+    opens com.teamvectora.elixirapi.controller to javafx.fxml;
+    opens com.teamvectora.elixirapi.controller.abstractControllers to javafx.fxml;
 }

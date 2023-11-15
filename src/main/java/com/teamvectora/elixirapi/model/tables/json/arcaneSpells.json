@@ -1,0 +1,540 @@
+{
+  "Magias Arcanas": {
+    "1 Circulo": [
+      { "name": "Abrir/trancar", "range": "toque", "duration": "1d6 turnos +1 turno/nível", "descrição": "Esta magia pode ser utilizada para dois efeitos distintos: abrir o acesso a qualquer instrumento ou objeto que esteja fechado, trancado ou emperrado; e fechar um acesso pela duração da magia (ou até ser dissipada). Criaturas com resistência à magia podem destrancar um objeto fechado por esta magia." },
+      { "name": "Apagar", "range": "toque", "duration": "permanente", "descrição": "Esta magia remove qualquer conteúdo escrito de qualquer superfície. O que estava escrito em cartas, documentos, pergaminhos, mapas e etc. é totalmente apagado. Caso a escrita seja parte de uma magia, use as mesmas regras de dissipar magias para determinar as chances de sucesso." },
+      { "name": "Detectar magia", "range": "raio de 10 metros + 3 metros/nível", "duration": "1d6 turnos +1 turno/nível", "descrição": "O personagem pode perceber em lugares, pessoas ou coisas, a presença de uma magia. Os alvos detectados emitem um leve brilho azulado, que não é perceptível aos olhos das outras pessoas. Por exemplo: itens mágicos podem ser descobertos desta forma, assim como a presença de um feitiço secretamente colocado em uma pessoa." },
+      { "name": "Escudo arcano", "range": "pessoal", "duration": "1d4 turnos + 1 turno/nível", "descrição": "O mago invoca um escudo invisível que o protege de ataques físicos, sejam projéteis e outros ataques à distância, ou corpo-a-corpo. O escudo arcano equivale a uma armadura com bônus de +4 contra ataques corpo-a-corpo e +2 contra ataques à distância. Se a classe de armadura do mago já for superior à fornecida por esta magia, esta não causa efeito." },
+      { "name": "Enfeitiçar pessoas", "range": "especial (ver texto)", "duration": "1 hora + 10 minutos/nível", "descrição": "Esta magia afeta humanoides bípedes vivos do tamanho de um humano ou menor. O alvo passa a considerar o mago um amigo respeitável e confiável, passando a obedecer cegamente todas as suas ordens, desde que essas ordens não possuam clara ameaça à sua integridade. Ordens como atacar serão sempre seguidas, mesmo que o alvo a ser atacado seja infinitamente mais poderoso que o alvo da magia. Um sucesso em uma jogada de proteção modificada pela Sabedoria impede o efeito desta magia. Se a criatura enfeitiçada for ferida, ela tem direito a uma nova jogada de proteção." },
+      { "name": "Expandir/encolher", "range": "toque", "duration": "1d6 turnos + 1 turno/nível", "descrição": "Com esta magia, o mago consegue aumentar ou encolher imediatamente o tamanho de uma pessoa em até 5% do tamanho original por nível de mago." },
+      { "name": "Ilusão", "range": "especial (ver texto)", "duration": "especial (ver texto)", "descrição": "Enquanto mantiver sua concentração, o mago consegue criar a ilusão de uma criatura poderosa que consegue afetar e causar dano efetivo nos alvos que não forem bem-sucedidos a uma jogada de proteção modificada pela Sabedoria. A ilusão possui CA 11 e só desaparece quando o mago desejar, for dissipada ou atacada com sucesso." },
+      { "name": "Ler idiomas", "range": "pessoal", "duration": "10 minutos + 1 minuto/nível", "descrição": "Esta magia permite que o mago decifre direções, instruções e fórmulas em idiomas desconhecidos a ele. Ela é particularmente útil para mapas de tesouro, muito embora não decifre nenhum enigma ou código apenas permitindo que o mago consiga compreender o que está escrito." },
+      { "name": "Ler magias", "range": "pessoal", "duration": "1 hora + 10 minutos/nível", "descrição": "Esta magia permite que o mago leia escrituras mágicas em pergaminhos, grimórios, paredes de masmorras ou em qualquer outro local onde uma fórmula mágica esteja grafada. Sem o uso desta magia, a escritura mágica não pode ser lida pelo mago." },
+      { "name": "Luz", "range": "toque", "duration": "1 hora + 10 minutos/nível", "descrição": "O objeto alvo produz luz tão brilhante quanto uma tocha, que ilumina uma área com raio de 6 metros." },
+      { "name": "Mãos flamejantes", "range": "raio de 3 metros + 1 metro/nível", "duration": "instantânea", "descrição": "Ao formar um leque com as mãos, o mago dispara um raio triangular que afeta todas as criaturas que estejam a até 3 metros do mago. Cada criatura atingida recebe 1d3 pontos de dano +2 por nível até um máximo de +20." },
+      { "name": "Mensagem", "range": "raio de 10 metros + 3 metros/nível", "duration": "1d6 turnos + 1 turno/nível", "descrição": "O personagem pode escolher 1 alvo a cada 3 níveis de personagem para sussurrar uma mensagem e receber uma resposta sem que as outras criaturas fora do efeito percebam. É preciso que todos os alvos compreendam o idioma falado e que não haja nenhum obstáculo físico ou mágico que atrapalhe a comunicação." },
+      { "name": "Mísseis mágicos", "range": "raio de 10 metros + 3 metros/nível", "duration": "instantânea", "descrição": "Um míssil mágico voa para onde o mago direcionar, com acerto automático, causando 1d4 pontos de dano +1 de dano por nível até um máximo de +5. O mago também é capaz de conjurar mísseis adicionais na razão de 1 para cada 3 níveis depois do primeiro. Assim, no 4º nível o mago conjura 2 mísseis, no 7º conjura 3 mísseis e assim sucessivamente. Esses mísseis adicionais podem ser direcionados para alvos distintos, desde que a distância entre eles não ultrapasse 18 metros." },
+      { "name": "Patas de Aranha", "range": "toque", "duration": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia permite ao alvo andar sobre paredes ou tetos como se este fosse um piso horizontal. É importante lembrar que os efeitos da gravidade ainda são sentidos, portanto, objetos soltos nos bolsos ou na roupa do alvo podem se desprender e cair normalmente." },
+      { "name": "Proteção contra alinhamento", "range": "pessoal", "duration": "1d6 turnos + 1 turno/nível", "descrição": "Esta magia cria uma barreira mágica invisível ao redor do personagem, o protegendo de qualquer ataque realizado por uma criatura/fonte caótica ou ordeira. Os ataques físicos recebem uma penalidade de -2. A proteção confere 25% de resistência a magia ao personagem." },
+      { "name": "Queda Suave", "range": "10 metros + 3 metros/nível", "duration": "1d6 turnos + 1 turno por nível", "descrição": "Esta magia faz com que alvos em queda livre assumam o peso de uma pluma e caiam lentamente ao sabor dos ventos até o chão. Apenas alvos com até 100 kg para cada 5 níveis do mago podem ser alvos desta magia." },
+      { "name": "Salto", "range": "toque", "duration": "1d4 turnos + 1 turno/nível", "descrição": "O alvo desta magia ganha a habilidade de dar um salto por turno. Esse salto pode ser de até 10 metros, que podem ser divididos entre altura e distância. Assim, é possível saltar 10 metros para cima ou 5 metros para frente e 5 para cima. Saltos para trás consomem o dobro em metros do limite da magia, assim para saltar pra trás o alvo apenas consegue saltar 3 metros pra trás e dois metros para cima ou vice-versa." },
+      { "name": "Servo invisível", "range": "3 metros + 1 metro/nível", "duration": "1 hora + 10 minutos/nível", "descrição": "Esta magia cria um pequeno serviçal etéreo que ajuda o mago em pequenas atividades como levar e trazer coisas, carregar objetos, auxiliar na limpeza, etc." },
+      { "name": "Toque Chocante", "range": "toque", "duration": "instantânea", "descrição": "O mago cria uma luva mágica de eletricidade em sua mão que causa dolorosos choques na criatura tocada. O choque causa 1d8 pontos de dano + 1d8 para cada 3 níveis do mago até um máximo de 10d8." },
+      { "name": "Ventriloquismo", "range": "toque", "duration": "1d6 turnos + 1 turno/nível", "descrição": "O mago faz com que qualquer som que ele consiga produzir com a boca e em qualquer língua que o conheça seja transferido para outra pessoa ou objeto." }
+    ],
+    "2 Circulo": [
+      {"name": "Aterrorizar", "range": "raio de 10 metros + 3 metros/nível", "duration": "1d6 turnos + 1 turno/nível", "description": "Todas as criaturas com menos de 5 dados de vida e que estejam no raio de alcance da magia ficarão automaticamente aterrorizadas caso falhem em uma jogada de proteção modificada pela Sabedoria. Criaturas aterrorizadas sofrem com o medo, tremendo descontroladamente e recebendo uma penalidade de -2 em todas as suas jogadas, sofrendo ainda com uma chance de 5% por nível do mago de soltar quaisquer objetos que estejam segurando."},
+      {"name": "Despedaçar", "range": "especial (ver texto)", "duration": "instantânea", "description": "Esta magia cria um ruído extremamente agudo, que quebra materiais a até 1,5 m de distância do ponto em que a magia foi lançada. Vidros, cristais, porcelanas, cerâmicas e materiais semelhantes podem ser quebrados com esta magia."},
+      {"name": "Detectar invisibilidade", "range": "raio de 10 metros + 3 metros/nível", "duration": "1d6 turnos + 1 turno/nível", "description": "O mago consegue detectar objetos e criaturas invisíveis, como se fossem normalmente visíveis."},
+      {"name": "Escuridão", "range": "raio de 10 metros + 3 metros/nível", "duration": "1d6 turnos + 1 turno/nível", "description": "A escuridão ocupa o raio da magia, impenetrável até mesmo para a visão no escuro. As magias Luz ou Dissipar magia podem ser utilizadas para cancelar a escuridão."},
+      {"name": "Esfera flamejante", "range": "raio de 3 metros + 1 metro/nível", "duration": "1d4 turnos + 1 turno/nível", "description": "O mago cria uma esfera de chamas rastejante que se move até 10 metros por turno, de acordo com o seu comando. A esfera causa 2d6 pontos de dano em qualquer alvo que estiver dentro dela e 1d6 pontos de dano em qualquer alvo que fique a até 1,5 metros da esfera. Se o mago não modificar o caminho da esfera, ela ficará paralisada até o término da duração da magia."},
+      {"name": "Força arcana", "range": "toque", "duration": "1d6 turnos + 1 turno/nível", "description": "Esta magia pode ser conjurada em qualquer alvo vivo com Força maior ou igual a 1. Pela duração da magia, o alvo recebe 1 ponto extra para cada 5 pontos de Força que já possua."},
+      {"name": "Invisibilidade", "range": "toque", "duration": "1d6 turnos + 1 turno/nível", "description": "O alvo desta magia, seja ele uma pessoa ou objeto, fica invisível para qualquer tipo de visão não mágica. O resultado é que uma criatura invisível não pode ser atacada, a menos que sua localização aproximada seja conhecida. Mesmo assim, todos os ataques realizados recebem uma penalidade de -10. A magia é dissipada se o alvo invisível realizar qualquer tipo de ataque ou lançar uma magia."},
+      {"name": "Levitação", "range": "pessoal", "duration": "1d6 turnos + 1 turno/nível", "description": "Com esta magia, o mago é capaz de se mover em uma linha reta vertical."},
+      {"name": "Localizar objetos", "range": "raio de 10 metros + 3 metros/nível", "duration": "instantânea", "description": "Esta magia dá ao mago a direção correta (como o voo de um corvo) até um objeto do tipo que especificar na descrição."},
+      {"name": "Luz contínua", "range": "toque", "duration": "permanente", "description": "O objeto alvo produz luz tão brilhante quanto uma tocha, que ilumina uma área com raio de 6m permanentemente."},
+      {"name": "Névoa fétida", "range": "raio de 10 metros + 3 metros/nível", "duration": "1d6 turnos + 1 turno/nível", "description": "O mago cria uma densa nuvem esverdeada de odor repulsivo e repugnante. Todos dentro da área de efeito de 3 m³ devem fazer uma jogada de proteção modificada pela Constituição ou cairão nauseados por 1d4 turnos."},
+      {"name": "PES (percepção extra sensorial)", "range": "raio de 10 metros + 3 metros/nível", "duration": "1 hora + 10 minutos/nível", "description": "O mago pode detectar os pensamentos de outros seres a uma distância máxima de 18 m. A magia não pode penetrar mais de 60 cm de pedra e é bloqueada até mesmo pela mais fina folha de chumbo."},
+      {"name": "Raio de enfraquecimento", "range": "toque", "duration": "1d4 turnos + 1 turno/nível", "description": "Esta magia reduz magicamente a Força de um alvo em 10 pontos até o limite de 3. Todas as habilidades que fazem uso de Força, como carga, ataques e danos são prejudicadas até que o efeito da magia acabe."},
+      {"name": "Reflexos", "range": "pessoal", "duration": "1d6 turnos + 1 turno/nível", "description": "A magia cria 1d4+1 reflexos do mago, que, como espelhos, agem em perfeita sincronia com ele. Os atacantes não podem distinguir os reflexos do original e podem atacar uma das imagens ao invés do mago verdadeiro (determinado aleatoriamente). Quando um reflexo for atingido, será imediatamente dissipado."},
+      {"name": "Teia", "range": "raio de 3 metros + 1 metro/nível", "duration": "1 hora + 10 minutos/nível", "description": "Teias fibrosas e grudentas preenchem uma área de até 3 m x 3 m x 6 m, tornando essa área extremamente difícil de ser atravessada."}
+    ],
+    "3 Circulo": [
+          {
+            "name": "Aterrorizar",
+            "range": "raio de 10 metros + 3 metros/nível",
+            "duration": "1d6 turnos + 1 turno/nível",
+            "description": "Todas as criaturas com menos de 5 dados de vida e que estejam no raio de alcance da magia ficarão automaticamente aterrorizadas caso falhem em uma jogada de proteção modificada pela Sabedoria. Criaturas aterrorizadas sofrem com o medo, tremendo descontroladamente e recebendo uma penalidade de -2 em todas as suas jogadas, sofrendo ainda com uma chance de 5% por nível do mago de soltar quaisquer objetos que estejam segurando."
+          },
+          {
+            "name": "Bola de fogo",
+            "range": "raio de 10 metros + 3 metros/nível",
+            "duration": "instantânea",
+            "description": "Um projétil semelhante a uma pequena pérola de chamas é disparado do dedo do mago, para explodir em chamas no lugar alvo. O raio da explosão é de 6 metros e o dano é de 1d6 por nível do mago (máximo 10d6). A explosão se adapta ao volume disponível. Um sucesso em uma jogada de proteção modificada pela Destreza reduz o dano desta magia pela metade."
+          },
+          {
+            "name": "Dissipar magia",
+            "range": "raio de 10 metros + 3 metros/nível",
+            "duration": "permanente",
+            "description": "Esta magia, apesar de não ser poderosa o bastante para desencantar permanentemente um item mágico (suprime seus efeitos por 10 minutos), pode ser usada para dissipar completamente os efeitos de uma magia. A chance de sucesso de dissipar é uma percentagem baseada na proporção do nível do personagem que está tentando dissipar com o nível do personagem (ou DV do monstro) que conjurou a magia a ser dissipada."
+          },
+          {
+            "name": "Flecha de chamas",
+            "range": "raio de 10 metros + 3 metros/nível",
+            "duration": "1d4 turnos + 1 turno/nível",
+            "description": "Com esta magia, o mago consegue criar flechas de fogo (1 para cada 5 níveis de mago) que causam 1d6 pontos de dano e outros 4d6 pontos de dano por fogo. Uma jogada de ataque é necessária para que os alvos sejam atingidos por essas flechas."
+          },
+          {
+            "name": "Forma espectral",
+            "range": "pessoal",
+            "duration": "1d6 turnos + 1 turno/nível",
+            "description": "Com esta magia, o mago e seus pertences se transformam em matéria insubstancial, passando a serem imunes a ataques normais, sendo afetado apenas por magia ou armas mágicas. Nesta forma, o mago pode passar por pequenos buracos como frestas, fechaduras e rachaduras, mas não consegue voar, ou interagir com objetos físicos, o que o impede inclusive de atacar. Enquanto estiver insubstancial, o mago será ignorado por mortos-vivos e confundido com aparições e fantasmas."
+          },
+          {
+            "name": "Imobilizar monstros",
+            "range": "raio de 3 metros + 1 metro/nível",
+            "duration": "1d4 turnos + 1 turno/nível",
+            "description": "Esta magia tem o mesmo efeito de uma Imobilizar pessoas, mas é restrita a monstros não humanoides."
+          },
+          {
+            "name": "Invisibilidade 3m",
+            "range": "toque",
+            "duration": "1d6 turnos + 1 turno/nível",
+            "description": "Assim como a magia Invisibilidade, esta magia torna uma pessoa ou objeto invisível tornando ainda toda a área de 3 metros ao seu redor invisível também."
+          },
+          {
+            "name": "Invocar criaturas 1",
+            "range": "especial (ver texto)",
+            "duration": "1d6 turnos + 1 turno/nível",
+            "description": "Com esta magia o mago é capaz de invocar 2d4 ajudantes que estejam nas redondezas para lhe prestar auxílio. Esses aliados o servirão até que sejam mortos ou a duração da magia acabar. As criaturas invocadas levam 1d4 turnos para aparecer e permanecerão por mais 1d6 turnos + 1 turno por nível ao lado do mago. Para determinar a criatura invocada, role 1d6 e compare com a lista de invocar criaturas 1."
+          },
+          {
+            "name": "Lentidão",
+            "range": "raio de 3 metros + 1 metro/nível",
+            "duration": "1d6 turnos + 1 turnos/nível",
+            "description": "Todos dentro de uma área de 6 x 6 metros que não passarem em uma jogada de proteção modificada pela Constituição ficam lentos como se seu metabolismo fosse amplamente reduzido. As movimentações ficam reduzidas à metade, e todos os ataques e defesas são realizados com penalidade de -2."
+          },
+          {
+            "name": "Morte aparente",
+            "range": "toque",
+            "duration": "especial",
+            "description": "Esta magia faz com que o mago ponha o alvo tocado em um estado semelhante ao coma. O alvo conserva sua capacidade de audição e de olfato, muito embora não detenha a percepção visual ou táctil. Apenas alvos voluntários podem ser atingidos por esta magia, que pode ser dissipada com um simples gesto do mago, muito embora as funções corporais ainda demorem 1 turno para voltarem ao normal."
+          },
+          {
+            "name": "Proteção contra projéteis",
+            "range": "pessoal",
+            "duration": "1d6 turnos + 1 turno/nível",
+            "description": "O mago fica cria um campo invisível repelente a projéteis não mágicos como flechas, pedras de funda e quatrelos de bestas."
+          },
+          {
+            "name": "Relâmpago",
+            "range": "raio de 10 metros + 3 metros/nível",
+            "duration": "instantânea",
+            "description": "Apontando o dedo para um alvo, o mago emite um raio de sua mão que causa 1d8 pontos de dano +1d8 de dano para cada dois níveis de mago até um máximo de 10d8. Esse primeiro alvo passará o raio para a criatura mais próxima, caso esta esteja a até 6 metros de distância. Esse alvo secundário também é atingido pelo relâmpago recebendo apenas 1d6 pontos de dano +1d6 pontos de dano a cada dois níveis de mago até um máximo de 10d6. Caso esse alvo secundário esteja a até 6 metros de outra criatura (diferente do alvo original), esta também será atingida pelo relâmpago, recebendo também 1d6 pontos de dano +1d6 pontos de dano a cada dois níveis de mago até um máximo de 10d6. O dano pode ser reduzido pela metade com uma jogada de proteção modificada pela Destreza. O mago não tem controle sobre o relâmpago depois que este atinge o primeiro alvo."
+          },
+          {
+            "name": "Runas explosivas",
+            "range": "toque",
+            "duration": "permanente",
+            "description": "O mago escolhe uma runa de uma inscrição qualquer para tornar explosiva. Essa runa deve estar inscrita em uma superfície passível de ser aberta, ou seja, em um baú, porta, portal, livro, gaveta e etc. Ao ser aberta por uma pessoa diferente do mago que a conjurou, a runa explodirá causando 2d4+2 de dano a todos em uma área de 3 metros de raio da runa. O objeto com a runa inscrita e o mago que a encantou são imunes aos efeitos dessa explosão. Uma jogada de proteção modificada pela Destreza reduz o dano pela metade."
+          },
+          {
+            "name": "Sugestão",
+            "range": "especial (ver texto)",
+            "duration": "especial (ver texto)",
+            "description": "O mago faz em voz alta uma sugestão hipnótica para um alvo específico. Se o alvo for capaz de ouvi-la e falhar em uma jogada de proteção modificada pela Sabedoria, ele vai se sentir obrigado a cumprir a sugestão por uma semana. Esta pode conter ordens perigosas para alvo, mas uma ordem suicida só fará efeito em 1% dos casos para cada 5 níveis do mago."
+          },
+          {
+            "name": "Velocidade",
+            "range": "especial (ver texto)",
+            "duration": "1d4 turnos + 1 turno/nível",
+            "description": "Até 1 criatura tocada para cada 3 níveis do mago tem seu metabolismo extremamente acelerado, concedendo uma movimentação acima do normal. O movimento passa a ser dobrado, a iniciativa recebe um bônus de +10, além de um bônus de +2 na classe de armadura e um ataque extra. Essa aceleração é tão prejudicial ao organismo do alvo que ele envelhece 1 ano biologicamente."
+          },
+          {
+            "name": "Voo",
+            "range": "pessoal",
+            "duration": "1d6 turnos + 1 turno/nível",
+            "description": "Esta magia imbui o mago com o poder de voar, com deslocamento de 36 m por turno. O mestre deve rolar secretamente o 1d6 turnos adicionais, para que o jogador não saiba exatamente por quanto tempo seu poder de voo irá durar."
+          }
+        ],
+      "4 Circulo": [
+        {
+          "name": "Arma encantada",
+          "range": "toque",
+          "duration": "1d6 turnos + 1 turno/nível",
+          "description": "Esta magia transforma uma arma mundana em uma arma temporariamente mágica que concede bônus de +1 nas jogadas de ataque, +1 no dano e +1 na iniciativa. Esta magia é a magia básica para a criação de armas mágicas."
+        },
+        {
+          "name": "Armadilha de fogo",
+          "range": "toque",
+          "duration": "permanente",
+          "description": "O personagem cria uma armadilha engatilhada em qualquer objeto que possa ser aberto, como um baú, livro, porta, gaveta, etc., que explode em chamas assim que for aberta. A explosão causa a todos em um raio de 2 m do objeto 1d4 pontos de dano + 1 ponto de dano por nível do personagem que a conjurou. Uma jogada de proteção modificada pela Destreza reduz o dano pela metade. O objeto encantado com esta magia não é afetado pelos efeitos desta explosão."
+        },
+        {
+          "name": "Confusão",
+          "range": "raio de 10 metros + 3 metros/nível",
+          "duration": "1d4 turnos + 1 turno/nível",
+          "description": "Esta magia causa confusão mental em alvos inteligentes, que passarão a agir de forma aleatória. O mestre deve jogar 2d6 para determinar o efeito: 2-5 atacarão o mago e seus aliados; 6-8 ficarão inativos e confusos; 9-12 atacarão uns aos outros. Confusão afeta no máximo 2d6 criaturas + 1 criatura adicional a cada 4 níveis do mago. Essas criaturas podem realizar uma jogada de proteção modificada pela Sabedoria para não serem afetadas pela magia."
+        },
+        {
+          "name": "Escudo de fogo",
+          "range": "pessoal",
+          "duration": "1d4 turnos + 1 turno/nível",
+          "description": "Esta magia cria um escudo de chamas fantasmagóricas que queima qualquer criatura que esteja engajada em uma luta corpo-a-corpo com o mago, causando 1d6 pontos de dano por turno. O Escudo de fogo também dá ao mago um bônus de +2 em qualquer jogada de proteção contra efeitos de fogo, sejam eles mágicos ou não."
+        },
+        {
+          "name": "Extensão 1",
+          "range": "especial (ver texto)",
+          "duration": "especial (ver texto)",
+          "description": "Esta magia faz com que outra magia de 1º a 3º círculo, já conjurada e ainda em atividade, tenha sua duração ampliada em 50%. Magias com duração instantânea ou permanente não são afetadas por uma Extensão."
+        },
+        {
+          "name": "Invocar criaturas 2",
+          "range": "especial (ver texto)",
+          "duration": "1d6 turnos + 1 turno/nível",
+          "description": "Esta magia funciona da mesma forma que Invocar criaturas 1, mas as possibilidades de invocação constam na lista invocar criaturas 2."
+        },
+        {
+          "name": "Medo",
+          "range": "raio de 10 metros + 3 metros/nível",
+          "duration": "1d6 turnos + 1 turno/nível",
+          "description": "Esta magia cria um sentimento aterrorizante nas criaturas dentro do alcance. Uma falha na jogada de proteção modificada pela Sabedoria faz com que estas saiam correndo por toda a duração da magia. Há 60% de chance de que as criaturas soltem qualquer objeto que estejam segurando."
+        },
+        {
+          "name": "Metamorfose",
+          "range": "raio de 3 metros + 1 metro/nível",
+          "duration": "1 hora + 10 minutos/nível",
+          "description": "O mago consegue modificar fisicamente a forma de uma criatura para que se pareça com outra criatura. Uma jogada de proteção modificada pela Constituição consegue evitar esse efeito."
+        },
+        {
+          "name": "Muralha de fogo",
+          "range": "10 metros + 3 metros/nível",
+          "duration": "especial (ver texto)",
+          "description": "O mago cria uma muralha de chamas com até 6 metros de altura e 18 metros de comprimento (ou 15 m de raio para uma muralha circular). Uma criatura que passar pelo fogo sofre 1d6 pontos de dano para cada 4 níveis do mago. A duração desta magia é indeterminada, desde que o mago mantenha sua concentração para mantê-la."
+        },
+        {
+          "name": "Muralha de gelo",
+          "range": "10 metros + 3 metros/nível",
+          "duration": "especial (ver texto)",
+          "description": "O mago cria uma muralha de gelo opaco com 1,8 metros de espessura, 6 metros de altura e 18 metros de comprimento (ou 15 m de raio para uma muralha circular). Criaturas com 3 DVs ou menos não são capazes de afetar a muralha. A duração desta magia é indeterminada, desde que o mago mantenha sua concentração para mantê-la."
+        },
+        {
+          "name": "Muralha de pedra",
+          "range": "10 metros + 3 metros/nível",
+          "duration": "especial (ver texto)",
+          "description": "O mago cria uma muralha de pedra sólida com 1,8 metros de espessura, 6 metros de altura e 18 metros de comprimento (ou 15 m de raio para uma muralha circular). A duração desta magia é indeterminada, desde que o mago mantenha sua concentração para mantê-la."
+        },
+        {
+          "name": "Porta dimensional",
+          "range": "10 metros + 1 metro/nível",
+          "duration": "instantânea",
+          "description": "Porta dimensional é uma forma menos poderosa de teletransporte. O conjurador abre uma porta de energia entre dois locais diferentes, levando consigo tudo o que portar de um lugar ao outro. O conjurador deve conhecer o local de destino do portal antes de escolhê-lo e ele deve estar dentro do alcance máximo da magia."
+        },
+        {
+          "name": "Tempestade glacial",
+          "range": "3 metros + 1 metro/nível",
+          "duration": "instantânea",
+          "description": "Esta magia cria um vórtice cônico de gelo e neve que expele granizo em todas as direções causando 3d10 pontos de dano a todos na área sem direito a uma jogada de proteção."
+        }
+      ],
+    "5 Circulo": [
+      {
+        "name": "Cone de gelo",
+        "range": "especial (ver texto)",
+        "duration": "instantânea",
+        "description": "Esta magia cria um cone de frio extremo com 1,5 m de comprimento e 30 cm de diâmetro por nível do mago. Esse cone sai de suas mãos e causa 1d4 de dano +1 de dano por nível. Uma criatura atingida por esta magia deve fazer uma jogada de proteção modificada pela Destreza ou ficar presa em uma fina camada de gelo por 1d6 turnos. Se o gelo for danificado, ela se liberta automaticamente."
+      },
+      {
+        "name": "Criar passagens",
+        "range": "raio de 3 metros + 1 metro/nível",
+        "duration": "30 minutos",
+        "description": "Esta magia cria uma passagem ilusória (porém efetiva), como se fosse um buraco através de rocha sólida (paredes, muros, portas), com cerca de 2 metros de altura e 3m de largura. O conjurador pode criar passagens em barreiras de até 2 metros de espessura a cada 5 níveis. Após o encerramento da duração da magia, a passagem se fecha, matando automaticamente todos que estiverem no seu interior."
+      },
+      {
+        "name": "Extensão 2",
+        "range": "especial (ver texto)",
+        "duration": "especial (ver texto)",
+        "description": "Esta magia faz com que outra magia de 1º a 4º círculo, já conjurada e ainda em atividade, tenha sua duração ampliada em 50%. Magias com duração instantânea ou permanente não são afetadas por uma Extensão."
+      },
+      {
+        "name": "Imobilizar monstros",
+        "range": "raio de 3 metros + 1 metro/nível",
+        "duration": "1d4 turnos + 1 turno/nível",
+        "description": "Esta magia tem o mesmo efeito de uma Imobilizar pessoas, mas é restrita a monstros não humanoides."
+      },
+      {
+        "name": "Invocar criaturas 3",
+        "range": "especial (ver texto)",
+        "duration": "1d6 turnos + 1 turno/nível",
+        "description": "Esta magia funciona da mesma forma que Invocar criaturas 1, mas as possibilidades de invocação constam na lista invocar criaturas 3."
+      },
+      {
+        "name": "Moldar rochas",
+        "range": "toque",
+        "duration": "1 hora + 10 minutos/nível",
+        "description": "Com esta magia o mago é capaz de moldar até 2 kg de pedra como se fosse argila, transformando-a em qualquer objeto que desejar. O objeto não pode conter detalhes precisos, nem inscrições ou runas."
+      },
+      {
+        "name": "Muralha de energia",
+        "range": "10 metros + 3 metros/nível",
+        "duration": "1 hora + 10 minutos/nível",
+        "description": "O mago cria uma muralha de energia invisível com até 90 cm de espessura, 15 m de altura e 15 m de comprimento ao seu redor. Nenhum efeito mágico perpetrado por um personagem de nível inferior ao mago que conjurou esta magia penetra na muralha ou consegue sair, mas pessoas e projéteis sim."
+      },
+      {
+        "name": "Muralha de ferro",
+        "range": "10 metros + 3 metros/nível",
+        "duration": "1 hora + 10 minutos/nível",
+        "description": "O mago cria uma muralha de ferro resistente com até 90 cm de espessura, 15 m de altura e 15 m de comprimento."
+      },
+      {
+        "name": "Reanimar mortos",
+        "range": "toque",
+        "duration": "permanente",
+        "description": "Esta magia concede ao personagem o poder de reanimar 1d4+2 cadáveres em decomposição ou já decompostos (se o esqueleto estiver inteiro). Esses mortos-vivos passarão a ver o personagem como seu mestre e acatarão qualquer ordem dada por ele."
+      },
+      {
+        "name": "Névoa mortal",
+        "range": "10 metros + 3 metros/nível",
+        "duration": "1 hora + 10 minutos/nível",
+        "description": "Vapores sulfurosos e altamente venenosos são criados com esta magia, formando uma pesada e densa nuvem que se move num lento ritmo de 3 metros por minuto. Qualquer criatura que tiver contato com a névoa deve realizar uma jogada de proteção modificada pela Constituição para evitar a morte instantaneamente. A névoa, por ser mais pesada que o ar, desce escadas, fossos e alçapões."
+      },
+      {
+        "name": "Telecinésia",
+        "range": "3 metros + 1 metro/nível",
+        "duration": "1 hora + 10 minutos/nível",
+        "description": "O mago é capaz de mover objetos usando apenas o poder da sua mente. A quantidade de peso que pode ser levantada e movida lentamente é de 10 quilos por nível. O mago também é capaz de arremessar objetos com ¼ deste peso a até 15 metros de distância."
+      },
+      {
+        "name": "Teleporte",
+        "range": "100 metros + 10 metros/nível",
+        "duration": "instantânea",
+        "description": "Esta magia transporta o mago e/ou outro personagem tocado até um destino já conhecido pelo mago e dentro da área de alcance da magia. O teleporte será bem ou mal sucedido de acordo com o nível de conhecimento do mago sobre o destino e a distância do ponto de origem."
+      }
+    ],
+    "6 Circulo": [
+      {
+        "name": "Concha antimagia",
+        "range": "pessoal",
+        "duration": "1d4 turnos + 1 turno/nível",
+        "description": "Uma concha de força mágica envolve o mago, impedindo que qualquer efeito mágico entre ou saia da concha."
+      },
+      {
+        "name": "Controlar o clima",
+        "range": "especial (ver texto)",
+        "duration": "1 hora + 10 minutos/nível",
+        "description": "Com esta magia, o personagem é capaz de modificar o clima de acordo com sua vontade. É capaz de extinguir ventos, chuvas, nevascas, tornar o céu limpo, dissolver um tornado ou mesmo criar todas essas intempéries."
+      },
+      {
+        "name": "Desintegrar",
+        "range": "raio de 3 metros + 1 metro/nível",
+        "duration": "instantânea",
+        "description": "Esta magia faz matéria (mundana ou mágica) desaparecer por completo, virando pó. Seres vivos e mortos-vivos podem ser afetados com esta magia, mas podem realizar uma jogada de proteção modificada pela Constituição para evitar seus efeitos, sofrendo 6d6 pontos de dano."
+      },
+      {
+        "name": "Encantar item",
+        "range": "toque",
+        "duration": "especial (ver texto)",
+        "description": "Esta magia é a base arcana para imbuir efeitos mágicos a qualquer item. Ela deve ser lançada sobre o objeto no início do processo e permanecerá ativa por todo o período de encantamento, interagindo com as demais magias utilizadas para criar habilidades especiais no item. O mestre tem total autonomia para determinar os custos e o tempo de criação de itens mágicos."
+      },
+      {
+        "name": "Esfera gélida",
+        "range": "especial (ver texto)",
+        "duration": "especial (ver texto)",
+        "description": "Esta magia pode ser utilizada de três formas diferentes: Esfera congelante, Raio Gélido, Globo de Frio."
+      },
+      {
+        "name": "Extensão 3",
+        "range": "especial (ver texto)",
+        "duration": "especial (ver texto)",
+        "description": "Esta magia faz com que outra magia de 1º a 5º círculo, já conjurada e ainda em atividade, tenha sua duração ampliada em 50%. Magias com duração instantânea ou permanente não são afetadas por uma Extensão."
+      },
+      {
+        "name": "Globo de invulnerabilidade",
+        "range": "pessoal",
+        "duration": "1d6 turnos + 1 turno/nível",
+        "description": "Esta magia cria um globo de proteção contra magia de 1º a 4º círculo, mas não impede que magias sejam conjuradas dentro do globo."
+      },
+      {
+        "name": "Invocar criaturas 4",
+        "range": "especial (ver texto)",
+        "duration": "1d6 turnos + 1 turno/nível",
+        "description": "Esta magia funciona da mesma forma que Invocar criaturas 1, mas as possibilidades de invocação constam na lista invocar criaturas 4."
+      },
+      {
+        "name": "Magia da morte",
+        "range": "raio de 3 metros + 1 metro/nível",
+        "duration": "instantânea",
+        "description": "Um raio de energia negativa sai das mãos do mago, matando 2d8 criaturas com menos de 7 dados de vida dentro do alcance da magia. Uma jogada de proteção modificada pela Destreza é permitida para evitar os efeitos desta magia."
+      },
+      {
+        "name": "Mover a terra",
+        "range": "especial (ver texto)",
+        "duration": "permanente",
+        "description": "Esta magia move lentamente (10 metros por minuto) uma grande quantidade de terra, areia ou argila, de modo a dar novos contornos a colinas, barrancos, taludes, dunas ou fissuras no solo. Uma quantidade semelhante a 10 metros cúbicos de material pode ser movida para cada nível de mago."
+      },
+      {
+        "name": "Reencarnação",
+        "range": "especial",
+        "duration": "instantânea",
+        "description": "Esta magia faz com que uma alma específica seja reencarnada em outro corpo aleatório. A alma precisa querer retornar à vida para a magia funcionar efetivamente. Role 1d20 e compare com a lista fornecida para saber como o alvo reencarnará."
+      },
+      {
+        "name": "Visão da verdade",
+        "range": "pessoal",
+        "duration": "1d4 turnos + 1 turno/nível",
+        "description": "Esta magia faz com que o personagem consiga ver as coisas realmente como elas são, ficando imune a criaturas invisíveis, ilusões, escuridões mágicas ou não, portas secretas ou criaturas modificadas/transformadas."
+      }
+    ],
+    "7 Circulo": [
+      {
+        "name": "Bola de fogo controlável",
+        "range": "raio de 100 metros + 10 metros/nível",
+        "duration": "especial (ver texto)",
+        "description": "Esta magia cria uma bola de fogo cuja explosão pode ser adiada por um período de até 10 minutos."
+      },
+      {
+        "name": "Desejo restrito",
+        "range": "especial (ver texto)",
+        "duration": "especial (ver texto)",
+        "description": "O Desejo restrito é uma versão mais limitada e menos poderosa que a magia Desejo. Pode emular qualquer efeito compatível com uma magia de até 5º círculo e apenas por períodos limitados de tempo."
+      },
+      {
+        "name": "Invocar criaturas 5",
+        "range": "especial (ver texto)",
+        "duration": "1d6 turnos + 1 turno/nível",
+        "description": "Esta magia funciona da mesma forma que Invocar criaturas 1, mas as possibilidades de invocação constam na lista invocar criaturas 5."
+      },
+      {
+        "name": "Palavra de poder: atordoar",
+        "range": "raio de 10 metros + 3 metros/nível",
+        "duration": "especial (ver texto)",
+        "description": "O mago é capaz de atordoar um alvo proferindo apenas uma única palavra, sem direito a uma jogada de proteção. O efeito varia com base nos pontos de vida do alvo."
+      },
+      {
+        "name": "Passagem invisível",
+        "range": "toque",
+        "duration": "especial (ver texto)",
+        "description": "Esta magia cria uma passagem invisível e secreta em uma parede, muro ou outra superfície com até 50 cm de largura. O mago só pode conjurar essa magia uma vez por nível."
+      },
+      {
+        "name": "Reverter gravidade",
+        "range": "raio de 3 metros + 1 metro/nível",
+        "duration": "1d4 turnos + 1 turno/nível",
+        "description": "Esta magia faz com que tudo dentro do alcance caia para cima. Com o fim da magia, todos caem novamente ao solo, recebendo dano novamente."
+      },
+      {
+        "name": "Simulacro",
+        "range": "toque",
+        "duration": "permanente",
+        "description": "O mago cria uma cópia de si próprio ou de outro alvo, a partir de um boneco feito de qualquer material sólido o suficiente para resistir ao ritual. O simulacro é uma criatura mágica quase idêntica ao alvo da magia e com os poderes equivalentes a uma criatura com 1/4 dos níveis do original + 1."
+      },
+      {
+        "name": "Visão",
+        "range": "pessoal",
+        "duration": "instantânea",
+        "description": "Esta magia permite ao mago obter respostas a uma dúvida ou questão em forma de uma visão enviada diretamente de uma entidade mágica superior. A qualidade da revelação da visão depende do resultado de um lançamento de dados feito pelo mestre."
+      }
+    ],
+    "8 Circulo": [
+      {
+        "name": "Aprisionar alma",
+        "range": "raio de 10 metros + 3 metros/nível",
+        "duration": "permanente",
+        "description": "Esta magia cria uma gema de aprisionamento etéreo com um gatilho inscrito, que faz com que aquele que a segure e pronuncie a palavra inscrita tenha imediatamente a sua alma sugada para dentro da gema. O valor da gema deve ser proporcional ao poder da alma aprisionada."
+      },
+      {
+        "name": "Clone",
+        "range": "toque",
+        "duration": "especial (ver texto)",
+        "description": "Através desta poderosa magia, o mago cria um clone perfeito do alvo ao retirar-lhe um pedaço de sua carne. O clone cresce e estará pronto em até 1d4 meses. Se o clone ficar pronto enquanto a criatura original ainda estiver viva, ele tentará matar o ser original para substituí-lo."
+      },
+      {
+        "name": "Imunidade a magia",
+        "range": "toque",
+        "duration": "1d4 turnos + 1 turno/nível",
+        "description": "Esta magia concede proteção contra magia ao alvo tocado pelo mago, que pode conceder esta proteção a uma criatura para cada 4 níveis que possui. Essa proteção confere um bônus nas jogadas de proteção contra magias."
+      },
+      {
+        "name": "Invocar criaturas 6",
+        "range": "especial (ver texto)",
+        "duration": "1d6 turnos + 1 turno/nível",
+        "description": "Esta magia funciona da mesma forma que Invocar criaturas 1, mas as possibilidades de invocação constam na lista invocar criaturas 6."
+      },
+      {
+        "name": "Labirinto",
+        "range": "raio de 3 metros + 1 metro/nível",
+        "duration": "especial (ver texto)",
+        "description": "Esta magia cria uma realidade paralela para onde os alvos são enviados. Essa realidade é constituída de corredores, curvas, passagens e intersecções, como um grande labirinto, e só será dissipada quando o alvo conseguir achar a saída do lugar."
+      },
+      {
+        "name": "Limpar a mente",
+        "range": "pessoal",
+        "duration": "1 hora + 10 minutos/nível",
+        "description": "Esta magia cria um escudo impenetrável na mente do mago, tornando-o imune a qualquer tipo de invasão, influência, ilusão ou detecção."
+      },
+      {
+        "name": "Metamorfosear objetos",
+        "range": "raio de 3 metros + 1 metro/nível",
+        "duration": "1 hora + 10 minutos/nível",
+        "description": "Esta magia possui a mesma funcionalidade da magia metamorfose, mas é possível transformar qualquer criatura em objeto e vice-versa."
+      },
+      {
+        "name": "Palavra de poder: cegar",
+        "range": "raio de 10 metros + 3 metros/nível",
+        "duration": "especial (ver texto)",
+        "description": "O mago é capaz de cegar um alvo proferindo apenas uma única palavra. O efeito depende dos pontos de vida do alvo."
+      },
+      {
+        "name": "Permanência",
+        "range": "especial (ver abaixo)",
+        "duration": "permanente",
+        "description": "Esta magia tem a habilidade de tornar qualquer magia arcana de 1º, 2º e 3º círculos permanentes, desde que sua duração original não seja instantânea."
+      },
+      {
+        "name": "Símbolo",
+        "range": "especial (ver texto)",
+        "duration": "especial (ver texto)",
+        "description": "Esta magia cria uma armadilha mágica dentro de uma runa que, ao ser lida ou ultrapassada, a ativa instantaneamente."
+      }
+    ],
+
+    "9 Circulo": [
+      {
+        "name": "Aprisionamento",
+        "range": "raio de 10 metros + 3 metros/nível",
+        "duration": "especial (ver texto)",
+        "description": "Esta poderosa magia visa a arrastar e a prender uma criatura extra planar no plano material até que ela aceite realizar uma tarefa para o mago. Uma vez que a tarefa é cumprida, a criatura é automaticamente enviada ao seu plano original."
+      },
+      {
+        "name": "Chuva de meteoros",
+        "range": "raio de 100 metros + 10 metros/nível",
+        "duration": "instantânea",
+        "description": "Pequenos meteoros saem das mãos do mago e explodem em bolas de fogo onde ele quiser. O mago pode jogar 4 bolas de fogo normais que causam 10d6 pontos de dano ou 8 bolas de fogo de 3m de diâmetro que causam 5d6 pontos de dano. Uma jogada de proteção modificada pela Destreza reduz o dano pela metade."
+      },
+      {
+        "name": "Desejo",
+        "range": "especial (ver texto)",
+        "duration": "especial (ver texto)",
+        "description": "Tida como a magia mais poderosa já criada, o Desejo pode ser fonte de poderes e perigos inimagináveis, já que realiza desejos ilimitados do mago, ao mesmo tempo em que pune com extrema rigidez desejos ambíguos e mal feitos. O mestre deve analisar com calma e sabedoria os desejos e saber quando punir magos gananciosos e pouco atentos. Desejos que emulem magias de até 8º círculo geralmente são simples de serem concedidos; no entanto desejos mais complexos devem ser interpretados ao pé da letra pelo mestre, tanto para o bem quanto para o mal. A magia Desejo é tão extenuante e cansativa para o mago que, após conjurá-la, ele perde imediatamente todas as magias que tenha memorizado, ficando ainda impossibilitado de memorizar mais magias por 1 dia."
+      },
+      {
+        "name": "Esfera prismática",
+        "range": "raio de 3 metros + 1 metro/nível",
+        "duration": "1d4 turnos + 1 turno/nível",
+        "description": "Uma esfera multicolorida com 3 m de diâmetro encobre o mago como se fosse uma enorme bolha de proteção, formada por 7 camadas coloridas que absorvem todos os ataques físicos direcionados a ele. Cada camada some ao absorver um ataque qualquer, além de possuir suas próprias características individuais. Da mais externa para a mais interna: Vermelha, Laranja, Amarela, Verde, Azul, Anil, Violeta."
+      },
+      {
+        "name": "Êxtase temporal",
+        "range": "toque",
+        "duration": "permanente",
+        "description": "Esta magia coloca um alvo em estado permanente de torpor. O metabolismo da criatura se mantém apenas para mantê-lo vivo. O efeito da magia só cessa quando a palavra designada pelo mago é proferida ou por um Dissipar magia. Uma jogada de proteção modificada pela Constituição nega este efeito."
+      },
+      {
+        "name": "Invocar criaturas 7",
+        "range": "especial (ver texto)",
+        "duration": "1d6 turnos + 1 turno/nível",
+        "description": "Esta magia funciona da mesma forma que Invocar criaturas 1, mas as possibilidades de invocação constam na lista invocar criaturas 7."
+      },
+      {
+        "name": "Magia astral",
+        "range": "pessoal",
+        "duration": "1 hora + 10 minutos por nível",
+        "description": "O personagem consegue projetar a sua forma astral para outros locais, ficando visível apenas a outras criaturas que também estejam sob forma astral. Enquanto estiver sob forma astral, o personagem pode lançar magias e se deslocar para onde desejar a uma velocidade de 150 km/h. Se, enquanto estiver sob a forma astral, o personagem tiver seu corpo deslocado por uma distância superior a 1 km, sua mente se desprenderá permanentemente do corpo e o personagem estará eternamente preso à forma astral."
+      },
+      {
+        "name": "Parar o tempo",
+        "range": "3 metros + 1 metro/nível",
+        "duration": "10 minutos + 1 minuto/nível",
+        "description": "O mago consegue paralisar a passagem do tempo dentro do alcance da magia. Tudo e todos dentro da área ficam paralisados por todo o período que o tempo ficar congelado. Criaturas que adentrarem a área com o tempo paralisado podem agir normalmente."
+      },
+      {
+        "name": "Portal",
+        "range": "raio de 3 metros + 1 metro/nível",
+        "duration": "1d4 turnos + 1 turno/nível",
+        "description": "Esta magia abre uma fenda dimensional com outro plano de existência, permitindo ao personagem invocar um ser específico chamando pelo seu nome. Existe uma chance de 5% de outra criatura aproveitar a oportunidade para ultrapassar portal, bem como uma chance de 10% de o ser escolhido não se interessar pela invocação. Seres invocados através de um portal não serão necessariamente amistosos com o personagem."
+      }
+    ]
+
+
+  }
+}
