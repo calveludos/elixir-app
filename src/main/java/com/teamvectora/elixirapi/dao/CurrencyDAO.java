@@ -13,7 +13,7 @@ public class CurrencyDAO extends CrudDAO<Currency> {
 
     @Override
     public int create(Currency currency) throws SQLException {
-        String query = "INSERT INTO `Currency` (id_character, gold, silver, copper, electrium, platinium) " +
+        String query = "INSERT INTO `Currency` (id_character, gold, silver, copper, electrium, platinum) " +
                 "VALUES (?, ?, ?, ?, ?, ?)";
         int generatedId = -1;
 
@@ -51,7 +51,7 @@ public class CurrencyDAO extends CrudDAO<Currency> {
 
     @Override
     public void update(Currency currency) throws SQLException {
-        String query = "UPDATE `Currency` SET id_character = ?, gold = ?, silver = ?, copper = ?, electrium = ?, platinium = ? WHERE id = ?";
+        String query = "UPDATE `Currency` SET id_character = ?, gold = ?, silver = ?, copper = ?, electrium = ?, platinum = ? WHERE id = ?";
 
         try {
             conn = ConnectionFactory.createConnection();
@@ -94,7 +94,7 @@ public class CurrencyDAO extends CrudDAO<Currency> {
                 currency.setSilver(resultSet.getShort("silver"));
                 currency.setCopper(resultSet.getShort("copper"));
                 currency.setElectrium(resultSet.getShort("electrium"));
-                currency.setPlatinium(resultSet.getShort("platinium"));
+                currency.setPlatinium(resultSet.getShort("platinum"));
 
                 currencyMap.put(currency.getId(), currency);
             }
@@ -135,7 +135,7 @@ public class CurrencyDAO extends CrudDAO<Currency> {
             query.append(" AND electrium = ").append(filter.getElectrium());
         }
         if (filter.getPlatinium() != 0) {
-            query.append(" AND platinium = ").append(filter.getPlatinium());
+            query.append(" AND platinum = ").append(filter.getPlatinium());
         }
 
         ResultSet resultSet = null;
@@ -154,7 +154,7 @@ public class CurrencyDAO extends CrudDAO<Currency> {
                 currency.setSilver(resultSet.getShort("silver"));
                 currency.setCopper(resultSet.getShort("copper"));
                 currency.setElectrium(resultSet.getShort("electrium"));
-                currency.setPlatinium(resultSet.getShort("platinium"));
+                currency.setPlatinium(resultSet.getShort("platinum"));
 
                 currencyMap.put(currency.getId(), currency);
             }

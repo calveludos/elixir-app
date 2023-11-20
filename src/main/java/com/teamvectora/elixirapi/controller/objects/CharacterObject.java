@@ -57,10 +57,7 @@ public class CharacterObject extends HBox {
             if (mouseEvent.getButton() == MouseButton.PRIMARY) {
                 System.out.println("clicou");
                 ObjectSaveManager saver = new ObjectSaveManager();
-                Attribute attribute = character.getAttribute();
-                System.out.println(attribute);
                 saver.saveObject("character", character);
-                saver.saveObject("attribute", attribute);
 
                 PaneManager manager = new PaneManager();
                 manager.openPane("viewCharacterPage1");

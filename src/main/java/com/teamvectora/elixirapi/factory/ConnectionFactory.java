@@ -1,33 +1,42 @@
 package com.teamvectora.elixirapi.factory;
 
-import com.teamvectora.elixirapi.Secrets;
-import com.teamvectora.elixirapi.manager.ObjectSaveManager;
+import com.teamvectora.elixirapi.manager.XMLManager;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class ConnectionFactory {
-    public static String MYSQL_ADDON_USER = Secrets.MYSQL_ADDON_USER;
-    public static String MYSQL_ADDON_PASSWORD = Secrets.MYSQL_ADDON_PASSWORD;
-    public static String MYSQL_ADDON_URL = Secrets.MYSQL_ADDON_URL;
     public static Connection createConnection() throws SQLException {
-        ObjectSaveManager saveManager = new ObjectSaveManager();
-        boolean offline = (boolean) saveManager.getObject("offline");
+        XMLManager xmlManager = new XMLManager();
+        String url = xmlManager.getElement("url").getTextContent();
+        String user = xmlManager.getElement("user").getTextContent();
+        String password = xmlManager.getElement("password").getTextContent();
 
-            Connection con = null;
-            try {
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                con = DriverManager.getConnection(MYSQL_ADDON_URL, MYSQL_ADDON_USER, MYSQL_ADDON_PASSWORD);
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e.getMessage());
+        Connection con = null;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(url, user, password);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e.getMessage());
+        } catch (SQLSyntaxErrorException e){
+            if (e.getMessage().equals("Unknown database 'elixiroffline'")){
+                try {
+                    url = url.replace("/elixiroffline", "");
+                    xmlManager.editElement("url", url);
+                    createDatabase();
+                    url = url + "/elixiroffline";
+                    xmlManager.editElement("url", url);
+                    return createConnection();
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+            } else {
+                throw new RuntimeException(e);
             }
+        }
 
-        String url = "jdbc:mysql://localhost/estudante1?user=estudante1&password=estudante1";
 
         return con;
     }
@@ -51,9 +60,10 @@ public class ConnectionFactory {
                 stmt.execute(query);
             }
 
+            XMLManager xmlManager = new XMLManager();
+            xmlManager.editElement("url", "jdbc:mysql://localhost:3306/elixiroffline");
+
             System.out.println("Arquivo SQL executado com sucesso!");
-        } catch (Exception e) {
-            throw e;
         }
     }
 }

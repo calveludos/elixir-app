@@ -16,16 +16,14 @@ import com.teamvectora.elixirapi.model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.w3c.dom.Node;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -83,12 +81,15 @@ public class LoginController {
             user = (User) userDAO.read(filterUser).values().toArray()[0];
         } catch (SQLException | NullPointerException exception){
             errorLabel.setTextFill(Color.RED);
-            errorLabel.setText("Verifique sua conexão");
+            errorLabel.setText("Verifique sua conexão ou suas credenciais");
 
             System.out.println(vboxBody.getChildren().size());
-            if (vboxBody.getChildren().size() <= 4)
-                vboxBody.getChildren().add(new OfflineModeButton("Modo Offline", usernameField.getText(), viewPasswordCheckbox.isSelected() ? textPassword.getText() : passwordField.getText()));
-
+            if (vboxBody.getChildren().stream().noneMatch(node -> node instanceof OfflineModeButton)) {
+                Button offline = new OfflineModeButton("Credenciais");
+                vboxBody.getChildren().add(offline);
+                Insets insets = new Insets(0, 0, 10,0);
+                VBox.setMargin(offline, insets);
+            }
             throw exception;
         } catch (ArrayIndexOutOfBoundsException e){
             errorLabel.setTextFill(Color.RED);
@@ -146,7 +147,7 @@ public class LoginController {
     private void userNotVerifyRoutine() {
         errorLabel.setTextFill(Color.RED);
         errorLabel.setText("Esse usuário ainda não foi confirmado");
-        if (vboxBody.getChildren().size() < 5) {
+        if (vboxBody.getChildren().stream().noneMatch(node -> node instanceof ValidationButton)) {
             Insets insets = new Insets(
                     vboxBody.getInsets().getTop(),
                     vboxBody.getInsets().getRight(),
@@ -172,9 +173,6 @@ public class LoginController {
             passwordField.setMinHeight(39.0);
             textPassword.setMinHeight(0);
         }
-    }
-
-    public void normalErrorLabel(){
     }
 
 

@@ -87,7 +87,7 @@ public class RollDiceController extends MenuController {
 
         for (int i = 0; i < numberOfRolls; i++) {
             int diceResult = (int) (1 + Math.random() * selectedValueDiceType);
-            total += diceResult + Integer.parseInt(diceBonus.getText());
+            total += diceResult;
 
             if (numDiceBonus == 0 && numberOfRolls == 1)
                 break;
@@ -111,6 +111,8 @@ public class RollDiceController extends MenuController {
             }
 
         }
+
+        total +=  Integer.parseInt(diceBonus.getText());
 
 
         if (numDiceBonus != 0 || numberOfRolls > 1){

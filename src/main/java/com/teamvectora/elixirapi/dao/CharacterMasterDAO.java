@@ -89,7 +89,7 @@ public class CharacterMasterDAO extends CrudDAO<CharacterMaster> {
                 new Column("silver", Integer.class),
                 new Column("copper", Integer.class),
                 new Column("electrium", Integer.class),
-                new Column("platinium", Integer.class),
+                new Column("platinum", Integer.class),
                 new Column("inventory_id", Integer.class),
                 new Column("item_id", Integer.class),
                 new Column("type_item_id", Integer.class),
@@ -203,7 +203,7 @@ public class CharacterMasterDAO extends CrudDAO<CharacterMaster> {
                         (int) tuple.get("silver"),
                         (int) tuple.get("copper"),
                         (int) tuple.get("electrium"),
-                        (int) tuple.get("platinium")
+                        (int) tuple.get("platinum")
                 );
 
                 currency.setId((int) tuple.get("currency_id"));

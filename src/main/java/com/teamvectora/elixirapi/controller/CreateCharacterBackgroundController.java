@@ -1,14 +1,14 @@
 package com.teamvectora.elixirapi.controller;
 
 import com.teamvectora.elixirapi.controller.abstractControllers.CreateCharacterSectionController;
-import com.teamvectora.elixirapi.dao.AttributeDAO;
-import com.teamvectora.elixirapi.dao.CharacterDAO;
+import com.teamvectora.elixirapi.dao.*;
 import com.teamvectora.elixirapi.manager.JsonManger;
 import com.teamvectora.elixirapi.manager.ObjectSaveManager;
 import com.teamvectora.elixirapi.manager.PaneManager;
 import com.teamvectora.elixirapi.model.*;
 import com.teamvectora.elixirapi.model.Attribute;
 import com.teamvectora.elixirapi.model.CharacterMaster;
+import com.teamvectora.elixirapi.model.Currency;
 import com.teamvectora.elixirapi.model.Folder;
 import com.teamvectora.elixirapi.model.Slots;
 import javafx.event.ActionEvent;
@@ -16,11 +16,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import org.json.simple.JSONArray;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
+
+import static com.teamvectora.elixirapi.model.tables.TypeID.CLERIC;
+import static com.teamvectora.elixirapi.model.tables.TypeID.WIZARD;
 
 public class CreateCharacterBackgroundController extends CreateCharacterSectionController {
 
@@ -112,14 +116,76 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
 
         System.out.println(character);
 
+        if (character.getClassId() == CLERIC){
+            character.setSlots(new Slots(character.getId(),
+                   (int) ((long) JsonManger.get("class/cleric/level:" + character.level + "/1o")),
+                   (int) ((long) JsonManger.get("class/cleric/level:" + character.level + "/2o")),
+                   (int) ((long) JsonManger.get("class/cleric/level:" + character.level + "/3o")),
+                   (int) ((long) JsonManger.get("class/cleric/level:" + character.level + "/4o")),
+                   (int) ((long) JsonManger.get("class/cleric/level:" + character.level + "/5o")),
+                   (int) ((long) JsonManger.get("class/cleric/level:" + character.level + "/6o")),
+                   (int) ((long) JsonManger.get("class/cleric/level:" + character.level + "/7o")),
+                   0,
+                   0
+            ));
+        }
+
+        if (character.getClassId() == WIZARD){
+            character.setSlots(new Slots(character.getId(),
+                    (int) ((long) JsonManger.get("class/wizard/level:" + character.level + "/1o")),
+                    (int) ((long) JsonManger.get("class/wizard/level:" + character.level + "/2o")),
+                    (int) ((long) JsonManger.get("class/wizard/level:" + character.level + "/3o")),
+                    (int) ((long) JsonManger.get("class/wizard/level:" + character.level + "/4o")),
+                    (int) ((long) JsonManger.get("class/wizard/level:" + character.level + "/5o")),
+                    (int) ((long) JsonManger.get("class/wizard/level:" + character.level + "/6o")),
+                    (int) ((long) JsonManger.get("class/wizard/level:" + character.level + "/7o")),
+                    (int) ((long) JsonManger.get("class/wizard/level:" + character.level + "/8o")),
+                    (int) ((long) JsonManger.get("class/wizard/level:" + character.level + "/9o"))
+            ));
+        }
+
+        character.setCurrency(new Currency());
+        character.getCurrency().setGold((
+                (int) (Math.random() * 6 + 1) +
+                (int) (Math.random() * 6 + 1) +
+                (int) (Math.random() * 6 + 1)) * 10);
+        character.setSpeech(new ArrayList<>());
+        for (Object idSpeech: (JSONArray) JsonManger.get("race/race:" + character.getRaceId() + "/languages")) {
+            character.addSpeech(new Speech(
+                    character.getId(),
+                    (int) ((long) idSpeech)
+            ));
+        }
+
+
+        SpeechDAO speechDAO = new SpeechDAO();
+        CurrencyDAO currencyDAO = new CurrencyDAO();
+        SlotsDAO slotsDAO = new SlotsDAO();
+        CharacterDAO dao = new CharacterDAO();
+        AttributeDAO attributeDAO = new AttributeDAO();
+
         try {
-            AttributeDAO attributeDAO = new AttributeDAO();
             int idAttribute = attributeDAO.create(character.getAttribute());
             character.setAttributeId(idAttribute);
             character.getAttribute().setId(idAttribute);
 
-            CharacterDAO dao = new CharacterDAO();
-            character.setId(dao.create(character));
+            int idCharacter = dao.create(character);
+            character.setId(idCharacter);
+
+            character.getCurrency().setCharacterId(idCharacter);
+            character.getCurrency().setId(currencyDAO.create(character.getCurrency()));
+
+            if (character.getClassId() == CLERIC || character.getClassId() == WIZARD) {
+                character.getSlots().setCharacterId(idCharacter);
+                character.getSlots().setId(slotsDAO.create(character.getSlots()));
+            }
+
+            for (Speech speech :
+                    character.getSpeech()) {
+                speech.setCharacterId(idCharacter);
+                speech.setId(speechDAO.create(speech));
+            }
+
         } catch (SQLException e){
             errorLabel.setText("Preencha todos os campos corretamente para criar o seu personagem");
             throw e;

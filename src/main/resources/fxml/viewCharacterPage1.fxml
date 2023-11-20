@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -19,60 +20,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import java.net.URL?>
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.ViewCharacterPage1Controller">
-
-    <!-- Cabeçalho superior -->
-    <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <!-- Logo e texto -->
-        <ImageView fitHeight="95.0" fitWidth="84.0" layoutX="10.0" layoutY="32.0">
-         <image>
-            <Image url="@../media/logoElixir.png" />
-         </image></ImageView>
-
-        <!-- Agrupar Line e Text em uma VBox -->
-        <VBox alignment="CENTER_LEFT" layoutX="90.0" layoutY="32.0" spacing="5.0">
-            <Text fill="#FFFFFF">
-                ELIXIR MAKER
-                <font>
-                    <Font name="System Bold" size="20.0" />
-                </font>
-                <style>
-                    -fx-font-style: italic;
-                </style>
-            </Text>
-            <Line endX="120.0" stroke="WHITE" strokeWidth="3.0" />
-         <padding>
-            <Insets bottom="28.0" />
-         </padding>
-        </VBox>
-
-        <!-- Nome de usuário e foto de perfil agrupados em uma HBox -->
-        <HBox alignment="TOP_RIGHT" layoutX="752.0" layoutY="42.0" prefHeight="114.0" spacing="10.0" AnchorPane.rightAnchor="0.0" HBox.hgrow="ALWAYS">
-            <!-- Nome de usuário e foto de perfil -->
-            <Text fill="#FFFFFF">
-                Nome de Usuário
-                <font>
-                    <Font name="System Bold" size="16.0" />
-                </font>
-                <style>
-                    -fx-font-style: italic;
-                </style>
-            </Text>
-            <ImageView fitHeight="35.0" fitWidth="35.0">
-                <!-- Coloque aqui a imagem de perfil -->
-                <clip>
-                    <Circle centerX="17.5" centerY="17.5" radius="17.5" />
-                </clip>
-            <image>
-               <Image url="@../media/emptyPerfilImage.png" />
-            </image>
-            </ImageView>
-        </HBox>
-      <padding>
-         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-      </padding>
-    </HBox>
+<AnchorPane fx:id="anchorRoot" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.ViewCharacterPage1Controller">
 
     <!-- Corpo da página -->
     <VBox layoutX="260.0" layoutY="114.0" prefHeight="586.0" prefWidth="678.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="114.0">
@@ -557,7 +505,7 @@
                                                                      <Font name="System Bold" size="12.0" />
                                                                   </font>
                                                                </Label>
-                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="MAGIAS ADICONAIS">
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="170.0" text="MAGIAS A. ADICONAIS">
                                                                   <font>
                                                                      <Font name="System Bold" size="12.0" />
                                                                   </font>
@@ -566,17 +514,17 @@
                                                          </HBox>
                                                          <HBox prefHeight="54.0" prefWidth="454.0">
                                                             <children>
-                                                               <TextField fx:id="languagesField" alignment="CENTER" prefHeight="42.0" prefWidth="81.0">
+                                                               <TextField fx:id="languagesField" alignment="CENTER" prefHeight="39.0" prefWidth="62.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
-                                                               <TextField fx:id="learnMagicField" alignment="CENTER" prefHeight="42.0" prefWidth="144.0">
+                                                               <TextField fx:id="learnMagicField" alignment="CENTER" prefHeight="39.0" prefWidth="99.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
-                                                               <TextField fx:id="addsMagicField" alignment="CENTER" prefHeight="42.0" prefWidth="162.0">
+                                                               <TextField fx:id="addsMagicArcField" alignment="CENTER" prefHeight="39.0" prefWidth="183.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
@@ -589,7 +537,7 @@
                                                       <children>
                                                          <HBox prefHeight="17.0" prefWidth="355.0">
                                                             <children>
-                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="371.0" text="AJUSTES DE PROTECAO">
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="295.0" text="AJUSTES DE PROTECAO">
                                                                   <HBox.margin>
                                                                      <Insets left="5.0" />
                                                                   </HBox.margin>
@@ -597,15 +545,21 @@
                                                                      <Font name="System Bold" size="12.0" />
                                                                   </font>
                                                                </Label>
+                                                               <Label alignment="CENTER" prefHeight="18.0" prefWidth="371.0" text="MAGIAS D. ADICIONAIS">
+                                                                  <font>
+                                                                     <Font name="System Bold" size="12.0" />
+                                                                  </font>
+                                                               </Label>
                                                             </children>
                                                          </HBox>
-                                                         <HBox prefHeight="54.0" prefWidth="454.0">
+                                                         <HBox alignment="CENTER" prefHeight="54.0" prefWidth="454.0">
                                                             <children>
-                                                               <TextField fx:id="protectionAjustField" alignment="CENTER" prefHeight="38.0" prefWidth="349.0">
+                                                               <TextField fx:id="protectionAjustField" alignment="CENTER" prefHeight="38.0" prefWidth="231.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
+                                                               <TextField fx:id="addsMagicDivField" alignment="CENTER" prefHeight="38.0" prefWidth="349.0" />
                                                             </children>
                                                          </HBox>
                                                       </children>
@@ -1060,7 +1014,7 @@
                                     </font>
                                  </Button>
                                  <HBox prefHeight="56.0" prefWidth="22.0" HBox.hgrow="ALWAYS" />
-                                 <Button minWidth="-Infinity" prefHeight="38.0" prefWidth="46.0" >
+                                 <Button minWidth="-Infinity" prefHeight="38.0" prefWidth="46.0">
                                     <font>
                                        <Font name="System Bold" size="12.0" />
                                     </font>
@@ -1092,7 +1046,7 @@
     </VBox>
 
    <stylesheets>
-      <URL value= "@../styles/Buttons1.css" />
-      <URL value= "@../styles/Font.css" />
+      <URL value="@../styles/Buttons1.css" />
+      <URL value="@../styles/Font.css" />
    </stylesheets>
 </AnchorPane>

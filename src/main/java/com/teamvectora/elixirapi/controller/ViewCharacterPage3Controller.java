@@ -1,5 +1,6 @@
 package com.teamvectora.elixirapi.controller;
 
+import com.teamvectora.elixirapi.controller.abstractControllers.MenuController;
 import com.teamvectora.elixirapi.manager.JsonManger;
 import com.teamvectora.elixirapi.manager.ObjectSaveManager;
 import com.teamvectora.elixirapi.manager.PaneManager;
@@ -18,7 +19,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ViewCharacterPage3Controller {
+public class ViewCharacterPage3Controller extends MenuController {
 
     public TableView<SpellTable> spellsTableView;
     @FXML
@@ -158,11 +159,38 @@ public class ViewCharacterPage3Controller {
 
     @FXML
     public void initialize(){
+        super.addHeader();
+
         ObjectSaveManager saveManager = new ObjectSaveManager();
         character = (CharacterMaster) saveManager.getObject("character");
 
         setHeader();
-        setSpellsTable();
+        if (character.getSpells() != null)
+            setSpellsTable();
+        if (character.getSlots() != null)
+            setSlots();
+    }
+
+    private void setSlots() {
+        spell1.setText(String.valueOf(character.getSlots().getILevel()));
+        spell2.setText(String.valueOf(character.getSlots().getIiLevel()));
+        spell3.setText(String.valueOf(character.getSlots().getIiiLevel()));
+        spell4.setText(String.valueOf(character.getSlots().getIvLevel()));
+        spell5.setText(String.valueOf(character.getSlots().getVLevel()));
+        spell6.setText(String.valueOf(character.getSlots().getViLevel()));
+        spell7.setText(String.valueOf(character.getSlots().getViiLevel()));
+        spell8.setText(String.valueOf(character.getSlots().getViiiLevel()));
+        spell9.setText(String.valueOf(character.getSlots().getIxLevel()));
+        
+        spellDay1.setText(String.valueOf(character.getSlots().getILevel()));
+        spellDay2.setText(String.valueOf(character.getSlots().getIiLevel()));
+        spellDay3.setText(String.valueOf(character.getSlots().getIiiLevel()));
+        spellDay4.setText(String.valueOf(character.getSlots().getIvLevel()));
+        spellDay5.setText(String.valueOf(character.getSlots().getVLevel()));
+        spellDay6.setText(String.valueOf(character.getSlots().getViLevel()));
+        spellDay7.setText(String.valueOf(character.getSlots().getViiLevel()));
+        spellDay8.setText(String.valueOf(character.getSlots().getViiiLevel()));
+        spellDay9.setText(String.valueOf(character.getSlots().getIxLevel()));
     }
 
     private void setSpellsTable() {

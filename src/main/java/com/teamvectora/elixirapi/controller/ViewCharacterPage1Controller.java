@@ -1,11 +1,13 @@
 package com.teamvectora.elixirapi.controller;
 
+import com.teamvectora.elixirapi.controller.abstractControllers.MenuController;
 import com.teamvectora.elixirapi.manager.JsonManger;
 import com.teamvectora.elixirapi.manager.ObjectSaveManager;
 import com.teamvectora.elixirapi.manager.PaneManager;
 import com.teamvectora.elixirapi.model.Attribute;
 
 import com.teamvectora.elixirapi.model.CharacterMaster;
+import com.teamvectora.elixirapi.model.tables.CharacterAttributes;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -15,11 +17,12 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
 
-public class ViewCharacterPage1Controller {
+public class ViewCharacterPage1Controller extends MenuController {
 
-    @FXML
-    private TextField addsMagicField;
+    public TextField addsMagicArcField;
+    public TextField addsMagicDivField;
 
     @FXML
     private TextArea appereanceField;
@@ -129,16 +132,22 @@ public class ViewCharacterPage1Controller {
     private int level;
 
     @FXML
-    public void initialize() throws IOException, ParseException {
+    public void initialize() {
+        super.addHeader();
+
         ObjectSaveManager reader = new ObjectSaveManager();
         character = (CharacterMaster) reader.getObject("character");
         attribute = character.getAttribute();
 
         setHeader();
         setAttributes();
-        setSubAttributes();
         setAjusts();
-        setBa();
+        try {
+            setSubAttributes();
+            setBa();
+        } catch (IOException | ParseException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -200,6 +209,35 @@ public class ViewCharacterPage1Controller {
 
         mvField.setText(mv);
         jpField.setText(jp);
+
+
+        AtomicInteger caFieldText = new AtomicInteger(Integer.parseInt(dexAjustsField.getText()) + 10);
+        if(character.getRaceId() == 4){
+            caFieldText.addAndGet(2);
+        }
+        if (character.getInventory() != null){
+            character.getInventory().stream()
+                    .filter(inventory -> inventory.getTypeItemId() == 2)
+                    .forEach(inventory -> {
+                        try {
+                            long bonus = (long) JsonManger.get("armor/armors:" + inventory.getItemId() + "/bonus_defesa");
+                            caFieldText.addAndGet((int) bonus);
+                        } catch (IOException | ParseException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+            character.getInventory().stream()
+                    .filter(inventory -> inventory.getTypeItemId() == 3)
+                    .forEach(inventory -> {
+                        try {
+                            long bonus = (long) JsonManger.get("shields/shields:" + inventory.getItemId() + "/bonus_defesa");
+                            caFieldText.addAndGet((int) bonus);
+                        } catch (IOException | ParseException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+        }
+        caField.setText(String.valueOf(caFieldText.get()));
     }
 
     private void setBa() throws IOException, ParseException {
@@ -214,7 +252,6 @@ public class ViewCharacterPage1Controller {
             baFieldStrText = Integer.parseInt(String.valueOf(ba.charAt(0))) + Integer.parseInt(attModStr);
             baFieldDexText = Integer.parseInt(String.valueOf(ba.charAt(1))) + Integer.parseInt(attModDex);
         }else {
-
             baFieldStrText = Integer.parseInt(ba) + Integer.parseInt(attModStr);
             baFieldDexText = Integer.parseInt(ba) + Integer.parseInt(attModDex);
         }
@@ -224,540 +261,349 @@ public class ViewCharacterPage1Controller {
     }
 
     private void setAjusts() {
-        String chargeText = "";
-        String damageAjustText = "";
-
+        String chargeText;
+        String damageAjustText;
 
         switch (attribute.getStrength()) {
-            case 1:
+            case 1 -> {
                 chargeText = "1 KG";
                 damageAjustText = "-5";
-                break;
-            case 2:
-            case 3:
+            }
+            case 2, 3 -> {
                 chargeText = "3 KG";
                 damageAjustText = "-4";
-                break;
-            case 4:
-            case 5:
+            }
+            case 4, 5 -> {
                 chargeText = "5 KG";
                 damageAjustText = "-3";
-                break;
-            case 6:
-            case 7:
+            }
+            case 6, 7 -> {
                 chargeText = "12 KG";
                 damageAjustText = "-2";
-                break;
-            case 8:
-            case 9:
+            }
+            case 8, 9 -> {
                 chargeText = "15 KG";
                 damageAjustText = "-1";
-                break;
-            case 10:
-            case 11:
+            }
+            case 10, 11 -> {
                 chargeText = "19 KG";
                 damageAjustText = "0";
-                break;
-            case 12:
-            case 13:
+            }
+            case 12, 13 -> {
                 chargeText = "25 KG";
                 damageAjustText = "+1";
-                break;
-            case 14:
-            case 15:
+            }
+            case 14, 15 -> {
                 chargeText = "33 KG";
                 damageAjustText = "+2";
-                break;
-            case 16:
-            case 17:
+            }
+            case 16, 17 -> {
                 chargeText = "43 KG";
                 damageAjustText = "+3";
-                break;
-            case 18:
-            case 19:
+            }
+            case 18, 19 -> {
                 chargeText = "58 KG";
                 damageAjustText = "+4";
-                break;
-            case 20:
-            case 21:
+            }
+            case 20, 21 -> {
                 chargeText = "75 KG";
                 damageAjustText = "+5";
-                break;
-            case 22:
-            case 23:
+            }
+            case 22, 23 -> {
                 chargeText = "100 KG";
                 damageAjustText = "+6";
-                break;
-            case 24:
-            case 25:
+            }
+            case 24, 25 -> {
                 chargeText = "135 KG";
                 damageAjustText = "+7";
-                break;
-            case 26:
-            case 27:
+            }
+            case 26, 27 -> {
                 chargeText = "175 KG";
                 damageAjustText = "+8";
-                break;
-            case 28:
-            case 29:
+            }
+            case 28, 29 -> {
                 chargeText = "235 KG";
                 damageAjustText = "+9";
-                break;
-            default:
+            }
+            default -> {
                 chargeText = "Valor fora da faixa";
                 damageAjustText = "Valor não reconhecido";
-                break;
+            }
         }
 
         chargeAndMaxField.setText(chargeText);
         damageAjustField.setText(damageAjustText);
 
+        String dexAjustsText = switch (attribute.getDexterity()) {
+            case 1 -> "-5";
+            case 2, 3 -> "-4";
+            case 4, 5 -> "-3";
+            case 6, 7 -> "-2";
+            case 8, 9 -> "-1";
+            case 10, 11 -> "0";
+            case 12, 13 -> "+1";
+            case 14, 15 -> "+2";
+            case 16, 17 -> "+3";
+            case 18, 19 -> "+4";
+            case 20, 21 -> "+5";
+            case 22, 23 -> "+6";
+            case 24, 25 -> "+7";
+            case 26, 27 -> "+8";
+            case 28, 29 -> "+9";
+            default -> "Valor fora da faixa";
+        };
 
-        String languagesFieldText = "";
-        String learnMagicFieldText = "";
-        String addsMagicFieldText = "";
+        dexAjustsField.setText(dexAjustsText);
 
-        switch (attribute.getIntelligence()) {
-            case 1:
-                languagesFieldText = "0";
-                learnMagicFieldText = "0%";
-                addsMagicFieldText = "-";
-                break;
-            case 2:
-            case 3:
-                languagesFieldText = "0";
-                learnMagicFieldText = "0%";
-                addsMagicFieldText = "-";
-                break;
-            case 4:
-            case 5:
-                languagesFieldText = "0";
-                learnMagicFieldText = "0%";
-                addsMagicFieldText = "-";
-                break;
-            case 6:
-            case 7:
-                languagesFieldText = "0";
-                learnMagicFieldText = "0%";
-                addsMagicFieldText = "-";
-                break;
-            case 8:
-            case 9:
-                languagesFieldText = "0";
-                learnMagicFieldText = "0%";
-                addsMagicFieldText = "-";
-                break;
-            case 10:
-            case 11:
-                languagesFieldText = "0";
-                learnMagicFieldText = "0%";
-                addsMagicFieldText = "-";
-                break;
-            case 12:
-            case 13:
-                languagesFieldText = "0";
-                learnMagicFieldText = "0%";
-                addsMagicFieldText = "-";
-                break;
-            case 14:
-            case 15:
-                languagesFieldText = "1";
-                learnMagicFieldText = "25%";
-                addsMagicFieldText = "0";
-                break;
-            case 16:
-            case 17:
-                languagesFieldText = "2";
-                learnMagicFieldText = "35%";
-                addsMagicFieldText = "1 de 1o círculo";
-                break;
-            case 18:
-            case 19:
-                languagesFieldText = "3";
-                learnMagicFieldText = "45%";
-                addsMagicFieldText = "2 de 1o círculo";
-                break;
-            case 20:
-            case 21:
-                languagesFieldText = "4";
-                learnMagicFieldText = "55%";
-                addsMagicFieldText = "1 de 2o círculo e 2 de 1o círculo";
-                break;
-            case 22:
-            case 23:
-                languagesFieldText = "5";
-                learnMagicFieldText = "65%";
-                addsMagicFieldText = "2 de 2o círculo e 2 de 1o círculo";
-                break;
-            case 24:
-            case 25:
-                languagesFieldText = "6";
-                learnMagicFieldText = "75%";
-                addsMagicFieldText = "1 de 3o círculo, 2 de 2o círculo e 2 de 1o círculo";
-                break;
-            case 26:
-            case 27:
-                languagesFieldText = "7";
-                learnMagicFieldText = "85%";
-                addsMagicFieldText = "1 de 3o círculo, 2 de 2o círculo e 3 de 1o círculo";
-                break;
-            case 28:
-            case 29:
-                languagesFieldText = "8";
-                learnMagicFieldText = "95%";
-                addsMagicFieldText = "1 de 3o círculo, 3 de 2o círculo e 3 de 1o círculo";
-                break;
-            default:
-                languagesFieldText = "Valor não reconhecido";
-                learnMagicFieldText = "Valor não reconhecido";
-                addsMagicFieldText = "Valor não reconhecido";
-                break;
-        }
+        String dexHabilits = switch (attribute.getDexterity()) {
+            case 1 -> "-5 -25% -25% -25%";
+            case 2, 3 -> "-4 -20% -20% -20%";
+            case 4, 5 -> "-3 -15% -15% -15%";
+            case 6, 7 -> "-2 -10% -10% -10%";
+            case 8, 9 -> "-1 -5% -5% -5%";
+            case 10, 11 -> "+0 0 0 0";
+            case 12, 13 -> "+1 0 +5% 0";
+            case 14, 15 -> "+2 0 +10% +5%";
+            case 16, 17 -> "+3 +5% +15% +10%";
+            case 18, 19 -> "+4 +10% +20% +15%";
+            case 20, 21 -> "+5 +15% +25% +20%";
+            case 22, 23 -> "+6 +20% +30% +25%";
+            case 24, 25 -> "+7 +25% +35% +30%";
+            case 26, 27 -> "+8 +30% +40% +35%";
+            case 28, 29 -> "+9 +35% +45% +40%";
+            default -> "Valor fora da faixa";
+        };
 
+        thiefTalentsField.setText(dexHabilits.substring(3));
 
-
-        String conFieldText = "";
-        String pvAndProtectionAjustText = "";
-        String resurrectionChanceText = "";
-
+        String pvAndProtectionAjustText;
+        String resurrectionChanceText;
 
         switch (attribute.getConstitution()) {
-            case 1:
-                pvAndProtectionAjustText = "-5 / 0%";
+            case 1 -> {
+                pvAndProtectionAjustText = "-5";
                 resurrectionChanceText = "0%";
-                break;
-            case 2:
-            case 3:
-                pvAndProtectionAjustText = "-4 / 0%";
+            }
+            case 2, 3 -> {
+                pvAndProtectionAjustText = "-4";
                 resurrectionChanceText = "0%";
-                break;
-            case 4:
-            case 5:
-                pvAndProtectionAjustText = "-3 / 0%";
+            }
+            case 4, 5 -> {
+                pvAndProtectionAjustText = "-3";
                 resurrectionChanceText = "0%";
-                break;
-            case 6:
-            case 7:
-                pvAndProtectionAjustText = "-2 / 1%";
+            }
+            case 6, 7 -> {
+                pvAndProtectionAjustText = "-2";
                 resurrectionChanceText = "1%";
-                break;
-            case 8:
-            case 9:
-                pvAndProtectionAjustText = "-1 / 5%";
+            }
+            case 8, 9 -> {
+                pvAndProtectionAjustText = "-1";
                 resurrectionChanceText = "5%";
-                break;
-            case 10:
-            case 11:
-                pvAndProtectionAjustText = "0 / 10%";
+            }
+            case 10, 11 -> {
+                pvAndProtectionAjustText = "0";
                 resurrectionChanceText = "10%";
-                break;
-            case 12:
-            case 13:
-                pvAndProtectionAjustText = "+1 / 25%";
+            }
+            case 12, 13 -> {
+                pvAndProtectionAjustText = "+1";
                 resurrectionChanceText = "25%";
-                break;
-            case 14:
-            case 15:
-                pvAndProtectionAjustText = "+2 / 50%";
+            }
+            case 14, 15 -> {
+                pvAndProtectionAjustText = "+2";
                 resurrectionChanceText = "50%";
-                break;
-            case 16:
-            case 17:
-                pvAndProtectionAjustText = "+3 / 75%";
+            }
+            case 16, 17 -> {
+                pvAndProtectionAjustText = "+3";
                 resurrectionChanceText = "75%";
-                break;
-            case 18:
-            case 19:
-                pvAndProtectionAjustText = "+4 / 95%";
+            }
+            case 18, 19 -> {
+                pvAndProtectionAjustText = "+4";
                 resurrectionChanceText = "95%";
-                break;
-            case 20:
-            case 21:
-                pvAndProtectionAjustText = "+5 / 100%";
+            }
+            case 20, 21 -> {
+                pvAndProtectionAjustText = "+5";
                 resurrectionChanceText = "100%";
-                break;
-            case 22:
-            case 23:
-                pvAndProtectionAjustText = "+6 / 100%";
+            }
+            case 22, 23 -> {
+                pvAndProtectionAjustText = "+6";
                 resurrectionChanceText = "100%";
-                break;
-            case 24:
-            case 25:
-                pvAndProtectionAjustText = "+7 / 100%";
+            }
+            case 24, 25 -> {
+                pvAndProtectionAjustText = "+7";
                 resurrectionChanceText = "100%";
-                break;
-            case 26:
-            case 27:
-                pvAndProtectionAjustText = "+8 / 100%";
+            }
+            case 26, 27 -> {
+                pvAndProtectionAjustText = "+8";
                 resurrectionChanceText = "100%";
-                break;
-            case 28:
-            case 29:
-                pvAndProtectionAjustText = "+9 / 100%";
+            }
+            case 28, 29 -> {
+                pvAndProtectionAjustText = "+9";
                 resurrectionChanceText = "100%";
-                break;
-            default:
+            }
+            default -> {
                 pvAndProtectionAjustText = "Valor fora da faixa";
                 resurrectionChanceText = "Valor fora da faixa";
-                break;
+            }
         }
-
         pvAndProtectionAjust.setText(pvAndProtectionAjustText);
         resurrectionField.setText(resurrectionChanceText);
 
+        String languagesFieldText;
+        String learnMagicFieldText;
+        String addsMagicFieldText;
+
+        switch (attribute.getIntelligence()) {
+            case 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 -> {
+                languagesFieldText = "0";
+                learnMagicFieldText = "0%";
+                addsMagicFieldText = "-";
+            }
+            case 14, 15 -> {
+                languagesFieldText = "1";
+                learnMagicFieldText = "25%";
+                addsMagicFieldText = "0";
+            }
+            case 16, 17 -> {
+                languagesFieldText = "2";
+                learnMagicFieldText = "35%";
+                addsMagicFieldText = "1 de 1o círculo";
+            }
+            case 18, 19 -> {
+                languagesFieldText = "3";
+                learnMagicFieldText = "45%";
+                addsMagicFieldText = "2 de 1o círculo";
+            }
+            case 20, 21 -> {
+                languagesFieldText = "4";
+                learnMagicFieldText = "55%";
+                addsMagicFieldText = "1 de 2o | 2 de 1o";
+            }
+            case 22, 23 -> {
+                languagesFieldText = "5";
+                learnMagicFieldText = "65%";
+                addsMagicFieldText = "2 de 2o | 2 de 1o";
+            }
+            case 24, 25 -> {
+                languagesFieldText = "6";
+                learnMagicFieldText = "75%";
+                addsMagicFieldText = "1 de 3o | 2 de 2o | 2 de 1o";
+            }
+            case 26, 27 -> {
+                languagesFieldText = "7";
+                learnMagicFieldText = "85%";
+                addsMagicFieldText = "1 de 3o | 2 de 2o | 3 de 1o";
+            }
+            case 28, 29 -> {
+                languagesFieldText = "8";
+                learnMagicFieldText = "95%";
+                addsMagicFieldText = "1 de 3o | 3 de 2o | 3 de 1o";
+            }
+            default -> {
+                languagesFieldText = "Valor não reconhecido";
+                learnMagicFieldText = "Valor não reconhecido";
+                addsMagicFieldText = "Valor não reconhecido";
+            }
+        }
 
         languagesField.setText(languagesFieldText);
         learnMagicField.setText(learnMagicFieldText);
-        addsMagicField.setText(addsMagicFieldText);
-        String protectionAjustFieldText = "";
+        addsMagicArcField.setText(addsMagicFieldText);
 
-        switch (attribute.getDexterity()) {
-            case 1:
-                protectionAjustFieldText = "-5";
-                break;
-            case 2:
-            case 3:
-                protectionAjustFieldText = "-4";
-                break;
-            case 4:
-            case 5:
-                protectionAjustFieldText = "-3";
-                break;
-            case 6:
-            case 7:
-                protectionAjustFieldText = "-2";
-                break;
-            case 8:
-            case 9:
-                protectionAjustFieldText = "-1";
-                break;
-            case 10:
-            case 11:
-                protectionAjustFieldText = "0";
-                break;
-            case 12:
-            case 13:
-                protectionAjustFieldText = "+1";
-                break;
-            case 14:
-            case 15:
-                protectionAjustFieldText = "+2";
-                break;
-            case 16:
-            case 17:
-                protectionAjustFieldText = "+3";
-                break;
-            case 18:
-            case 19:
-                protectionAjustFieldText = "+4";
-                break;
-            case 20:
-            case 21:
-                protectionAjustFieldText = "+5";
-                break;
-            case 22:
-            case 23:
-                protectionAjustFieldText = "+6";
-                break;
-            case 24:
-            case 25:
-                protectionAjustFieldText = "+7";
-                break;
-            case 26:
-            case 27:
-                protectionAjustFieldText = "+8";
-                break;
-            case 28:
-            case 29:
-                protectionAjustFieldText = "+9";
-                break;
-            default:
-                protectionAjustFieldText = "Valor fora da faixa";
-                break;
-        }
+        CharacterAttributes.Wisdom wisdomTable = new CharacterAttributes.Wisdom();
+        protectionAjustField.setText((String) wisdomTable.getTableWisdom(attribute.getWisdom()).get("Ajuste de proteção"));
+        addsMagicArcField.setText(String.valueOf((int) wisdomTable.getTableWisdom(attribute.getWisdom()).get("Total Magias divinas adicionais")));
 
-        protectionAjustField.setText(protectionAjustFieldText);
-        int caFieldText = Integer.parseInt(protectionAjustFieldText) + 10;
-        if(character.getRaceId() == 4){
-            caFieldText+= 2;
-        }
-        caField.setText(String.valueOf(caFieldText));
-
-        String followersFieldText = "";
-        String reactionFieldText = "";
-        String deathLiveFieldText = "";
+        String followersFieldText;
+        String reactionFieldText;
+        String deathLiveFieldText;
 
         switch (attribute.getCharisma()) {
-            case 1:
+            case 1 -> {
                 followersFieldText = "0";
                 reactionFieldText = "-25%";
                 deathLiveFieldText = "0";
-                break;
-            case 2:
-            case 3:
+            }
+            case 2, 3 -> {
                 followersFieldText = "0";
                 reactionFieldText = "-20%";
                 deathLiveFieldText = "0";
-                break;
-            case 4:
-            case 5:
+            }
+            case 4, 5 -> {
                 followersFieldText = "0";
                 reactionFieldText = "-15%";
                 deathLiveFieldText = "0";
-                break;
-            case 6:
-            case 7:
+            }
+            case 6, 7 -> {
                 followersFieldText = "0";
                 reactionFieldText = "-10%";
                 deathLiveFieldText = "0";
-                break;
-            case 8:
-            case 9:
+            }
+            case 8, 9 -> {
                 followersFieldText = "0";
                 reactionFieldText = "-5%";
                 deathLiveFieldText = "1";
-                break;
-            case 10:
-            case 11:
+            }
+            case 10, 11 -> {
                 followersFieldText = "1";
                 reactionFieldText = "0";
                 deathLiveFieldText = "1d2";
-                break;
-            case 12:
-            case 13:
+            }
+            case 12, 13 -> {
                 followersFieldText = "2";
                 reactionFieldText = "+5%";
                 deathLiveFieldText = "1d3";
-                break;
-            case 14:
-            case 15:
+            }
+            case 14, 15 -> {
                 followersFieldText = "3";
                 reactionFieldText = "+10%";
                 deathLiveFieldText = "1d4";
-                break;
-            case 16:
-            case 17:
+            }
+            case 16, 17 -> {
                 followersFieldText = "4";
                 reactionFieldText = "+15%";
                 deathLiveFieldText = "1d6";
-                break;
-            case 18:
-            case 19:
+            }
+            case 18, 19 -> {
                 followersFieldText = "5";
                 reactionFieldText = "+20%";
                 deathLiveFieldText = "1d8";
-                break;
-            case 20:
-            case 21:
+            }
+            case 20, 21 -> {
                 followersFieldText = "6";
                 reactionFieldText = "+25%";
                 deathLiveFieldText = "2d4";
-                break;
-            case 22:
-            case 23:
+            }
+            case 22, 23 -> {
                 followersFieldText = "7";
                 reactionFieldText = "+30%";
                 deathLiveFieldText = "1d10";
-                break;
-            case 24:
-            case 25:
+            }
+            case 24, 25 -> {
                 followersFieldText = "8";
                 reactionFieldText = "+35%";
                 deathLiveFieldText = "1d12";
-                break;
-            case 26:
-            case 27:
+            }
+            case 26, 27 -> {
                 followersFieldText = "9";
                 reactionFieldText = "+40%";
                 deathLiveFieldText = "2d6";
-                break;
-            case 28:
-            case 29:
+            }
+            case 28, 29 -> {
                 followersFieldText = "10";
                 reactionFieldText = "+45%";
                 deathLiveFieldText = "1d20";
-                break;
-            default:
+            }
+            default -> {
                 followersFieldText = "Valor fora da faixa";
                 reactionFieldText = "Valor fora da faixa";
                 deathLiveFieldText = "Valor fora da faixa";
-                break;
+            }
         }
-
 
         followersField.setText(followersFieldText);
         reactionField.setText(reactionFieldText);
         deathLiveField.setText(deathLiveFieldText);
 
-        String thiefTalentsFieldText = "";
-
-        switch (character.level) {
-
-            case 1:
-                thiefTalentsFieldText = "15%   20%   80%   20%   10%   20%   1-2   x2";
-                break;
-            case 2:
-            case 3:
-                thiefTalentsFieldText = "20%   25%   81%   25%   15%   25%   1-2   x2";
-                break;
-            case 4:
-            case 5:
-                thiefTalentsFieldText = "25%   30%   82%   30%   20%   30%   1-2   x2";
-                break;
-            case 6:
-            case 7:
-                thiefTalentsFieldText = "30%   35%   83%   35%   25%   35%   1-2   x2";
-                break;
-            case 8:
-            case 9:
-                thiefTalentsFieldText = "35%   40%   84%   40%   30%   40%   1-3   x2";
-                break;
-            case 10:
-            case 11:
-                thiefTalentsFieldText = "40%   45%   85%   45%   35%   45%   1-3   x3";
-                break;
-            case 12:
-            case 13:
-                thiefTalentsFieldText = "64%   66%   91%   72%   62%   72%   1-4   x4";
-                break;
-            case 14:
-            case 15:
-                thiefTalentsFieldText = "68%   70%   93%   76%   66%   76%   1-4   x4";
-                break;
-            case 16:
-            case 17:
-                thiefTalentsFieldText = "72%   74%   95%   80%   70%   80%   1-5   x4";
-                break;
-            case 18:
-            case 19:
-                thiefTalentsFieldText = "76%   78%   97%   84%   74%   84%   1-5   x5";
-                break;
-            case 20:
-            case 21:
-                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
-                break;
-            case 22:
-            case 23:
-                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
-                break;
-            case 24:
-            case 25:
-                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
-                break;
-            case 26:
-            case 27:
-                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
-                break;
-            case 28:
-            case 29:
-                thiefTalentsFieldText = "80%   82%   99%   88%   78%   88%   1-5   x5";
-                break;
-            default:
-                thiefTalentsFieldText = "Valores fora da faixa";
-                break;
-        }
-
-        thiefTalentsField.setText(thiefTalentsFieldText);
     }
 
     @FXML

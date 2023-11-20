@@ -1,6 +1,5 @@
 package com.teamvectora.elixirapi.controller;
 
-import com.teamvectora.elixirapi.Secrets;
 import com.teamvectora.elixirapi.dao.FolderDAO;
 import com.teamvectora.elixirapi.dao.UserDAO;
 import com.teamvectora.elixirapi.manager.ObjectSaveManager;
@@ -12,10 +11,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-
-import java.util.Properties;
-import javax.mail.*;
-import javax.mail.internet.*;
 
 import java.sql.SQLException;
 

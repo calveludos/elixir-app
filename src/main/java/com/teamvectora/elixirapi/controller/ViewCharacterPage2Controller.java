@@ -11,10 +11,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -153,15 +156,20 @@ public class ViewCharacterPage2Controller extends MenuController {
 
     @FXML
     public void initialize() {
+        super.addHeader();
+
         reader = new ObjectSaveManager();
         character = (CharacterMaster) reader.getObject("character");
 
         setHeader();
-        setEquipments();
+        if (character.getInventory() != null)
+            setEquipments();
         setDeathLives();
         setThiefTalents();
-        setLanguages();
-        setCurrency();
+        if (character.getSpeech() != null)
+            setLanguages();
+        if (character.getCurrency() != null)
+            setCurrency();
         setXP();
     }
 
@@ -211,28 +219,31 @@ public class ViewCharacterPage2Controller extends MenuController {
         weightColumn.setCellValueFactory(new PropertyValueFactory<>("weight"));
 
         ObservableList<EquipmentTable> tableObservableList = FXCollections.observableArrayList();
-        character.getInventory().forEach(inventory -> {
-            JSONObject itemObject = null;
-            try {
-                switch (inventory.getTypeItemId()){
-                    case TypeID.WEAPONS:
-                        itemObject = (JSONObject) JsonManger.get("weapons/weapons:" + inventory.getItemId());
-                    case TypeID.ARMOR:
-                        itemObject = (JSONObject) JsonManger.get("armor/armors:" + inventory.getItemId());
-                    case TypeID.SHIELDS:
-                        itemObject = (JSONObject) JsonManger.get("shields/shields:" + inventory.getItemId());
-                }
+        if (character.getInventory() != null){
 
-                assert itemObject != null;
-                String name = (String) itemObject.get("name");
-                double weight = Double.parseDouble(((String) itemObject.get("weight")).replace(" kg", ""));
-                EquipmentTable equipment = new EquipmentTable(name, weight);
-                tableObservableList.add(equipment);
-            } catch (IOException | ParseException e) {
-                throw new RuntimeException(e);
-            } catch (java.lang.ClassCastException ignored){}
+            character.getInventory().forEach(inventory -> {
+                JSONObject itemObject = null;
+                try {
+                    switch (inventory.getTypeItemId()){
+                        case TypeID.WEAPONS:
+                            itemObject = (JSONObject) JsonManger.get("weapons/weapons:" + inventory.getItemId());
+                        case TypeID.ARMOR:
+                            itemObject = (JSONObject) JsonManger.get("armor/armors:" + inventory.getItemId());
+                        case TypeID.SHIELDS:
+                            itemObject = (JSONObject) JsonManger.get("shields/shields:" + inventory.getItemId());
+                    }
 
-        });
+                    assert itemObject != null;
+                    String name = (String) itemObject.get("name");
+                    double weight = Double.parseDouble(((String) itemObject.get("weight")).replace(" kg", ""));
+                    EquipmentTable equipment = new EquipmentTable(name, weight);
+                    tableObservableList.add(equipment);
+                } catch (IOException | ParseException e) {
+                    throw new RuntimeException(e);
+                } catch (java.lang.ClassCastException ignored){}
+
+            });
+        }
 
         equipmentTableView.setItems(tableObservableList);
     }
@@ -252,9 +263,7 @@ public class ViewCharacterPage2Controller extends MenuController {
             JSONArray livingDeadArray = null;
             try {
                 livingDeadArray = (JSONArray) JsonManger.get("class/cleric/living-dead");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (ParseException e) {
+            } catch (IOException | ParseException e) {
                 throw new RuntimeException(e);
             }
 
@@ -361,6 +370,15 @@ public class ViewCharacterPage2Controller extends MenuController {
 
     @FXML
     void addEquipmentButtonAction(ActionEvent event) {
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+
+        try {
+            popupStage.setScene(new Scene(PaneManager.loadFXML("popupEquipament")));
+            popupStage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
