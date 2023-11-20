@@ -5,19 +5,27 @@ import com.teamvectora.elixirapi.manager.JsonManger;
 import com.teamvectora.elixirapi.manager.ObjectSaveManager;
 import com.teamvectora.elixirapi.manager.PaneManager;
 import com.teamvectora.elixirapi.model.CharacterMaster;
+import com.teamvectora.elixirapi.model.Spell;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import static com.teamvectora.elixirapi.model.tables.TypeID.ARCANE_SPELL;
+import static com.teamvectora.elixirapi.model.tables.TypeID.CLERIC;
 
 public class ViewCharacterPage3Controller extends MenuController {
 
@@ -155,6 +163,8 @@ public class ViewCharacterPage3Controller extends MenuController {
         public String getDescription() {
             return description;
         }
+
+
     }
 
     @FXML
@@ -203,8 +213,42 @@ public class ViewCharacterPage3Controller extends MenuController {
         ObservableList<SpellTable> observableList = FXCollections.observableList(new ArrayList<>());
 
         character.getSpells().forEach(spell -> {
+            JSONObject spellJson;
+            try {
+                spellJson = ((JSONObject) JsonManger.get(spell.getTypeSpellId() == ARCANE_SPELL
+                        ? "arcaneSpells/Magias Arcanas"
+                        : "divinesSpells/Magias Divinas"));
+            } catch (IOException | ParseException e) {
+                throw new RuntimeException(e);
+            }
+
+            String[] levelsSpellsString = {
+                    "1 Circulo", "2 Circulo", "3 Circulo",
+                    "4 Circulo", "5 Circulo", "6 Circulo",
+                    "7 Circulo", "8 Circulo", "9 Circulo",
+            };
+
             SpellTable spellTable = null;
+            for (int i = 0; i < spellJson.size(); i++) {
+                JSONArray spellsArray = (JSONArray) spellJson.get(levelsSpellsString[i]);
+                for (Object o :
+                        spellsArray) {
+                    JSONObject spellObject = (JSONObject) o;
+                    if (Integer.parseInt(spellObject.get("id").toString()) == spell.getSpellId()){
+                        spellTable = new SpellTable(
+                                levelsSpellsString[i].replace(" ", "° "),
+                                spellObject.get("name").toString(),
+                                spellObject.get("range").toString(),
+                                spellObject.get("duration").toString(),
+                                spellObject.get("description").toString()
+                        );
+                    }
+                }
+            }
+
             observableList.add(spellTable);
+
+
         });
 
         spellsTableView.setItems(observableList);
@@ -253,6 +297,23 @@ public class ViewCharacterPage3Controller extends MenuController {
 
     @FXML
     void addSpellButtonAction(ActionEvent event) {
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
+
+        try {
+            popupStage.setScene(new Scene(PaneManager.loadFXML("popupMagic")));
+            popupStage.setResizable(false);
+            popupStage.show();
+            popupStage.setOnHidden(windowEvent -> {
+                ObjectSaveManager saveManager = new ObjectSaveManager();
+                character = (CharacterMaster) saveManager.getObject("character");
+                if (character.getSpells() != null)
+                    setSpellsTable();
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 

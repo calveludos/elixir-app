@@ -13,6 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.ComboBox?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="471.0" style="-fx-background-color: #ced8e0; -fx-border-color: #788896; -fx-border-width: 4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.PopupMagicController">
    <children>
       <VBox layoutX="8.0" layoutY="8.0" prefHeight="258.0" prefWidth="396.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0">
@@ -23,7 +24,7 @@
             <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="351.0" spacing="5.0">
                <children>
                   <TextField fx:id="searchField" prefHeight="40.0" prefWidth="314.0" HBox.hgrow="ALWAYS" />
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#filterAction">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -63,7 +64,7 @@
             </HBox>
             <HBox prefHeight="44.0" prefWidth="351.0" spacing="30.0" VBox.vgrow="ALWAYS">
                <children>
-                  <TextField fx:id="resultMagicComboBox" prefHeight="36.0" prefWidth="568.0" />
+                  <ComboBox fx:id="resultMagicComboBox" prefHeight="36.0" prefWidth="568.0" />
                </children>
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="41.0" prefWidth="351.0">

@@ -378,7 +378,8 @@ public class ViewCharacterPage2Controller extends MenuController {
             popupStage.setOnHidden(windowEvent -> {
                 ObjectSaveManager saveManager = new ObjectSaveManager();
                 character = (CharacterMaster) saveManager.getObject("character");
-                setEquipments();
+                if (character.getInventory() != null)
+                    setEquipments();
             });
         } catch (IOException e) {
             throw new RuntimeException(e);
