@@ -23,8 +23,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
 
-import static com.teamvectora.elixirapi.model.tables.TypeID.CLERIC;
-import static com.teamvectora.elixirapi.model.tables.TypeID.WIZARD;
+import static com.teamvectora.elixirapi.model.tables.TypeID.*;
 
 public class CreateCharacterBackgroundController extends CreateCharacterSectionController {
 
@@ -56,20 +55,15 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         }
         attribute = character.getAttribute();
 
-        if (reader.getObject("bonus") != null){
-            Attribute bonusAttribute = (Attribute) reader.getObject("bonus");
-            attribute.setStrength(attribute.getStrength() + bonusAttribute.getStrength());
-            attribute.setDexterity(attribute.getDexterity() + bonusAttribute.getDexterity());
-            attribute.setConstitution(attribute.getConstitution() + bonusAttribute.getConstitution());
-            attribute.setIntelligence(attribute.getIntelligence() + bonusAttribute.getIntelligence());
-            attribute.setWisdom(attribute.getWisdom() + bonusAttribute.getWisdom());
-            attribute.setCharisma(attribute.getCharisma() + bonusAttribute.getCharisma());
-        }
-
     }
     @FXML
-    void finishButtonAction(ActionEvent event) throws SQLException, IOException, ParseException {
-        finishCharacter();
+    void finishButtonAction(ActionEvent event){
+        try {
+            finishCharacter();
+        } catch (SQLException | ParseException | IOException e) {
+            errorLabel.setText("Ocorreu um erro inesperado");
+            throw new RuntimeException(e);
+        }
     }
 
     private void finishCharacter() throws SQLException, IOException, ParseException {
@@ -78,7 +72,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         double maxHeight = (double) JsonManger.get("race/race:" + character.getRaceId() + "/maxHeight");
         double minHeight = (double) JsonManger.get("race/race:" + character.getRaceId() + "/minHeight");
         long maxWeight = (long) JsonManger.get("race/race:" + character.getRaceId() + "/maxWeight");
-        long minWeight = (long) JsonManger.get("race/race:" + character.getRaceId()  + "/minWeight");
+        long minWeight = (long) JsonManger.get("race/race:" + character.getRaceId() + "/minWeight");
         String jsonDicePv = (String) JsonManger.get("class/" + getClass(character.getClassId()) + "/Dado de Vida");
         System.out.println(jsonDicePv);
         int dicePV = Integer.parseInt(String.valueOf(jsonDicePv).replace("d", ""));
@@ -86,7 +80,7 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         int totalBonusPV = 0;
         for (int i = 1; i <= character.level; i++) {
             String levelBonusPV = String.valueOf(JsonManger.get("class/" + getClass(character.getClassId()) + "/level:" + i + "/Dado de Vida"));
-            if (levelBonusPV.contains("PV")){
+            if (levelBonusPV.contains("PV")) {
                 totalBonusPV += Integer.parseInt(levelBonusPV.replace("PV", "").trim());
             } else {
                 totalBonusPV += dicePV;
@@ -115,6 +109,89 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         character.setFolder(folderMap.get(defaultId));
 
         System.out.println(character);
+
+        Attribute backupAttribute = attribute;
+
+        if (reader.getObject("bonus") != null) {
+            Attribute bonusAttribute = (Attribute) reader.getObject("bonus");
+            attribute.setStrength(attribute.getStrength() + bonusAttribute.getStrength());
+            attribute.setDexterity(attribute.getDexterity() + bonusAttribute.getDexterity());
+            attribute.setConstitution(attribute.getConstitution() + bonusAttribute.getConstitution());
+            attribute.setIntelligence(attribute.getIntelligence() + bonusAttribute.getIntelligence());
+            attribute.setWisdom(attribute.getWisdom() + bonusAttribute.getWisdom());
+            attribute.setCharisma(attribute.getCharisma() + bonusAttribute.getCharisma());
+        }
+
+        if (attribute.getStrength() == 0){
+            errorLabel.setText("Atributo zero para Força");
+            attribute = backupAttribute;
+        }
+        if (attribute.getDexterity() == 0){
+            errorLabel.setText("Atributo zero para Destreza");
+            attribute = backupAttribute;
+        }
+        if (attribute.getConstitution() == 0){
+            errorLabel.setText("Atributo zero para Constituição");
+            attribute = backupAttribute;
+        }
+        if (attribute.getIntelligence() == 0){
+            errorLabel.setText("Atributo zero para Inteligência");
+            attribute = backupAttribute;
+        } 
+        if (attribute.getWisdom() == 0){
+            errorLabel.setText("Atributo zero para Sabedoria");
+            attribute = backupAttribute;
+        }
+        if (attribute.getCharisma() == 0){
+            errorLabel.setText("Atributo zero para Carsima");
+            attribute = backupAttribute;
+        }
+
+        if (attribute.getStrength() > 29)
+            attribute.setStrength(29);
+        if (attribute.getDexterity() > 29)
+            attribute.setDexterity(29);
+        if (attribute.getConstitution() > 29)
+            attribute.setConstitution(29);
+        if (attribute.getIntelligence() > 29)
+            attribute.setIntelligence(29);
+        if (attribute.getWisdom() > 29)
+            attribute.setWisdom(29);
+        if (attribute.getCharisma() > 29)
+            attribute.setCharisma(29);
+        
+        switch (character.getClassId()) {
+            case CLERIC -> {
+                if (invalidateAttribute(12, 14, attribute.getConstitution(), attribute.getWisdom())) {
+                    errorLabel.setText("Atributo menor permitido para a classe");
+                    attribute = backupAttribute;
+                    return;
+                }
+            }
+            case WARRIOR -> {
+                if (invalidateAttribute(12, 12, attribute.getConstitution(), attribute.getStrength())) {
+                    errorLabel.setText("Atributo menor permitido para a classe");
+                    attribute = backupAttribute;
+                    return;
+                }
+            }
+            case THIEF -> {
+                if (invalidateAttribute(12, 0, attribute.getDexterity(), 1)) {
+                    errorLabel.setText("Atributo menor permitido para a classe");
+                    attribute = backupAttribute;
+                    return;
+                }
+            }
+            case WIZARD -> {
+                if (invalidateAttribute(14, 0, attribute.getIntelligence(), 1)) {
+                    errorLabel.setText("Atributo menor permitido para a classe");
+                    attribute = backupAttribute;
+                    return;
+                }
+            }
+            default -> System.out.println("ID de classe inválido");
+        }
+
 
         if (character.getClassId() == CLERIC){
             character.setSlots(new Slots(character.getId(),
@@ -229,4 +306,9 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
                 return "";
         }
     }
+
+    private boolean invalidateAttribute(int minAttribute1, int minAttribute2, int valueAttribute1, int valueAttribute2){
+        return valueAttribute1 < minAttribute1 || valueAttribute2 < minAttribute2;
+    }
+
 }
