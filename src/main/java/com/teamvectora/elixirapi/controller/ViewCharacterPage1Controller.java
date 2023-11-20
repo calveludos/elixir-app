@@ -220,8 +220,8 @@ public class ViewCharacterPage1Controller extends MenuController {
                     .filter(inventory -> inventory.getTypeItemId() == 2)
                     .forEach(inventory -> {
                         try {
-                            long bonus = (long) JsonManger.get("armor/armors:" + inventory.getItemId() + "/bonus_defesa");
-                            caFieldText.addAndGet((int) bonus);
+                            int bonus = Integer.parseInt((String) JsonManger.get("armor/armors:" + inventory.getItemId() + "/bonus_defesa"));
+                            caFieldText.addAndGet(bonus);
                         } catch (IOException | ParseException e) {
                             throw new RuntimeException(e);
                         }
@@ -230,8 +230,8 @@ public class ViewCharacterPage1Controller extends MenuController {
                     .filter(inventory -> inventory.getTypeItemId() == 3)
                     .forEach(inventory -> {
                         try {
-                            long bonus = (long) JsonManger.get("shields/shields:" + inventory.getItemId() + "/bonus_defesa");
-                            caFieldText.addAndGet((int) bonus);
+                            int bonus = Integer.parseInt((String) JsonManger.get("shields/shields:" + inventory.getItemId() + "/bonus_defesa"));
+                            caFieldText.addAndGet(bonus);
                         } catch (IOException | ParseException e) {
                             throw new RuntimeException(e);
                         }
@@ -511,7 +511,7 @@ public class ViewCharacterPage1Controller extends MenuController {
 
         CharacterAttributes.Wisdom wisdomTable = new CharacterAttributes.Wisdom();
         protectionAjustField.setText((String) wisdomTable.getTableWisdom(attribute.getWisdom()).get("Ajuste de proteção"));
-        addsMagicArcField.setText(String.valueOf((int) wisdomTable.getTableWisdom(attribute.getWisdom()).get("Total Magias divinas adicionais")));
+        addsMagicDivField.setText(String.valueOf((int) wisdomTable.getTableWisdom(attribute.getWisdom()).get("Total Magias divinas adicionais")));
 
         String followersFieldText;
         String reactionFieldText;

@@ -1,10 +1,7 @@
 {
   "armors":  [
     {
-      "id_item_type":"2"
-    },
-
-    {
+      "id": 1,
       "name": "Armadura de couro",
       "bonus_defesa": "+2",
       "reducao_movimento": "-",
@@ -12,6 +9,7 @@
       "weight": "10 kg"
     },
     {
+      "id": 2,
       "name": "Armadura de placas",
       "bonus_defesa": "+6",
       "reducao_movimento": "-2 metros",
@@ -19,6 +17,7 @@
       "weight": "20 kg"
     },
     {
+      "id": 3,
       "name": "Cota de malha",
       "bonus_defesa": "+4",
       "reducao_movimento": "-1 metros",
@@ -26,11 +25,13 @@
       "weight": "15 kg"
     },
     {
+      "id": 4,
       "name": "Armadura completa",
       "bonus_defesa": "+8",
       "reducao_movimento": "-3 metros",
       "preco": "2.000 PO",
       "weight": "35 kg"
     }
-  ]
+  ],
+  "id_item_type":"2"
 }

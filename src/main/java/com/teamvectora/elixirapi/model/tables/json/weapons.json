@@ -1,10 +1,7 @@
 {
   "weapons": [
     {
-      "id_item_type":"1"
-    },
-    {
-      "id": "1",
+      "id": 1,
       "name": "Adaga",
       "size": "P",
       "damage": "1d4",
@@ -14,7 +11,7 @@
       "weight": "0.5 kg"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Alabarda",
       "size": "G",
       "damage": "1d10",
@@ -24,7 +21,7 @@
       "weight": "8 kg"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Arco Curto",
       "size": "P",
       "damage": "-",
@@ -34,7 +31,7 @@
       "weight": "0.5 kg"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Arco Longo",
       "size": "G",
       "damage": "-",
@@ -44,7 +41,7 @@
       "weight": "1.5 kg"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Besta",
       "size": "P",
       "damage": "1d6",
@@ -54,7 +51,7 @@
       "weight": "3.5 kg"
     },
     {
-      "id": "6",
+      "id": 6,
       "name": "Bordão/Cajado",
       "size": "M",
       "damage": "1d4",
@@ -64,7 +61,7 @@
       "weight": "1.5 kg"
     },
     {
-      "id": "7",
+      "id": 7,
       "name": "Cimitarra",
       "size": "M",
       "damage": "1d6",
@@ -74,7 +71,7 @@
       "weight": "1.5 kg"
     },
     {
-      "id": "8",
+      "id": 8,
       "name": "Espada Bastarda",
       "size": "G",
       "damage": "1d10",
@@ -84,7 +81,7 @@
       "weight": "3 kg"
     },
     {
-      "id": "9",
+      "id": 9,
       "name": "Espada Curta",
       "size": "P",
       "damage": "1d6",
@@ -94,7 +91,7 @@
       "weight": "1.5 kg"
     },
     {
-      "id": "10",
+      "id": 10,
       "name": "Espada Longa",
       "size": "M",
       "damage": "1d8",
@@ -104,8 +101,8 @@
       "weight": "2 kg"
     },
     {
-      "id": "11",
-      "name":"Flecha de Caça (20)",
+      "id": 11,
+      "name": "Flecha de Caça (20)",
       "size": "-",
       "damage": "1d6",
       "range": "-",
@@ -114,8 +111,8 @@
       "weight": "1 kg"
     },
     {
-      "id": "12",
-      "name":  "Flecha de Guerra (20)",
+      "id": 12,
+      "name": "Flecha de Guerra (20)",
       "size": "-",
       "damage": "1d8",
       "range": "-",
@@ -124,8 +121,8 @@
       "weight": "1.5 kg"
     },
     {
-      "id": "13",
-      "name":  "Funda",
+      "id": 13,
+      "name": "Funda",
       "size": "P",
       "damage": "1d3",
       "range": "10 / 20 / 30",
@@ -134,7 +131,7 @@
       "weight": "-"
     },
     {
-      "id": "14",
+      "id": 14,
       "name": "Lança",
       "size": "M",
       "damage": "1d6",
@@ -144,8 +141,8 @@
       "weight": "2.5 kg"
     },
     {
-      "id": "15",
-      "name":  "Maça",
+      "id": 15,
+      "name": "Maça",
       "size": "M",
       "damage": "1d8",
       "range": "-",
@@ -154,7 +151,7 @@
       "weight": "5 kg"
     },
     {
-      "id": "16",
+      "id": 16,
       "name": "Machado",
       "size": "M",
       "damage": "1d8",
@@ -164,7 +161,7 @@
       "weight": "3.5 kg"
     },
     {
-      "id": "17",
+      "id": 17,
       "name": "Machadinha",
       "size": "P",
       "damage": "1d6",
@@ -174,7 +171,7 @@
       "weight": "2 kg"
     },
     {
-      "id": "18",
+      "id": 18,
       "name": "Mangual",
       "size": "M",
       "damage": "1d8",
@@ -184,7 +181,7 @@
       "weight": "5 kg"
     },
     {
-      "id": "19",
+      "id": 19,
       "name": "Martelo",
       "size": "M",
       "damage": "1d6",
@@ -194,7 +191,7 @@
       "weight": "3 kg"
     },
     {
-      "id": "20",
+      "id": 20,
       "name": "Montante",
       "size": "G",
       "damage": "1d12",
@@ -204,8 +201,8 @@
       "weight": "10 kg"
     },
     {
-      "id": "21",
-      "name":  "Porrete",
+      "id": 21,
+      "name": "Porrete",
       "size": "M",
       "damage": "1d4",
       "range": "-",
@@ -214,7 +211,7 @@
       "weight": "0.5 kg"
     },
     {
-      "id": "22",
+      "id": 22,
       "name": "Quatrelo p/ bestas (10)",
       "size": "-",
       "damage": "-",
@@ -224,7 +221,7 @@
       "weight": "2 kg"
     },
     {
-      "id": "23",
+      "id": 23,
       "name": "Sabre",
       "size": "P",
       "damage": "1d6",
@@ -233,5 +230,6 @@
       "price": "8 PP",
       "weight": "1 kg"
     }
-  ]
+  ],
+  "id_item_type":"1"
 }

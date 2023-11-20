@@ -133,9 +133,6 @@ public class ViewCharacterPage2Controller extends MenuController {
     private CharacterMaster character;
     private int nextLevelXP;
 
-    public void addEquipamentButtonAction(ActionEvent event) {
-    }
-
     public static class EquipmentTable{
         public final String name;
         public final double weight;
@@ -221,26 +218,29 @@ public class ViewCharacterPage2Controller extends MenuController {
         ObservableList<EquipmentTable> tableObservableList = FXCollections.observableArrayList();
         if (character.getInventory() != null){
 
+            System.out.println(character.getInventory());
+
             character.getInventory().forEach(inventory -> {
-                JSONObject itemObject = null;
+                JSONArray arrayObject = null;
                 try {
-                    switch (inventory.getTypeItemId()){
-                        case TypeID.WEAPONS:
-                            itemObject = (JSONObject) JsonManger.get("weapons/weapons:" + inventory.getItemId());
-                        case TypeID.ARMOR:
-                            itemObject = (JSONObject) JsonManger.get("armor/armors:" + inventory.getItemId());
-                        case TypeID.SHIELDS:
-                            itemObject = (JSONObject) JsonManger.get("shields/shields:" + inventory.getItemId());
+                    switch (inventory.getTypeItemId()) {
+                        case TypeID.WEAPONS ->
+                                arrayObject = (JSONArray) JsonManger.get("weapons/weapons");
+                        case TypeID.ARMOR ->
+                                arrayObject = (JSONArray) JsonManger.get("armor/armors");
+                        case TypeID.SHIELDS ->
+                                arrayObject = (JSONArray) JsonManger.get("shields/shields");
                     }
 
-                    assert itemObject != null;
+                    assert arrayObject != null;
+                    JSONObject itemObject = (JSONObject) arrayObject.get(inventory.getItemId() - 1);
                     String name = (String) itemObject.get("name");
                     double weight = Double.parseDouble(((String) itemObject.get("weight")).replace(" kg", ""));
                     EquipmentTable equipment = new EquipmentTable(name, weight);
                     tableObservableList.add(equipment);
                 } catch (IOException | ParseException e) {
                     throw new RuntimeException(e);
-                } catch (java.lang.ClassCastException ignored){}
+                }
 
             });
         }
@@ -305,9 +305,7 @@ public class ViewCharacterPage2Controller extends MenuController {
             JSONArray thiefSkillsArray = null;
             try {
                 thiefSkillsArray = (JSONArray) JsonManger.get("class/thief/Thief_Skills");
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (ParseException e) {
+            } catch (IOException | ParseException e) {
                 throw new RuntimeException(e);
             }
 
@@ -375,7 +373,13 @@ public class ViewCharacterPage2Controller extends MenuController {
 
         try {
             popupStage.setScene(new Scene(PaneManager.loadFXML("popupEquipament")));
+            popupStage.setResizable(false);
             popupStage.show();
+            popupStage.setOnHidden(windowEvent -> {
+                ObjectSaveManager saveManager = new ObjectSaveManager();
+                character = (CharacterMaster) saveManager.getObject("character");
+                setEquipments();
+            });
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

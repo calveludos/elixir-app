@@ -1,21 +1,21 @@
 {
   "shields": [
     {
-    "id_item_type":"3"
+      "id": 1,
+      "name": "Escudo de madeira",
+      "bonus_defesa": "+1",
+      "reducao_movimento": "-",
+      "preco": "8 PO",
+      "weight": "5 kg"
     },
     {
-    "name": "Escudo de madeira",
-    "bonus_defesa": "+1",
-    "reducao_movimento": "-",
-    "preco": "8 PO",
-    "weight": "5 kg"
-    },
-    {
-    "name": "Escudo de aço",
-    "bonus_defesa": "+2",
-    "reducao_movimento": "-",
-    "preco": "15 PO",
-    "weight": "15 kg"
+      "id": 2,
+      "name": "Escudo de aço",
+      "bonus_defesa": "+2",
+      "reducao_movimento": "-",
+      "preco": "15 PO",
+      "weight": "15 kg"
     }
-  ]
+  ],
+  "id_item_type":"3"
 }

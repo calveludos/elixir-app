@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,17 +13,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import java.net.URL?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="207.0" prefWidth="294.0" style="-fx-background-color: #ced8e0; -fx-border-color: #788896; -fx-border-width: 4;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="266.0" prefWidth="471.0" style="-fx-background-color: #ced8e0; -fx-border-color: #788896; -fx-border-width: 4;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.PopupMagicController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="8.0" layoutY="8.0" prefHeight="258.0" prefWidth="396.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="4.0">
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
          <children>
             <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="351.0" spacing="5.0">
                <children>
-                  <TextField prefHeight="40.0" prefWidth="314.0" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="searchField" prefHeight="40.0" prefWidth="314.0" HBox.hgrow="ALWAYS" />
                   <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                      <HBox.margin>
                         <Insets />
@@ -30,6 +31,25 @@
                         <Image url="@../media/lupa.png" />
                      </image>
                   </ImageView>
+               </children>
+            </HBox>
+            <HBox prefHeight="27.0" prefWidth="266.0" spacing="10.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" fx:id="filterDivineSpell" text="DIVINAS" />
+                  <CheckBox mnemonicParsing="false" fx:id="filterArcaneSpell" text="ARCANAS" />
+               </children>
+            </HBox>
+            <HBox prefHeight="27.0" prefWidth="266.0" spacing="10.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" fx:id="filterLevel1o" text="1o" />
+                  <CheckBox mnemonicParsing="false" fx:id="filterLevel2o" text="2o" />
+                  <CheckBox mnemonicParsing="false" fx:id="filterLevel3o" text="3o" />
+                  <CheckBox mnemonicParsing="false" fx:id="filterLevel4o" text="4o" />
+                  <CheckBox mnemonicParsing="false" fx:id="filterLevel5o" text="5o" />
+                  <CheckBox mnemonicParsing="false" fx:id="filterLevel6o" text="6o" />
+                  <CheckBox mnemonicParsing="false" fx:id="filterLevel7o" text="7o" />
+                  <CheckBox mnemonicParsing="false" fx:id="filterLevel8o" text="8o" />
+                  <CheckBox mnemonicParsing="false" fx:id="filterLevel9o" text="9o" />
                </children>
             </HBox>
             <HBox prefHeight="35.0" prefWidth="351.0">
@@ -43,12 +63,12 @@
             </HBox>
             <HBox prefHeight="44.0" prefWidth="351.0" spacing="30.0" VBox.vgrow="ALWAYS">
                <children>
-                  <TextField prefHeight="40.0" prefWidth="271.0" />
+                  <TextField fx:id="resultMagicComboBox" prefHeight="36.0" prefWidth="568.0" />
                </children>
             </HBox>
             <HBox alignment="TOP_RIGHT" prefHeight="41.0" prefWidth="351.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="90.0" text="CRIAR" textFill="WHITE">
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#addButtonAction" prefHeight="34.0" prefWidth="113.0" text="ADICIONAR" textFill="WHITE">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
@@ -62,7 +82,7 @@
       </VBox>
    </children>
    <stylesheets>
-      <URL value= "@../styles/Buttons1.css" />
-      <URL value= "@../styles/Font.css" />
+      <URL value="@../styles/Buttons1.css" />
+      <URL value="@../styles/Font.css" />
    </stylesheets>
 </AnchorPane>
