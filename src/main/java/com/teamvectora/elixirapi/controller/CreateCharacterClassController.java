@@ -8,6 +8,7 @@ import com.teamvectora.elixirapi.model.CharacterMaster;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 import static com.teamvectora.elixirapi.model.tables.TypeID.*;
 
@@ -18,7 +19,6 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
     private Label messageLabel;
     @FXML
     private Label messageLabel1;
-
     private CharacterMaster character;
     private Attribute attribute;
 
@@ -58,6 +58,7 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
             }
         }
     }
+
 
     @FXML
     void choiseClerigoButtonAction(ActionEvent event) {

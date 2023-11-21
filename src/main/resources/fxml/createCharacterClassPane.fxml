@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.CreateCharacterClassController">
+<AnchorPane fx:id="anchorRoot" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.CreateCharacterClassController">
 
     <!-- Cabeçalho superior -->
     <HBox alignment="CENTER_LEFT" prefHeight="114.0" prefWidth="1000.0" style="-fx-background-color: #434343;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
@@ -166,11 +166,11 @@
                            <Insets />
                         </VBox.margin>
                        </VBox>
-                     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="326.0" prefWidth="610.0" style="-fx-background-color: #ced8e0; -fx-border-color: #818d97; -fx-border-width: 1.0;" VBox.vgrow="ALWAYS">
+                     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="326.0" prefWidth="657.0" style="-fx-background-color: #ced8e0; -fx-border-color: #818d97; -fx-border-width: 1.0;" VBox.vgrow="ALWAYS">
                         <children>
                            <ScrollPane prefHeight="300.0" prefWidth="544.0" VBox.vgrow="ALWAYS">
                               <content>
-                                 <Accordion layoutX="172.0" layoutY="255.0" prefHeight="298.0" prefWidth="568.0">
+                                 <Accordion layoutX="172.0" layoutY="255.0" prefHeight="298.0" prefWidth="613.0">
                                     <panes>
                                        <TitledPane fx:id="clerigoAccordion" animated="false" prefHeight="62.0" prefWidth="537.0">
                                           <font>
@@ -194,10 +194,14 @@
                                              </AnchorPane>
                                           </graphic>
                                           <content>
-                                             <TextArea fx:id="clerigoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                             <TextArea fx:id="clerigoTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="O clérigo é visto como o líder espiritual de um grupo de aventureiros. &#10;Dedicado a servir a uma criatura sobrenatural, muitas vezes considerada como um deus, &#10;o clérigo toma os dogmas desse deus como um guia para as decisões que há de tomar.">
+                                                <font>
+                                                   <Font name="System Bold" size="13.0" />
+                                                </font>
+                                             </TextArea>
                                           </content>
                                        </TitledPane>
-                                       <TitledPane fx:id="hdaAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
+                                       <TitledPane fx:id="hdaAccordion" animated="false" prefHeight="130.0" prefWidth="602.0">
                                           <font>
                                              <Font name="System Bold Italic" size="26.0" />
                                           </font>
@@ -219,7 +223,11 @@
                                              </AnchorPane>
                                           </graphic>
                                           <content>
-                                             <TextArea fx:id="hdaTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                             <TextArea fx:id="hdaTextArea" editable="false" prefHeight="58.0" prefWidth="611.0" text="O homem de armas é o especialista em combate. Seu principal atributo é a Força, &#10;que permite causar um considerável dano em seus inimigos. Devido à sua capacidade de &#10;resistir aos ferimentos, geralmente o homem de armas se coloca em meio aos inimigos para atrair &#10;a sua atenção e, dessa forma, proteger seus companheiros mais fracos e feridos.">
+                                                <font>
+                                                    <Font name="System Bold" size="13.0" />
+                                                </font>
+                                             </TextArea>
                                           </content>
                                        </TitledPane>
                                        <TitledPane fx:id="ladraoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
@@ -244,7 +252,11 @@
                                              </AnchorPane>
                                           </graphic>
                                           <content>
-                                             <TextArea fx:id="ladraoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                             <TextArea fx:id="ladraoTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="O ladrão é um personagem que se especializa em arrombar fechaduras, desarmar armadilhas&#10;e outras atividades furtivas, além de roubar,pungar e outras formas ilícitas de enriquecimento. &#10;Um bom ladrão é membro de uma guilda, pois, com seus contatos, consegue descobrir&#10;informações secretas.">
+                                                <font>
+                                                    <Font name="System Bold" size="13.0" />
+                                                </font>
+                                             </TextArea>
                                           </content>
                                        </TitledPane>
                                        <TitledPane fx:id="magoAccordion" animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="0.0" prefHeight="47.0" prefWidth="373.0">
@@ -269,7 +281,11 @@
                                              </AnchorPane>
                                           </graphic>
                                           <content>
-                                             <TextArea fx:id="magoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                             <TextArea fx:id="magoTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="O mago é um pesquisador de magias arcanas, que as escreve em seus grimórios ou em &#10;pergaminhos, sendo que os mais experientes conseguem criar itens mágicos extraordinários.&#10;Por dedicar seu tempo a estudos e desenvolvimento de magias, um mago não tem boa &#10;habilidade marcial em combate e deve evitar a todo custo o confronto direto com inimigos.">
+                                                <font>
+                                                    <Font name="System Bold" size="13.0" />
+                                                </font>
+                                             </TextArea>
                                           </content>
                                        </TitledPane>
                                     </panes>

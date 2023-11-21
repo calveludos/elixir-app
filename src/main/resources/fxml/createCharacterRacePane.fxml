@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="anchorRoot" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.CreateCharacterRaceController">
+<AnchorPane fx:id="anchorRoot" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamvectora.elixirapi.controller.CreateCharacterRaceController">
     <!-- Menu Lateral -->
 
     <!-- Cabeçalho superior -->
@@ -167,11 +167,11 @@
                            <Insets />
                         </VBox.margin>
                        </VBox>
-                     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="610.0" style="-fx-background-color: #ced8e0; -fx-border-color: #818d97; -fx-border-width: 1.0;" VBox.vgrow="ALWAYS">
+                     <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="334.0" prefWidth="657.0" style="-fx-background-color: #ced8e0; -fx-border-color: #818d97; -fx-border-width: 1.0;" VBox.vgrow="ALWAYS">
                         <children>
                            <ScrollPane prefHeight="300.0" prefWidth="544.0" VBox.vgrow="ALWAYS">
                               <content>
-                                 <Accordion layoutX="172.0" layoutY="255.0" prefHeight="298.0" prefWidth="568.0">
+                                 <Accordion layoutX="172.0" layoutY="255.0" prefHeight="298.0" prefWidth="613.0">
                                     <panes>
                                        <TitledPane fx:id="clerigoAccordion" animated="false" prefHeight="62.0" prefWidth="537.0">
                                           <font>
@@ -195,10 +195,13 @@
                                              </AnchorPane>
                                           </graphic>
                                           <content>
-                                             <TextArea fx:id="clerigoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                             <TextArea fx:id="clerigoTextArea"  editable="false" prefHeight="200.0" prefWidth="200.0" text="Os humanos são criaturas versáteis, valorosas e muito ambiciosas e, por isso, acabam &#10;representando a maioria da população. Essa versatilidade e ambição fazem com que &#10;humanos de diferentes lugares possuam hábitos e costumes tambémdiferentes, &#10;sendo que o ambiente acaba influenciando a forma como a raça se desenvolve como um todo.">
+                                                <font>
+                                                   <Font name="System Bold" size="13.0" />
+                                                </font></TextArea>
                                           </content>
                                        </TitledPane>
-                                       <TitledPane fx:id="hdaAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
+                                       <TitledPane fx:id="hdaAccordion" animated="false" prefHeight="130.0" prefWidth="605.0">
                                           <font>
                                              <Font name="System Bold Italic" size="26.0" />
                                           </font>
@@ -220,7 +223,10 @@
                                              </AnchorPane>
                                           </graphic>
                                           <content>
-                                             <TextArea fx:id="hdaTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                             <TextArea fx:id="hdaTextArea" editable="false" prefHeight="93.0" prefWidth="566.0" text="Os anões são pequenos seres robustos e atarracados, famosos por serem rabugentos e &#10;teimosos.Como habitantes do subterrâneo, os anões são mineradores fabulosos e &#10;ferreiros extremamente competentes, conhecidos pela capacidade de transformarem &#10;blocos metálicos em verdadeiras obras de arte e armas &#10;dignas das melhores estórias.">
+                                                <font>
+                                                   <Font name="System Bold" size="13.0" />
+                                                </font></TextArea>
                                           </content>
                                        </TitledPane>
                                        <TitledPane fx:id="ladraoAccordion" animated="false" prefHeight="47.0" prefWidth="373.0">
@@ -245,7 +251,10 @@
                                              </AnchorPane>
                                           </graphic>
                                           <content>
-                                             <TextArea fx:id="ladraoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                             <TextArea fx:id="ladraoTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="Os elfos são humanoides esguios e silvestres, com antecedentes místicos e aparência &#10;inconfundível. São ligeiramente mais baixos que oshumanos, se diferenciando ainda mais &#10;nos traços faciais delicados, finos egraciosos. As orelhas são longas e pontudas, e os &#10;olhos amendoados, levemente alongados. Os cabelos são sempre lisos e limpos e &#10;comumentelongos, mesmo entre os elfos machos,podendo ter uma miríade de cores &#10;e tons que vão do completo negro ao branco prateado.">
+                                                <font>
+                                                   <Font name="System Bold" size="13.0" />
+                                                </font></TextArea>
                                           </content>
                                        </TitledPane>
                                        <TitledPane fx:id="magoAccordion" animated="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="0.0" prefHeight="47.0" prefWidth="373.0">
@@ -270,7 +279,10 @@
                                              </AnchorPane>
                                           </graphic>
                                           <content>
-                                             <TextArea fx:id="magoTextArea" prefHeight="200.0" prefWidth="200.0" />
+                                             <TextArea fx:id="magoTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="Os halflings são seres pequenos, cuja capacidade de encrencar-se é inversamente proporcional &#10;ao seu tamanho.Odiando o marasmo, os halflings preferem a confusão e a diversão ao tédio, &#10;e é justamente esse sentimento de aventura que os torna tão aptos a caírem na estrada e &#10;se tornarem peregrinos e aventureiros.">
+                                                <font>
+                                                   <Font name="System Bold" size="13.0" />
+                                                </font></TextArea>
                                           </content>
                                        </TitledPane>
                                     </panes>
