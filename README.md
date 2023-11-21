@@ -18,6 +18,7 @@
   Role playing game (RPG), é um jogo no qual você interpreta papeis.
 </h3>
 
+## Sobre a APP
 
 ### 🚀 Instruções de Instalção
 
