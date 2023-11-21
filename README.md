@@ -48,7 +48,7 @@
 4. **Explore nossa App:**
    - Após a conclusão dos comandos acima, seu gerênciador de fichas de RPG será iniciado. Explore a interface conforme necessário para entender o funcionamento e as funcionalidades
 
-###📲 Navegabilidade e Funcionalidades
+### 📲 Navegabilidade e Funcionalidades
 - Utilize o botão direito para apagar pastas, personagens e itens de listas
 - Utilize o menu lateral para navegar entre as telas
 - Adicione novas magias, equipamentos e idiomas
