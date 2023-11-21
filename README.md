@@ -19,6 +19,35 @@
 </h3>
 
 
+### 🚀 Instruções de Instalção
+
+1. **Clone o Repositório:**
+   - Abra o terminal e execute o seguinte comando para clonar o repositório:
+        ```` bash
+         git clone https://github.com/team-vectora/elixir-api
+        ````
+        
+2. **Acesse a Pasta do Repositório:**
+   - Navegue até a pasta recém-clonada usando o comando:
+        ```` bash
+          cd elixir-api
+        ````
+
+3. **Instale as Dependências e Execute o Aplicativo:**
+   - Use os seguintes comandos para instalar as dependências e iniciar o aplicativo:
+        ```` bash
+         ./mvnw install
+         ./mvnw javafx:run
+        ````
+    - Ou, no Windows
+        ```` bash
+         .\mvnw install
+         .\mvnw javafx:run
+        ````
+   
+4. **Explore nossa App:**
+   - Após a conclusão dos comandos acima, seu gerênciador de fichas de RPG será iniciado. Explore a interface conforme necessário para entender o funcionamento e as funcionalidades
+
 <h2>
   Colaboradores
 </h2>
