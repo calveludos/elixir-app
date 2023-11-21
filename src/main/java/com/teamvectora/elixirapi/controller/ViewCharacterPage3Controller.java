@@ -5,6 +5,7 @@ import com.teamvectora.elixirapi.manager.JsonManger;
 import com.teamvectora.elixirapi.manager.ObjectSaveManager;
 import com.teamvectora.elixirapi.manager.PaneManager;
 import com.teamvectora.elixirapi.model.CharacterMaster;
+import com.teamvectora.elixirapi.model.Slots;
 import com.teamvectora.elixirapi.model.Spell;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
@@ -24,8 +26,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.teamvectora.elixirapi.model.tables.TypeID.ARCANE_SPELL;
-import static com.teamvectora.elixirapi.model.tables.TypeID.CLERIC;
+import static com.teamvectora.elixirapi.model.tables.TypeID.*;
 
 public class ViewCharacterPage3Controller extends MenuController {
 
@@ -135,13 +136,17 @@ public class ViewCharacterPage3Controller extends MenuController {
         public final String range;
         public final String duration;
         public final String description;
+        public final int spellId;
+        public final int spellTypeId;
 
-        public SpellTable(String level, String name, String range, String duration, String description) {
+        public SpellTable(String level, String name, String range, String duration, String description, int spellId, int spellTypeId) {
             this.level = level;
             this.name = name;
             this.range = range;
             this.duration = duration;
             this.description = description;
+            this.spellId = spellId;
+            this.spellTypeId = spellTypeId;
         }
 
         public String getLevel() {
@@ -165,6 +170,13 @@ public class ViewCharacterPage3Controller extends MenuController {
         }
 
 
+        public int getSpellId() {
+            return spellId;
+        }
+
+        public int getTypeSpellId() {
+            return spellTypeId;
+        }
     }
 
     @FXML
@@ -177,21 +189,42 @@ public class ViewCharacterPage3Controller extends MenuController {
         setHeader();
         if (character.getSpells() != null)
             setSpellsTable();
-        if (character.getSlots() != null)
-            setSlots();
+        if (character.getSlots() != null && (character.getClassId() == CLERIC || character.getClassId() == WIZARD)) {
+            try {
+                setSlots();
+            } catch (IOException | ParseException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        else
+            setNotSlots();
     }
 
-    private void setSlots() {
-        spell1.setText(String.valueOf(character.getSlots().getILevel()));
-        spell2.setText(String.valueOf(character.getSlots().getIiLevel()));
-        spell3.setText(String.valueOf(character.getSlots().getIiiLevel()));
-        spell4.setText(String.valueOf(character.getSlots().getIvLevel()));
-        spell5.setText(String.valueOf(character.getSlots().getVLevel()));
-        spell6.setText(String.valueOf(character.getSlots().getViLevel()));
-        spell7.setText(String.valueOf(character.getSlots().getViiLevel()));
-        spell8.setText(String.valueOf(character.getSlots().getViiiLevel()));
-        spell9.setText(String.valueOf(character.getSlots().getIxLevel()));
-        
+    private void setSlots() throws IOException, ParseException {
+
+        if (character.getClassId() == CLERIC){
+            spell1.setText(JsonManger.get("class/cleric/level:" + character.level + "/1o").toString());
+            spell2.setText(JsonManger.get("class/cleric/level:" + character.level + "/2o").toString());
+            spell3.setText(JsonManger.get("class/cleric/level:" + character.level + "/3o").toString());
+            spell4.setText(JsonManger.get("class/cleric/level:" + character.level + "/4o").toString());
+            spell5.setText(JsonManger.get("class/cleric/level:" + character.level + "/5o").toString());
+            spell6.setText(JsonManger.get("class/cleric/level:" + character.level + "/6o").toString());
+            spell7.setText(JsonManger.get("class/cleric/level:" + character.level + "/7o").toString());
+            spell8.setText("-");
+            spell9.setText("-");
+
+        } else if (character.getClassId() == WIZARD){
+            spell1.setText(JsonManger.get("class/wizard/level:" + character.level + "/1o").toString());
+            spell2.setText(JsonManger.get("class/wizard/level:" + character.level + "/2o").toString());
+            spell3.setText(JsonManger.get("class/wizard/level:" + character.level + "/3o").toString());
+            spell4.setText(JsonManger.get("class/wizard/level:" + character.level + "/4o").toString());
+            spell5.setText(JsonManger.get("class/wizard/level:" + character.level + "/5o").toString());
+            spell6.setText(JsonManger.get("class/wizard/level:" + character.level + "/6o").toString());
+            spell7.setText(JsonManger.get("class/wizard/level:" + character.level + "/7o").toString());
+            spell8.setText(JsonManger.get("class/wizard/level:" + character.level + "/8o").toString());
+            spell9.setText(JsonManger.get("class/wizard/level:" + character.level + "/9o").toString());
+        }
+
         spellDay1.setText(String.valueOf(character.getSlots().getILevel()));
         spellDay2.setText(String.valueOf(character.getSlots().getIiLevel()));
         spellDay3.setText(String.valueOf(character.getSlots().getIiiLevel()));
@@ -201,6 +234,28 @@ public class ViewCharacterPage3Controller extends MenuController {
         spellDay7.setText(String.valueOf(character.getSlots().getViiLevel()));
         spellDay8.setText(String.valueOf(character.getSlots().getViiiLevel()));
         spellDay9.setText(String.valueOf(character.getSlots().getIxLevel()));
+    }
+
+    private void setNotSlots() {
+        spell1.setText("-");
+        spell2.setText("-");
+        spell3.setText("-");
+        spell4.setText("-");
+        spell5.setText("-");
+        spell6.setText("-");
+        spell7.setText("-");
+        spell8.setText("-");
+        spell9.setText("-");
+
+        spellDay1.setText("-");
+        spellDay2.setText("-");
+        spellDay3.setText("-");
+        spellDay4.setText("-");
+        spellDay5.setText("-");
+        spellDay6.setText("-");
+        spellDay7.setText("-");
+        spellDay8.setText("-");
+        spellDay9.setText("-");
     }
 
     private void setSpellsTable() {
@@ -240,7 +295,9 @@ public class ViewCharacterPage3Controller extends MenuController {
                                 spellObject.get("name").toString(),
                                 spellObject.get("range").toString(),
                                 spellObject.get("duration").toString(),
-                                spellObject.get("description").toString()
+                                spellObject.get("description").toString(),
+                                spell.getSpellId(),
+                                spell.getTypeSpellId()
                         );
                     }
                 }
@@ -251,10 +308,33 @@ public class ViewCharacterPage3Controller extends MenuController {
 
         });
 
+
+        spellsTableView.setOnMouseClicked(event -> {
+            if (event.getButton().equals(MouseButton.SECONDARY)) {
+                int selectedIndex = spellsTableView.getSelectionModel().getSelectedIndex();
+                if (selectedIndex != -1) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("REMOVER");
+                    alert.setHeaderText("Remover Magia");
+                    alert.setContentText("Você tem certeza que deseja remover essa magia?");
+                    alert.showAndWait().ifPresent(response -> {
+                        if (response.getText().equals("OK")){
+                            character.setSpells(new ArrayList<>(character.getSpells()
+                                    .stream()
+                                    .filter(spell -> spell.getTypeSpellId() != spellsTableView.getItems().get(selectedIndex).getTypeSpellId() ||
+                                                spell.getSpellId() != spellsTableView.getItems().get(selectedIndex).getSpellId())
+                                    .toList()));
+
+                            spellsTableView.getItems().remove(selectedIndex);
+                        }
+                    });
+                }
+            }
+        });
+
         spellsTableView.setItems(observableList);
 
     }
-
 
     private void setHeader() {
         nameCharacterField.setText(character.getName());
@@ -262,36 +342,9 @@ public class ViewCharacterPage3Controller extends MenuController {
         String race = MyCharactersController.getRaceId(character.getRaceId());
         classAndRaceField.setText(clas.toUpperCase() + " / " + race.toUpperCase());
 
-        JSONArray levelsArray;
-
-        try {
-            levelsArray = (JSONArray) JsonManger.get("class/" + CreateCharacterBackgroundController.getClass(character.getClassId()) + "/level");
-        } catch (IOException e){
-            e.printStackTrace();
-            return;
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        long maxXp = 0;
-        for (Object json :
-                levelsArray) {
-            JSONObject jsonObject = (JSONObject) json;
-            System.out.println("max xp " + maxXp);
-            System.out.println("char xp " + character.getExperience());
-            if (character.getExperience() <= maxXp){
-                level = Integer.parseInt(String.valueOf((long) jsonObject.get("Nível"))) - 1;
-                break;
-            } else {
-                maxXp = (long) jsonObject.get("XP");
-            }
-        }
-        if (level == 0){
-            level = 20;
-        }
-
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 1);
         levelSpinner.setValueFactory(valueFactory);
-        levelSpinner.getValueFactory().setValue(level);
+        levelSpinner.getValueFactory().setValue(character.level);
         appearanceField.setText(character.getAppearance());
     }
 
@@ -304,6 +357,7 @@ public class ViewCharacterPage3Controller extends MenuController {
             popupStage.setScene(new Scene(PaneManager.loadFXML("popupMagic")));
             popupStage.setResizable(false);
             popupStage.show();
+            popupStage.setTitle("MAGIAS");
             popupStage.setOnHidden(windowEvent -> {
                 ObjectSaveManager saveManager = new ObjectSaveManager();
                 character = (CharacterMaster) saveManager.getObject("character");
@@ -319,6 +373,8 @@ public class ViewCharacterPage3Controller extends MenuController {
 
     @FXML
     void backButtonAction(ActionEvent event) {
+        saveCharacter();
+
         PaneManager paneManager = new PaneManager();
         paneManager.openPane("ViewCharacterPage2");
 
@@ -326,7 +382,34 @@ public class ViewCharacterPage3Controller extends MenuController {
 
     @FXML
     void saveButtonAction(ActionEvent event) {
+        saveCharacter();
+    }
 
+    public void saveCharacter(){
+        int spell1Number = spell1.getText().equals("-") ? 0 : Integer.parseInt(spell1.getText());
+        int spell2Number = spell2.getText().equals("-") ? 0 : Integer.parseInt(spell2.getText());
+        int spell3Number = spell3.getText().equals("-") ? 0 : Integer.parseInt(spell3.getText());
+        int spell4Number = spell4.getText().equals("-") ? 0 : Integer.parseInt(spell4.getText());
+        int spell5Number = spell5.getText().equals("-") ? 0 : Integer.parseInt(spell5.getText());
+        int spell6Number = spell6.getText().equals("-") ? 0 : Integer.parseInt(spell6.getText());
+        int spell7Number = spell7.getText().equals("-") ? 0 : Integer.parseInt(spell7.getText());
+        int spell8Number = spell8.getText().equals("-") ? 0 : Integer.parseInt(spell8.getText());
+        int spell9Number = spell9.getText().equals("-") ? 0 : Integer.parseInt(spell9.getText());
+
+        int slotsId;
+        if (character.getSlots() != null)
+            slotsId = character.getSlots().getId();
+        else
+            slotsId = 0;
+        character.setSlots(new Slots(character.getId(), spell1Number, spell2Number, spell3Number, spell4Number, spell5Number, spell6Number, spell7Number, spell8Number, spell9Number));
+        character.getSlots().setId(slotsId);
+
+        character.setName(nameCharacterField.getText());
+        character.setAppearance(appearanceField.getText());
+        character.level = levelSpinner.getValue();
+
+        ObjectSaveManager saveManager = new ObjectSaveManager();
+        saveManager.saveObject("character", character);
     }
 
 }

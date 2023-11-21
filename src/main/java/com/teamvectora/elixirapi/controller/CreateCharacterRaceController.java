@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import static com.teamvectora.elixirapi.model.tables.TypeID.*;
+
 
 public class CreateCharacterRaceController extends CreateCharacterSectionController {
     @FXML
@@ -31,10 +33,10 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
 
         if(character.getRaceId() > 0){
             switch (character.getRaceId()) {
-                case 1 -> chosenRaceLabel.setText("Humano");
-                case 2 -> chosenRaceLabel.setText("Elfo");
-                case 3 -> chosenRaceLabel.setText("Anão");
-                case 4 -> chosenRaceLabel.setText("Halfing");
+                case HUMAN -> chosenRaceLabel.setText("Humano");
+                case ELF -> chosenRaceLabel.setText("Elfo");
+                case DWARF -> chosenRaceLabel.setText("Anão");
+                case HALFLING -> chosenRaceLabel.setText("Halfing");
                 default -> chosenRaceLabel.setText("");
             }
         }
@@ -48,7 +50,7 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
         chosenRaceLabel.setText("Anão");
         messageLabel.setText("Bônus de anão adicionado: +2 em constituição e -2 em carisma");
         showUpdateLabel.setText("Novos valores em constituição: " + bonusAttribute.getConstitution() + " e carisma: " + bonusAttribute.getCharisma());
-        character.setRaceId(3);
+        character.setRaceId(DWARF);
         System.out.println(bonusAttribute);
         bonusAttribute.setConstitution(+2);
         bonusAttribute.setCharisma(-2);
@@ -63,7 +65,7 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
         chosenRaceLabel.setText("Elfo");
         messageLabel.setText("Bônus de elfo adicionado: +2 em destreza e -2 em constituição");
         showUpdateLabel.setText("Novos valores em destreza: " + bonusAttribute.getDexterity() + " e constituição: " + bonusAttribute.getConstitution());
-        character.setRaceId(2);
+        character.setRaceId(ELF);
         System.out.println(bonusAttribute);
 
         bonusAttribute.setDexterity(+2);
@@ -79,7 +81,7 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
         messageLabel.setText("Bônus de halfing adicionado: +2 em destreza e -2 em força");
         showUpdateLabel.setText("Novos valores em constituição: " + bonusAttribute.getDexterity() + " e carisma: " + bonusAttribute.getStrength());
         System.out.println(bonusAttribute);
-        character.setRaceId(4);
+        character.setRaceId(HALFLING);
 
         bonusAttribute.setDexterity(+2);
         bonusAttribute.setStrength(-2);
@@ -89,7 +91,7 @@ public class CreateCharacterRaceController extends CreateCharacterSectionControl
         chosenRaceLabel.setText("Humano");
         messageLabel.setText("");
         showUpdateLabel.setText("");
-        character.setRaceId(1);
+        character.setRaceId(HUMAN);
     }
 
     @Override

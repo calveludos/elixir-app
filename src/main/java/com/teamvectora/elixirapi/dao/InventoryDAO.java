@@ -13,7 +13,7 @@ public class InventoryDAO extends CrudDAO<Inventory> {
 
     @Override
     public int create(Inventory inventory) throws SQLException {
-        String query = "INSERT INTO `Inventory` (character_id, item_id, type_item_id) " +
+        String query = "INSERT INTO `Inventory` (id_character, item_id, type_item_id) " +
                 "VALUES (?, ?, ?)";
         int generatedId = -1;
 

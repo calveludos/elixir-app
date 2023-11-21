@@ -245,7 +245,8 @@ public class CharacterMasterDAO extends CrudDAO<CharacterMaster> {
                 inventory.setId((int) tuple.get("inventory_id"));
                 inventoryId = inventory.getId();
 
-                if (!master.getInventory().contains(inventory))
+                if (!master.getInventory().contains(inventory) && !inventory.equals(new Inventory(
+                        (int) tuple.get("character_id"), 0, 0)))
                     master.addInventory(inventory);
             }
 

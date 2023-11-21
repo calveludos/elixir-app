@@ -52,8 +52,9 @@ class JsonMangerTest {
 
     @Test
     void get2221() throws IOException, ParseException {
-        JSONObject s = (JSONObject) JsonManger.get("weapons/weapons:1");
-        assertEquals("Adaga", s.get("name"));
+        Object s = (Object) JsonManger.get("weapons/weapons:1");
+        System.out.println(s);
+        assertEquals("Adaga", s);
     }
 
 }

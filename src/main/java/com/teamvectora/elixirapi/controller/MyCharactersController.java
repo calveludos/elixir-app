@@ -19,6 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import static com.teamvectora.elixirapi.model.tables.TypeID.*;
+
 public class MyCharactersController extends MenuController {
 
     @FXML
@@ -102,13 +104,13 @@ public class MyCharactersController extends MenuController {
 
     public static String getClassId(int classId) {
         switch (classId){
-            case 1:
+            case WARRIOR:
                 return "Homem de Armas";
-            case 2:
+            case WIZARD:
                 return "Mago";
-            case 3:
+            case THIEF:
                 return "Ladrão";
-            case 4:
+            case CLERIC:
                 return "Clérigo";
             default:
                 return "";
@@ -117,13 +119,13 @@ public class MyCharactersController extends MenuController {
 
     public static String getRaceId(int raceId) {
         switch (raceId){
-            case 1:
+            case HUMAN:
                 return "Humano";
-            case 2:
+            case ELF:
                 return "Elfo";
-            case 3:
+            case DWARF:
                 return "Anão";
-            case 4:
+            case HALFLING:
                 return "Halfing";
             default:
                 return "";

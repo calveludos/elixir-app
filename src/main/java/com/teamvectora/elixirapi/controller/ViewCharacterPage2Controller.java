@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -23,13 +24,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ViewCharacterPage2Controller extends MenuController {
 
     public TableView<EquipmentTable> equipmentTableView;
     public TableColumn<?, String> equipmentColumn;
     public TableColumn<?, Double> weightColumn;
-    public ListView<String> speechListView;
+    public ListView<LanguageList> speechListView;
     @FXML
     private Button addEquipmentButton;
 
@@ -131,15 +133,18 @@ public class ViewCharacterPage2Controller extends MenuController {
 
     private ObjectSaveManager reader;
     private CharacterMaster character;
-    private int nextLevelXP;
 
     public static class EquipmentTable{
         public final String name;
         public final double weight;
+        public final int idTypeItem;
+        public final int idItem;
 
-        public EquipmentTable(String name, double weight) {
+        public EquipmentTable(String name, double weight, int idTypeItem, int idItem) {
             this.name = name;
             this.weight = weight;
+            this.idTypeItem = idTypeItem;
+            this.idItem = idItem;
         }
 
         public String getName() {
@@ -148,6 +153,37 @@ public class ViewCharacterPage2Controller extends MenuController {
 
         public double getWeight() {
             return weight;
+        }
+
+        public int getIdTypeItem() {
+            return idTypeItem;
+        }
+
+        public int getIdItem() {
+            return idItem;
+        }
+    }
+
+    public static final class LanguageList {
+        public final String name;
+        public final int idLanguage;
+
+        public LanguageList(String name, int idLanguage) {
+            this.name = name;
+            this.idLanguage = idLanguage;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public int getIdLanguage() {
+            return idLanguage;
+        }
+
+        @Override
+        public String toString() {
+            return name;
         }
     }
 
@@ -159,7 +195,7 @@ public class ViewCharacterPage2Controller extends MenuController {
         character = (CharacterMaster) reader.getObject("character");
 
         setHeader();
-        if (character.getInventory() != null)
+        if (character.getInventory() != null && !character.getInventory().isEmpty())
             setEquipments();
         setDeathLives();
         setThiefTalents();
@@ -175,34 +211,6 @@ public class ViewCharacterPage2Controller extends MenuController {
         String clas = MyCharactersController.getClassId(character.getClassId());
         String race = MyCharactersController.getRaceId(character.getRaceId());
         classAndRaceField.setText(clas.toUpperCase() + " / " + race.toUpperCase());
-
-        JSONArray levelsArray;
-
-        try {
-            levelsArray = (JSONArray) JsonManger.get("class/" + CreateCharacterBackgroundController.getClass(character.getClassId()) + "/level");
-        } catch (IOException e){
-            e.printStackTrace();
-            return;
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        long maxXp = 0;
-        for (Object json :
-                levelsArray) {
-            JSONObject jsonObject = (JSONObject) json;
-            System.out.println("max xp " + maxXp);
-            System.out.println("char xp " + character.getExperience());
-            if (character.getExperience() <= maxXp){
-                character.level = Integer.parseInt(String.valueOf((long) jsonObject.get("Nível"))) - 1;
-                nextLevelXP = Integer.parseInt(String.valueOf((long) jsonObject.get("XP")));
-                break;
-            } else {
-                maxXp = (long) jsonObject.get("XP");
-            }
-        }
-        if (character.level == 0){
-            character.level = 20;
-        }
 
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 1);
         levelSpinner.setValueFactory(valueFactory);
@@ -236,7 +244,7 @@ public class ViewCharacterPage2Controller extends MenuController {
                     JSONObject itemObject = (JSONObject) arrayObject.get(inventory.getItemId() - 1);
                     String name = (String) itemObject.get("name");
                     double weight = Double.parseDouble(((String) itemObject.get("weight")).replace(" kg", ""));
-                    EquipmentTable equipment = new EquipmentTable(name, weight);
+                    EquipmentTable equipment = new EquipmentTable(name, weight, inventory.getTypeItemId(), inventory.getItemId());
                     tableObservableList.add(equipment);
                 } catch (IOException | ParseException e) {
                     throw new RuntimeException(e);
@@ -244,6 +252,33 @@ public class ViewCharacterPage2Controller extends MenuController {
 
             });
         }
+
+        equipmentTableView.setOnMouseClicked(event -> {
+            if (event.getButton().equals(MouseButton.SECONDARY)) {
+                int selectedIndex = equipmentTableView.getSelectionModel().getSelectedIndex();
+                if (selectedIndex != -1) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("REMOVER");
+                    alert.setHeaderText("Remover Equipamento");
+                    alert.setContentText("Você tem certeza que deseja remover esse equipamento?");
+                    alert.showAndWait().ifPresent(response -> {
+                        if (response.getText().equals("OK")){
+
+                            System.out.println(character.getInventory());
+                            character.setInventory(new ArrayList<>(character.getInventory()
+                                    .stream()
+                                    .filter(inventory -> inventory.getItemId() != equipmentTableView.getItems().get(selectedIndex).getIdItem() ||
+                                                    inventory.getTypeItemId() != equipmentTableView.getItems().get(selectedIndex).getIdTypeItem())
+                                    .toList()));
+                            System.out.println(character.getInventory());
+
+
+                            equipmentTableView.getItems().remove(selectedIndex);
+                        }
+                    });
+                }
+            }
+        });
 
         equipmentTableView.setItems(tableObservableList);
     }
@@ -315,7 +350,7 @@ public class ViewCharacterPage2Controller extends MenuController {
                 stealthTextFieldJson = String.valueOf(thiefSkills.get("Mover-se_em_silêncio"));
                 trapTextFieldJson = String.valueOf(thiefSkills.get("Reconhecer_desarmar_armadilhas"));
                 climbWallTextFieldJson = String.valueOf(thiefSkills.get("escalar_muros"));
-                hideShadowsTextFieldJson = String.valueOf(thiefSkills.get("Esconder-se_nas-sombras"));
+                hideShadowsTextFieldJson = String.valueOf(thiefSkills.get("Esconder-se_nas_sombras"));
                 prickTextFieldJson = String.valueOf(thiefSkills.get("Pungar"));
                 hearSoundsTextFieldJson = (String) thiefSkills.get("escutar");
                 stabTextFieldJson = String.valueOf(thiefSkills.get("apunhalar"));
@@ -333,15 +368,39 @@ public class ViewCharacterPage2Controller extends MenuController {
     }
 
     private void setLanguages() {
-        ObservableList<String> observableList = FXCollections.observableArrayList();
+        ObservableList<LanguageList> observableList = FXCollections.observableArrayList();
         character.getSpeech().forEach(speech -> {
-            String name;
             try {
-                name = (String) JsonManger.get("languages/languages:" + (speech.getLanguageId()) + "/name");
-                observableList.add(name);
+                String name = (String) JsonManger.get("languages/languages:" + (speech.getLanguageId()) + "/name");
+                int id = Integer.parseInt(JsonManger.get("languages/languages:" + (speech.getLanguageId()) + "/id").toString());
+                observableList.add(new LanguageList(name, id));
             } catch (IOException | ParseException e) {
                 throw new RuntimeException(e);
             } catch (java.lang.IndexOutOfBoundsException ignored){}
+        });
+
+        speechListView.setOnMouseClicked(event -> {
+            if (event.getButton().equals(MouseButton.SECONDARY)) {
+                int selectedIndex = speechListView.getSelectionModel().getSelectedIndex();
+                if (selectedIndex != -1) {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                    alert.setTitle("REMOVER");
+                    alert.setHeaderText("Remover Idioma");
+                    alert.setContentText("Você tem certeza que deseja remover esse idioma?");
+                    alert.showAndWait().ifPresent(response -> {
+                        if (response.getText().equals("OK")){
+                            System.out.println(character.getSpeech());
+                            character.setSpeech(new ArrayList<>(character.getSpeech()
+                                    .stream()
+                                    .filter(speech -> speech.getLanguageId() != speechListView.getItems().get(selectedIndex).getIdLanguage())
+                                    .toList()));
+
+                            System.out.println(character.getSpeech());
+                            speechListView.getItems().remove(selectedIndex);
+                        }
+                    });
+                }
+            }
         });
 
         speechListView.setItems(observableList);
@@ -360,9 +419,18 @@ public class ViewCharacterPage2Controller extends MenuController {
 
     private void setXP() {
         currentXPField.setText(String.valueOf(character.getExperience()));
-        nextXPField.setText( (nextLevelXP == 0)
-                ? "MAX"
-                : String.valueOf(nextLevelXP));
+
+        String nextLevelXP;
+        if (character.level < 20){
+            try {
+                nextLevelXP = JsonManger.get("class/" + CreateCharacterBackgroundController.getClass(character.getClassId()) + "/level:" + (character.level + 1) + "/XP").toString();
+            } catch (IOException | ParseException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            nextLevelXP = "MAX";
+        }
+        nextXPField.setText(nextLevelXP);
     }
 
 
@@ -374,6 +442,7 @@ public class ViewCharacterPage2Controller extends MenuController {
         try {
             popupStage.setScene(new Scene(PaneManager.loadFXML("popupEquipament")));
             popupStage.setResizable(false);
+            popupStage.setTitle("EQUIPAMENTOS");
             popupStage.show();
             popupStage.setOnHidden(windowEvent -> {
                 ObjectSaveManager saveManager = new ObjectSaveManager();
@@ -389,24 +458,66 @@ public class ViewCharacterPage2Controller extends MenuController {
 
     @FXML
     void addLanguageButtonAction(ActionEvent event) {
+        Stage popupStage = new Stage();
+        popupStage.initModality(Modality.APPLICATION_MODAL);
 
+        try {
+            popupStage.setScene(new Scene(PaneManager.loadFXML("popupSpeech")));
+            popupStage.setResizable(false);
+            popupStage.setTitle("IDIOMAS");
+            popupStage.show();
+            popupStage.setOnHidden(windowEvent -> {
+                ObjectSaveManager saveManager = new ObjectSaveManager();
+                character = (CharacterMaster) saveManager.getObject("character");
+                if (character.getSpeech() != null)
+                    setLanguages();
+            });
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
     void backButtonAction(ActionEvent event) {
+        saveCharacter();
+
         PaneManager manager = new PaneManager();
         manager.openPane("viewCharacterPage1");
     }
 
     @FXML
     void nextPageButtonAction(ActionEvent event) {
+        saveCharacter();
+
         PaneManager manager = new PaneManager();
         manager.openPane("viewCharacterPage3");
     }
 
     @FXML
     void saveButtonAction(ActionEvent event) {
+        saveCharacter();
+    }
 
+    public void saveCharacter(){
+        int idCurrency = character.getCurrency().getId();
+        character.setCurrency(new Currency(
+                character.getId(),
+                Integer.parseInt(piceOfGoldField.getText()),
+                Integer.parseInt(piceOfSilverField.getText()),
+                Integer.parseInt(piceOfCupperField.getText()),
+                Integer.parseInt(piceOfElectroField.getText()),
+                Integer.parseInt(piceOfPlatineField.getText())
+        ));
+        character.getCurrency().setId(idCurrency);
+
+        character.setName(nameCharacterField.getText());
+        character.setAppearance(appearanceField.getText());
+        character.level = levelSpinner.getValue();
+
+        character.setExperience(Integer.parseInt(currentXPField.getText()));
+
+        ObjectSaveManager saveManager = new ObjectSaveManager();
+        saveManager.saveObject("character", character);
     }
 
 }

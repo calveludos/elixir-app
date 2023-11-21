@@ -1,28 +1,55 @@
 package com.teamvectora.elixirapi.controller;
 
 import com.teamvectora.elixirapi.controller.abstractControllers.MenuController;
+import com.teamvectora.elixirapi.dao.*;
 import com.teamvectora.elixirapi.manager.JsonManger;
 import com.teamvectora.elixirapi.manager.ObjectSaveManager;
 import com.teamvectora.elixirapi.manager.PaneManager;
-import com.teamvectora.elixirapi.model.Attribute;
+import com.teamvectora.elixirapi.model.*;
 
-import com.teamvectora.elixirapi.model.CharacterMaster;
+import com.teamvectora.elixirapi.model.Character;
 import com.teamvectora.elixirapi.model.tables.CharacterAttributes;
+import com.teamvectora.elixirapi.model.tables.TypeID;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import static com.teamvectora.elixirapi.model.tables.TypeID.CLERIC;
+import static com.teamvectora.elixirapi.model.tables.TypeID.WIZARD;
 
 public class ViewCharacterPage1Controller extends MenuController {
 
     public TextField addsMagicArcField;
     public TextField addsMagicDivField;
+
+    public TextField armorField;
+    public TextField initiativeField;
+    public TextField baTotalField;
+    public TextField damageField;
+    public TextField combatField;
+    public TextField rangeField;
+    public TextField sizeField;
+
+    public TextField armor1Field;
+    public TextField initiative1Field;
+    public TextField baTotal1Field;
+    public TextField damage1Field;
+    public TextField combat1Field;
+    public TextField range1Field;
+    public TextField size1Field;
 
     @FXML
     private TextArea appereanceField;
@@ -114,7 +141,7 @@ public class ViewCharacterPage1Controller extends MenuController {
     private TextField resurrectionField;
 
     @FXML
-    private ImageView saveEditButton;
+    private Button saveEditButton;
 
     @FXML
     private TextField strField;
@@ -137,6 +164,9 @@ public class ViewCharacterPage1Controller extends MenuController {
 
         ObjectSaveManager reader = new ObjectSaveManager();
         character = (CharacterMaster) reader.getObject("character");
+        if (reader.getObject("characterBackup") == null){
+            reader.saveObject("characterBackup", character);
+        }
         attribute = character.getAttribute();
 
         setHeader();
@@ -148,7 +178,69 @@ public class ViewCharacterPage1Controller extends MenuController {
         } catch (IOException | ParseException e) {
             throw new RuntimeException(e);
         }
+        if (character.getInventory() != null && !character.getInventory().isEmpty())
+            setAttacks();
 
+    }
+
+    private void setAttacks() {
+
+        List<Inventory> inventories = character.getInventory()
+                .stream()
+                .filter(inventory -> inventory.getTypeItemId() == TypeID.WEAPONS)
+                .toList();
+
+        if (inventories.isEmpty())
+            return;
+
+        try {
+            JSONArray inventoryJsonArray = (JSONArray) JsonManger.get("weapons/weapons");
+            Inventory inventory = inventories.get(0);
+            JSONObject inventoryJson = (JSONObject) inventoryJsonArray.get(inventory.getItemId() -1);
+            setAttacksRow(
+                    inventoryJson.get("name").toString(),
+                    inventoryJson.get("initiative").toString(),
+                    "-",
+                    inventoryJson.get("damage").toString(),
+                    inventoryJson.get("range").toString(),
+                    inventoryJson.get("size").toString()
+            );
+
+            System.out.println(inventories.size());
+            if (inventories.size() >= 2){
+                Inventory inventory1 = inventories.get(1);
+                JSONObject inventoryJson1 = (JSONObject) inventoryJsonArray.get(inventory1.getItemId() -1);
+
+                setAttacksRow1(
+                        inventoryJson1.get("name").toString(),
+                        inventoryJson1.get("initiative").toString(),
+                        "-",
+                        inventoryJson1.get("damage").toString(),
+                        inventoryJson1.get("range").toString(),
+                        inventoryJson1.get("size").toString()
+                );
+            }
+        } catch (IOException | ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void setAttacksRow(String s1, String s2, String s3, String s4, String s6, String s7){
+        armorField.setText(s1);
+        initiativeField.setText(s2);
+        baTotalField.setText(s3);
+        damageField.setText(s4);
+        rangeField.setText(s6);
+        sizeField.setText(s7);
+    }
+
+    private void setAttacksRow1(String s1, String s2, String s3, String s4, String s6, String s7){
+        armor1Field.setText(s1);
+        initiative1Field.setText(s2);
+        baTotal1Field.setText(s3);
+        damage1Field.setText(s4);
+        range1Field.setText(s6);
+        size1Field.setText(s7);
     }
 
     private void setHeader() {
@@ -159,29 +251,33 @@ public class ViewCharacterPage1Controller extends MenuController {
 
         JSONArray levelsArray;
 
-        try {
-            levelsArray = (JSONArray) JsonManger.get("class/" + CreateCharacterBackgroundController.getClass(character.getClassId()) + "/level");
-        } catch (IOException e){
-            e.printStackTrace();
-            return;
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
-        long maxXp = 0;
-        for (Object json :
-                levelsArray) {
-            JSONObject jsonObject = (JSONObject) json;
-            System.out.println("max xp " + maxXp);
-            System.out.println("char xp " + character.getExperience());
-            if (character.getExperience() <= maxXp){
-                level = Integer.parseInt(String.valueOf((long) jsonObject.get("Nível"))) - 1;
-                break;
-            } else {
-                maxXp = (long) jsonObject.get("XP");
+        if (character.level == 0){
+            try {
+                levelsArray = (JSONArray) JsonManger.get("class/" + CreateCharacterBackgroundController.getClass(character.getClassId()) + "/level");
+            } catch (IOException | ParseException e){
+                throw new RuntimeException(e);
             }
-        }
-        if (level == 0){
-            level = 20;
+            long maxXp = 0;
+            for (Object json :
+                    levelsArray) {
+                JSONObject jsonObject = (JSONObject) json;
+                System.out.println("max xp " + maxXp);
+                System.out.println("character xp " + character.getExperience());
+                if (character.getExperience() <= maxXp){
+                    level = Integer.parseInt(String.valueOf((long) jsonObject.get("level"))) - 1;
+                    break;
+                } else {
+                    maxXp = (long) jsonObject.get("XP");
+                }
+            }
+            if (level == 0 && character.getExperience() != 0){
+                level = 20;
+            } else {
+                level = 1;
+            }
+            character.level = level;
+        } else {
+            level = character.level;
         }
 
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 20, 1);
@@ -609,9 +705,12 @@ public class ViewCharacterPage1Controller extends MenuController {
     @FXML
     void backButtonAction(ActionEvent event) {
         ObjectSaveManager saveManager = new ObjectSaveManager();
-        saveManager.removeObject("character");
-        saveManager.removeObject("attribute");
+        Map<Integer, CharacterMaster> characterMap = (Map<Integer, CharacterMaster>) saveManager.getObject("characters");
 
+        saveCharacter();
+
+        characterMap.put(character.getId(), character);
+        saveManager.saveObject("characters", characterMap);
 
         PaneManager manager = new PaneManager();
         manager.openPane("myCharactersPane");
@@ -619,9 +718,93 @@ public class ViewCharacterPage1Controller extends MenuController {
 
     @FXML
     void nextPageButtonAction(ActionEvent event) {
+        saveCharacter();
+
         PaneManager manager = new PaneManager();
         manager.openPane("viewCharacterPage2");
-
     }
 
+    @FXML
+    public void saveButtonAction(ActionEvent event) throws SQLException {
+        saveCharacter();
+        saveCharacterDatabase();
+    }
+
+    private void saveCharacter(){
+        character.setCurrentPv(Integer.parseInt(currentPvField.getText()));
+        character.setMaxPv(Integer.parseInt(maxPvField.getText()));
+
+        character.setAttribute(new Attribute(
+                Integer.parseInt(strField.getText()),
+                Integer.parseInt(dexField.getText()),
+                Integer.parseInt(conField.getText()),
+                Integer.parseInt(intField.getText()),
+                Integer.parseInt(wisField.getText()),
+                Integer.parseInt(chaField.getText())
+        ));
+        character.getAttribute().setId(character.getId());
+
+        character.setName(nameCharacterField.getText());
+        character.setAppearance(appereanceField.getText());
+        character.level = levelSpinner.getValue();
+
+        ObjectSaveManager saveManager = new ObjectSaveManager();
+        saveManager.saveObject("character", character);
+    }
+
+    private void saveCharacterDatabase() throws SQLException {
+        ObjectSaveManager saveManager = new ObjectSaveManager();
+        CharacterMaster characterBackup = (CharacterMaster) saveManager.getObject("characterBackup");
+
+        SpeechDAO speechDAO = new SpeechDAO();
+        SpellDAO spellDAO = new SpellDAO();
+        InventoryDAO inventoryDAO = new InventoryDAO();
+        CurrencyDAO currencyDAO = new CurrencyDAO();
+        SlotsDAO slotsDAO = new SlotsDAO();
+        CharacterDAO characterDAO = new CharacterDAO();
+        AttributeDAO attributeDAO = new AttributeDAO();
+
+        characterDAO.update(character);
+
+        attributeDAO.update(character.getAttribute());
+        if (character.getSlots() != null)
+            slotsDAO.update(character.getSlots());
+        currencyDAO.update(character.getCurrency());
+
+        if (character.getSpeech() != null) {
+            List<Speech> speechList = characterBackup.getSpeech();
+            for (Speech speech : character.getSpeech()) {
+                if (speech.getId() == 0 && speech.getLanguageId() != 0)
+                    speech.setId(speechDAO.create(speech));
+            }
+            for (Speech speech : speechList) {
+                if (!character.getSpeech().contains(speech))
+                    speechDAO.delete(speech);
+            }
+        }
+
+        if (character.getInventory() != null) {
+            List<Inventory> inventoryList = characterBackup.getInventory();
+            for (Inventory inventory : character.getInventory()) {
+                if (inventory.getId() == 0 && inventory.getItemId() != 0 && inventory.getTypeItemId() != 0)
+                    inventory.setId(inventoryDAO.create(inventory));
+            }
+            for (Inventory inventory : inventoryList) {
+                if (!character.getInventory().contains(inventory))
+                    inventoryDAO.delete(inventory);
+            }
+        }
+
+        if (character.getSpells() != null) {
+            List<Spell> spellList = characterBackup.getSpells();
+            for (Spell spell : character.getSpells()) {
+                if (spell.getId() == 0 && spell.getSpellId() != 0 && spell.getTypeSpellId() != 0)
+                    spell.setId(spellDAO.create(spell));
+            }
+            for (Spell spell : spellList) {
+                if (!character.getSpells().contains(spell))
+                    spellDAO.delete(spell);
+            }
+        }
+    }
 }

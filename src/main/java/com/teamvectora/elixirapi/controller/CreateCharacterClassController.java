@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import static com.teamvectora.elixirapi.model.tables.TypeID.*;
+
 public class CreateCharacterClassController extends CreateCharacterSectionController {
     @FXML
     private Label chosenClassLabel;
@@ -67,7 +69,7 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
             return;
         }
         chosenClassLabel.setText("Clérigo");
-        character.setClassId(4);
+        character.setClassId(CLERIC);
     }
 
     @FXML
@@ -80,7 +82,7 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
             return;
         }
         chosenClassLabel.setText("Homem de Armas");
-        character.setClassId(1);
+        character.setClassId(WARRIOR);
     }
 
     @FXML
@@ -92,7 +94,7 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
             return;
         }
         chosenClassLabel.setText("Ladrão");
-        character.setClassId(3);
+        character.setClassId(THIEF);
     }
 
     @FXML
@@ -104,7 +106,7 @@ public class CreateCharacterClassController extends CreateCharacterSectionContro
             return;
         }
         chosenClassLabel.setText("Mago");
-        character.setClassId(2);
+        character.setClassId(WIZARD);
     }
 
     @Override

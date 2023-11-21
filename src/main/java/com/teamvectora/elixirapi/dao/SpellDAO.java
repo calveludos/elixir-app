@@ -13,7 +13,7 @@ public class SpellDAO extends CrudDAO<Spell> {
 
     @Override
     public int create(Spell spell) throws SQLException {
-        String query = "INSERT INTO `Spell` (character_id, spell_id, type_spell_id) " +
+        String query = "INSERT INTO `Spell` (id_character, spell_id, type_spell_id) " +
                 "VALUES (?, ?, ?)";
         int generatedId = -1;
 

@@ -65,7 +65,6 @@ public class CharacterDAO extends CrudDAO<Character> {
         String query = "UPDATE `Character` SET id_alignment = ?, id_attribute = ?, id_class = ?, id_race = ?, id_folder = ?, name = ?, player_name = ?, experience = ?, height = ?, weight = ?, current_pv = ?, max_pv = ?, class_armor_bonus = ?, apperance = ?, background = ?, image_path = ? WHERE id = ?";
 
         try {
-            System.out.println(character);
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query);
 

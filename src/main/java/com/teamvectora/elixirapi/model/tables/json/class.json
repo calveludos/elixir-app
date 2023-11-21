@@ -2,7 +2,7 @@
   "cleric": {
     "level": [
       {
-        "Nível": 1,
+        "level": 1,
         "XP": 0,
         "Dado de Vida": 1,
         "Base de Ataque": "+0",
@@ -16,7 +16,7 @@
         "7o": 0
       },
       {
-        "Nível": 2,
+        "level": 2,
         "XP": 1500,
         "Dado de Vida": 2,
         "Base de Ataque": "+1",
@@ -30,7 +30,7 @@
         "7o": 0
       },
       {
-        "Nível": 3,
+        "level": 3,
         "XP": 3000,
         "Dado de Vida": 3,
         "Base de Ataque": "+2",
@@ -44,7 +44,7 @@
         "7o": 0
       },
       {
-        "Nível": 4,
+        "level": 4,
         "XP": 6000,
         "Dado de Vida": 4,
         "Base de Ataque": "+2",
@@ -58,7 +58,7 @@
         "7o": 0
       },
       {
-        "Nível": 5,
+        "level": 5,
         "XP": 12000,
         "Dado de Vida": 5,
         "Base de Ataque": "+3",
@@ -72,7 +72,7 @@
         "7o": 0
       },
       {
-        "Nível": 6,
+        "level": 6,
         "XP": 24000,
         "Dado de Vida": 6,
         "Base de Ataque": "+3",
@@ -86,7 +86,7 @@
         "7o": 0
       },
       {
-        "Nível": 7,
+        "level": 7,
         "XP": 48000,
         "Dado de Vida": 7,
         "Base de Ataque": "+3",
@@ -100,7 +100,7 @@
         "7o": 0
       },
       {
-        "Nível": 8,
+        "level": 8,
         "XP": 100000,
         "Dado de Vida": 8,
         "Base de Ataque": "+4",
@@ -114,7 +114,7 @@
         "7o": 0
       },
       {
-        "Nível": 9,
+        "level": 9,
         "XP": 200000,
         "Dado de Vida": 9,
         "Base de Ataque": "+4",
@@ -128,7 +128,7 @@
         "7o": 0
       },
       {
-        "Nível": 10,
+        "level": 10,
         "XP": 300000,
         "Dado de Vida": "+1 PV",
         "Base de Ataque": "+4",
@@ -142,7 +142,7 @@
         "7o": 0
       },
       {
-        "Nível": 11,
+        "level": 11,
         "XP": 400000,
         "Dado de Vida": "+1 PV",
         "Base de Ataque": "+5",
@@ -156,7 +156,7 @@
         "7o": 0
       },
       {
-        "Nível": 12,
+        "level": 12,
         "XP": 500000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+5",
@@ -170,7 +170,7 @@
         "7o": 0
       },
       {
-        "Nível": 13,
+        "level": 13,
         "XP": 600000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+5",
@@ -184,7 +184,7 @@
         "7o": 0
       },
       {
-        "Nível": 14,
+        "level": 14,
         "XP": 700000,
         "Dado de Vida": "+3 PV",
         "Base de Ataque": "+6",
@@ -198,7 +198,7 @@
         "7o": 0
       },
       {
-        "Nível": 15,
+        "level": 15,
         "XP": 800000,
         "Dado de Vida": "+3 PV",
         "Base de Ataque": "+6",
@@ -212,7 +212,7 @@
         "7o": 1
       },
       {
-        "Nível": 16,
+        "level": 16,
         "XP": 900000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+6",
@@ -226,7 +226,7 @@
         "7o": 2
       },
       {
-        "Nível": 17,
+        "level": 17,
         "XP": 1000000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+7",
@@ -240,7 +240,7 @@
         "7o": 2
       },
       {
-        "Nível": 18,
+        "level": 18,
         "XP": 1100000,
         "Dado de Vida": "+5 PV",
         "Base de Ataque": "+7",
@@ -254,7 +254,7 @@
         "7o": 3
       },
       {
-        "Nível": 19,
+        "level": 19,
         "XP": 1200000,
         "Dado de Vida": "+5 PV",
         "Base de Ataque": "+7",
@@ -268,7 +268,7 @@
         "7o": 3
       },
       {
-        "Nível": 20,
+        "level": 20,
         "XP": 1300000,
         "Dado de Vida": "+6 PV",
         "Base de Ataque": "+8",
@@ -284,7 +284,7 @@
     ],
     "living-dead": [
       {
-        "Nível": 1,
+        "level": 1,
         "Esqueleto": 13,
         "Zumbi": 17,
         "Carniçal": 19,
@@ -295,7 +295,7 @@
         "Vampiro": "N"
       },
       {
-        "Nível": 2,
+        "level": 2,
         "Esqueleto": 11,
         "Zumbi": 15,
         "Carniçal": 18,
@@ -306,7 +306,7 @@
         "Vampiro": "N"
       },
       {
-        "Nível": 3,
+        "level": 3,
         "Esqueleto": 9,
         "Zumbi": 13,
         "Carniçal": 17,
@@ -317,7 +317,7 @@
         "Vampiro": "N"
       },
       {
-        "Nível": 4,
+        "level": 4,
         "Esqueleto": 7,
         "Zumbi": 11,
         "Carniçal": 15,
@@ -328,7 +328,7 @@
         "Vampiro": "N"
       },
       {
-        "Nível": 5,
+        "level": 5,
         "Esqueleto": 5,
         "Zumbi": 9,
         "Carniçal": 13,
@@ -339,7 +339,7 @@
         "Vampiro": "N"
       },
       {
-        "Nível": 6,
+        "level": 6,
         "Esqueleto": 3,
         "Zumbi": 7,
         "Carniçal": 11,
@@ -350,7 +350,7 @@
         "Vampiro": "N"
       },
       {
-        "Nível": 7,
+        "level": 7,
         "Esqueleto": "A",
         "Zumbi": 5,
         "Carniçal": 9,
@@ -361,7 +361,7 @@
         "Vampiro": "N"
       },
       {
-        "Nível": 8,
+        "level": 8,
         "Esqueleto": "A",
         "Zumbi": 3,
         "Carniçal": 7,
@@ -372,7 +372,7 @@
         "Vampiro": "N"
       },
       {
-        "Nível": 9,
+        "level": 9,
         "Esqueleto": "A",
         "Zumbi": 2,
         "Carniçal": 5,
@@ -383,7 +383,7 @@
         "Vampiro": "N"
       },
       {
-        "Nível": 10,
+        "level": 10,
         "Esqueleto": "D",
         "Zumbi": "A",
         "Carniçal": 3,
@@ -394,7 +394,7 @@
         "Vampiro": 20
       },
       {
-        "Nível": 11,
+        "level": 11,
         "Esqueleto": "D",
         "Zumbi": "A",
         "Carniçal": 2,
@@ -405,7 +405,7 @@
         "Vampiro": 19
       },
       {
-        "Nível": 12,
+        "level": 12,
         "Esqueleto": "D",
         "Zumbi": "A",
         "Carniçal": "A",
@@ -416,7 +416,7 @@
         "Vampiro": 18
       },
       {
-        "Nível": 13,
+        "level": 13,
         "Esqueleto": "D",
         "Zumbi": "D",
         "Carniçal": "A",
@@ -427,7 +427,7 @@
         "Vampiro": 17
       },
       {
-        "Nível": 14,
+        "level": 14,
         "Esqueleto": "D",
         "Zumbi": "D",
         "Carniçal": "A",
@@ -438,7 +438,7 @@
         "Vampiro": 15
       },
       {
-        "Nível": 15,
+        "level": 15,
         "Esqueleto": "D",
         "Zumbi": "D",
         "Carniçal": "D",
@@ -449,7 +449,7 @@
         "Vampiro": 13
       },
       {
-        "Nível": 16,
+        "level": 16,
         "Esqueleto": "D",
         "Zumbi": "D",
         "Carniçal": "D",
@@ -460,7 +460,7 @@
         "Vampiro": 11
       },
       {
-        "Nível": 17,
+        "level": 17,
         "Esqueleto": "D",
         "Zumbi": "D",
         "Carniçal": "D",
@@ -471,7 +471,7 @@
         "Vampiro": 9
       },
       {
-        "Nível": 18,
+        "level": 18,
         "Esqueleto": "D",
         "Zumbi": "D",
         "Carniçal": "D",
@@ -482,7 +482,7 @@
         "Vampiro": 9
       },
       {
-        "Nível": 19,
+        "level": 19,
         "Esqueleto": "D",
         "Zumbi": "D",
         "Carniçal": "D",
@@ -493,7 +493,7 @@
         "Vampiro": 5
       },
       {
-        "Nível": 20,
+        "level": 20,
         "Esqueleto": "D",
         "Zumbi": "D",
         "Carniçal": "D",
@@ -504,7 +504,7 @@
         "Vampiro": 3
       }
       ],
-    "id" : 4,
+    "id" : 2,
     "Dado de Vida": "d8",
     "Atributo_mínimo": {"str": 0, "dex":  0, "con": 12, "int": 0, "wis":14},
     "Armadura": 1,
@@ -532,140 +532,140 @@
   "warrior": {
     "level": [
       {
-        "Nível": 1,
+        "level": 1,
         "XP": 0,
         "Dado de Vida": 1,
         "Base de Ataque": "+1",
         "Jogada de Proteção": 16
       },
       {
-        "Nível": 2,
+        "level": 2,
         "XP": 2000,
         "Dado de Vida": 2,
         "Base de Ataque": "+2",
         "Jogada de Proteção": 16
       },
       {
-        "Nível": 3,
+        "level": 3,
         "XP": 4000,
         "Dado de Vida": 3,
         "Base de Ataque": "+3",
         "Jogada de Proteção": 16
       },
       {
-        "Nível": 4,
+        "level": 4,
         "XP": 8000,
         "Dado de Vida": 4,
         "Base de Ataque": "+4",
         "Jogada de Proteção": 15
       },
       {
-        "Nível": 5,
+        "level": 5,
         "XP": 16000,
         "Dado de Vida": 5,
         "Base de Ataque": "+5",
         "Jogada de Proteção": 15
       },
       {
-        "Nível": 6,
+        "level": 6,
         "XP": 32000,
         "Dado de Vida": 6,
         "Base de Ataque": "+6",
         "Jogada de Proteção": 15
       },
       {
-        "Nível": 7,
+        "level": 7,
         "XP": 64000,
         "Dado de Vida": 7,
         "Base de Ataque": "+7/+1",
         "Jogada de Proteção": 14
       },
       {
-        "Nível": 8,
+        "level": 8,
         "XP": 128000,
         "Dado de Vida": 8,
         "Base de Ataque": "+8/+2",
         "Jogada de Proteção": 14
       },
       {
-        "Nível": 9,
+        "level": 9,
         "XP": 256000,
         "Dado de Vida": 9,
         "Base de Ataque": "+9/+3",
         "Jogada de Proteção": 14
       },
       {
-        "Nível": 10,
+        "level": 10,
         "XP": 304000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+10/+4",
         "Jogada de Proteção": 13
       },
       {
-        "Nível": 11,
+        "level": 11,
         "XP": 408000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+10/+4",
         "Jogada de Proteção": 13
       },
       {
-        "Nível": 12,
+        "level": 12,
         "XP": 516000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+11/+5",
         "Jogada de Proteção": 13
       },
       {
-        "Nível": 13,
+        "level": 13,
         "XP": 632000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+11/+5",
         "Jogada de Proteção": 12
       },
       {
-        "Nível": 14,
+        "level": 14,
         "XP": 704000,
         "Dado de Vida": "+5 PV",
         "Base de Ataque": "+12/+6",
         "Jogada de Proteção": 12
       },
       {
-        "Nível": 15,
+        "level": 15,
         "XP": 808000,
         "Dado de Vida": "+5 PV",
         "Base de Ataque": "+12/+6",
         "Jogada de Proteção": 12
       },
       {
-        "Nível": 16,
+        "level": 16,
         "XP": 916000,
         "Dado de Vida": "+6 PV",
         "Base de Ataque": "+13/+7",
         "Jogada de Proteção": 11
       },
       {
-        "Nível": 17,
+        "level": 17,
         "XP": 1032000,
         "Dado de Vida": "+6 PV",
         "Base de Ataque": "+13/+7",
         "Jogada de Proteção": 11
       },
       {
-        "Nível": 18,
+        "level": 18,
         "XP": 1064000,
         "Dado de Vida": "+7 PV",
         "Base de Ataque": "+14/+8",
         "Jogada de Proteção": 11
       },
       {
-        "Nível": 19,
+        "level": 19,
         "XP": 1128000,
         "Dado de Vida": "+7 PV",
         "Base de Ataque": "+14/+8",
         "Jogada de Proteção": 10
       },
       {
-        "Nível": 20,
+        "level": 20,
         "XP": 1256000,
         "Dado de Vida": "+8 PV",
         "Base de Ataque": "+15/+9",
@@ -716,7 +716,7 @@
   "wizard": {
     "level": [
       {
-        "Nível": 1,
+        "level": 1,
         "XP": 0,
         "Dado de Vida": 1,
         "Base de Ataque": 0,
@@ -732,7 +732,7 @@
         "9o": 0
       },
       {
-        "Nível": 2,
+        "level": 2,
         "XP": 2500,
         "Dado de Vida": 2,
         "Base de Ataque": "+0",
@@ -748,7 +748,7 @@
         "9o": 0
       },
       {
-        "Nível": 3,
+        "level": 3,
         "XP": 5000,
         "Dado de Vida": 3,
         "Base de Ataque":"+1",
@@ -764,7 +764,7 @@
         "9o": 0
       },
       {
-        "Nível": 4,
+        "level": 4,
         "XP": 10000,
         "Dado de Vida": 4,
         "Base de Ataque": "+1",
@@ -780,7 +780,7 @@
         "9o": 0
       },
       {
-        "Nível": 5,
+        "level": 5,
         "XP": 20000,
         "Dado de Vida": 5,
         "Base de Ataque": "+2",
@@ -796,7 +796,7 @@
         "9o": 0
       },
       {
-        "Nível": 6,
+        "level": 6,
         "XP": 40000,
         "Dado de Vida": 6,
         "Base de Ataque": "+2",
@@ -812,7 +812,7 @@
         "9o": 0
       },
       {
-        "Nível": 7,
+        "level": 7,
         "XP": 80000,
         "Dado de Vida": 7,
         "Base de Ataque": "+3",
@@ -828,7 +828,7 @@
         "9o": 0
       },
       {
-        "Nível": 8,
+        "level": 8,
         "XP": 160000,
         "Dado de Vida": 8,
         "Base de Ataque": "+3",
@@ -844,7 +844,7 @@
         "9o": 0
       },
       {
-        "Nível": 9,
+        "level": 9,
         "XP": 310000,
         "Dado de Vida": 9,
         "Base de Ataque": "+3",
@@ -860,7 +860,7 @@
         "9o": 0
       },
       {
-        "Nível": 10,
+        "level": 10,
         "XP": 460000,
         "Dado de Vida": "1 P.V.",
         "Base de Ataque": "+4",
@@ -876,7 +876,7 @@
         "9o": 0
       },
       {
-        "Nível": 11,
+        "level": 11,
         "XP": 510000,
         "Dado de Vida": "1 P.V.",
         "Base de Ataque": "+4",
@@ -892,7 +892,7 @@
         "9o": 0
       },
       {
-        "Nível": 12,
+        "level": 12,
         "XP": 660000,
         "Dado de Vida": "1 P.V.",
         "Base de Ataque": "+4",
@@ -908,7 +908,7 @@
         "9o": 0
       },
       {
-        "Nível": 13,
+        "level": 13,
         "XP": 710000,
         "Dado de Vida": "1 P.V.",
         "Base de Ataque": "+5",
@@ -924,7 +924,7 @@
         "9o": 0
       },
       {
-        "Nível": 14,
+        "level": 14,
         "XP": 860000,
         "Dado de Vida": "1 P.V.",
         "Base de Ataque": "+5",
@@ -940,7 +940,7 @@
         "9o": 0
       },
       {
-        "Nível": 15,
+        "level": 15,
         "XP": 910000,
         "Dado de Vida": "2 P.V.",
         "Base de Ataque": "+5",
@@ -956,7 +956,7 @@
         "9o": 0
       },
       {
-        "Nível": 16,
+        "level": 16,
         "XP": 1060000,
         "Dado de Vida": "2 P.V.",
         "Base de Ataque": "+6",
@@ -972,7 +972,7 @@
         "9o": 0
       },
       {
-        "Nível": 17,
+        "level": 17,
         "XP": 1110000,
         "Dado de Vida": "2 P.V.",
         "Base de Ataque": "+6",
@@ -988,7 +988,7 @@
         "9o": 1
       },
       {
-        "Nível": 18,
+        "level": 18,
         "XP": 1160000,
         "Dado de Vida": "2 P.V.",
         "Base de Ataque": "+6",
@@ -1004,7 +1004,7 @@
         "9o": 2
       },
       {
-        "Nível": 19,
+        "level": 19,
         "XP": 1210000,
         "Dado de Vida": "2 P.V.",
         "Base de Ataque": "+7",
@@ -1020,7 +1020,7 @@
         "9o": 2
       },
       {
-        "Nível": 20,
+        "level": 20,
         "XP": 1260000,
         "Dado de Vida": "3 P.V.",
         "Base de Ataque":  "+7",
@@ -1036,7 +1036,7 @@
         "9o": 2
       }
 ],
-    "id" : 3,
+    "id" : 4,
     "Dado de Vida": "d4",
     "Atributo_mínimo": {"str": 0, "dex":  0, "con": 0, "int": 14, "wis":0},
     "armadura": 0,
@@ -1068,140 +1068,140 @@
   "thief": {
     "level": [
       {
-        "Nível": 1,
+        "level": 1,
         "XP": 0,
         "Dado de Vida": 1,
         "Base de Ataque": "+1",
         "Jogada de Proteção": 15
       },
       {
-        "Nível": 2,
+        "level": 2,
         "XP": 1250,
         "Dado de Vida": 2,
         "Base de Ataque": "+1",
         "Jogada de Proteção": 15
       },
       {
-        "Nível": 3,
+        "level": 3,
         "XP": 2500,
         "Dado de Vida": 3,
         "Base de Ataque": "+2",
         "Jogada de Proteção": 15
       },
       {
-        "Nível": 4,
+        "level": 4,
         "XP": 5000,
         "Dado de Vida": 4,
         "Base de Ataque": "+2",
         "Jogada de Proteção": 14
       },
       {
-        "Nível": 5,
+        "level": 5,
         "XP": 10000,
         "Dado de Vida": 5,
         "Base de Ataque": "+2",
         "Jogada de Proteção": 14
       },
       {
-        "Nível": 6,
+        "level": 6,
         "XP": 20000,
         "Dado de Vida": 6,
         "Base de Ataque": "+3",
         "Jogada de Proteção": 14
       },
       {
-        "Nível": 7,
+        "level": 7,
         "XP": 40000,
         "Dado de Vida": 7,
         "Base de Ataque": "+3",
         "Jogada de Proteção": 13
       },
       {
-        "Nível": 8,
+        "level": 8,
         "XP": 80000,
         "Dado de Vida": 8,
         "Base de Ataque": "+3",
         "Jogada de Proteção": 13
       },
       {
-        "Nível": 9,
+        "level": 9,
         "XP": 160000,
         "Dado de Vida": 9,
         "Base de Ataque": "+4",
         "Jogada de Proteção": 13
       },
       {
-        "Nível": 10,
+        "level": 10,
         "XP": 240000,
         "Dado de Vida": "+1 PV",
         "Base de Ataque": "+4",
         "Jogada de Proteção": 12
       },
       {
-        "Nível": 11,
+        "level": 11,
         "XP": 400000,
         "Dado de Vida": "+1 PV",
         "Base de Ataque": "+4",
         "Jogada de Proteção": 12
       },
       {
-        "Nível": 12,
+        "level": 12,
         "XP": 520000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+5",
         "Jogada de Proteção": 12
       },
       {
-        "Nível": 13,
+        "level": 13,
         "XP": 640000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+5",
         "Jogada de Proteção": 11
       },
       {
-        "Nível": 14,
+        "level": 14,
         "XP": 760000,
         "Dado de Vida": "+2 PV",
         "Base de Ataque": "+5",
         "Jogada de Proteção": 11
       },
       {
-        "Nível": 15,
+        "level": 15,
         "XP": 880000,
         "Dado de Vida": "+3 PV",
         "Base de Ataque": "+6",
         "Jogada de Proteção": 11
       },
       {
-        "Nível": 16,
+        "level": 16,
         "XP": 1000000,
         "Dado de Vida": "+3 PV",
         "Base de Ataque": "+6",
         "Jogada de Proteção": 10
       },
       {
-        "Nível": 17,
+        "level": 17,
         "XP": 1120000,
         "Dado de Vida": "+3 PV",
         "Base de Ataque": "+6",
         "Jogada de Proteção": 10
       },
       {
-        "Nível": 18,
+        "level": 18,
         "XP": 1240000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+7",
         "Jogada de Proteção": 10
       },
       {
-        "Nível": 19,
+        "level": 19,
         "XP": 1360000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+7",
         "Jogada de Proteção": 9
       },
       {
-        "Nível": 20,
+        "level": 20,
         "XP": 1480000,
         "Dado de Vida": "+4 PV",
         "Base de Ataque": "+7",
@@ -1210,7 +1210,7 @@
     ],
     "Thief_Skills": [
         {
-          "Nível": 1,
+          "level": 1,
           "abrirFechaduras": 15,
           "Reconhecer_desarmar_armadilhas": 20,
           "escalar_muros": 80,
@@ -1221,7 +1221,7 @@
           "apunhalar": 2
         },
         {
-          "Nível": 2,
+          "level": 2,
           "abrirFechaduras": 20,
           "Reconhecer_desarmar_armadilhas": 25,
           "escalar_muros": 81,
@@ -1232,7 +1232,7 @@
           "Pungar": 25
         },
         {
-          "Nível": 3,
+          "level": 3,
           "abrirFechaduras": 25,
           "Reconhecer_desarmar_armadilhas": 30,
           "escalar_muros": 82,
@@ -1243,7 +1243,7 @@
           "Pungar": 30
         },
         {
-          "Nível": 4,
+          "level": 4,
           "abrirFechaduras": 30,
           "Reconhecer_desarmar_armadilhas": 35,
           "escalar_muros": 83,
@@ -1254,7 +1254,7 @@
           "Pungar": 35
         },
         {
-          "Nível": 5,
+          "level": 5,
           "abrirFechaduras": 35,
           "Reconhecer_desarmar_armadilhas": 40,
           "escalar_muros": 84,
@@ -1265,7 +1265,7 @@
           "Pungar": 40
         },
         {
-          "Nível": 6,
+          "level": 6,
           "abrirFechaduras": 40,
           "Reconhecer_desarmar_armadilhas": 45,
           "escalar_muros": 85,
@@ -1276,7 +1276,7 @@
           "Pungar": 45
         },
         {
-          "Nível": 7,
+          "level": 7,
           "abrirFechaduras": 45,
           "Reconhecer_desarmar_armadilhas": 50,
           "escalar_muros": 86,
@@ -1287,7 +1287,7 @@
           "Pungar": 50
         },
         {
-          "Nível": 8,
+          "level": 8,
           "abrirFechaduras": 50,
           "Reconhecer_desarmar_armadilhas": 55,
           "escalar_muros": 87,
@@ -1298,7 +1298,7 @@
           "Pungar": 55
         },
         {
-          "Nível": 9,
+          "level": 9,
           "abrirFechaduras": 55,
           "Reconhecer_desarmar_armadilhas": 60,
           "escalar_muros": 88,
@@ -1309,7 +1309,7 @@
           "Pungar": 60
         },
         {
-          "Nível": 10,
+          "level": 10,
           "abrirFechaduras": 60,
           "Reconhecer_desarmar_armadilhas": 62,
           "escalar_muros": 89,
@@ -1320,7 +1320,7 @@
           "Pungar": 65
         },
         {
-          "Nível": 11,
+          "level": 11,
           "abrirFechaduras": 62,
           "Reconhecer_desarmar_armadilhas": 64,
           "escalar_muros": 90,
@@ -1331,7 +1331,7 @@
           "Pungar": 70
         },
         {
-          "Nível": 12,
+          "level": 12,
           "abrirFechaduras": 64,
           "Reconhecer_desarmar_armadilhas": 66,
           "escalar_muros": 91,
@@ -1342,7 +1342,7 @@
           "Pungar": 72
         },
         {
-          "Nível": 13,
+          "level": 13,
           "abrirFechaduras": 66,
           "Reconhecer_desarmar_armadilhas": 68,
           "escalar_muros": 92,
@@ -1353,7 +1353,7 @@
           "Pungar": 74
         },
         {
-          "Nível": 14,
+          "level": 14,
           "abrirFechaduras": 68,
           "Reconhecer_desarmar_armadilhas": 70,
           "escalar_muros": 93,
@@ -1364,7 +1364,7 @@
           "Pungar": 76
         },
         {
-          "Nível": 15,
+          "level": 15,
           "abrirFechaduras": 70,
           "Reconhecer_desarmar_armadilhas": 72,
           "escalar_muros": 94,
@@ -1375,7 +1375,7 @@
           "Pungar": 78
         },
         {
-          "Nível": 16,
+          "level": 16,
           "abrirFechaduras": 72,
           "Reconhecer_desarmar_armadilhas": 74,
           "escalar_muros": 95,
@@ -1386,7 +1386,7 @@
           "Pungar": 80
         },
         {
-          "Nível": 17,
+          "level": 17,
           "abrirFechaduras": 74,
           "Reconhecer_desarmar_armadilhas": 76,
           "escalar_muros": 96,
@@ -1397,7 +1397,7 @@
           "Pungar": 82
         },
         {
-          "Nível": 18,
+          "level": 18,
           "abrirFechaduras": 76,
           "Reconhecer_desarmar_armadilhas": 78,
           "escalar_muros": 97,
@@ -1408,7 +1408,7 @@
           "Pungar": 84
         },
         {
-          "Nível": 19,
+          "level": 19,
           "abrirFechaduras": 78,
           "Reconhecer_desarmar_armadilhas": 80,
           "escalar_muros": 98,
@@ -1419,7 +1419,7 @@
           "Pungar": 86
         },
         {
-          "Nível": 20,
+          "level": 20,
           "abrirFechaduras": 80,
           "Reconhecer_desarmar_armadilhas": 82,
           "escalar_muros": 99,

@@ -296,11 +296,11 @@ public class CreateCharacterBackgroundController extends CreateCharacterSectionC
         switch (classId){
             case 1:
                 return "warrior";
-            case 2:
+            case 4:
                 return "wizard";
             case 3:
                 return "thief";
-            case 4:
+            case 2:
                 return "cleric";
             default:
                 return "";

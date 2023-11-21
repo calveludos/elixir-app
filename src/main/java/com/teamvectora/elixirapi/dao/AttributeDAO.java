@@ -50,6 +50,7 @@ public class AttributeDAO extends CrudDAO<Attribute> {
     public void update(Attribute attribute) throws SQLException {
         String query = "UPDATE `Attribute` SET strength = ?, dexterity = ?, constitution = ?, intelligence = ?, wisdom = ?, charisma = ? WHERE id = ?";
 
+        System.out.println(attribute);
         try {
             conn = ConnectionFactory.createConnection();
             stmt = conn.prepareStatement(query);
@@ -63,6 +64,7 @@ public class AttributeDAO extends CrudDAO<Attribute> {
             stmt.setInt(7, attribute.getId());
 
             stmt.executeUpdate();
+            System.out.println("executou");
 
         } catch (SQLException e) {
             throw new SQLException(e);
@@ -70,6 +72,7 @@ public class AttributeDAO extends CrudDAO<Attribute> {
         } finally {
             closeResources();
         }
+        System.out.println(read(attribute));
     }
 
     @Override

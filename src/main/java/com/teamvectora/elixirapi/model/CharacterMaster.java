@@ -2,6 +2,7 @@
 
     import java.io.Serializable;
     import java.util.List;
+    import java.util.Objects;
 
     public class CharacterMaster extends Character implements Serializable {
         private static final long serialVersionUID = -3357784952358612454L;
@@ -120,5 +121,17 @@
 
         public void addSpell(Spell spell){
             spells.add(spell);
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof CharacterMaster that)) return false;
+            return Objects.equals(getAttribute(), that.getAttribute()) && Objects.equals(getCurrency(), that.getCurrency()) && Objects.equals(getFolder(), that.getFolder()) && Objects.equals(getInventory(), that.getInventory()) && Objects.equals(getSlots(), that.getSlots()) && Objects.equals(getSpeech(), that.getSpeech()) && Objects.equals(getSpells(), that.getSpells());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(getAttribute(), getCurrency(), getFolder(), getInventory(), getSlots(), getSpeech(), getSpells());
         }
     }
