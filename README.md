@@ -25,7 +25,7 @@
 1. **Clone o Repositório:**
    - Abra o terminal e execute o seguinte comando para clonar o repositório:
         ```` bash
-         git clone https://github.com/team-vectora/elixir-api
+         git clone https://github.com/team-vectora/elixir-api.git
         ````
         
 2. **Acesse a Pasta do Repositório:**
