@@ -268,7 +268,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="skeletonTextField" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="skeletonTextField"  editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
@@ -279,7 +279,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="zombieTextField" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="zombieTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
@@ -290,7 +290,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="cannibalTextField" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="cannibalTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
@@ -301,7 +301,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="inhumaneTextField" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="inhumaneTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
@@ -312,7 +312,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="ghostTextField" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="ghostTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
@@ -323,7 +323,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="mummyTextField" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="mummyTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
@@ -334,7 +334,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="specterTextField" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="specterTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0" spacing="10.0">
@@ -345,7 +345,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="vampireTextField" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="vampireTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="29.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                           </children>
@@ -390,7 +390,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="openLocksTextField" alignment="CENTER" prefHeight="19.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="openLocksTextField" editable="false" alignment="CENTER" prefHeight="19.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
@@ -401,7 +401,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="trapTextField" alignment="CENTER" prefHeight="19.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="trapTextField" editable="false" alignment="CENTER" prefHeight="19.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
@@ -412,7 +412,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="climbWallTextField" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="climbWallTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
@@ -423,7 +423,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="stealthTextField" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="stealthTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
@@ -434,7 +434,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="hideShadowsTextField" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="hideShadowsTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
@@ -445,7 +445,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="prickTextField" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="prickTextField"  editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
@@ -456,7 +456,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="hearSoundsTextField" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="hearSoundsTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                              <HBox alignment="CENTER" prefHeight="29.0" prefWidth="246.0">
@@ -467,7 +467,7 @@
                                                       </font>
                                                    </Label>
                                                    <HBox prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                                                   <TextField fx:id="stabTextField" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
+                                                   <TextField fx:id="stabTextField" editable="false" alignment="CENTER" prefHeight="29.0" prefWidth="40.0" style="-fx-background-radius: 0;" />
                                                 </children>
                                              </HBox>
                                           </children>

@@ -58,7 +58,7 @@
                                              <Font name="System Bold Italic" size="16.0" />
                                           </font>
                                        </Label>
-                                       <TextField fx:id="classAndRaceField" prefHeight="35.0" prefWidth="205.0" promptText="Classe / Raça" style="-fx-background-radius: 0;" />
+                                       <TextField fx:id="classAndRaceField" editable="false" prefHeight="35.0" prefWidth="205.0" promptText="Classe / Raça" style="-fx-background-radius: 0;" />
                                     </children>
                                  </VBox>
                                  <VBox alignment="CENTER_LEFT" prefHeight="68.0" prefWidth="109.0" HBox.hgrow="ALWAYS">
@@ -158,7 +158,7 @@
                                                          <Insets />
                                                       </HBox.margin>
                                                    </VBox>
-                                                   <TextField fx:id="dexField" maxHeight="40.0" maxWidth="40.0" prefHeight="40.0" prefWidth="40.0">
+                                                   <TextField fx:id="dexField"  editable="false" maxHeight="40.0" maxWidth="40.0" prefHeight="40.0" prefWidth="40.0">
                                                       <HBox.margin>
                                                          <Insets right="20.0" />
                                                       </HBox.margin>
@@ -400,12 +400,12 @@
                                                          </HBox>
                                                          <HBox prefHeight="54.0" prefWidth="454.0">
                                                             <children>
-                                                               <TextField fx:id="damageAjustField" alignment="CENTER" prefHeight="38.0" prefWidth="188.0">
+                                                               <TextField fx:id="damageAjustField" editable="false" alignment="CENTER" prefHeight="38.0" prefWidth="188.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
-                                                               <TextField fx:id="chargeAndMaxField" alignment="CENTER" prefHeight="42.0" prefWidth="162.0">
+                                                               <TextField fx:id="chargeAndMaxField" editable="false" alignment="CENTER" prefHeight="42.0" prefWidth="162.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
@@ -436,12 +436,12 @@
                                                          </HBox>
                                                          <HBox prefHeight="54.0" prefWidth="454.0">
                                                             <children>
-                                                               <TextField fx:id="dexAjustsField" alignment="CENTER" prefHeight="38.0" prefWidth="77.0">
+                                                               <TextField fx:id="dexAjustsField" editable="false" alignment="CENTER" prefHeight="38.0" prefWidth="77.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
-                                                               <TextField fx:id="thiefTalentsField" alignment="CENTER" prefHeight="38.0" prefWidth="253.0">
+                                                               <TextField fx:id="thiefTalentsField" editable="false" alignment="CENTER" prefHeight="38.0" prefWidth="253.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
@@ -471,12 +471,12 @@
                                                          </HBox>
                                                          <HBox prefHeight="54.0" prefWidth="454.0">
                                                             <children>
-                                                               <TextField fx:id="pvAndProtectionAjust" alignment="CENTER" prefHeight="38.0" prefWidth="181.0">
+                                                               <TextField fx:id="pvAndProtectionAjust" editable="false" alignment="CENTER" prefHeight="38.0" prefWidth="181.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
-                                                               <TextField fx:id="resurrectionField" alignment="CENTER" prefHeight="42.0" prefWidth="162.0">
+                                                               <TextField fx:id="resurrectionField" editable="false"  alignment="CENTER" prefHeight="42.0" prefWidth="162.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
@@ -511,17 +511,17 @@
                                                          </HBox>
                                                          <HBox prefHeight="54.0" prefWidth="454.0">
                                                             <children>
-                                                               <TextField fx:id="languagesField" alignment="CENTER" prefHeight="39.0" prefWidth="62.0">
+                                                               <TextField fx:id="languagesField" editable="false"  alignment="CENTER" prefHeight="39.0" prefWidth="62.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
-                                                               <TextField fx:id="learnMagicField" alignment="CENTER" prefHeight="39.0" prefWidth="99.0">
+                                                               <TextField fx:id="learnMagicField"  editable="false"  alignment="CENTER" prefHeight="39.0" prefWidth="99.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
-                                                               <TextField fx:id="addsMagicArcField" alignment="CENTER" prefHeight="39.0" prefWidth="183.0">
+                                                               <TextField fx:id="addsMagicArcField" editable="false" alignment="CENTER" prefHeight="39.0" prefWidth="183.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
@@ -551,7 +551,7 @@
                                                          </HBox>
                                                          <HBox alignment="CENTER" prefHeight="54.0" prefWidth="454.0">
                                                             <children>
-                                                               <TextField fx:id="protectionAjustField" alignment="CENTER" prefHeight="38.0" prefWidth="231.0">
+                                                               <TextField fx:id="protectionAjustField" editable="false" alignment="CENTER" prefHeight="38.0" prefWidth="231.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
@@ -587,17 +587,17 @@
                                                          </HBox>
                                                          <HBox prefHeight="54.0" prefWidth="454.0">
                                                             <children>
-                                                               <TextField fx:id="followersField" alignment="CENTER" prefHeight="42.0" prefWidth="141.0">
+                                                               <TextField fx:id="followersField"  editable="false"  alignment="CENTER" prefHeight="42.0" prefWidth="141.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
-                                                               <TextField fx:id="reactionField" alignment="CENTER" prefHeight="42.0" prefWidth="154.0">
+                                                               <TextField fx:id="reactionField"  editable="false"  alignment="CENTER" prefHeight="42.0" prefWidth="154.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
                                                                </TextField>
-                                                               <TextField fx:id="deathLiveField" alignment="CENTER" prefHeight="42.0" prefWidth="162.0">
+                                                               <TextField fx:id="deathLiveField"  editable="false"  alignment="CENTER" prefHeight="42.0" prefWidth="162.0">
                                                                   <HBox.margin>
                                                                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                                                   </HBox.margin>
